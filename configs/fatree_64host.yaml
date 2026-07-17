@@ -1,0 +1,26 @@
+# Fat-Tree 64 节点配置：P2 扩展性实验（大规模）
+# k=8 → 128 hosts, 96 jobs
+name: "fatree_64host_96jobs"
+topology:
+  type: "fatree"
+  k: 8
+  host_bw_bps: 100000000000.0   # 100 Gbps
+  tor_bw_bps: 100000000000.0    # 100 Gbps
+  spine_bw_bps: 1600000000000.0 # 1.6 Tbps（4 条 spine × 400G）
+duration_ms: 600000  # 10 分钟
+jobs:
+  source: "synthetic"
+  max_gpus: 512
+  sample_count: 96
+  model_types:
+    - "ResNet-18"
+    - "ResNet-50-fp16"
+    - "BERT-Base"
+    - "BERT-Large-fp16"
+    - "ViT-Base"
+    - "ViT-Large"
+    - "LLaMA-2-1B"
+    - "LLaMA-2-7B"
+    - "T5-1B"
+  gpu_distribution: {1: 0.2, 2: 0.2, 4: 0.3, 8: 0.3}
+  ci_distribution: {1.5: 0.3, 2.0: 0.35, 3.0: 0.35}

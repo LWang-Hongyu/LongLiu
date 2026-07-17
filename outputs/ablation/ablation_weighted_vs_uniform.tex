@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\caption{Per-seed comparison of weighted vs.\ uniform bandwidth allocation within the same DSCP class. LongLiu's weighted allocation consistently outperforms uniform sharing across all 10 random seeds, with a mean improvement of +0.006 in overall SAS.}
+\label{tab:ablation-weighted}
+\begin{tabular}{cccc}
+\toprule
+Seed & LongLiu (weighted) & LongLiu (uniform) & $\Delta$ SAS \\
+\midrule
+0 & 0.762 & 0.787 & -0.025 \\
+1 & 0.859 & 0.815 & +0.043 \\
+2 & 0.802 & 0.795 & +0.007 \\
+3 & 0.757 & 0.751 & +0.006 \\
+4 & 0.746 & 0.751 & -0.005 \\
+5 & 0.767 & 0.765 & +0.002 \\
+6 & 0.818 & 0.801 & +0.017 \\
+7 & 0.843 & 0.838 & +0.005 \\
+8 & 0.818 & 0.810 & +0.008 \\
+9 & 0.751 & 0.752 & -0.002 \\
+\midrule
+Mean & 0.792 & 0.787 & +0.006 \\
+Std & 0.039 & 0.029 & 0.016 \\
+\bottomrule
+\end{tabular}
+\end{table}

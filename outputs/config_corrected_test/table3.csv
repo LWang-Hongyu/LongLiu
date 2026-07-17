@@ -1,0 +1,5 @@
+Policy,total_iters,slo_attainment_ci1.5,slo_attainment_ci2.0,slo_attainment_ci3.0,slo_attainment_overall,sas_mean_overall,sas_median_overall,sas_min_overall,sas_max_overall,sas_mean_ci1.5,sas_mean_ci2.0,sas_mean_ci3.0
+Fair,63295.0000,0.0000,0.0000,0.5000,0.0833,0.2831,0.2040,0.1596,1.0824,0.1615,0.2349,0.7444
+SRPT,84920.0000,0.0000,0.0000,0.5000,0.0833,0.3404,0.2042,0.0263,1.0824,0.1038,0.4262,0.8787
+CRUX,94453.0000,0.0000,0.0000,0.5000,0.0833,0.3596,0.3435,0.0299,1.0824,0.0468,0.5210,0.9754
+LongLiu,44098.0000,0.0000,0.0000,0.5000,0.0833,0.2462,0.2098,0.0944,1.0824,0.2137,0.1239,0.5884

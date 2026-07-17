@@ -1,0 +1,13 @@
+# 单瓶颈链路配置：对应物理原型实验
+# 论文 Table 3/4 的校准基准
+name: "single_bottleneck"
+topology:
+  type: "single_bottleneck"
+  num_hosts: 2
+  bandwidth_bps: 100000000000.0  # 100 Gbps
+duration_ms: 600000  # 10 分钟
+jobs:
+  source: "synthetic"
+  count: 2
+  models: ["GPT-3-small", "BERT-large"]
+  slo_tiers: [1.2, 3.0]

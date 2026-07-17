@@ -1,0 +1,14 @@
+# Fat-Tree 16 节点配置：论文 Table 3 主实验
+# 16 hosts × 8 GPUs = 128 GPUs, 24 concurrent jobs
+name: "fatree_16host_24jobs"
+topology:
+  type: "fatree"
+  k: 4
+  host_bw_bps: 100000000000.0  # 100 Gbps（匹配 100G NIC）
+  tor_bw_bps: 100000000000.0  # 100 Gbps
+  spine_bw_bps: 400000000000.0  # 400 Gbps（降低 Spine 竞争，给中模型留空间）
+duration_ms: 600000  # 10 分钟
+jobs:
+  source: "synthetic"
+  max_gpus: 128
+  sample_count: 24

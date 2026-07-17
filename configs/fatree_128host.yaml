@@ -1,0 +1,15 @@
+# Fat-Tree 128 节点配置：论文 Table 4 扩展性实验
+# 128 hosts × 8 GPUs = 1024 GPUs, 128 concurrent jobs
+name: "fatree_128host_128jobs"
+topology:
+  type: "fatree"
+  k: 16
+  host_bw_bps: 40000000000.0  # 40 Gbps
+  tor_bw_bps: 100000000000.0  # 100 Gbps
+  spine_bw_bps: 1680000000000.0  # 128*40G/3.05 = 1680G (与 Table 3 保持同等超售比)
+duration_ms: 600000  # 10 分钟
+jobs:
+  source: "synthetic"
+  max_gpus: 1024
+  sample_count: 128
+  workload_profile: "TABLE4_TIERED_WORKLOAD_128"  # 使用 128-job 的分层 workload

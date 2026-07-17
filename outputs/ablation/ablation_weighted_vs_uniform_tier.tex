@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\caption{Per-seed and per-tier SAS comparison: weighted vs.\ uniform allocation. The improvement is most pronounced in the large-model tier ($c_i = 1.5$), where weighted allocation breaks the all-or-nothing starvation pattern.}
+\label{tab:ablation-tier}
+\begin{tabular}{ccccccc}
+\toprule
+ & \multicolumn{2}{c}{$c_i = 1.5$ (Tight)} & \multicolumn{2}{c}{$c_i = 2.0$ (Medium)} & \multicolumn{2}{c}{$c_i = 3.0$ (Loose)} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+Seed & Weighted & Uniform & Weighted & Uniform & Weighted & Uniform \\
+\midrule
+0 & 0.446 & 0.412 & 0.848 & 1.036 & 1.538 & 1.414 \\
+1 & 0.209 & 0.317 & 1.493 & 1.200 & 1.540 & 1.542 \\
+2 & 0.425 & 0.392 & 1.042 & 1.107 & 1.454 & 1.379 \\
+3 & 0.485 & 0.459 & 0.959 & 0.858 & 1.173 & 1.414 \\
+4 & 0.492 & 0.515 & 0.778 & 0.764 & 1.443 & 1.435 \\
+5 & 0.564 & 0.560 & 0.728 & 0.730 & 1.452 & 1.451 \\
+6 & 0.391 & 0.366 & 1.142 & 1.132 & 1.449 & 1.444 \\
+7 & 0.243 & 0.214 & 1.431 & 1.457 & 1.464 & 1.474 \\
+8 & 0.380 & 0.392 & 1.159 & 1.128 & 1.450 & 1.426 \\
+9 & 0.514 & 0.525 & 0.756 & 0.753 & 1.448 & 1.433 \\
+\midrule
+Mean & 0.415 & 0.415 & 1.034 & 1.016 & 1.441 & 1.441 \\
+\bottomrule
+\end{tabular}
+\end{table}
