@@ -257,6 +257,21 @@ class SyntheticTraceLoader:
         return float(cis[-1])
 
     def _compute_mb_per_iter(self, params: dict, dp: int) -> float:
+        """
+        计算 per-worker 通信需求（MB/iter）。
+
+        物理口径：
+        D_i = overlap 后的暴露通信需求，约等于 per-worker ring AllReduce 流量。
+        当前公式：bytes_per_iter = 2 * params * bpp / dp
+        其中：
+        - 2 * params * bpp：total AllReduce 数据量（gradient sync, fp16/bf16）
+        - 除以 dp：per-worker 通信量（ring AllReduce 每个 worker 承担 1/dp）
+        - overlap_factor 由 Simulator 在运行时处理，此处不乘 (1 - overlap)
+
+        典型值（paper-baseline-v2）：
+        - 13B job, dp=8: ~6200 MB/iter per-worker
+        - 7B job, dp=4:  ~3500 MB/iter per-worker
+        """
         param_count = params.get("params", 1e9)
         bpp = 2 if params.get("fp16", True) else 4
         bytes_per_iter = 2 * param_count * bpp / max(dp, 1)
