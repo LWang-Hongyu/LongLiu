@@ -127,23 +127,23 @@ def run_single(cfg: dict, policy, seed: int, policy_name: str) -> dict:
             "starved": starved,
         })
 
-        if ci == 1.5:
+        if ci == 1.3:
             premium_stats.append(sas_eval)
-        elif ci == 2.5:
+        elif ci == 2.0:
             standard_stats.append(sas_eval)
 
     # 聚合统计
     premium_mean = sum(premium_stats) / len(premium_stats) if premium_stats else 0.0
     premium_capped = sum(min(s, 1.0) for s in premium_stats) / len(premium_stats) if premium_stats else 0.0
-    premium_attainment = sum(1 for j in per_job_results if j["ci"] == 1.5 and j["attained"]) / \
-                         max(1, sum(1 for j in per_job_results if j["ci"] == 1.5))
-    premium_starved = sum(1 for j in per_job_results if j["ci"] == 1.5 and j["starved"])
+    premium_attainment = sum(1 for j in per_job_results if j["ci"] == 1.3 and j["attained"]) / \
+                         max(1, sum(1 for j in per_job_results if j["ci"] == 1.3))
+    premium_starved = sum(1 for j in per_job_results if j["ci"] == 1.3 and j["starved"])
 
     standard_mean = sum(standard_stats) / len(standard_stats) if standard_stats else 0.0
     standard_capped = sum(min(s, 1.0) for s in standard_stats) / len(standard_stats) if standard_stats else 0.0
-    standard_attainment = sum(1 for j in per_job_results if j["ci"] == 2.5 and j["attained"]) / \
-                          max(1, sum(1 for j in per_job_results if j["ci"] == 2.5))
-    standard_starved = sum(1 for j in per_job_results if j["ci"] == 2.5 and j["starved"])
+    standard_attainment = sum(1 for j in per_job_results if j["ci"] == 2.0 and j["attained"]) / \
+                          max(1, sum(1 for j in per_job_results if j["ci"] == 2.0))
+    standard_starved = sum(1 for j in per_job_results if j["ci"] == 2.0 and j["starved"])
 
     overall_mean = sum(p["sas_eval"] for p in per_job_results) / len(per_job_results) if per_job_results else 0.0
 
@@ -178,21 +178,22 @@ def verify_hypotheses(all_results: dict):
 
     fair_r = all_results.get("Fair", [])
     d1_r = all_results.get("D1", [])
+    crux_r = all_results.get("CRUX", [])
     sp_r = all_results.get("LongLiu-SP", [])
 
-    # H1: Fair premium attainment = 33%（仅 P3 达标）
+    # H1: Fair premium attainment = 33%（仅 P3 达标，P1/P2 SAS≈0.45）
     if fair_r:
         atts = [r["premium_attainment"] for r in fair_r]
         H["H1"] = {"expected": "=33%（仅P3）", "actual": f"{sum(atts)/len(atts)*100:.0f}%",
                     "pass": 0.25 <= sum(atts)/len(atts) <= 0.45}
 
-    # H2: D1 premium mean > Fair（0.78 -> ~0.9+）
-    if fair_r and d1_r:
-        fair_pm = sum(r["premium_mean"] for r in fair_r) / len(fair_r)
+    # H2: D1 premium mean > CRUX（D1 拉起 P1/P2，CRUX 饿死 P1/P2）
+    if crux_r and d1_r:
+        crux_pm = sum(r["premium_mean"] for r in crux_r) / len(crux_r)
         d1_pm = sum(r["premium_mean"] for r in d1_r) / len(d1_r)
-        H["H2"] = {"expected": f"D1(~0.9+) > Fair({fair_pm:.3f})",
-                    "actual": f"D1={d1_pm:.3f} vs Fair={fair_pm:.3f}",
-                    "pass": d1_pm > fair_pm}
+        H["H2"] = {"expected": f"D1 > CRUX({crux_pm:.3f})",
+                    "actual": f"D1={d1_pm:.3f} vs CRUX={crux_pm:.3f}",
+                    "pass": d1_pm > crux_pm}
 
     # H3: D1 starvation = 0%
     if d1_r:
@@ -200,19 +201,20 @@ def verify_hypotheses(all_results: dict):
         H["H3"] = {"expected": "0%", "actual": f"{total_starved} starved",
                     "pass": total_starved == 0}
 
-    # H4: LongLiu-SP starvation > 0%
+    # H4: LongLiu-SP starvation > 0%（重载下加冕制饿死人）
     if sp_r:
         total_starved = sum(r["premium_starved"] + r["standard_starved"] for r in sp_r)
         H["H4"] = {"expected": ">0%", "actual": f"{total_starved} starved",
                     "pass": total_starved > 0}
 
-    # H5: D1 premium capped mean > Fair
-    if fair_r and d1_r:
+    # H5: D1 premium capped > Fair 且 > CRUX
+    if fair_r and d1_r and crux_r:
         fair_pcm = sum(r["premium_capped"] for r in fair_r) / len(fair_r)
         d1_pcm = sum(r["premium_capped"] for r in d1_r) / len(d1_r)
-        H["H5"] = {"expected": f"D1 > Fair({fair_pcm:.3f})",
-                    "actual": f"D1={d1_pcm:.3f} vs Fair={fair_pcm:.3f}",
-                    "pass": d1_pcm > fair_pcm}
+        crux_pcm = sum(r["premium_capped"] for r in crux_r) / len(crux_r)
+        H["H5"] = {"expected": f"D1 > Fair({fair_pcm:.3f}) & CRUX({crux_pcm:.3f})",
+                    "actual": f"D1={d1_pcm:.3f} vs Fair={fair_pcm:.3f} vs CRUX={crux_pcm:.3f}",
+                    "pass": d1_pcm > fair_pcm and d1_pcm > crux_pcm}
 
     # H6: D1 下 standard 大 job 有界降级
     if d1_r:
@@ -220,7 +222,7 @@ def verify_hypotheses(all_results: dict):
         std_sas = []
         for r in d1_r:
             for j in r["per_job"]:
-                if j["ci"] == 2.5:
+                if j["ci"] == 2.0:
                     std_sas.append(j["sas_eval"])
         if std_sas:
             # 检查大 standard job 的 sas
@@ -276,11 +278,12 @@ def main():
         "config": cfg,
         "workload_profile": "FEAS_BOUNDARY_V1_WORKLOAD",
         "hypotheses": {
-            "H1": "Fair premium attainment = 33%（仅 P3 达标）",
-            "H2": "D1 premium mean > Fair（0.78 -> ~0.9+）",
+            "H1": "Fair premium attainment = 33%（仅 P3 达标，P1/P2 SAS≈0.45）",
+            "H2": "D1 premium mean > CRUX（D1 拉起 P1/P2，CRUX 饿死 P1/P2）",
             "H3": "D1 starvation = 0%",
-            "H5": "D1 premium capped > Fair",
-            "H6": "D1 standard 大 job 有界降级（sas 0.3-0.8），不归零",
+            "H4": "LongLiu-SP starvation > 0%（重载下加冕制饿死人）",
+            "H5": "D1 premium capped > Fair 且 > CRUX",
+            "H6": "D1 standard 大 job 有界降级（sas 0.4-0.8），不归零",
         },
     }
     with open(os.path.join(args.out, "run_meta.json"), "w") as f:
@@ -335,7 +338,7 @@ def main():
     for pname, results in all_results.items():
         print(f"\n  {pname}:")
         for j in results[-1]["per_job"]:
-            tier = "P" if j["ci"] == 1.5 else "S"
+            tier = "P" if j["ci"] == 1.3 else "S"
             attn = "✓" if j["attained"] else ("✗" if j["starved"] else "·")
             print(f"    {j['jid']} {j['model']:<18} dp={j['dp']} ci={j['ci']} "
                   f"sas={j['sas_eval']:.3f} attn={attn} starved={j['starved']}")

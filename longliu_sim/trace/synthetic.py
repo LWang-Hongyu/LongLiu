@@ -76,15 +76,15 @@ DEFAULT_TIERED_WORKLOAD: List[Tuple[str, int, float]] = [
 # - 战斗场：4 个 contested job（2 premium + 2 standard）
 # - 设计原则：区分度只存在于需求>公平份额的job身上
 FEAS_BOUNDARY_V1_WORKLOAD: List[Tuple[str, int, float]] = [
-    # Premium tier：3 个，ci=1.5（放宽后 P1 需求 219 Gbps）
-    ("LLaMA-2-13B", 8, 1.5),       # P1: 219.41 Gbps, contested ✓
-    ("LLaMA-2-7B", 8, 1.5),        # P2: 227.64 Gbps, contested ✓
-    ("BERT-Large-fp16", 2, 1.5),    # P3: 62.36 Gbps, non-contested
-    # Standard tier：4 个，ci=2.5（放宽给 premium 让渡空间）
-    ("LLaMA-2-13B", 8, 2.5),       # S1: 131.65 Gbps, contested
-    ("T5-11B-fp16", 8, 2.5),       # S2: 139.68 Gbps, contested
-    ("BERT-Large-fp16", 4, 2.5),    # S3: 20.12 Gbps, non-contested
-    ("ViT-Base", 2, 2.5),           # S4: 13.09 Gbps, non-contested
+    # Premium tier：3 个，ci=1.3（终局甜点：P1 需求 ~252 Gbps）
+    ("LLaMA-2-13B", 8, 1.3),       # P1, contested ✓
+    ("LLaMA-2-7B", 8, 1.3),        # P2, contested ✓
+    ("BERT-Large-fp16", 2, 1.3),    # P3, non-contested
+    # Standard tier：4 个，ci=2.0（S1/S2 需求 ~165 Gbps）
+    ("LLaMA-2-13B", 8, 2.0),       # S1, contested ✓
+    ("T5-11B-fp16", 8, 2.0),       # S2, contested ✓
+    ("BERT-Large-fp16", 4, 2.0),    # S3, non-contested
+    ("ViT-Base", 2, 2.0),           # S4, non-contested
 ]
 
 
