@@ -41,6 +41,7 @@ class SimulationResult:
         self.jobs = jobs
         self.records = records
         self.overlap_factor = overlap_factor
+        self.link_utilization: Dict[str, Dict] = {}  # link_id -> {mean, max, min, samples}
 
     def total_iterations(self) -> int:
         return len(self.records)
@@ -121,6 +122,8 @@ class Simulator:
 
         self.time_ms: float = 0.0
         self._flow_counter: int = 0
+        self.link_utilization_history: Dict[str, List[float]] = {}  # link_id -> [utilization_samples]
+        self._last_util_sample_time: float = 0.0  # 上次采样时间
 
     def submit(self, job: Job) -> None:
         """提交一个 job。"""
@@ -147,20 +150,27 @@ class Simulator:
         self.time_ms = target_time_ms
 
     def _collect_links(self) -> List[Link]:
-        """收集当前涉及的链路（策略使用的竞争链路）。"""
-        if isinstance(self.topology, TwoTierTopology):
-            return list(self.topology.spine_links)
-        if isinstance(self.topology, FatTreeTopology):
-            return list(self.topology.spine_links)
-        if hasattr(self.topology, "link"):
-            return [self.topology.link]
+        """收集所有链路（包括 ToR 上行、spine、host NIC）。
+
+        从所有活跃流经过的链路中收集，而不是只收集 spine_links。
+        """
         links: List[Link] = []
         seen = set()
+
+        # 从所有活跃流收集链路
         for f in self.active_flows.values():
             for link in f.links:
                 if id(link) not in seen:
                     seen.add(id(link))
                     links.append(link)
+
+        # 如果没有活跃流，返回拓扑中定义的 spine_links（向后兼容）
+        if not links:
+            if isinstance(self.topology, (TwoTierTopology, FatTreeTopology)):
+                return list(self.topology.spine_links)
+            if hasattr(self.topology, "link"):
+                return [self.topology.link]
+
         return links
 
     def _recompute_bandwidth(self) -> None:
@@ -463,6 +473,9 @@ class Simulator:
             # 推进时间
             self._advance(next_time)
 
+            # 记录链路利用率快照（每次 bandwidth 重分配时采样）
+            self._record_link_utilization_snapshot()
+
             # 处理在当前时间点完成的 flow
             self._cleanup_finished_flows()
 
@@ -476,4 +489,47 @@ class Simulator:
             self._recompute_bandwidth()
             self._schedule_next_flow_end()
 
-        return SimulationResult(self.jobs, self.records, self.overlap_factor)
+        result = SimulationResult(self.jobs, self.records, self.overlap_factor)
+
+        # 计算链路利用率统计
+        if self.link_utilization_history:
+            result.link_utilization = self._compute_link_utilization_stats()
+
+        return result
+
+    def _record_link_utilization_snapshot(self) -> None:
+        """记录链路利用率快照。"""
+        # 计算总活跃带宽
+        total_active_bw = sum(f.rate_bps for f in self.active_flows.values())
+
+        # 计算总 spine 带宽
+        if hasattr(self.topology, 'spine_links'):
+            total_spine_bw = sum(link.bw_bps for link in self.topology.spine_links)
+
+            # 计算平均 spine link 利用率
+            avg_utilization = total_active_bw / total_spine_bw if total_spine_bw > 0 else 0.0
+
+            # 记录到每个 spine link（简化：所有 spine links 共享相同利用率）
+            for link in self.topology.spine_links:
+                if link.lid not in self.link_utilization_history:
+                    self.link_utilization_history[link.lid] = []
+                self.link_utilization_history[link.lid].append(avg_utilization)
+
+    def _flow_uses_link(self, flow: Flow, link_id: str) -> bool:
+        """检查 flow 是否使用指定链路。"""
+        # 简化实现：假设所有 cross-pod flow 都使用所有 spine links（ECMP）
+        # 更准确的实现需要知道 flow 的实际路径
+        return True  # 保守估计：所有 flow 都使用所有 spine links
+
+    def _compute_link_utilization_stats(self) -> Dict[str, float]:
+        """计算链路利用率统计。"""
+        stats = {}
+        for link_id, samples in self.link_utilization_history.items():
+            if samples:
+                stats[link_id] = {
+                    "mean": sum(samples) / len(samples),
+                    "max": max(samples),
+                    "min": min(samples),
+                    "samples": len(samples)
+                }
+        return stats

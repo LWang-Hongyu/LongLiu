@@ -70,6 +70,23 @@ DEFAULT_TIERED_WORKLOAD: List[Tuple[str, int, float]] = [
     ("ResNet-50-fp16", 2, 3.0),
 ]
 
+# feas_boundary_v1 主场景（定量定标后）：
+# - 目标 Σ∈[920,1040] Gbps @ 800G spine → 1.15-1.30×
+# - 7 job 全跨 pod，≥3 premium(ci=1.2) + ≥4 standard(ci=2.0)
+# - 战斗场：4 个 contested job（2 premium + 2 standard）
+# - 设计原则：区分度只存在于需求>公平份额的job身上
+FEAS_BOUNDARY_V1_WORKLOAD: List[Tuple[str, int, float]] = [
+    # Premium tier：3 个，ci=1.2
+    ("LLaMA-2-13B", 8, 1.2),       # P1: 274.26 Gbps, contested ✓
+    ("LLaMA-2-7B", 8, 1.2),        # P2: 284.55 Gbps, contested ✓
+    ("BERT-Large-fp16", 2, 1.2),    # P3: 77.95 Gbps, non-contested
+    # Standard tier：4 个，ci=2.0
+    ("LLaMA-2-13B", 8, 2.0),       # S1: 164.56 Gbps, contested ✓
+    ("T5-11B-fp16", 8, 2.0),       # S2: 174.60 Gbps, contested ✓
+    ("BERT-Large-fp16", 4, 2.0),    # S3: 25.15 Gbps, non-contested
+    ("ViT-Base", 2, 2.0),           # S4: 16.36 Gbps, non-contested
+]
+
 
 class SyntheticTraceLoader:
     """生成合成 trace 的 Job 列表。"""
