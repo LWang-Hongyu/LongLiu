@@ -31,24 +31,29 @@ def place_workers_random(num_workers: int, num_hosts: int,
     rng = random.Random(seed)
     return [rng.randint(0, num_hosts - 1) for _ in range(num_workers)]
 
-# 论文 Table 3 默认分层 workload：
-# - 大模型（>1000MB, ≥4 GPUs）占 50%（12/24），全部 tight SLO (ci=1.5)
+# 论文 Table 3 默认分层 workload（v4 异构化）：
+# - 大模型（>1000MB, ≥4 GPUs）占 50%（12/24），拆分为：
+#   - 6 个 premium（ci=1.2，紧租户）
+#   - 6 个 standard（ci=2.0，松租户）
 # - 中模型（100-1000MB）占 33%（8/24），medium SLO (ci=2.0)
 # - 小模型（<100MB）占 17%（4/24），loose SLO (ci=3.0)
+#
+# 异构化目的：验证 SLO 感知策略的价值（premium vs standard 的差异化调度）
 DEFAULT_TIERED_WORKLOAD: List[Tuple[str, int, float]] = [
-    # 大模型：12 个，ci=1.5
-    ("LLaMA-2-13B", 8, 1.5),
-    ("LLaMA-2-13B", 8, 1.5),
-    ("LLaMA-2-13B", 8, 1.5),
-    ("LLaMA-2-13B", 8, 1.5),
-    ("LLaMA-2-7B", 4, 1.5),
-    ("LLaMA-2-7B", 4, 1.5),
-    ("LLaMA-2-7B", 4, 1.5),
-    ("LLaMA-2-7B", 4, 1.5),
-    ("T5-11B-fp16", 8, 1.5),
-    ("T5-11B-fp16", 8, 1.5),
-    ("LLaMA-2-7B", 8, 1.5),
-    ("LLaMA-2-7B", 8, 1.5),
+    # 大模型 premium：6 个，ci=1.2（紧租户）
+    ("LLaMA-2-13B", 8, 1.2),
+    ("LLaMA-2-13B", 8, 1.2),
+    ("LLaMA-2-7B", 4, 1.2),
+    ("LLaMA-2-7B", 4, 1.2),
+    ("T5-11B-fp16", 8, 1.2),
+    ("LLaMA-2-7B", 8, 1.2),
+    # 大模型 standard：6 个，ci=2.0（松租户）
+    ("LLaMA-2-13B", 8, 2.0),
+    ("LLaMA-2-13B", 8, 2.0),
+    ("LLaMA-2-7B", 4, 2.0),
+    ("LLaMA-2-7B", 4, 2.0),
+    ("T5-11B-fp16", 8, 2.0),
+    ("LLaMA-2-7B", 8, 2.0),
     # 中模型：8 个，ci=2.0
     ("BERT-Large-fp16", 2, 2.0),
     ("BERT-Large-fp16", 2, 2.0),

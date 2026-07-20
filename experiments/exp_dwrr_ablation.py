@@ -85,17 +85,44 @@ def run_single(cfg: dict, policy, seed: int, policy_name: str) -> dict:
     result = sim.run()
     stats = result.per_job_stats()
 
-    # 分层统计
-    tier_stats = {"large": [], "medium": [], "small": []}
+    # 分层统计（新增 premium/standard 细分）
+    tier_stats = {
+        "premium": [],   # ci=1.2（紧租户）
+        "standard": [],  # ci=2.0（松租户）
+        "medium": [],    # 中模型
+        "small": [],     # 小模型
+    }
     for jid, s in stats.items():
         job = sim.jobs[jid]
         ci = job.slo_ci
-        tier = "large" if ci == 1.5 else ("medium" if ci == 2.0 else "small")
-        tier_stats[tier].append({
-            "jid": jid,
-            "sas": s["sas"],
-            "avg_iter_ms": s["avg_iter_ms"],
-        })
+
+        # 大模型细分：premium (ci=1.2) vs standard (ci=2.0)
+        if ci == 1.2:
+            tier_stats["premium"].append({
+                "jid": jid,
+                "sas": s["sas"],
+                "avg_iter_ms": s["avg_iter_ms"],
+            })
+        elif ci == 2.0:
+            # 区分大模型 standard（从模型名判断）和中模型
+            if "LLaMA" in job.model or "T5-11B" in job.model:
+                tier_stats["standard"].append({
+                    "jid": jid,
+                    "sas": s["sas"],
+                    "avg_iter_ms": s["avg_iter_ms"],
+                })
+            else:
+                tier_stats["medium"].append({
+                    "jid": jid,
+                    "sas": s["sas"],
+                    "avg_iter_ms": s["avg_iter_ms"],
+                })
+        elif ci == 3.0:
+            tier_stats["small"].append({
+                "jid": jid,
+                "sas": s["sas"],
+                "avg_iter_ms": s["avg_iter_ms"],
+            })
 
     return {
         "seed": seed,
@@ -178,63 +205,71 @@ def main():
     # 汇总报告
     print()
     print("="*80)
-    print("DWRR Ablation 报告")
+    print("DWRR Ablation 报告（异构 workload）")
     print("="*80)
 
-    # 分层 Mean/Median/Capped SAS
-    print("1. 分层 Mean SAS:")
-    print(f"{'Policy':<12} {'Large':>10} {'Medium':>10} {'Small':>10} {'Overall':>10}")
-    print("-"*52)
+    # 1. 分层 Mean/Median/Capped SAS
+    print("1. 分层 Mean/Median/Capped SAS:")
+    print(f"{'Policy':<12} {'Premium Mean':>11} {'Premium Med':>11} {'Premium Cap':>11} | "
+          f"{'Standard Mean':>12} {'Standard Med':>12} {'Standard Cap':>12}")
+    print("-"*90)
     for pname, results in all_results.items():
-        large_sas = [s["sas"] for r in results for s in r["tier_stats"]["large"]]
-        medium_sas = [s["sas"] for r in results for s in r["tier_stats"]["medium"]]
-        small_sas = [s["sas"] for r in results for s in r["tier_stats"]["small"]]
-        overall_sas = [r["overall_mean_sas"] for r in results]
+        # Premium 档
+        premium_sas = [s["sas"] for r in results for s in r["tier_stats"]["premium"]]
+        premium_mean = sum(premium_sas) / len(premium_sas) if premium_sas else 0.0
+        premium_median = sorted(premium_sas)[len(premium_sas)//2] if premium_sas else 0.0
+        premium_capped = sum(min(s, 1.0) for s in premium_sas) / len(premium_sas) if premium_sas else 0.0
 
-        print(f"{pname:<12} {sum(large_sas)/len(large_sas):>10.3f} "
-              f"{sum(medium_sas)/len(medium_sas):>10.3f} "
-              f"{sum(small_sas)/len(small_sas):>10.3f} "
-              f"{sum(overall_sas)/len(overall_sas):>10.3f}")
+        # Standard 档
+        standard_sas = [s["sas"] for r in results for s in r["tier_stats"]["standard"]]
+        standard_mean = sum(standard_sas) / len(standard_sas) if standard_sas else 0.0
+        standard_median = sorted(standard_sas)[len(standard_sas)//2] if standard_sas else 0.0
+        standard_capped = sum(min(s, 1.0) for s in standard_sas) / len(standard_sas) if standard_sas else 0.0
+
+        print(f"{pname:<12} {premium_mean:>11.3f} {premium_median:>11.3f} {premium_capped:>11.3f} | "
+              f"{standard_mean:>12.3f} {standard_median:>12.3f} {standard_capped:>12.3f}")
     print()
 
-    # 崩溃率
+    # 2. 分层崩溃率
     print("2. 分层崩溃率（SAS < 0.2）:")
-    print(f"{'Policy':<12} {'Large':>10} {'Medium':>10} {'Small':>10} {'Overall':>10}")
-    print("-"*52)
+    print(f"{'Policy':<12} {'Premium':>9} {'Standard':>9} {'Medium':>9} {'Small':>9} {'Overall':>9}")
+    print("-"*60)
     for pname, results in all_results.items():
-        large_collapse = sum(1 for r in results for s in r["tier_stats"]["large"] if s["sas"] < 0.2) / \
-                         sum(len(r["tier_stats"]["large"]) for r in results) * 100
+        premium_collapse = sum(1 for r in results for s in r["tier_stats"]["premium"] if s["sas"] < 0.2) / \
+                           sum(len(r["tier_stats"]["premium"]) for r in results) * 100 if any(r["tier_stats"]["premium"] for r in results) else 0.0
+        standard_collapse = sum(1 for r in results for s in r["tier_stats"]["standard"] if s["sas"] < 0.2) / \
+                            sum(len(r["tier_stats"]["standard"]) for r in results) * 100 if any(r["tier_stats"]["standard"] for r in results) else 0.0
         medium_collapse = sum(1 for r in results for s in r["tier_stats"]["medium"] if s["sas"] < 0.2) / \
-                          sum(len(r["tier_stats"]["medium"]) for r in results) * 100
+                          sum(len(r["tier_stats"]["medium"]) for r in results) * 100 if any(r["tier_stats"]["medium"] for r in results) else 0.0
         small_collapse = sum(1 for r in results for s in r["tier_stats"]["small"] if s["sas"] < 0.2) / \
-                         sum(len(r["tier_stats"]["small"]) for r in results) * 100
-        overall_collapse = sum(1 for r in results for s in r["tier_stats"]["large"] + r["tier_stats"]["medium"] + r["tier_stats"]["small"] if s["sas"] < 0.2) / \
-                           sum(len(r["tier_stats"]["large"]) + len(r["tier_stats"]["medium"]) + len(r["tier_stats"]["small"]) for r in results) * 100
+                         sum(len(r["tier_stats"]["small"]) for r in results) * 100 if any(r["tier_stats"]["small"] for r in results) else 0.0
 
-        print(f"{pname:<12} {large_collapse:>9.1f}% "
-              f"{medium_collapse:>9.1f}% "
-              f"{small_collapse:>9.1f}% "
-              f"{overall_collapse:>9.1f}%")
+        all_sas = [s["sas"] for r in results for tier in ["premium", "standard", "medium", "small"] for s in r["tier_stats"][tier]]
+        overall_collapse = sum(1 for s in all_sas if s < 0.2) / len(all_sas) * 100 if all_sas else 0.0
+
+        print(f"{pname:<12} {premium_collapse:>8.1f}% {standard_collapse:>8.1f}% "
+              f"{medium_collapse:>8.1f}% {small_collapse:>8.1f}% {overall_collapse:>8.1f}%")
     print()
 
-    # SLO 达成率
+    # 3. SLO 达成率
     print("3. 分层 SLO 达成率:")
-    print(f"{'Policy':<12} {'Large':>10} {'Medium':>10} {'Small':>10} {'Overall':>10}")
-    print("-"*52)
+    print(f"{'Policy':<12} {'Premium':>9} {'Standard':>9} {'Medium':>9} {'Small':>9} {'Overall':>9}")
+    print("-"*60)
     for pname, results in all_results.items():
-        large_slo = sum(1 for r in results for s in r["tier_stats"]["large"] if s["sas"] >= 1.0) / \
-                    sum(len(r["tier_stats"]["large"]) for r in results) * 100
+        premium_slo = sum(1 for r in results for s in r["tier_stats"]["premium"] if s["sas"] >= 1.0) / \
+                      sum(len(r["tier_stats"]["premium"]) for r in results) * 100 if any(r["tier_stats"]["premium"] for r in results) else 0.0
+        standard_slo = sum(1 for r in results for s in r["tier_stats"]["standard"] if s["sas"] >= 1.0) / \
+                       sum(len(r["tier_stats"]["standard"]) for r in results) * 100 if any(r["tier_stats"]["standard"] for r in results) else 0.0
         medium_slo = sum(1 for r in results for s in r["tier_stats"]["medium"] if s["sas"] >= 1.0) / \
-                     sum(len(r["tier_stats"]["medium"]) for r in results) * 100
+                     sum(len(r["tier_stats"]["medium"]) for r in results) * 100 if any(r["tier_stats"]["medium"] for r in results) else 0.0
         small_slo = sum(1 for r in results for s in r["tier_stats"]["small"] if s["sas"] >= 1.0) / \
-                    sum(len(r["tier_stats"]["small"]) for r in results) * 100
-        overall_slo = sum(1 for r in results for s in r["tier_stats"]["large"] + r["tier_stats"]["medium"] + r["tier_stats"]["small"] if s["sas"] >= 1.0) / \
-                      sum(len(r["tier_stats"]["large"]) + len(r["tier_stats"]["medium"]) + len(r["tier_stats"]["small"]) for r in results) * 100
+                    sum(len(r["tier_stats"]["small"]) for r in results) * 100 if any(r["tier_stats"]["small"] for r in results) else 0.0
 
-        print(f"{pname:<12} {large_slo:>9.1f}% "
-              f"{medium_slo:>9.1f}% "
-              f"{small_slo:>9.1f}% "
-              f"{overall_slo:>9.1f}%")
+        all_sas = [s["sas"] for r in results for tier in ["premium", "standard", "medium", "small"] for s in r["tier_stats"][tier]]
+        overall_slo = sum(1 for s in all_sas if s >= 1.0) / len(all_sas) * 100 if all_sas else 0.0
+
+        print(f"{pname:<12} {premium_slo:>8.1f}% {standard_slo:>8.1f}% "
+              f"{medium_slo:>8.1f}% {small_slo:>8.1f}% {overall_slo:>8.1f}%")
     print()
 
     # 保存结果
