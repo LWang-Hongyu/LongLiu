@@ -246,7 +246,7 @@ def main():
             "type": "fatree",
             "k": 4,
             "host_bw_bps": 100e9,
-            "spine_bw_bps": 800e9,  # 2 × 400G
+            "spine_bw_bps": 630e9,  # 1.54× oversub
         },
         "duration_ms": 600000,
         "overhead_factor": 1.3,
@@ -278,22 +278,22 @@ def main():
         "config": cfg,
         "workload_profile": "FEAS_BOUNDARY_V1_WORKLOAD",
         "hypotheses": {
-            "H1": "Fair premium attainment = 33%（仅 P3 达标，P1/P2 SAS≈0.45）",
-            "H2": "D1 premium mean > CRUX（D1 拉起 P1/P2，CRUX 饿死 P1/P2）",
-            "H3": "D1 starvation = 0%",
-            "H4": "LongLiu-SP starvation > 0%（重载下加冕制饿死人）",
-            "H5": "D1 premium capped > Fair 且 > CRUX",
-            "H6": "D1 standard 大 job 有界降级（sas 0.4-0.8），不归零",
+            "H1": "Fair P Attn = 0%（P3 也无法达标）",
+            "H2": "D1 P Mean 显著 > CRUX（预期 >10%，CRUX 短流套利失效）",
+            "H3": "D1 starvation = 0% 或极低",
+            "H4": "LongLiu-SP starvation > 0%（加冕制反噬）",
+            "H5": "D1 P Cap > Fair 且 > CRUX",
+            "H6": "D1 standard 大 job 有界降级（sas 0.1-0.4），不归零",
         },
     }
     with open(os.path.join(args.out, "run_meta.json"), "w") as f:
         json.dump(meta, f, indent=2)
 
     print("=" * 80)
-    print(f"feas_boundary_v1: {len(policies)} 策略 × {args.seeds} seeds @ 800G spine")
+    print(f"feas_boundary_v1: {len(policies)} 策略 × {args.seeds} seeds @ 630G spine")
     print("=" * 80)
     print(f"Workload: FEAS_BOUNDARY_V1_WORKLOAD (7 jobs, 全跨 pod)")
-    print(f"Spine: 800 Gbps (2 × 400G), 结构性超订: 1.27×")
+    print(f"Spine: 630 Gbps, 结构性超订: 1.54×")
     print(f"Git: {git_info['commit']}")
     print()
 
