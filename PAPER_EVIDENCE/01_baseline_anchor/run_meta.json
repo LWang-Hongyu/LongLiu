@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-07-24T15:35:17.523382",
+  "semantics_version": "anchor-v2",
+  "config_hash": "0140186f4c22fd02",
+  "strategies": [
+    "Fair",
+    "CRUX",
+    "SP",
+    "D1"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "workload": "V2_ANCHOR_WORKLOAD",
+  "job_count": 24,
+  "config": {
+    "topology": {
+      "k": 4,
+      "host_bw_bps": 100000000000,
+      "spine_bw_bps": 400000000000,
+      "type": "fatree"
+    },
+    "simulation": {
+      "duration_ms": 600000,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "frozen": {
+      "overhead_factor": 1.3,
+      "overlap_factor": 0.85,
+      "K": 2.0
+    },
+    "ci_distribution": {
+      "1.5": 0.3,
+      "2.0": 0.35,
+      "3.0": 0.35
+    }
+  },
+  "output_dir": "/home/why/LongLiu_rebuild/sim-nextgen/outputs/anchor_regen_v1"
+}

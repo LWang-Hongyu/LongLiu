@@ -1,0 +1,6 @@
+{
+  "total_epochs": 28893,
+  "n_contested": 7294,
+  "mean_abs_error": 0.1035,
+  "head_to_head_j1_j5": 0
+}

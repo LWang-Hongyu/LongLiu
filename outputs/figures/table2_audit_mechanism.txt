@@ -1,0 +1,17 @@
+#  | Category    | Detail                                 | Status   
+1  | Drift Point | E1@400G Fair: +10.8pp (3s→5s)          | PASS (正向)
+2  | Drift Point | E1@400G CRUX: +12.5pp                  | PASS (正向)
+3  | Drift Point | E1@400G D1: +15.0pp                    | PASS (正向)
+4  | Drift Point | E1@500G CRUX: +11.7pp                  | PASS (正向)
+5  | Drift Point | E1@500G SP: +11.7pp                    | PASS (正向)
+6  | Drift Point | E2'@500G D1: +13.3pp                   | PASS (正向)
+   |             |                                        |          
+7  | Mechanism   | E3' D1 W3=25.0%: π expression wall     | CONFIRMED
+8  | Mechanism   | D1 startup transient W1=36.0~79.2%     | CONFIRMED
+9  | Mechanism   | D1 swap re-convergence penalty         | CONFIRMED
+10 | Mechanism   | v4 100% invariant across all scenarios | CONFIRMED
+   |             |                                        |          
+11 | Pre-reg Pt  | E2'@500G v4−CRUX gap ≥10pp (20.0pp)    | PASS     
+12 | Pre-reg Pt  | E2'@630G v4−baseline gap (13.3pp)      | PASS     
+13 | Pre-reg Pt  | E2-pro sanity: all 100% tie            | PASS     
+14 | Pre-reg Pt  | D1 arm self-check Δ≤2.5pp < 5pp        | PASS     

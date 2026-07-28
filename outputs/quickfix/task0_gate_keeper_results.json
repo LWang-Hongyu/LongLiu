@@ -27,295 +27,295 @@
       "seed": 0,
       "tier_collapse": {
         "large": {
-          "count": 12,
-          "collapse_count": 6,
-          "collapse_rate": 0.5,
-          "mean_sas": 0.8269751786581271,
+          "count": 6,
+          "collapse_count": 2,
+          "collapse_rate": 0.3333333333333333,
+          "mean_sas": 0.925996945322109,
           "slo_rate": 0.3333333333333333
         },
         "medium": {
-          "count": 8,
-          "collapse_count": 3,
-          "collapse_rate": 0.375,
-          "mean_sas": 0.5071830527823823,
-          "slo_rate": 0.125
+          "count": 14,
+          "collapse_count": 2,
+          "collapse_rate": 0.14285714285714285,
+          "mean_sas": 1.169522997682686,
+          "slo_rate": 0.5714285714285714
         },
         "small": {
           "count": 4,
           "collapse_count": 0,
           "collapse_rate": 0.0,
-          "mean_sas": 0.967826127853677,
+          "mean_sas": 0.9928163111179122,
           "slo_rate": 0.5
         }
       },
-      "overall_collapse": 0.375,
-      "overall_mean_sas": 0.7438529615654706,
-      "overall_slo_rate": 0.2916666666666667
+      "overall_collapse": 0.16666666666666666,
+      "overall_mean_sas": 1.0791903701650793,
+      "overall_slo_rate": 0.5
     },
     {
       "seed": 1,
       "tier_collapse": {
         "large": {
-          "count": 12,
-          "collapse_count": 6,
-          "collapse_rate": 0.5,
-          "mean_sas": 0.8285721980426769,
-          "slo_rate": 0.16666666666666666
+          "count": 6,
+          "collapse_count": 4,
+          "collapse_rate": 0.6666666666666666,
+          "mean_sas": 0.5670621393331666,
+          "slo_rate": 0.3333333333333333
         },
         "medium": {
-          "count": 8,
+          "count": 14,
           "collapse_count": 2,
-          "collapse_rate": 0.25,
-          "mean_sas": 0.7239474484458095,
-          "slo_rate": 0.25
+          "collapse_rate": 0.14285714285714285,
+          "mean_sas": 1.2208974037616334,
+          "slo_rate": 0.35714285714285715
         },
         "small": {
           "count": 4,
           "collapse_count": 0,
           "collapse_rate": 0.0,
-          "mean_sas": 1.0247824820563352,
+          "mean_sas": 0.9839685557224647,
           "slo_rate": 0.5
         }
       },
-      "overall_collapse": 0.3333333333333333,
-      "overall_mean_sas": 0.826398995512664,
-      "overall_slo_rate": 0.25
+      "overall_collapse": 0.25,
+      "overall_mean_sas": 1.0179504463146554,
+      "overall_slo_rate": 0.375
     },
     {
       "seed": 2,
       "tier_collapse": {
         "large": {
-          "count": 12,
-          "collapse_count": 8,
-          "collapse_rate": 0.6666666666666666,
-          "mean_sas": 0.7006941024385732,
-          "slo_rate": 0.3333333333333333
+          "count": 6,
+          "collapse_count": 2,
+          "collapse_rate": 0.3333333333333333,
+          "mean_sas": 0.6336475510196397,
+          "slo_rate": 0.16666666666666666
         },
         "medium": {
-          "count": 8,
-          "collapse_count": 4,
+          "count": 14,
+          "collapse_count": 7,
           "collapse_rate": 0.5,
-          "mean_sas": 0.6234857587327807,
-          "slo_rate": 0.5
+          "mean_sas": 0.6891902484111291,
+          "slo_rate": 0.21428571428571427
         },
         "small": {
           "count": 4,
-          "collapse_count": 2,
-          "collapse_rate": 0.5,
-          "mean_sas": 0.541184,
+          "collapse_count": 0,
+          "collapse_rate": 0.0,
+          "mean_sas": 0.8942706203715814,
           "slo_rate": 0.5
         }
       },
-      "overall_collapse": 0.5833333333333334,
-      "overall_mean_sas": 0.6483729707968802,
-      "overall_slo_rate": 0.4166666666666667
+      "overall_collapse": 0.375,
+      "overall_mean_sas": 0.7094846360566655,
+      "overall_slo_rate": 0.25
     },
     {
       "seed": 3,
       "tier_collapse": {
         "large": {
-          "count": 12,
+          "count": 6,
           "collapse_count": 4,
-          "collapse_rate": 0.3333333333333333,
-          "mean_sas": 1.139983409587043,
+          "collapse_rate": 0.6666666666666666,
+          "mean_sas": 0.4062710441682793,
           "slo_rate": 0.3333333333333333
         },
         "medium": {
-          "count": 8,
-          "collapse_count": 0,
-          "collapse_rate": 0.0,
-          "mean_sas": 0.9834196913758041,
-          "slo_rate": 0.375
+          "count": 14,
+          "collapse_count": 3,
+          "collapse_rate": 0.21428571428571427,
+          "mean_sas": 1.3989362404616454,
+          "slo_rate": 0.42857142857142855
         },
         "small": {
           "count": 4,
           "collapse_count": 0,
           "collapse_rate": 0.0,
-          "mean_sas": 0.9855810483520513,
+          "mean_sas": 0.9929223609009032,
           "slo_rate": 0.5
         }
       },
-      "overall_collapse": 0.16666666666666666,
-      "overall_mean_sas": 1.062061776644131,
-      "overall_slo_rate": 0.375
+      "overall_collapse": 0.2916666666666667,
+      "overall_mean_sas": 1.0831009614615135,
+      "overall_slo_rate": 0.4166666666666667
     },
     {
       "seed": 4,
       "tier_collapse": {
         "large": {
-          "count": 12,
-          "collapse_count": 7,
-          "collapse_rate": 0.5833333333333334,
-          "mean_sas": 0.4922266773348965,
-          "slo_rate": 0.3333333333333333
+          "count": 6,
+          "collapse_count": 2,
+          "collapse_rate": 0.3333333333333333,
+          "mean_sas": 0.5177888143348439,
+          "slo_rate": 0.0
         },
         "medium": {
-          "count": 8,
-          "collapse_count": 4,
+          "count": 14,
+          "collapse_count": 7,
           "collapse_rate": 0.5,
-          "mean_sas": 0.44575797625220015,
-          "slo_rate": 0.25
+          "mean_sas": 0.5360323427972271,
+          "slo_rate": 0.14285714285714285
         },
         "small": {
           "count": 4,
           "collapse_count": 1,
           "collapse_rate": 0.25,
-          "mean_sas": 0.7882678651321229,
+          "mean_sas": 0.7872892047097133,
           "slo_rate": 0.5
         }
       },
-      "overall_collapse": 0.5,
-      "overall_mean_sas": 0.5260773082735354,
-      "overall_slo_rate": 0.3333333333333333
+      "overall_collapse": 0.4166666666666667,
+      "overall_mean_sas": 0.5733476043337123,
+      "overall_slo_rate": 0.16666666666666666
     },
     {
       "seed": 5,
       "tier_collapse": {
         "large": {
-          "count": 12,
-          "collapse_count": 4,
+          "count": 6,
+          "collapse_count": 2,
           "collapse_rate": 0.3333333333333333,
-          "mean_sas": 1.0552046708574119,
-          "slo_rate": 0.25
+          "mean_sas": 0.916589784013116,
+          "slo_rate": 0.3333333333333333
         },
         "medium": {
-          "count": 8,
-          "collapse_count": 1,
-          "collapse_rate": 0.125,
-          "mean_sas": 0.928035917774647,
-          "slo_rate": 0.375
+          "count": 14,
+          "collapse_count": 2,
+          "collapse_rate": 0.14285714285714285,
+          "mean_sas": 1.4547313974017375,
+          "slo_rate": 0.5
         },
         "small": {
           "count": 4,
           "collapse_count": 0,
           "collapse_rate": 0.0,
-          "mean_sas": 1.022732902576789,
+          "mean_sas": 1.0191323982908627,
           "slo_rate": 0.5
         }
       },
-      "overall_collapse": 0.20833333333333334,
-      "overall_mean_sas": 1.007403125116386,
-      "overall_slo_rate": 0.3333333333333333
+      "overall_collapse": 0.16666666666666666,
+      "overall_mean_sas": 1.2475961608694364,
+      "overall_slo_rate": 0.4583333333333333
     },
     {
       "seed": 6,
       "tier_collapse": {
         "large": {
-          "count": 12,
-          "collapse_count": 8,
-          "collapse_rate": 0.6666666666666666,
-          "mean_sas": 0.45091257056049,
-          "slo_rate": 0.16666666666666666
+          "count": 6,
+          "collapse_count": 5,
+          "collapse_rate": 0.8333333333333334,
+          "mean_sas": 0.08525412668046516,
+          "slo_rate": 0.0
         },
         "medium": {
-          "count": 8,
-          "collapse_count": 0,
-          "collapse_rate": 0.0,
-          "mean_sas": 0.9197214029394236,
-          "slo_rate": 0.25
+          "count": 14,
+          "collapse_count": 4,
+          "collapse_rate": 0.2857142857142857,
+          "mean_sas": 0.9300212244679366,
+          "slo_rate": 0.2857142857142857
         },
         "small": {
           "count": 4,
           "collapse_count": 0,
           "collapse_rate": 0.0,
-          "mean_sas": 0.9859719565019531,
+          "mean_sas": 1.007698883846439,
           "slo_rate": 0.5
         }
       },
-      "overall_collapse": 0.3333333333333333,
-      "overall_mean_sas": 0.6963587456770449,
+      "overall_collapse": 0.375,
+      "overall_mean_sas": 0.7317757265841524,
       "overall_slo_rate": 0.25
     },
     {
       "seed": 7,
       "tier_collapse": {
         "large": {
-          "count": 12,
+          "count": 6,
           "collapse_count": 5,
-          "collapse_rate": 0.4166666666666667,
-          "mean_sas": 0.6899598697368216,
-          "slo_rate": 0.3333333333333333
+          "collapse_rate": 0.8333333333333334,
+          "mean_sas": 0.19624146009937823,
+          "slo_rate": 0.16666666666666666
         },
         "medium": {
-          "count": 8,
-          "collapse_count": 1,
-          "collapse_rate": 0.125,
-          "mean_sas": 0.8824138306455289,
-          "slo_rate": 0.5
+          "count": 14,
+          "collapse_count": 4,
+          "collapse_rate": 0.2857142857142857,
+          "mean_sas": 0.7925381512406799,
+          "slo_rate": 0.5714285714285714
         },
         "small": {
           "count": 4,
           "collapse_count": 0,
           "collapse_rate": 0.0,
-          "mean_sas": 1.0265716864171595,
+          "mean_sas": 1.0306885469750209,
           "slo_rate": 0.5
         }
       },
-      "overall_collapse": 0.25,
-      "overall_mean_sas": 0.8102131594864469,
-      "overall_slo_rate": 0.4166666666666667
+      "overall_collapse": 0.375,
+      "overall_mean_sas": 0.6831557110777445,
+      "overall_slo_rate": 0.4583333333333333
     },
     {
       "seed": 8,
       "tier_collapse": {
         "large": {
-          "count": 12,
-          "collapse_count": 8,
-          "collapse_rate": 0.6666666666666666,
-          "mean_sas": 0.5399359202562716,
+          "count": 6,
+          "collapse_count": 3,
+          "collapse_rate": 0.5,
+          "mean_sas": 0.4711599773866395,
           "slo_rate": 0.16666666666666666
         },
         "medium": {
-          "count": 8,
-          "collapse_count": 2,
-          "collapse_rate": 0.25,
-          "mean_sas": 0.680630363221353,
-          "slo_rate": 0.0
+          "count": 14,
+          "collapse_count": 6,
+          "collapse_rate": 0.42857142857142855,
+          "mean_sas": 0.9427090934373393,
+          "slo_rate": 0.14285714285714285
         },
         "small": {
           "count": 4,
           "collapse_count": 0,
           "collapse_rate": 0.0,
-          "mean_sas": 1.0296183315006364,
+          "mean_sas": 0.9575756868648151,
           "slo_rate": 0.5
         }
       },
-      "overall_collapse": 0.4166666666666667,
-      "overall_mean_sas": 0.6684478031186929,
-      "overall_slo_rate": 0.16666666666666666
+      "overall_collapse": 0.375,
+      "overall_mean_sas": 0.8272995799959104,
+      "overall_slo_rate": 0.20833333333333334
     },
     {
       "seed": 9,
       "tier_collapse": {
         "large": {
-          "count": 12,
-          "collapse_count": 5,
-          "collapse_rate": 0.4166666666666667,
-          "mean_sas": 0.5946808950906509,
-          "slo_rate": 0.25
+          "count": 6,
+          "collapse_count": 3,
+          "collapse_rate": 0.5,
+          "mean_sas": 1.1029880531481535,
+          "slo_rate": 0.3333333333333333
         },
         "medium": {
-          "count": 8,
-          "collapse_count": 0,
-          "collapse_rate": 0.0,
-          "mean_sas": 0.8792375525351823,
-          "slo_rate": 0.125
+          "count": 14,
+          "collapse_count": 3,
+          "collapse_rate": 0.21428571428571427,
+          "mean_sas": 0.9450893101572283,
+          "slo_rate": 0.42857142857142855
         },
         "small": {
           "count": 4,
           "collapse_count": 0,
           "collapse_rate": 0.0,
-          "mean_sas": 0.9388174335225536,
+          "mean_sas": 1.0001807373409601,
           "slo_rate": 0.5
         }
       },
-      "overall_collapse": 0.20833333333333334,
-      "overall_mean_sas": 0.7468892039774785,
-      "overall_slo_rate": 0.25
+      "overall_collapse": 0.25,
+      "overall_mean_sas": 0.9937459004355816,
+      "overall_slo_rate": 0.4166666666666667
     }
   ],
   "summary": {
-    "large_collapse_rate": 0.5083333333333333,
-    "large_mean_sas": 0.7319145492562963
+    "large_collapse_rate": 0.5333333333333334,
+    "large_mean_sas": 0.5822999895505789
   }
 }

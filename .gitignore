@@ -39,3 +39,30 @@ Thumbs.db
 # Project-specific
 outputs/
 *.log
+
+# Experiment data (trace.jsonl files are 100-178MB, too large for GitHub)
+PAPER_EVIDENCE/**
+!PAPER_EVIDENCE/FIGURE_REGISTRY/
+!PAPER_EVIDENCE/01_baseline_anchor/
+!PAPER_EVIDENCE/00_convention/
+!PAPER_EVIDENCE/02_design_docs/
+!PAPER_EVIDENCE/07_workloads/
+!PAPER_EVIDENCE/06_D1_mechanism/
+!PAPER_EVIDENCE/03_E1_ladder/summary*.json
+!PAPER_EVIDENCE/03_E1_ladder/*/
+!PAPER_EVIDENCE/04_E2_orthogonal/summary*.json
+!PAPER_EVIDENCE/04_E2_orthogonal/*/
+!PAPER_EVIDENCE/05_E3_swap_main/summary*.json
+!PAPER_EVIDENCE/05_E3_swap_main/*/
+PAPER_EVIDENCE/03_E1_ladder/*/**
+PAPER_EVIDENCE/04_E2_orthogonal/*/**
+PAPER_EVIDENCE/05_E3_swap_main/*/**
+!PAPER_EVIDENCE/03_E1_ladder/*/run_meta.json
+!PAPER_EVIDENCE/03_E1_ladder/*/records.jsonl
+!PAPER_EVIDENCE/04_E2_orthogonal/*/run_meta.json
+!PAPER_EVIDENCE/04_E2_orthogonal/*/records.jsonl
+!PAPER_EVIDENCE/05_E3_swap_main/*/run_meta.json
+!PAPER_EVIDENCE/05_E3_swap_main/*/records.jsonl
+
+# Exceptions: final figures for paper
+!outputs/figures/

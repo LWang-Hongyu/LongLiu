@@ -9,6 +9,7 @@ from ..network.flow import Flow
 from ..network.link import Link
 from ..job.job import Job
 from ..policy.base import Policy
+from ..utils import compute_sas_eval, compute_target_iter_ms
 from .event import Event, EventType
 
 
@@ -37,10 +38,12 @@ class SimulationResult:
 
     def __init__(self, jobs: Dict[str, Job],
                  records: List[IterationRecord],
-                 overlap_factor: float = 1.0):
+                 overlap_factor: float = 1.0,
+                 overhead_factor: float = 1.3):
         self.jobs = jobs
         self.records = records
         self.overlap_factor = overlap_factor
+        self.overhead_factor = overhead_factor
         self.link_utilization: Dict[str, Dict] = {}  # link_id -> {mean, max, min, samples}
 
     def total_iterations(self) -> int:
@@ -59,21 +62,29 @@ class SimulationResult:
                  if j.completed_iters >= j.target_iters)
         return ok / len(self.jobs)
 
-    def per_job_stats(self) -> Dict[str, dict]:
+    def per_job_stats(self, host_bw_gbps: float = 100.0) -> Dict[str, dict]:
+        """返回 per-job 统计；SAS/target 统一使用锚点公式（metrics.py）。
+
+        host_bw_gbps 需与仿真拓扑的 host NIC 带宽一致，用于计算 comm_solo。
+        """
         stats = {}
         for jid, job in self.jobs.items():
             rs = [r for r in self.records if r.jid == jid]
             avg_iter_ms = sum(r.iter_ms for r in rs) / len(rs) if rs else 0.0
             avg_comm_ms = sum(r.comm_ms for r in rs) / len(rs) if rs else 0.0
-            comm_budget = job.slo_ci * job.comm_solo_ms * job.overhead_factor
-            if self.overlap_factor > 0:
-                # 重叠模式：target = max(comp, comm_budget) + 串行开销
-                serial_overhead = (1.0 - self.overlap_factor) * min(job.comp_ms, comm_budget)
-                target_iter_ms = max(job.comp_ms, comm_budget) + serial_overhead
-            else:
-                target_iter_ms = job.comp_ms + comm_budget
+            target_iter_ms = compute_target_iter_ms(
+                job.model, job.num_workers, job.slo_ci,
+                host_bw_gbps=host_bw_gbps,
+                overhead_factor=self.overhead_factor,
+                overlap_factor=self.overlap_factor
+            )
             meets_slo = avg_iter_ms <= target_iter_ms if rs else False
-            sas = target_iter_ms / avg_iter_ms if avg_iter_ms > 0 else 0.0
+            sas = compute_sas_eval(
+                avg_iter_ms, job.model, job.num_workers, job.slo_ci,
+                host_bw_gbps=host_bw_gbps,
+                overhead_factor=self.overhead_factor,
+                overlap_factor=self.overlap_factor
+            )
             stats[jid] = {
                 "completed_iters": job.completed_iters,
                 "target_iters": job.target_iters,
@@ -113,6 +124,10 @@ class Simulator:
         self.duration_ms = duration_ms
         self.overhead_factor = overhead_factor
         self.overlap_factor = max(0.0, min(1.0, overlap_factor))
+
+        # 注入 topology 引用到 policy（v4 需要）
+        if hasattr(self.policy, 'set_topology'):
+            self.policy.set_topology(topology)
 
         self.jobs: Dict[str, Job] = {}
         self.active_flows: Dict[str, Flow] = {}  # fid -> Flow, O(1) removal
@@ -489,7 +504,7 @@ class Simulator:
             self._recompute_bandwidth()
             self._schedule_next_flow_end()
 
-        result = SimulationResult(self.jobs, self.records, self.overlap_factor)
+        result = SimulationResult(self.jobs, self.records, self.overlap_factor, self.overhead_factor)
 
         # 计算链路利用率统计
         if self.link_utilization_history:

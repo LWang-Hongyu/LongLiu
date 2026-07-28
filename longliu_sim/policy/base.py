@@ -17,6 +17,11 @@ class Policy(ABC):
 
     def __init__(self, name: str):
         self.name = name
+        self._topology = None  # 由 Simulator 注入
+
+    def set_topology(self, topology) -> None:
+        """设置拓扑引用（由 Simulator 调用）。"""
+        self._topology = topology
 
     @abstractmethod
     def allocate(self, flows: List[Flow], links: List[Link],

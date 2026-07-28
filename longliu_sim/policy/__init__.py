@@ -6,10 +6,10 @@ from .srpt import SRPT
 from .longliu import LongLiu
 from .crux import CRUX
 from .cassini import CASSINI
-from .dwrr import LongLiuDWRR, LongLiuDWRRFair
+from .dwrr import LongLiuDWRR, LongLiuDWRRGap, LongLiuDWRRFair
 
 __all__ = [
     "Policy", "Allocation",
     "Fair", "SRPT", "LongLiu", "CRUX", "CASSINI",
-    "LongLiuDWRR", "LongLiuDWRRFair",
+    "LongLiuDWRR", "LongLiuDWRRGap", "LongLiuDWRRFair",
 ]

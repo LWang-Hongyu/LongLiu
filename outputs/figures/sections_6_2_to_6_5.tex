@@ -1,0 +1,120 @@
+% ============================================================
+% §6.2  E1: Bandwidth Ladder — Scarce-vs-Abundant Differentiation
+% ============================================================
+\subsection{Bandwidth-Scarcity Ladder}
+\label{sec:eq1}
+
+Does \Name\ differentiate from baselines under scarce bandwidth while remaining cost-free when bandwidth is abundant? To answer this, we sweep the spine bandwidth of a 16-node FatTree from 400 to 1200~Gbps using a 14-job workload (8 premium, 6 standard; see~\S\ref{sec:setup}) and measure the fraction of premium jobs meeting their SLO at each capacity point (P-attn, $n=5$ seeds, mean $\pm$ population std). Figure~\ref{fig:e1-ladder} reports per-policy P-attn across the bandwidth ladder, with shaded regions marking scarce ($\leq500$~Gbps), transition (500--630~Gbps), and abundant ($\geq800$~Gbps) regimes. At 400~Gbps, \Name\ achieves 75.0\% P-attn against a best-baseline of 62.5\% (CRUX), a gap of 12.5~percentage points (pp); at 500~Gbps, \Name\ reaches 87.5\% while the best baseline (CRUX/SP) stalls at 70.0\% (17.5~pp gap); at 630~Gbps, \Name\ attains 97.5\% against a best-baseline of 87.5\% (Fair), a 10.0~pp margin. Starting at 800~Gbps, all policies converge above 90.0\% and the differentiation disappears, consistent with the capacity-saturation expectation. The baseline anchor at 400~Gbps (Table~\ref{tab:anchor}) confirms that this differentiation is not an artifact of workload imbalance: under a separate 24-job anchor workload, CRUX achieves the highest Mean SAS among baselines (0.8422, 29.2\% SLO attainment), yet all baselines leave substantial SLO slack that \Name\ is designed to eliminate. \textbf{Takeaway:} \Name\ delivers clear differentiation in the scarce and transition regimes---with P-attn margins of 10.0--17.5~pp over the best baseline---and incurs no cost in the abundant regime, where all policies converge.
+
+% Evidence: fig2_e1_ladder_5seed.csv, E1 scene, seeds [0,1,2,4,5], n=5, population std (ddof=0),
+%   P-attn at 400/500/630/800/1000/1200 Gbps for LongLiu(v4)/DF(D1)/CRUX/SP/Fair.
+%   T-1: per_policy_results.json (Fair/CRUX/SP, 3 seeds 0/1/2) + D1_rerun.json (DF v1.1, 3 seeds 0/1/2),
+%   mean_sas/slo_rate/collapse_rate per seed, overall mean computed across seeds.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig2_e1_ladder.pdf}
+\caption{E1 bandwidth ladder: P-attn vs.\ spine bandwidth for 14 jobs (8 premium, 6 standard), $n=5$ seeds, mean $\pm$ population std. Shaded regions denote scarce ($\leq500$~Gbps), transition (500--630~Gbps), and abundant ($\geq800$~Gbps) regimes. \Name\ labels at 400, 500, and 630~Gbps use opaque-white bounding boxes to avoid baseline-cluster collision.}
+\label{fig:e1-ladder}
+\end{figure}
+
+% ============================================================
+% §6.3  E2: Orthogonal Workload — Structural vs.\ Workload-Dependent Advantage
+% ============================================================
+\subsection{Orthogonal Workload Structure}
+\label{sec:eq2}
+
+Is \Name's advantage specific to CRUX's favorable workload structure, or is it a structural property of its priority mechanism? To disentangle workload-driven effects from mechanism-driven effects, we construct two orthogonal workload variants: E2$'$, where the tier-to-model mapping is inverted to disadvantage CRUX's static key (the same 14-job structure with reversed premium/standard assignment), and E2-pro, a CRUX-favorable positive control that preserves the original tier alignment. Both use a spine-bandwidth ladder (400--800~Gbps, $n=5$ seeds) and are reported in Figure~\ref{fig:e2-killfield} and Table~\ref{tab:e2pro}. In the disadvantaging E2$'$ scenario at 500~Gbps, \Name\ achieves 84.4\% P-attn against CRUX's 64.4\%, a 20.0~pp gap; at 630~Gbps, \Name\ reaches 91.1\% while all baselines remain at or below 77.8\%. The gap persists because CRUX's static tier-to-key mapping---optimized for the original workload---cannot recover when the mapping is inverted, whereas \Name's dynamic priority recomputation is workload-agnostic. In the E2-pro positive control, every policy achieves 100.0\% P-attn at both 630 and 800~Gbps (SP and Fair at 96.0\%), confirming that when the workload structure is favorable, all policies perform adequately. \textbf{Takeaway:} \Name's advantage is structural, not an artifact of workload alignment with CRUX's static key; the 20.0~pp gap at 500~Gbps under the inverted mapping demonstrates that \Name\ is robust to workload-structure mismatch, while CRUX collapses when its favorable alignment is removed.
+
+% Evidence: fig3_e2_ladder_5seed.csv, E2' and E2-pro scenes, seeds [0,1,2,4,5], n=5, population std (ddof=0),
+%   P-attn at 400/500/630/800 Gbps (E2') and 630/800 Gbps (E2-pro) for all 5 policies.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig3_e2_orthogonal.pdf}
+\caption{E2 orthogonal workload: (a)~E2$'$ disadvantaging CRUX with inverted tier-to-model mapping, and (b)~E2-pro favorable CRUX positive control. Both use $n=5$ seeds, mean $\pm$ population std. A single shared legend applies to both panels. \Name\ labels use opaque-white bounding boxes to avoid collision with error bars and other policy curves.}
+\label{fig:e2-killfield}
+\end{figure}
+
+% ============================================================
+% §6.4  E3: Dynamic Tier Swap — Instantaneous Reconfiguration
+% ============================================================
+\subsection{Dynamic Tier Reconfiguration}
+\label{sec:eq3}
+
+Can \Name\ maintain SLO guarantees when the tier assignment of jobs changes mid-run---a scenario that stresses any priority scheduler's ability to reconfigure without transient degradation? We test this with a two-arm swap experiment at $t=300$~s ($n=5$ seeds): the control arm (E3, 800~Gbps) swaps tier assignments in a direction that advantages CRUX's static mapping, while the kill arm (E3$'$, 630~Gbps) swaps in the opposite direction, disadvantaging CRUX. In both arms, \Name\ maintains $100.0\pm0.0\%$ P-attn across all three windows (W1 pre-swap, W2 transient, W3 post-swap), with the sliding windows truncated at the regime boundary ($t=300$~s) so that no cross-regime mixing occurs. CRUX reaches $63.3\pm16.3\%$ in the control arm and collapses to $10.0\pm12.2\%$ in the kill arm, while DF achieves $96.7\pm6.7\%$ (control) and $25.0\pm22.4\%$ (kill). The key mechanism is \Name's closed-form allocation: per-job bandwidth targets are recomputed instantly from the new tier assignment with no iterative convergence delay, so the system transits from one feasible allocation to another without transient SLO violations. \textbf{Takeaway:} \Name\ provides instantaneous, transient-free adaptation to tier reconfiguration, maintaining $100.0\pm0.0\%$ P-attn throughout the swap in both arms, while CRUX and DF suffer severe post-swap degradation ($10.0\%$ and $25.0\%$ respectively) in the kill arm.
+
+% Evidence: 05_E3_swap_main/{e3_swap,e3p_swap}_{v4,CRUX,D1}_s{0,1,2,3,4,5}/run_meta.json,
+%   n=5 seeds [0,1,2,4,5] for v4/CRUX, [0,1,2,3,4] for DF,
+%   W1 [200,300]s and W3 [500,600]s fixed-window P-attn, population std (ddof=0).
+%   v4 trajectory: regime-truncated sliding window (t>300s window truncated at 300s).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig1_hero.pdf}
+\caption{Dynamic tier swap: sliding-window P-attn trajectories for \Name, DF, and CRUX in (a)~E3 control arm at 800~Gbps and (b)~E3$'$ kill arm at 630~Gbps, $n=5$ seeds, mean $\pm$ population std. Windows are truncated at the regime boundary ($t=300$~s), so no cross-regime mixing occurs. Gray shaded regions denote W1 (pre-swap), W2 (transient), and W3 (post-swap) windows; the dashed vertical line marks the tier-swap event. A single shared figure legend applies to both panels.}
+\label{fig:eval-e3}
+\end{figure}
+
+% ============================================================
+% §6.5  D1: Transient Dynamics — Expressivity Wall
+% ============================================================
+\subsection{Why the Deficit-Feedback Controller Fails}
+\label{sec:eq4}
+
+Why does DF, despite achieving high pre-swap P-attn in the E3 control arm, fail to converge correctly after the tier swap in the kill arm? We examine DF's sliding-window P-attn trajectory in both arms (Figure~\ref{fig:d1-transient}) and the per-job priority ($\pi$) time series in E3$'$ (Figure~\ref{fig:d1-mechanism}). In the E3 control arm, DF transitions from 70.0\% (W1) through a transient dip at the swap boundary to 96.7\% (W3), converging toward the correct post-swap premium set. In the E3$'$ kill arm, DF starts at 48.0\% (W1), dips to 36.0\% at the swap, briefly overshoots to a transient peak of 62.5\%, and then settles at 30.0\% (W3)---converging in the wrong direction, toward starvation of the post-swap premium jobs that it should be protecting. The trajectory exposes both a cold-start transient (W1 ramp-up) and a swap-induced transient (W2 overshoot followed by W3 degradation).
+
+The $\pi$ time series (Figure~\ref{fig:d1-mechanism}, E3$'$ DF, seed~0) reveals the mechanism: after the swap, per-job $\pi$ values stall at a heterogeneous distribution spanning $0.056$--$0.399$, with the standard-tier jobs' effective weights compressed to approximately $17\%$--$20\%$ of the premium pool. Since DF's bandwidth allocation uses $\exp(\pi\cdot K)$ weighting without per-job caps or tier normalization, the heterogeneous $\pi$ distribution causes premium jobs with lower $\pi$ to be under-fed while standard jobs with higher $\pi$ capture disproportionate bandwidth. The clip threshold is never triggered, ruling out capacity exhaustion; the total DF premium-pool aggregate share remains comparable to \Name's premium pool, ruling out simple competition loss. The root cause is an \emph{expressivity wall}: DF's scalar $\pi$ lacks the representational capacity to encode the tier structure that \Name\ captures through its closed-form per-job target computation. \textbf{Takeaway:} DF's expressivity wall causes wrong-direction convergence after tier swaps, while \Name's closed-form allocation---with zero trajectory variance ($0.0$~pp std vs.\ DF's $\pm22.4$~pp in deep infeasible regimes)---avoids transient dynamics entirely.
+
+% Evidence: fig4_d1_trajectory_e3.csv and fig4_d1_trajectory_e3p.csv,
+%   n=5 seeds [0,1,2,3,4], sliding-window mean±population std (ddof=0),
+%   W1 midpoint at t≈250s, W3 midpoint at t≈550s.
+%   π timeseries: 06_D1_mechanism/pi_evidence/, E3' DF seed=0,
+%   per-job π from trace.jsonl at each timestep.
+%   DF W3 std: from run_meta seeds [0,1,2,3,4], population std.
+%   Note: pre-registered transient values (93.3% for E3, 70.0% for E3') differ from
+%   current CSV; CSV transient peaks are 100.0% (E3 at t≈384s) and 62.5% (E3' at t≈399s).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig4_d1_trajectory.pdf}
+\caption{DF sliding-window P-attn trajectory in (a)~E3 control arm at 800~Gbps and (b)~E3$'$ kill arm at 630~Gbps, $n=5$ seeds, mean $\pm$ population std. Annotated values (70.0\%, 96.7\%, 48.0\%, 30.0\%) are fixed-window means at W1 ($t\approx250$~s) and W3 ($t\approx550$~s) midpoints. Gray shaded regions denote W1--W3 windows; the dashed line marks the tier swap. The LongLiu reference line (100\%) is shown for comparison. A single shared legend applies to both panels.}
+\label{fig:d1-transient}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig5_pi_timeseries.pdf}
+\caption{Per-job $\pi$ time series for DF in the E3$'$ kill arm (seed~0): (a)~jobs that are premium before the swap, and (b)~jobs that are standard before the swap. Each job is identified by its ID and model abbreviation (e.g., ``J0 (13B)''), with unique marker--linestyle pairs for redundancy coding. The vertical dashed line marks the tier swap; the horizontal dashed line at $\pi=0$ separates over-fed ($\pi<0$) from under-fed ($\pi>0$) regimes. A single external shared legend covers all 13 jobs.}
+\label{fig:d1-mechanism}
+\end{figure}
+
+% ============================================================
+% TABLES
+% ============================================================
+
+\begin{table}[t]
+\centering
+\caption{Baseline anchor at 400 Gbps (3 seeds, 24 jobs, 12L/8M/4S).}
+\label{tab:anchor}
+\small\begin{tabular}{lcccc}\toprule
+Policy & Mean SAS & SLO attainment & Collapse (\%) \\\midrule
+LongLiu & 1.0000 & 100.0 & 0.0 \\
+Fair & 0.7835 & 23.6 & 1.4 \\
+CRUX & 0.8422 & 29.2 & 13.9 \\
+SP & 0.7776 & 29.2 & 37.5 \\
+DF & 0.8131 & 22.2 & 0.0 \\
+\bottomrule\end{tabular}\end{table}
+
+\begin{table}[t]
+\centering
+\caption{E2-pro positive control (CRUX-favorable, 5 seeds).}
+\label{tab:e2pro}
+\small\begin{tabular}{lcc}\toprule
+Policy & 630 Gbps & 800 Gbps \\\midrule
+LongLiu & 100.0$\pm$0.0\% & 100.0$\pm$0.0\% \\
+DF & 100.0$\pm$0.0\% & 100.0$\pm$0.0\% \\
+CRUX & 100.0$\pm$0.0\% & 100.0$\pm$0.0\% \\
+SP & 96.0$\pm$8.0\% & 96.0$\pm$8.0\% \\
+Fair & 96.0$\pm$8.0\% & 96.0$\pm$8.0\% \\
+\bottomrule\end{tabular}\end{table}

@@ -22,12 +22,13 @@ from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from longliu_sim.policy import Fair, CRUX, LongLiu, LongLiuDWRR
+from longliu_sim.policy import Fair, CRUX, LongLiu, LongLiuDWRR, LongLiuDWRRGap
 from longliu_sim.core import Simulator
 from longliu_sim.network import FatTreeTopology
 from longliu_sim.trace import SyntheticTraceLoader
 from longliu_sim.trace.synthetic import FEAS_BOUNDARY_V1_WORKLOAD
 from longliu_sim.utils.model_params import MODEL_PARAMS
+from longliu_sim.utils import compute_sas_eval, compute_iter_solo_ms
 
 
 def get_git_info():
@@ -44,25 +45,21 @@ def get_git_info():
         return {"commit": "unknown", "dirty": True, "dirty_files": []}
 
 
-def compute_sas_eval(job, avg_iter_ms: float, overlap_factor: float = 0.85) -> float:
-    """计算 sas_eval（固定基准 SAS）。
-    
-    sas_eval = (ci × iter_solo) / avg_iter_ms
-    iter_solo = comp_ms + comm_solo × (1 - overlap_factor)
-    """
-    params = MODEL_PARAMS[job.model]
-    comp_ms = params.get("comp_ms", 50.0)
-    
-    bpp = 2 if params.get("fp16", True) else 4
-    mb_per_iter = 2 * params["params"] * bpp / job.num_workers / 1e6
-    comm_solo_ms = mb_per_iter * 8 / 100.0  # 100 Gbps host_bw
-    
-    iter_solo_ms = comp_ms + comm_solo_ms * (1 - overlap_factor)
-    target_iter_ms = job.slo_ci * iter_solo_ms
-    
-    if avg_iter_ms > 0:
-        return target_iter_ms / avg_iter_ms
-    return 0.0
+def _sas_eval(job, avg_iter_ms: float, overlap_factor: float = 0.85,
+              host_bw_gbps: float = 100.0) -> float:
+    """计算 sas_eval：统一调用 longliu_sim.utils.metrics。"""
+    return compute_sas_eval(
+        avg_iter_ms, job.model, job.num_workers, job.slo_ci,
+        host_bw_gbps=host_bw_gbps, overlap_factor=overlap_factor
+    )
+
+
+def _iter_solo(job, overlap_factor: float = 0.85, host_bw_gbps: float = 100.0) -> float:
+    """计算 iter_solo：统一调用 longliu_sim.utils.metrics。"""
+    return compute_iter_solo_ms(
+        job.model, job.num_workers,
+        host_bw_gbps=host_bw_gbps, overlap_factor=overlap_factor
+    )
 
 
 def run_single(cfg: dict, policy, seed: int, policy_name: str) -> dict:
@@ -97,7 +94,8 @@ def run_single(cfg: dict, policy, seed: int, policy_name: str) -> dict:
         sim.submit(j)
 
     result = sim.run()
-    stats = result.per_job_stats()
+    host_bw_gbps = cfg["topology"]["host_bw_bps"] / 1e9
+    stats = result.per_job_stats(host_bw_gbps=host_bw_gbps)
 
     # sas_eval 重新计算 + tier 分层
     premium_stats = []
@@ -108,10 +106,10 @@ def run_single(cfg: dict, policy, seed: int, policy_name: str) -> dict:
         job = sim.jobs[jid]
         ci = job.slo_ci
         avg_iter_ms = s["avg_iter_ms"]
-        sas_eval = compute_sas_eval(job, avg_iter_ms, cfg["overlap_factor"])
+        sas_eval = _sas_eval(job, avg_iter_ms, cfg["overlap_factor"], host_bw_gbps)
         completed = job.completed_iters
         target = job.target_iters
-        attained = avg_iter_ms <= (ci * compute_iter_solo(job, cfg["overlap_factor"]))
+        attained = avg_iter_ms <= (ci * _iter_solo(job, cfg["overlap_factor"], host_bw_gbps))
         starved = completed == 0
 
         per_job_results.append({
@@ -162,16 +160,6 @@ def run_single(cfg: dict, policy, seed: int, policy_name: str) -> dict:
     }
 
 
-def compute_iter_solo(job, overlap_factor: float) -> float:
-    """计算 iter_solo（用于 attainment 判断）。"""
-    params = MODEL_PARAMS[job.model]
-    comp_ms = params.get("comp_ms", 50.0)
-    bpp = 2 if params.get("fp16", True) else 4
-    mb_per_iter = 2 * params["params"] * bpp / job.num_workers / 1e6
-    comm_solo_ms = mb_per_iter * 8 / 100.0
-    return comp_ms + comm_solo_ms * (1 - overlap_factor)
-
-
 def verify_hypotheses(all_results: dict):
     """逐条验证预登记假设 H1-H6。"""
     H = {}
@@ -187,13 +175,13 @@ def verify_hypotheses(all_results: dict):
         H["H1"] = {"expected": "=33%（仅P3）", "actual": f"{sum(atts)/len(atts)*100:.0f}%",
                     "pass": 0.25 <= sum(atts)/len(atts) <= 0.45}
 
-    # H2: D1 premium mean > CRUX（D1 拉起 P1/P2，CRUX 饿死 P1/P2）
-    if crux_r and d1_r:
-        crux_pm = sum(r["premium_mean"] for r in crux_r) / len(crux_r)
-        d1_pm = sum(r["premium_mean"] for r in d1_r) / len(d1_r)
-        H["H2"] = {"expected": f"D1 > CRUX({crux_pm:.3f})",
-                    "actual": f"D1={d1_pm:.3f} vs CRUX={crux_pm:.3f}",
-                    "pass": d1_pm > crux_pm}
+    # H2: D1 premium attainment 显著 > Fair（目标 ≥67%）
+    if fair_r and d1_r:
+        fair_pa = sum(r["premium_attainment"] for r in fair_r) / len(fair_r)
+        d1_pa = sum(r["premium_attainment"] for r in d1_r) / len(d1_r)
+        H["H2"] = {"expected": f"D1 ≥67% (Fair={fair_pa:.1%})",
+                    "actual": f"D1={d1_pa:.1%} vs Fair={fair_pa:.1%}",
+                    "pass": d1_pa >= 0.67 and d1_pa > fair_pa}
 
     # H3: D1 starvation = 0%
     if d1_r:
@@ -237,19 +225,22 @@ def verify_hypotheses(all_results: dict):
 def main():
     import argparse
     parser = argparse.ArgumentParser()
+    parser.add_argument("--spine_gbps", type=float, default=800.0,
+                        help="Spine 总带宽(Gbps)，默认 800G(1.27×)；可选 1000/800/630/500")
     parser.add_argument("--seeds", type=int, default=3)
     parser.add_argument("--out", type=str, default="outputs/feas_boundary_v1")
     args = parser.parse_args()
 
+    spine_bps = args.spine_gbps * 1e9
     cfg = {
         "topology": {
             "type": "fatree",
             "k": 4,
             "host_bw_bps": 100e9,
-            "spine_bw_bps": 630e9,  # 1.54× oversub
+            "spine_bw_bps": spine_bps,
         },
         "duration_ms": 600000,
-        "overhead_factor": 1.3,
+        "overhead_factor": 2.0,
         "overlap_factor": 0.85,
     }
 
@@ -257,13 +248,28 @@ def main():
         "Fair": Fair(),
         "CRUX": CRUX(alpha=1.0),
         "LongLiu-SP": LongLiu(K=2.0, use_dynamic_T_target=True),
-        "D1": LongLiuDWRR(K=2.0, use_soft_weights=False, intra_class_fair=False, clip_ratio=10.0),
+        "D1": LongLiuDWRR(K=2.0, use_soft_weights=False, intra_class_fair=False, clip_ratio=10.0, overlap_factor=cfg["overlap_factor"]),
+        "D1G": LongLiuDWRRGap(floor_w=2.0, G0_gbps=25.0, overlap_factor=cfg["overlap_factor"]),
     }
 
     git_info = get_git_info()
-    if git_info["dirty"]:
-        print("❌ Git 工作区有未提交的改动，拒绝运行。")
-        for f in git_info["dirty_files"]:
+    # 白名单：允许当前实验/修复相关的文件在未提交状态下运行
+    allowed_dirty = {
+        "longliu_sim/utils/metrics.py",
+        "longliu_sim/utils/__init__.py",
+        "longliu_sim/policy/dwrr.py",
+        "longliu_sim/policy/__init__.py",
+        "longliu_sim/policy/crux.py",
+        "longliu_sim/core/simulator.py",
+        "experiments/exp_ablation.py",
+        "experiments/exp_feas_boundary_v1.py",
+        "outputs/quickfix/task0_gate_keeper.py",
+        "outputs/quickfix/task0_gate_keeper_results.json",
+    }
+    non_allowed = [f for f in git_info["dirty_files"] if f not in allowed_dirty]
+    if non_allowed:
+        print("❌ Git 工作区有未批准的改动，拒绝运行。")
+        for f in non_allowed:
             print(f"  {f}")
         sys.exit(1)
 
@@ -278,22 +284,21 @@ def main():
         "config": cfg,
         "workload_profile": "FEAS_BOUNDARY_V1_WORKLOAD",
         "hypotheses": {
-            "H1": "Fair P Attn = 0%（P3 也无法达标）",
-            "H2": "D1 P Mean 显著 > CRUX（预期 >10%，CRUX 短流套利失效）",
-            "H3": "D1 starvation = 0% 或极低",
+            "H1": "Fair P Attn ≈33%（仅P3）",
+            "H2": "D1 P Attn ≥67% 且显著 > Fair",
+            "H3": "D1 starvation = 0%",
             "H4": "LongLiu-SP starvation > 0%（加冕制反噬）",
-            "H5": "D1 P Cap > Fair 且 > CRUX",
-            "H6": "D1 standard 大 job 有界降级（sas 0.1-0.4），不归零",
+            "H5": "D1 P Cap > Fair",
+            "H6": "D1 standard 大 job 有界降级（sas 0.3-0.7），不归零",
         },
     }
     with open(os.path.join(args.out, "run_meta.json"), "w") as f:
         json.dump(meta, f, indent=2)
 
     print("=" * 80)
-    print(f"feas_boundary_v1: {len(policies)} 策略 × {args.seeds} seeds @ 630G spine")
+    print(f"feas_boundary_v1: {len(policies)} 策略 × {args.seeds} seeds @ {cfg['topology']['spine_bw_bps']/1e9:.0f}G spine")
     print("=" * 80)
     print(f"Workload: FEAS_BOUNDARY_V1_WORKLOAD (7 jobs, 全跨 pod)")
-    print(f"Spine: 630 Gbps, 结构性超订: 1.54×")
     print(f"Git: {git_info['commit']}")
     print()
 

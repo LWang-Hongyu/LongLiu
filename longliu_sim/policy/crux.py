@@ -1,8 +1,10 @@
 """CRUX 策略：基于 GPU Intensity 的权重分配。
 
 论文 [SIGCOMM'24] CRUX: 面向 GPU 集群的负载感知调度。
-核心思想：分配带宽与 GPU intensity Ij = compute_ms / comm_solo_ms 成正比。
-Intensity 越高 → 通信占比越小 → 可分配更多带宽以快速完成。
+核心思想：分配带宽与 GPU intensity Ij = W_j / t_j 成正比。
+W_j ≈ params (FLOPS ∝ 参数量)，t_j ∝ bits_per_iter / B_e，
+即 Ij ∝ params / bits_per_iter。
+大模型计算量大 → Intensity 高 → 获得更多带宽以释放更多 GPU 计算。
 """
 
 from __future__ import annotations

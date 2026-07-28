@@ -1,0 +1,113 @@
+# config.yaml: 唯一配置源
+# 冻结令：任何变更需显式批准并在 HANDOFF 记录。
+# 此文件入冻结令清单。
+
+semantics_version: "anchor-v2"
+
+# ── 冻结参数（锚点语义，paper-baseline-v2 tag）──
+frozen:
+  overhead_factor: 1.3          # wire 因子，非发明常数
+  overlap_factor: 0.85          # compute-comm 重叠度
+  K: 2.0                        # DWRR deficit 指数增益（16-node FatTree）
+
+# ── 拓扑默认值 ──
+topology:
+  k: 4                          # FatTree 规模
+  host_bw_bps: 100_000_000_000  # 100 Gbps
+  spine_bw_bps: 400_000_000_000 # 400 Gbps（16-node 约定）
+  type: "fatree"
+
+# ── 仿真默认值 ──
+simulation:
+  duration_ms: 600_000           # 10 分钟
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# ── 分层 workload ──
+tiered_workload:
+  premium_ci_threshold: 2.0     # ci <= 2.0 → premium
+  # v2 锚点 ci 分布（用于 baseline 复现）
+  v2_anchor_ci_distribution:
+    1.5: 0.30
+    2.0: 0.35
+    3.0: 0.35
+  # 现行分层 ci 分布
+  ci_distribution:
+    1.2: 0.25
+    1.5: 0.25
+    2.0: 0.30
+    3.0: 0.20
+
+# ── 模型列表 ──
+model_types:
+  - ResNet-18
+  - ResNet-50-fp16
+  - BERT-Base
+  - BERT-Large-fp16
+  - ViT-Base
+  - ViT-Large
+  - LLaMA-2-1B
+  - LLaMA-2-7B
+  - T5-1B
+
+# ── GPU 分布 ──
+gpu_distribution:
+  1: 0.2
+  2: 0.2
+  4: 0.3
+  8: 0.3
+
+# ── Job 数量 ──
+job_count: 24
+num_hosts: 16
+
+# ── v4 分配器 ──
+v4:
+  beta: 0.5                     # standard 降级界限系数
+  premium_ci_threshold: 2.0     # premium/standard 分层阈值
+
+# ── v2 锚点 workload（冻结，用于门禁结果复现）──
+v2_anchor_workload:
+  - [LLaMA-2-13B, 8, 1.5]
+  - [LLaMA-2-13B, 8, 1.5]
+  - [LLaMA-2-13B, 8, 1.5]
+  - [LLaMA-2-13B, 8, 1.5]
+  - [LLaMA-2-7B, 4, 1.5]
+  - [LLaMA-2-7B, 4, 1.5]
+  - [LLaMA-2-7B, 4, 1.5]
+  - [LLaMA-2-7B, 4, 1.5]
+  - [T5-11B-fp16, 8, 1.5]
+  - [T5-11B-fp16, 8, 1.5]
+  - [LLaMA-2-7B, 8, 1.5]
+  - [LLaMA-2-7B, 8, 1.5]
+  - [BERT-Large-fp16, 2, 2.0]
+  - [BERT-Large-fp16, 2, 2.0]
+  - [BERT-Large-fp16, 4, 2.0]
+  - [BERT-Large-fp16, 4, 2.0]
+  - [ViT-Large, 8, 2.0]
+  - [ViT-Large, 8, 2.0]
+  - [ViT-Base, 2, 2.0]
+  - [ViT-Base, 2, 2.0]
+  - [ResNet-18, 1, 3.0]
+  - [ResNet-18, 1, 3.0]
+  - [ResNet-50-fp16, 2, 3.0]
+  - [ResNet-50-fp16, 2, 3.0]
+
+# ── feas_boundary_v3 场景（设计稿，待批准）──
+feas_boundary_v3:
+  spine_bw_gbps: 800
+  job_count: 13
+  premium:
+    - [LLaMA-2-13B, 8, 1.5, 4]
+    - [LLaMA-2-7B, 8, 1.5, 2]
+    - [BERT-Large-fp16, 4, 2.0, 1]
+    - [T5-11B-fp16, 8, 2.0, 1]
+  standard:
+    - [LLaMA-2-13B, 8, 3.0, 2]
+    - [BERT-Large-fp16, 4, 3.0, 2]
+    - [ViT-Base, 2, 3.0, 1]
+  capacity_points: [630, 800, 1000, 1200]  # Gbps
+
+# ── 冻结令清单 ──
+# 此文件及以下键的值变更需显式批准：
+#   frozen.*, topology.*, simulation.*, tiered_workload.*,
+#   model_types, gpu_distribution, v2_anchor_workload

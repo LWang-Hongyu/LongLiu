@@ -1,0 +1,93 @@
+{
+  "trace_path": "outputs/v3_batch3_formal/E1_D1_400g_s0/trace.jsonl",
+  "n_epochs": 28893,
+  "n_contested": 16939,
+  "n_mixed": 6286,
+  "mean_premium_error": -0.0034,
+  "per_job": {
+    "J0": {
+      "obs_mean": 0.3995,
+      "exp_mean": 0.3996,
+      "error": -0.0001,
+      "n": 8197
+    },
+    "J1": {
+      "obs_mean": 0.5959,
+      "exp_mean": 0.5961,
+      "error": -0.0002,
+      "n": 7231
+    },
+    "J2": {
+      "obs_mean": 0.3506,
+      "exp_mean": 0.3503,
+      "error": 0.0003,
+      "n": 6900
+    },
+    "J3": {
+      "obs_mean": 0.0672,
+      "exp_mean": 0.0736,
+      "error": -0.0064,
+      "n": 4729
+    },
+    "J4": {
+      "obs_mean": 0.2754,
+      "exp_mean": 0.2447,
+      "error": 0.0307,
+      "n": 1996
+    },
+    "J5": {
+      "obs_mean": 0.1681,
+      "exp_mean": 0.1865,
+      "error": -0.0184,
+      "n": 4896
+    },
+    "J6": {
+      "obs_mean": 0.1681,
+      "exp_mean": 0.1865,
+      "error": -0.0184,
+      "n": 4896
+    },
+    "J7": {
+      "obs_mean": 0.1341,
+      "exp_mean": 0.1492,
+      "error": -0.0151,
+      "n": 5502
+    },
+    "J8": {
+      "obs_mean": 0.1027,
+      "exp_mean": 0.12,
+      "error": -0.0173,
+      "n": 4993
+    },
+    "J9": {
+      "obs_mean": 0.1885,
+      "exp_mean": 0.184,
+      "error": 0.0044,
+      "n": 4751
+    },
+    "J10": {
+      "obs_mean": 0.1674,
+      "exp_mean": 0.1614,
+      "error": 0.006,
+      "n": 4843
+    },
+    "J11": {
+      "obs_mean": 0.1377,
+      "exp_mean": 0.1412,
+      "error": -0.0036,
+      "n": 3038
+    },
+    "J12": {
+      "obs_mean": 0.2951,
+      "exp_mean": 0.159,
+      "error": 0.1362,
+      "n": 2131
+    },
+    "J13": {
+      "obs_mean": 0.1377,
+      "exp_mean": 0.1412,
+      "error": -0.0036,
+      "n": 3038
+    }
+  }
+}

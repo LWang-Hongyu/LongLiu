@@ -41,7 +41,9 @@ try:
 except ImportError:
     _HAS_SCIPY = False
 
-CI_TIERS = [1.5, 2.0, 3.0]
+# CI_TIERS 必须在运行时从 workload 推断；此处仅保留为向后兼容的兜底。
+# 实际 tier 集合由 _validate_tiers() 从 workload_profile 提取并断言。
+CI_TIERS = [1.2, 2.0, 3.0]
 
 DEFAULT_MODEL_TYPES = [
     "ResNet-18", "ResNet-50-fp16", "BERT-Base", "BERT-Large-fp16",
@@ -49,7 +51,9 @@ DEFAULT_MODEL_TYPES = [
 ]
 DEFAULT_GPU_DIST = {1: 0.2, 2: 0.2, 4: 0.3, 8: 0.3}
 DEFAULT_CI_DIST = {1.5: 0.3, 2.0: 0.35, 3.0: 0.35}
-DEFAULT_OVERHEAD = 1.3  # NCCL/PCIe 协议开销（更真实的校准值）
+# DEFAULT_OVERHEAD 仅用于 SyntheticTraceLoader 内部计算 iter_interval_ms，
+# 不再参与 SAS/T_target 计算；SAS 统一使用 sas_eval 口径（overlap_factor）。
+DEFAULT_OVERHEAD = 2.0
 
 
 def load_config(path: str) -> dict:
@@ -142,36 +146,24 @@ def compute_fairness_metrics(sas_values: list[float]) -> dict:
         gini_sum += (i + 1) * v
     gini = (2 * gini_sum) / (n * total) - (n + 1) / n if total > 0 else 0.0
 
-    # 灾难性违约率 (SAS < 0.2)
-    catastrophic = sum(1 for v in sas_values if v < 0.2) / n
+    # HANDOFF 指标：零迭代 OR SAS < 0.2（零迭代已在 SAS=0 时自然落入此区间）
+    handoff = sum(1 for v in sas_values if v < 0.2) / n
 
-    return {"jain_index": jain, "gini_coeff": gini, "catastrophic_rate": catastrophic}
+    return {"jain_index": jain, "gini_coeff": gini, "handoff_rate": handoff}
 
 
-def compute_fairness_metrics(sas_values: list[float]) -> dict:
-    """计算公平性指标：Jain 公平指数、Gini 系数、灾难性违约率 (SAS<0.2)。"""
-    n = len(sas_values)
-    if n == 0:
-        return {"jain_index": 1.0, "gini_coeff": 0.0, "catastrophic_rate": 0.0}
-
-    sum_sas = sum(sas_values)
-    sum_sas_sq = sum(v * v for v in sas_values)
-
-    # Jain 公平指数
-    jain = (sum_sas ** 2) / (n * sum_sas_sq) if sum_sas_sq > 0 else 1.0
-
-    # Gini 系数
-    sorted_sas = sorted(sas_values)
-    total = sum_sas
-    gini_sum = 0.0
-    for i, v in enumerate(sorted_sas):
-        gini_sum += (i + 1) * v
-    gini = (2 * gini_sum) / (n * total) - (n + 1) / n if total > 0 else 0.0
-
-    # 灾难性违约率 (SAS < 0.2)
-    catastrophic = sum(1 for v in sas_values if v < 0.2) / n
-
-    return {"jain_index": jain, "gini_coeff": gini, "catastrophic_rate": catastrophic}
+def _validate_tiers(workload_profile: list):
+    """从 workload profile 提取实际 ci 集合，并断言无空 tier。"""
+    actual_tiers = sorted({ci for _, _, ci in workload_profile})
+    if not actual_tiers:
+        raise ValueError("workload_profile 为空")
+    # 禁止 CI_TIERS 与实际 tier 不一致导致空集合输出 0.0
+    for ci in actual_tiers:
+        if ci not in CI_TIERS:
+            raise ValueError(
+                f"workload 包含未在 CI_TIERS 中声明的 tier ci={ci}"
+            )
+    return actual_tiers
 
 
 def run_experiment(cfg: dict, policy, seed: int, overhead_factor: float,
@@ -183,34 +175,45 @@ def run_experiment(cfg: dict, policy, seed: int, overhead_factor: float,
                     seed=seed, overhead_factor=overhead_factor,
                     overlap_factor=overlap_factor)
     jobs = generate_jobs(cfg, seed, overhead_factor, static_arrival=static_arrival)
+
+    # 推断实际 tier 集合（从使用的 workload_profile）
+    count = cfg.get("jobs", {}).get("sample_count", cfg.get("jobs", {}).get("count", 24))
+    if count == 128:
+        workload_profile = TABLE4_TIERED_WORKLOAD_128
+    else:
+        workload_profile = cfg.get("jobs", {}).get("workload_profile", DEFAULT_TIERED_WORKLOAD)
+        if workload_profile == "TABLE4_TIERED_WORKLOAD_128":
+            workload_profile = TABLE4_TIERED_WORKLOAD_128
+    actual_tiers = _validate_tiers(workload_profile)
+
     for j in jobs:
         sim.submit(j)
     result = sim.run()
-    stats = result.per_job_stats()
+    host_bw_gbps = cfg["topology"].get("host_bw_bps", 100e9) / 1e9
+    stats = result.per_job_stats(host_bw_gbps=host_bw_gbps)
 
-    tier_meets: dict[float, list[bool]] = {c: [] for c in CI_TIERS}
-    tier_sas: dict[float, list[float]] = {c: [] for c in CI_TIERS}
+    tier_meets: dict[float, list[bool]] = {c: [] for c in actual_tiers}
+    tier_sas: dict[float, list[float]] = {c: [] for c in actual_tiers}
     all_sas: list[float] = []
     for jid, s in stats.items():
         job = sim.jobs[jid]
         ci = job.slo_ci
+        if ci not in tier_meets:
+            raise ValueError(
+                f"job {jid} 的 ci={ci} 不在 actual_tiers={actual_tiers} 中"
+            )
         tier_meets[ci].append(s["meets_slo"])
         tier_sas[ci].append(s["sas"])
         all_sas.append(s["sas"])
 
     out = {"total_iters": result.total_iterations()}
-    for ci in CI_TIERS:
-        if tier_meets[ci]:
-            attainment = sum(tier_meets[ci]) / len(tier_meets[ci])
-        else:
-            attainment = 0.0
+    for ci in actual_tiers:
+        if not tier_meets[ci]:
+            raise ValueError(f"tier ci={ci} 为空，禁止输出 0.0")
+        attainment = sum(tier_meets[ci]) / len(tier_meets[ci])
         out[f"slo_attainment_ci{ci}"] = attainment
-        if tier_sas[ci]:
-            mean_sas = sum(tier_sas[ci]) / len(tier_sas[ci])
-            median_sas = sorted(tier_sas[ci])[len(tier_sas[ci]) // 2]
-        else:
-            mean_sas = 0.0
-            median_sas = 0.0
+        mean_sas = sum(tier_sas[ci]) / len(tier_sas[ci])
+        median_sas = sorted(tier_sas[ci])[len(tier_sas[ci]) // 2]
         out[f"sas_mean_ci{ci}"] = mean_sas
         out[f"sas_median_ci{ci}"] = median_sas
 
@@ -354,11 +357,14 @@ def main():
             results[name].append(r)
             per_seed_sas[name].append(r["sas_mean_overall"])
 
-    metrics = ["total_iters"] + [f"slo_attainment_ci{ci}" for ci in CI_TIERS] + ["slo_attainment_overall"]
+    # 动态 metrics：基于 actual_tiers（从第一个结果推断，假设所有 seed tier 一致）
+    actual_tiers = sorted({float(k.split("ci")[1]) for k in results[list(POLICIES.keys())[0]][0].keys()
+                           if k.startswith("slo_attainment_ci")})
+    metrics = ["total_iters"] + [f"slo_attainment_ci{ci}" for ci in actual_tiers] + ["slo_attainment_overall"]
     sas_metrics = ["sas_mean_overall", "sas_median_overall", "sas_min_overall", "sas_max_overall"] + \
-                  [f"sas_mean_ci{ci}" for ci in CI_TIERS]
+                  [f"sas_mean_ci{ci}" for ci in actual_tiers]
 
-    fairness_metrics = ["jain_index", "gini_coeff", "catastrophic_rate"]
+    fairness_metrics = ["jain_index", "gini_coeff", "handoff_rate"]
     all_metric_names = metrics + sas_metrics + fairness_metrics
 
     summary: dict[str, dict] = {}
@@ -420,31 +426,29 @@ def main():
         f.write("\\label{tab:slo_16host}\n")
         f.write("\\begin{tabular}{l|r|r|r|r|r|r}\n")
         f.write("\\hline\n")
-        f.write("Policy & Total Iters ($\\times 10^4$) & Tight & Medium & Loose & Overall & SAS \\\\\n")
+        # LaTeX 列头动态对齐实际 tier
+        tier_cols = " & ".join(f"ci={ci}" for ci in actual_tiers)
+        f.write(f"Policy & Total Iters ($\\times 10^4$) & {tier_cols} & Overall & SAS \\\\\n")
         f.write("\\hline\n")
         for name in POLICIES:
             s = summary[name]
             total_k = s["total_iters"] / 10000
-            tight = s["slo_attainment_ci1.5"] * 100
-            medium = s["slo_attainment_ci2.0"] * 100
-            loose = s["slo_attainment_ci3.0"] * 100
+            tier_vals = " & ".join(f"{s[f'slo_attainment_ci{ci}']*100:.1f}\\%" for ci in actual_tiers)
             overall = s["slo_attainment_overall"] * 100
             sas_mean = s["sas_mean_overall"]
-            f.write(f"{name} & {total_k:.2f} & {tight:.1f}\\% & {medium:.1f}\\% & {loose:.1f}\\% & {overall:.1f}\\% & {sas_mean:.3f} \\\\\n")
+            f.write(f"{name} & {total_k:.2f} & {tier_vals} & {overall:.1f}\\% & {sas_mean:.3f} \\\\\n")
         f.write("\\hline\n")
         f.write("\\end{tabular}\n")
         f.write("\\end{table}\n")
     print(f"  LaTeX → {tex_path}")
 
     print("\n  Summary (Binary Attainment):")
-    print(f"  {'Policy':<12} {'Total(K)':<10} {'Tight%':<8} {'Medium%':<8} {'Loose%':<8} {'Overall%':<8}")
+    tier_headers = " ".join(f"ci={ci}%".ljust(10) for ci in actual_tiers)
+    print(f"  {'Policy':<12} {'Total(K)':<10} {tier_headers} {'Overall%':<10}")
     for name in POLICIES:
         s = summary[name]
-        print(f"  {name:<12} {s['total_iters']/10000:<10.2f} "
-              f"{s['slo_attainment_ci1.5']*100:<8.1f} "
-              f"{s['slo_attainment_ci2.0']*100:<8.1f} "
-              f"{s['slo_attainment_ci3.0']*100:<8.1f} "
-              f"{s['slo_attainment_overall']*100:<8.1f}")
+        tier_vals = " ".join(f"{s[f'slo_attainment_ci{ci}']*100:<10.1f}" for ci in actual_tiers)
+        print(f"  {name:<12} {s['total_iters']/10000:<10.2f} {tier_vals} {s['slo_attainment_overall']*100:<10.1f}")
 
     print("\n  Summary (SAS - SLO Achievement Score):")
     print(f"  {'Policy':<12} {'Mean SAS':<10} {'Median SAS':<12} {'Min SAS':<10} {'Max SAS':<10} {'p_vs_CRUX':<12}")
@@ -455,11 +459,11 @@ def main():
               f"{s['sas_min_overall']:<10.3f} {s['sas_max_overall']:<10.3f} {p_str:<12}")
 
     print("\n  Summary (Fairness Metrics):")
-    print(f"  {'Policy':<12} {'Jain Index':<12} {'Gini Coeff':<12} {'Catastrophic Rate':<20}")
+    print(f"  {'Policy':<12} {'Jain Index':<12} {'Gini Coeff':<12} {'HANDOFF Rate':<20}")
     for name in POLICIES:
         s = summary[name]
         print(f"  {name:<12} {s.get('jain_index', 0):<12.4f} {s.get('gini_coeff', 0):<12.4f} "
-              f"{s.get('catastrophic_rate', 0):<20.4f}")
+              f"{s.get('handoff_rate', 0):<20.4f}")
 
     per_job_path = os.path.join(out_dir, "per_job.json")
     per_job_data = {}
