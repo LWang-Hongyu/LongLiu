@@ -1,0 +1,12 @@
+=== run_meta: V6 统计重演 复制2 Round 1 (LL→CX) ===
+实验日期: 2026-07-24
+发起机: 10.1 (guolab-10)
+实验类型: V6 统计重演 — 复制2, Round 1: LL→CX (P6 无钳制)
+背景流: 12×500M iperf3 UDP, DSCP=P3 (DSCP=16→tc:2), TOS=64, 6 Gbps
+Warmup: 5 min (背景流持续)
+c_i: tight=1.2, loose=3.0 (epoch 7 翻转)
+T_target: V5 校准 (1024MB, A=4201ms, B=3905ms)
+LongLiu: --initial-priority 3 (无 max_priority 钳制)
+CRUX: --crux-priority-a 3 --crux-priority-b 3
+启动时间: 2026-07-24T16:43:15+08:00
+前序: 复制1完成, 结果一致 (LL tight B P2 1.04-1.14× vs CRUX 1.26-1.31×)

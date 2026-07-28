@@ -1,0 +1,25 @@
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 0: initializing 7 priorities across 1 devices
+[MultiComm] Rank 0: waiting for TCP connections on port 29600...
+[MultiComm] Rank 0: sent 7 IDs to rank 1
+[MultiComm] Rank 0: created communicator for priority P0 (DSCP=0)
+[MultiComm] Rank 0: created communicator for priority P1 (DSCP=8)
+[MultiComm] Rank 0: created communicator for priority P2 (DSCP=16)
+[MultiComm] Rank 0: created communicator for priority P3 (DSCP=24)
+[MultiComm] Rank 0: created communicator for priority P4 (DSCP=32)
+[MultiComm] Rank 0: created communicator for priority P5 (DSCP=40)
+[MultiComm] Rank 0: created communicator for priority P6 (DSCP=48)
+[MultiComm] Rank 0: initialization complete, starting at P6 (DSCP=48)
+[MultiComm] Initialized: rank=0, world_size=2, master=192.10.10.110:29600, priority=P4
+Benchmarking via MultiCommWrapper on Quadro RTX 4000
+payload_mb |     avg_ms |    bw_gbps |  duty_30ms
+-------------------------------------------------------
+        64 |        9.0 |      29.93 |      0.230
+       128 |       17.7 |      30.37 |      0.371
+       256 |       35.2 |      30.49 |      0.540
+       512 |       74.1 |      28.99 |      0.712 <-- V4
+       768 |      104.0 |      30.99 |      0.776
+      1024 |      142.5 |      30.14 |      0.826 <-- V5 target
+[MultiComm] Rank 0: destroyed
+
+Done.

@@ -1,0 +1,9 @@
+round,scheduler,plotted_mean,csv_mean,diff
+orig_r1,LongLiu,1.107480,1.107500,-2.00e-05
+orig_r1,CRUX,1.302200,1.302200,0.00e+00
+orig_r2,LongLiu,1.106880,1.106900,-2.00e-05
+orig_r2,CRUX,1.282360,1.282400,-4.00e-05
+rep2_r1,LongLiu,1.249580,1.249600,-2.00e-05
+rep2_r1,CRUX,1.254080,1.254100,-2.00e-05
+rep2_r2,LongLiu,1.112280,1.112300,-2.00e-05
+rep2_r2,CRUX,1.336520,1.336500,2.00e-05

@@ -1,0 +1,19 @@
+=== 旧 DSCP→TC 映射配置 ===
+来源: slo_scheduler.py / multi_comm.c
+映射公式: trafficClass = priority × 8
+
+P6 → DSCP=48 → tc:6 (最低)
+P5 → DSCP=40 → tc:5 
+P4 → DSCP=32 → tc:4
+P3 → DSCP=24 → tc:3
+P2 → DSCP=16 → tc:2
+P1 → DSCP=8  → tc:1
+P0 → DSCP=0  → tc:0 (最高)
+
+在严格优先级(SP)调度下：
+  tc:0 > tc:1 > tc:2 > tc:3 > tc:4 > tc:5 > tc:6 > tc:7
+因此 P6→tc:6 是最低优先级，P0→tc:0 是最高优先级
+这产生了优先级反转——升到 P6 反而拿到最差的队列
+
+采集命令:
+  mlnx_qos -i mlx5_0

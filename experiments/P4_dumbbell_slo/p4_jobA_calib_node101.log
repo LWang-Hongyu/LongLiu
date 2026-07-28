@@ -1,0 +1,124 @@
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 0: initializing 7 priorities across 1 devices
+[MultiComm] Rank 0: waiting for TCP connections on port 29510...
+[MultiComm] Rank 0: sent 7 IDs to rank 1
+[MultiComm] Rank 0: created communicator for priority P0 (DSCP=0)
+[MultiComm] Rank 0: created communicator for priority P1 (DSCP=8)
+[MultiComm] Rank 0: created communicator for priority P2 (DSCP=16)
+[MultiComm] Rank 0: created communicator for priority P3 (DSCP=24)
+[MultiComm] Rank 0: created communicator for priority P4 (DSCP=32)
+[MultiComm] Rank 0: created communicator for priority P5 (DSCP=40)
+[MultiComm] Rank 0: created communicator for priority P6 (DSCP=48)
+[MultiComm] Rank 0: initialization complete, starting at P6 (DSCP=48)
+[MultiComm] Initialized: rank=0, world_size=2, master=192.10.10.110:29510, priority=P4
+[JobA-LONGLIU-CALIB] solo calibration: 5 epochs, payload=1024MB, c_i=1.7
+[MultiComm] Rank 0: switching priority P6 -> P4 (DSCP 48 -> 32)
+[JobA-CALIB] epoch 0 iter 0: comm=293.7ms
+[JobA-CALIB] epoch 0 iter 1: comm=180.9ms
+[JobA-CALIB] epoch 0 iter 2: comm=183.2ms
+[JobA-CALIB] epoch 0 iter 3: comm=155.9ms
+[JobA-CALIB] epoch 0 iter 4: comm=169.0ms
+[JobA-CALIB] epoch 0 iter 5: comm=177.5ms
+[JobA-CALIB] epoch 0 iter 6: comm=184.8ms
+[JobA-CALIB] epoch 0 iter 7: comm=180.1ms
+[JobA-CALIB] epoch 0 iter 8: comm=167.9ms
+[JobA-CALIB] epoch 0 iter 9: comm=187.9ms
+[JobA-CALIB] epoch 0 iter 10: comm=181.9ms
+[JobA-CALIB] epoch 0 iter 11: comm=186.5ms
+[JobA-CALIB] epoch 0 iter 12: comm=197.1ms
+[JobA-CALIB] epoch 0 iter 13: comm=178.7ms
+[JobA-CALIB] epoch 0 iter 14: comm=175.5ms
+[JobA-CALIB] epoch 0 iter 15: comm=185.2ms
+[JobA-CALIB] epoch 0 iter 16: comm=169.8ms
+[JobA-CALIB] epoch 0 iter 17: comm=180.3ms
+[JobA-CALIB] epoch 0 iter 18: comm=180.5ms
+[JobA-CALIB] epoch 0 iter 19: comm=166.2ms
+[SLO] T_target initialized: 3685.1ms (c_i=1.7, SLO target=6264.7ms)
+[SLO] Epoch 1: π=-0.412 (A=3.69s, expected=6.26s, T_target=3685.1ms, k=1), Priority P4 -> P2 (DSCP 32 -> 16)
+[MultiComm] Rank 0: switching priority P4 -> P2 (DSCP 32 -> 16)
+[JobA-CALIB] epoch 1 iter 0: comm=375.8ms
+[JobA-CALIB] epoch 1 iter 1: comm=218.0ms
+[JobA-CALIB] epoch 1 iter 2: comm=217.5ms
+[JobA-CALIB] epoch 1 iter 3: comm=249.3ms
+[JobA-CALIB] epoch 1 iter 4: comm=218.6ms
+[JobA-CALIB] epoch 1 iter 5: comm=205.5ms
+[JobA-CALIB] epoch 1 iter 6: comm=231.5ms
+[JobA-CALIB] epoch 1 iter 7: comm=214.4ms
+[JobA-CALIB] epoch 1 iter 8: comm=227.0ms
+[JobA-CALIB] epoch 1 iter 9: comm=220.4ms
+[JobA-CALIB] epoch 1 iter 10: comm=218.1ms
+[JobA-CALIB] epoch 1 iter 11: comm=239.2ms
+[JobA-CALIB] epoch 1 iter 12: comm=210.8ms
+[JobA-CALIB] epoch 1 iter 13: comm=223.5ms
+[JobA-CALIB] epoch 1 iter 14: comm=214.1ms
+[JobA-CALIB] epoch 1 iter 15: comm=202.2ms
+[JobA-CALIB] epoch 1 iter 16: comm=213.6ms
+[JobA-CALIB] epoch 1 iter 17: comm=234.7ms
+[JobA-CALIB] epoch 1 iter 18: comm=231.1ms
+[JobA-CALIB] epoch 1 iter 19: comm=211.6ms
+[SLO] T_target EMA update (warmup): 3953.2ms (delta=+268.1ms, epoch=2)
+[JobA-CALIB] epoch 2 iter 0: comm=221.9ms
+[JobA-CALIB] epoch 2 iter 1: comm=207.9ms
+[JobA-CALIB] epoch 2 iter 2: comm=197.5ms
+[JobA-CALIB] epoch 2 iter 3: comm=235.5ms
+[JobA-CALIB] epoch 2 iter 4: comm=199.9ms
+[JobA-CALIB] epoch 2 iter 5: comm=196.9ms
+[JobA-CALIB] epoch 2 iter 6: comm=208.0ms
+[JobA-CALIB] epoch 2 iter 7: comm=224.2ms
+[JobA-CALIB] epoch 2 iter 8: comm=232.7ms
+[JobA-CALIB] epoch 2 iter 9: comm=218.9ms
+[JobA-CALIB] epoch 2 iter 10: comm=220.4ms
+[JobA-CALIB] epoch 2 iter 11: comm=229.4ms
+[JobA-CALIB] epoch 2 iter 12: comm=224.6ms
+[JobA-CALIB] epoch 2 iter 13: comm=233.2ms
+[JobA-CALIB] epoch 2 iter 14: comm=179.9ms
+[JobA-CALIB] epoch 2 iter 15: comm=214.2ms
+[JobA-CALIB] epoch 2 iter 16: comm=209.8ms
+[JobA-CALIB] epoch 2 iter 17: comm=201.0ms
+[JobA-CALIB] epoch 2 iter 18: comm=247.4ms
+[JobA-CALIB] epoch 2 iter 19: comm=189.2ms
+[SLO] T_target EMA update (warmup): 4055.6ms (delta=+102.4ms, epoch=3)
+[JobA-CALIB] epoch 3 iter 0: comm=231.0ms
+[JobA-CALIB] epoch 3 iter 1: comm=215.6ms
+[JobA-CALIB] epoch 3 iter 2: comm=239.3ms
+[JobA-CALIB] epoch 3 iter 3: comm=245.1ms
+[JobA-CALIB] epoch 3 iter 4: comm=214.8ms
+[JobA-CALIB] epoch 3 iter 5: comm=221.9ms
+[JobA-CALIB] epoch 3 iter 6: comm=213.5ms
+[JobA-CALIB] epoch 3 iter 7: comm=223.5ms
+[JobA-CALIB] epoch 3 iter 8: comm=215.6ms
+[JobA-CALIB] epoch 3 iter 9: comm=254.7ms
+[JobA-CALIB] epoch 3 iter 10: comm=211.6ms
+[JobA-CALIB] epoch 3 iter 11: comm=168.9ms
+[JobA-CALIB] epoch 3 iter 12: comm=200.4ms
+[JobA-CALIB] epoch 3 iter 13: comm=225.4ms
+[JobA-CALIB] epoch 3 iter 14: comm=197.0ms
+[JobA-CALIB] epoch 3 iter 15: comm=216.6ms
+[JobA-CALIB] epoch 3 iter 16: comm=210.6ms
+[JobA-CALIB] epoch 3 iter 17: comm=217.8ms
+[JobA-CALIB] epoch 3 iter 18: comm=195.1ms
+[JobA-CALIB] epoch 3 iter 19: comm=234.7ms
+[SLO] T_target EMA update (warmup): 4145.4ms (delta=+89.8ms, epoch=4)
+[JobA-CALIB] epoch 4 iter 0: comm=212.4ms
+[JobA-CALIB] epoch 4 iter 1: comm=205.8ms
+[JobA-CALIB] epoch 4 iter 2: comm=201.5ms
+[JobA-CALIB] epoch 4 iter 3: comm=222.0ms
+[JobA-CALIB] epoch 4 iter 4: comm=235.6ms
+[JobA-CALIB] epoch 4 iter 5: comm=202.5ms
+[JobA-CALIB] epoch 4 iter 6: comm=225.3ms
+[JobA-CALIB] epoch 4 iter 7: comm=241.4ms
+[JobA-CALIB] epoch 4 iter 8: comm=210.9ms
+[JobA-CALIB] epoch 4 iter 9: comm=216.0ms
+[JobA-CALIB] epoch 4 iter 10: comm=201.7ms
+[JobA-CALIB] epoch 4 iter 11: comm=239.6ms
+[JobA-CALIB] epoch 4 iter 12: comm=212.9ms
+[JobA-CALIB] epoch 4 iter 13: comm=204.7ms
+[JobA-CALIB] epoch 4 iter 14: comm=216.0ms
+[JobA-CALIB] epoch 4 iter 15: comm=210.5ms
+[JobA-CALIB] epoch 4 iter 16: comm=248.3ms
+[JobA-CALIB] epoch 4 iter 17: comm=205.4ms
+[JobA-CALIB] epoch 4 iter 18: comm=202.5ms
+[JobA-CALIB] epoch 4 iter 19: comm=214.0ms
+[SLO] T_target EMA update (warmup): 4201.1ms (delta=+55.7ms, epoch=5)
+[JobA-CALIB] T_target=4201.09ms written to /tmp/ttarget_v5_jobA.json
+[MultiComm] Rank 0: destroyed

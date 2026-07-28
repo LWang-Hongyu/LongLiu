@@ -1,0 +1,129 @@
+================================================================================
+P4-1 Role-Reversal V4 Analysis (c_i swap, same payload, solo pre-learning)
+================================================================================
+
+T_target acquisition: SOLO PRE-LEARNING (Phase 0 calibration)
+  Job A (512MB): T_target = 1504.513ms/epoch = 75.2ms/iter
+  Job B (512MB): T_target = 1405.502ms/epoch = 70.3ms/iter
+SLO: c_i swaps at epoch 7
+  Phase 1 (epochs 0-6): A c_i=1.6 (tight), B c_i=3.0 (loose)
+  Phase 2 (epochs 7-14): A c_i=3.0 (loose), B c_i=1.6 (tight)
+  SLO target per iter (phase 1): Job A = 120.4ms, Job B = 210.8ms
+  SLO target per iter (phase 2): Job A = 225.7ms, Job B = 112.4ms
+Reversal: epoch 7 (c_i swap, same payload 512MB)
+
+--------------------------------------------------------------------------------
+Mode: longliu (scheduler=v1(π), queue=SP)
+--------------------------------------------------------------------------------
+
+  Job A:
+    Phase 1 (payload=512MB, 7 epochs):
+      avg_comm  = 74.8 ms/iter
+      avg_bw    = 29.34 Gbps
+      avg_prio  = P2.0
+      avg_π     = -0.354
+      avg_slow  = 0.621x (SLO≤1.0)
+      SLO met   = 7/7 epochs
+    Phase 2 (payload=512MB, 8 epochs):
+      avg_comm  = 124.4 ms/iter
+      avg_bw    = 17.56 Gbps
+      avg_prio  = P1.0
+      avg_π     = -0.590
+      avg_slow  = 0.551x (SLO≤1.0)
+      SLO met   = 8/8 epochs
+    Priority trajectory: [2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+
+  Job B:
+    Phase 1 (payload=512MB, 7 epochs):
+      avg_comm  = 132.3 ms/iter
+      avg_bw    = 16.53 Gbps
+      avg_prio  = P2.0
+      avg_π     = -0.338
+      avg_slow  = 0.627x (SLO≤1.0)
+      SLO met   = 7/7 epochs
+    Phase 2 (payload=512MB, 8 epochs):
+      avg_comm  = 71.0 ms/iter
+      avg_bw    = 31.20 Gbps
+      avg_prio  = P3.8
+      avg_π     = +0.002
+      avg_slow  = 0.631x (SLO≤1.0)
+      SLO met   = 8/8 epochs
+    Priority trajectory: [2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 2]
+--------------------------------------------------------------------------------
+Mode: crux (scheduler=CRUX-static, queue=SP)
+--------------------------------------------------------------------------------
+
+  Job A:
+    Phase 1 (payload=512MB, 7 epochs):
+      avg_comm  = 99.7 ms/iter
+      avg_bw    = 23.21 Gbps
+      avg_prio  = P3.0
+      avg_π     = -0.249
+      avg_slow  = 0.828x (SLO≤1.0)
+      SLO met   = 6/7 epochs
+    Phase 2 (payload=512MB, 8 epochs):
+      avg_comm  = 172.2 ms/iter
+      avg_bw    = 12.61 Gbps
+      avg_prio  = P3.0
+      avg_π     = -0.436
+      avg_slow  = 0.763x (SLO≤1.0)
+      SLO met   = 8/8 epochs
+    Priority trajectory: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+
+  Job B:
+    Phase 1 (payload=512MB, 7 epochs):
+      avg_comm  = 171.1 ms/iter
+      avg_bw    = 12.71 Gbps
+      avg_prio  = P3.0
+      avg_π     = -0.173
+      avg_slow  = 0.812x (SLO≤1.0)
+      SLO met   = 7/7 epochs
+    Phase 2 (payload=512MB, 8 epochs):
+      avg_comm  = 91.6 ms/iter
+      avg_bw    = 28.02 Gbps
+      avg_prio  = P3.0
+      avg_π     = +0.349
+      avg_slow  = 0.815x (SLO≤1.0)
+      SLO met   = 6/8 epochs
+    Priority trajectory: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+
+================================================================================
+FORM DESCRIPTION (data shapes only, no conclusions)
+================================================================================
+
+1. Priority trajectory (per epoch):
+   LongLiu v1(π):
+     Job A: [2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+     Job B: [2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 2]
+   CRUX-static:
+     Job A: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+     Job B: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+
+2. π trajectory (per epoch):
+   LongLiu v1(π):
+     Job A: [-0.33, -0.33, -0.35, -0.35, -0.36, -0.37, -0.38, -0.65, -0.63, -0.61, -0.59, -0.58, -0.56, -0.55, -0.55]
+     Job B: [-0.29, -0.32, -0.34, -0.35, -0.35, -0.36, -0.36, +0.16, +0.09, +0.04, +0.00, -0.03, -0.06, -0.08, -0.10]
+
+3. Slowdown vs phase-specific c_i trajectory (per epoch):
+   (slowdown = avg_comm / (c_i × T_target_per_iter); > 1.0 = SLO violated)
+   Phase 1 c_i: A=1.6, B=3.0; Phase 2 c_i: A=3.0, B=1.6
+   LongLiu v1(π):
+     Job A: [0.67, 0.66, 0.62, 0.64, 0.61, 0.57, 0.59, 0.45, 0.55, 0.56, 0.58, 0.57, 0.57, 0.57, 0.57]
+     Job B: [0.70, 0.64, 0.61, 0.62, 0.61, 0.60, 0.60, 0.87, 0.59, 0.59, 0.60, 0.60, 0.60, 0.59, 0.62]
+   CRUX-static:
+     Job A: [0.74, 0.75, 0.73, 0.76, 0.70, 0.74, 1.39, 0.77, 0.75, 0.77, 0.76, 0.76, 0.79, 0.75, 0.75]
+     Job B: [0.83, 0.82, 0.79, 0.81, 0.81, 0.79, 0.83, 1.48, 1.52, 0.65, 0.57, 0.57, 0.56, 0.58, 0.58]
+
+4. Per-epoch avg comm time (ms/iter):
+   LongLiu v1(π):
+     Job A: [80, 80, 74, 77, 73, 69, 71, 101, 124, 127, 131, 128, 128, 128, 128]
+     Job B: [147, 136, 129, 130, 129, 127, 127, 98, 66, 67, 67, 67, 67, 67, 70]
+   CRUX-static:
+     Job A: [89, 90, 87, 91, 85, 89, 167, 174, 170, 174, 172, 171, 177, 170, 170]
+     Job B: [175, 172, 167, 171, 172, 166, 175, 167, 171, 73, 64, 64, 63, 66, 65]
+
+5. Phase 2 SLO violation count (slowdown > 1.0):
+   LongLiu v1(π) Job A: 0/8 epochs violated
+   LongLiu v1(π) Job B: 0/8 epochs violated
+   CRUX-static Job A: 0/8 epochs violated
+   CRUX-static Job B: 2/8 epochs violated

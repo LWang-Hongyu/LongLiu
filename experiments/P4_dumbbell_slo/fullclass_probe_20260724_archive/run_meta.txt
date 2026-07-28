@@ -1,0 +1,70 @@
+=== run_meta: 全类探测 P0-P7 vs 6G P3 背景流 ===
+实验日期: 2026-07-24
+发起机: 10.1 (guolab-10)
+探针方向: 10.1 → 226 (iperf3 UDP, 1G 探针 vs 6G P3 背景)
+
+背景流配置:
+  协议: iperf3 UDP
+  路数: 12 × 500 Mbps
+  总速率: 6 Gbps
+  DSCP: P3 (DSCP=24 → TOS=96)
+  端口: 6200-6211
+  时长: 300s
+  接收端: 226
+
+探针配置:
+  协议: iperf3 UDP
+  每探针速率: 1000 Mbps
+  每探针时长: 15s (5s 稳定 + 10s 测量)
+  DSCP 值: 0, 8, 16, 24, 32, 40, 48, 56 (step 8, 对应 P0-P7)
+  探针端口: 6212 (独立于背景流端口)
+  TOS 计算: TOS = DSCP << 2
+
+测量内容:
+  1. 探针吞吐 (server 端 goodput, Gbps)
+  2. 探针丢包率 (%)
+  3. NIC tx_prio 计数器 (10.1 enp130s0f0np0, 226 enp59s0f0np0)
+  4. RoCE hw_counters (10.1 和 226 的 IB 端口计数器)
+
+原始数据:
+  探针日志: /tmp/dscp_probe_${TIMESTAMP}/probe_*.log (已清理)
+  NIC prio 计数器: /tmp/dscp_probe_${TIMESTAMP}/eth_prio_*.txt (已清理)
+  RoCE 计数器: /tmp/dscp_probe_${TIMESTAMP}/roce_*.txt (已清理)
+  文档转录: QUOTA_EXPERIMENT_RESULTS.md L1176-L1202
+
+脚本: probe_dscp_priority.sh (hash: d41c8fc8c73e308eb3881a3a8b5101ce)
+
+关键结论:
+  探针吞吐 (server 端测量, 226 为接收瓶颈, 86% UDP 丢包):
+    | DSCP | 优先级名 | 探针吞吐 | 丢包率 |
+    |:---:|:-------:|:--------:|:-----:|
+    | 0   | P0      | 0.00 Gbps | 0%    |
+    | 8   | P1      | 0.88 Gbps | 12%   |
+    | 16  | P2      | 0.34 Gbps | 0.56% |
+    | 24  | P3      | 0.01 Gbps | 99%   |
+    | 32  | P4      | 0.00 Gbps | 0%    |
+    | 40  | P5      | 0.02 Gbps | 88%   |
+    | 48  | P6      | 0.02 Gbps | 97%   |
+    | 56  | P7      | 0.00 Gbps | 0%    |
+
+  RoCE 计数器基线 (探针前后无变化 — iperf3 UDP 不经 RoCE 路径):
+    10.1: out_of_sequence=2.2M, np_ecn_marked_roce_packets=112M,
+          np_cnp_sent=42M, roce_adp_retrans=276K
+    226:  全部 ≈ 0
+
+  NIC tx_prio 计数器:
+    10.1 NIC 有效 DSCP→prio 映射:
+      tx_prio3: 5.3TB (P3 背景流)
+      tx_prio4: 49GB
+      tx_prio6: 1.2GB
+    226 NIC 完全不映射: 全部 8 个 prio 计数器均为 0
+
+  解读: iperf3 UDP 探针吞吐不能可靠反映交换机级 DSCP 优先级排序,
+       因为 226 是接收端瓶颈 (86% 损失), P1 的 0.88 Gbps 高值
+       更可能是 226 接收端 UDP buffer 分配结果。
+       10.1 NIC 的 tx_prio 计数器证实 DSCP 标记已正确写入,
+       但 226 不分类导致交换机级优先级隔离失效。
+
+  辅助实验: 226 分类能力探针 (probe_226_classify.sh, V2 反向模式)
+    结论: 226 NIC 硬件/驱动不支持 DSCP→prio 分类,
+         所有流量走 tx_prio0 / rx_prio0。

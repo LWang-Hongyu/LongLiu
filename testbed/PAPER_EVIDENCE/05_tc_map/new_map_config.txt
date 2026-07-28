@@ -1,0 +1,22 @@
+=== 修正后 DSCP→TC 映射配置 ===
+来源: slo_scheduler.py PRIORITY_TO_DSCP, multi_comm.c prio_dscp[]
+修正后: 软件优先级 → 正确 DSCP 值
+
+P6 → DSCP=8  → tc:0 (最高)
+P5 → DSCP=16 → tc:2
+P4 → DSCP=0  → tc:1 (第二)
+P3 → DSCP=16 → tc:2
+P2 → DSCP=24 → tc:3
+P1 → DSCP=32 → tc:4
+P0 → DSCP=40 → tc:5
+
+在严格优先级(SP)调度下：
+  tc:0 (P6) > tc:1 (P4) > tc:2 (P3/P5) > tc:3 (P2) > ...
+
+修正后优先级排序与软件命名一致:
+  P6 > P4 > P3 > P2 > P1 > P0
+
+采集命令:
+  mlnx_qos -i mlx5_0 --trust dscp
+  # 读侧硬件配置确认 tc→prio→dscp 映射
+  # 注意: mlnx_qos 只读, 实际 DSCP→TC 由硬件 trust dscp 模式自动完成

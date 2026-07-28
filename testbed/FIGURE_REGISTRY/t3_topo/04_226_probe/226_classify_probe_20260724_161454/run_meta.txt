@@ -1,0 +1,10 @@
+=== run_meta: 226 分类能力探针 (V2) ===
+实验日期: 2026-07-24
+发起机: 10.1 (guolab-10)
+探针方向: 226 → 10.1 (反向模式 iperf3)
+探针速率: 200M iperf3 UDP, DSCP 0-56 step 8, 20s each
+相一: 反向模式探针, 测 226 tx_prio 增量 (判断 226 是否分类)
+相二: 6G P3 (12×500M) 背景流 10.1→226, 测 226 rx_prio 增量
+脚本: probe_226_classify.sh (hash: 48d63545414a3c5bfc6ddd21ed73c574)
+解决 226→10.1 TCP 阻断: 使用 --reverse 模式, 10.1→226 TCP 控制通道
+结果目录: /home/why/LongLiu_rebuild/experiments/P4_dumbbell_slo/226_classify_probe_20260724_161454

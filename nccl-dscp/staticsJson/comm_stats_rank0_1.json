@@ -1,0 +1,5910 @@
+{
+  "version": "1.0",
+  "enabled": true,
+  "total_iterations": 160,
+  "batches_per_epoch": 16,
+  "total_epochs": 10,
+  "epochs": [
+    {
+      "epoch": 0,
+      "start_iteration": 0,
+      "end_iteration": 159,
+      "num_iterations": 160,
+      "iterations": [
+        {
+          "iteration": 0,
+          "total_bytes": 40112,
+          "start_time": 185759.697913945,
+          "end_time": 185760.545113701,
+          "duration": 0.847199756,
+          "num_ops": 4,
+          "operations": [
+            {
+              "func": "AllGather",
+              "bytes": 16,
+              "start_time": 185759.697913945,
+              "end_time": 185759.697929253,
+              "duration": 0.000015308,
+              "rank": 0,
+              "iteration": 0
+            },
+            {
+              "func": "Broadcast",
+              "bytes": 144,
+              "start_time": 185759.707269127,
+              "end_time": 185759.707272929,
+              "duration": 0.000003802,
+              "rank": 0,
+              "iteration": 0
+            },
+            {
+              "func": "Broadcast",
+              "bytes": 19976,
+              "start_time": 185759.713662914,
+              "end_time": 185759.713665318,
+              "duration": 0.000002404,
+              "rank": 0,
+              "iteration": 0
+            },
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.545104059,
+              "end_time": 185760.545113701,
+              "duration": 0.000009642,
+              "rank": 0,
+              "iteration": 0
+            }
+          ]
+        },
+        {
+          "iteration": 1,
+          "total_bytes": 20008,
+          "start_time": 185760.623870885,
+          "end_time": 185760.625839884,
+          "duration": 0.001968999,
+          "num_ops": 3,
+          "operations": [
+            {
+              "func": "Broadcast",
+              "bytes": 28,
+              "start_time": 185760.623870885,
+              "end_time": 185760.623876573,
+              "duration": 0.000005688,
+              "rank": 0,
+              "iteration": 1
+            },
+            {
+              "func": "Broadcast",
+              "bytes": 4,
+              "start_time": 185760.624020802,
+              "end_time": 185760.624022299,
+              "duration": 0.000001497,
+              "rank": 0,
+              "iteration": 1
+            },
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.625837681,
+              "end_time": 185760.625839884,
+              "duration": 0.000002203,
+              "rank": 0,
+              "iteration": 1
+            }
+          ]
+        },
+        {
+          "iteration": 2,
+          "total_bytes": 19976,
+          "start_time": 185760.628671627,
+          "end_time": 185760.628673825,
+          "duration": 0.000002198,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.628671627,
+              "end_time": 185760.628673825,
+              "duration": 0.000002198,
+              "rank": 0,
+              "iteration": 2
+            }
+          ]
+        },
+        {
+          "iteration": 3,
+          "total_bytes": 19976,
+          "start_time": 185760.631246263,
+          "end_time": 185760.631248414,
+          "duration": 0.000002151,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.631246263,
+              "end_time": 185760.631248414,
+              "duration": 0.000002151,
+              "rank": 0,
+              "iteration": 3
+            }
+          ]
+        },
+        {
+          "iteration": 4,
+          "total_bytes": 19976,
+          "start_time": 185760.634077953,
+          "end_time": 185760.634080679,
+          "duration": 0.000002726,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.634077953,
+              "end_time": 185760.634080679,
+              "duration": 0.000002726,
+              "rank": 0,
+              "iteration": 4
+            }
+          ]
+        },
+        {
+          "iteration": 5,
+          "total_bytes": 19976,
+          "start_time": 185760.636903230,
+          "end_time": 185760.636906859,
+          "duration": 0.000003629,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.636903230,
+              "end_time": 185760.636906859,
+              "duration": 0.000003629,
+              "rank": 0,
+              "iteration": 5
+            }
+          ]
+        },
+        {
+          "iteration": 6,
+          "total_bytes": 19976,
+          "start_time": 185760.639786737,
+          "end_time": 185760.639789109,
+          "duration": 0.000002372,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.639786737,
+              "end_time": 185760.639789109,
+              "duration": 0.000002372,
+              "rank": 0,
+              "iteration": 6
+            }
+          ]
+        },
+        {
+          "iteration": 7,
+          "total_bytes": 19976,
+          "start_time": 185760.642767583,
+          "end_time": 185760.642770019,
+          "duration": 0.000002436,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.642767583,
+              "end_time": 185760.642770019,
+              "duration": 0.000002436,
+              "rank": 0,
+              "iteration": 7
+            }
+          ]
+        },
+        {
+          "iteration": 8,
+          "total_bytes": 19976,
+          "start_time": 185760.645842906,
+          "end_time": 185760.645845491,
+          "duration": 0.000002585,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.645842906,
+              "end_time": 185760.645845491,
+              "duration": 0.000002585,
+              "rank": 0,
+              "iteration": 8
+            }
+          ]
+        },
+        {
+          "iteration": 9,
+          "total_bytes": 19976,
+          "start_time": 185760.648918454,
+          "end_time": 185760.648921380,
+          "duration": 0.000002926,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.648918454,
+              "end_time": 185760.648921380,
+              "duration": 0.000002926,
+              "rank": 0,
+              "iteration": 9
+            }
+          ]
+        },
+        {
+          "iteration": 10,
+          "total_bytes": 19976,
+          "start_time": 185760.651665494,
+          "end_time": 185760.651668145,
+          "duration": 0.000002651,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.651665494,
+              "end_time": 185760.651668145,
+              "duration": 0.000002651,
+              "rank": 0,
+              "iteration": 10
+            }
+          ]
+        },
+        {
+          "iteration": 11,
+          "total_bytes": 19976,
+          "start_time": 185760.654626258,
+          "end_time": 185760.654628832,
+          "duration": 0.000002574,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.654626258,
+              "end_time": 185760.654628832,
+              "duration": 0.000002574,
+              "rank": 0,
+              "iteration": 11
+            }
+          ]
+        },
+        {
+          "iteration": 12,
+          "total_bytes": 19976,
+          "start_time": 185760.657731163,
+          "end_time": 185760.657733710,
+          "duration": 0.000002547,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.657731163,
+              "end_time": 185760.657733710,
+              "duration": 0.000002547,
+              "rank": 0,
+              "iteration": 12
+            }
+          ]
+        },
+        {
+          "iteration": 13,
+          "total_bytes": 19976,
+          "start_time": 185760.660851952,
+          "end_time": 185760.660854595,
+          "duration": 0.000002643,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.660851952,
+              "end_time": 185760.660854595,
+              "duration": 0.000002643,
+              "rank": 0,
+              "iteration": 13
+            }
+          ]
+        },
+        {
+          "iteration": 14,
+          "total_bytes": 19976,
+          "start_time": 185760.664028669,
+          "end_time": 185760.664031196,
+          "duration": 0.000002527,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.664028669,
+              "end_time": 185760.664031196,
+              "duration": 0.000002527,
+              "rank": 0,
+              "iteration": 14
+            }
+          ]
+        },
+        {
+          "iteration": 15,
+          "total_bytes": 19976,
+          "start_time": 185760.666966899,
+          "end_time": 185760.666969399,
+          "duration": 0.000002500,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.666966899,
+              "end_time": 185760.666969399,
+              "duration": 0.000002500,
+              "rank": 0,
+              "iteration": 15
+            }
+          ]
+        },
+        {
+          "iteration": 16,
+          "total_bytes": 19976,
+          "start_time": 185760.670109965,
+          "end_time": 185760.670112340,
+          "duration": 0.000002375,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.670109965,
+              "end_time": 185760.670112340,
+              "duration": 0.000002375,
+              "rank": 0,
+              "iteration": 16
+            }
+          ]
+        },
+        {
+          "iteration": 17,
+          "total_bytes": 19976,
+          "start_time": 185760.672827825,
+          "end_time": 185760.672830241,
+          "duration": 0.000002416,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.672827825,
+              "end_time": 185760.672830241,
+              "duration": 0.000002416,
+              "rank": 0,
+              "iteration": 17
+            }
+          ]
+        },
+        {
+          "iteration": 18,
+          "total_bytes": 19976,
+          "start_time": 185760.675746730,
+          "end_time": 185760.675749444,
+          "duration": 0.000002714,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.675746730,
+              "end_time": 185760.675749444,
+              "duration": 0.000002714,
+              "rank": 0,
+              "iteration": 18
+            }
+          ]
+        },
+        {
+          "iteration": 19,
+          "total_bytes": 19976,
+          "start_time": 185760.678876605,
+          "end_time": 185760.678879923,
+          "duration": 0.000003318,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.678876605,
+              "end_time": 185760.678879923,
+              "duration": 0.000003318,
+              "rank": 0,
+              "iteration": 19
+            }
+          ]
+        },
+        {
+          "iteration": 20,
+          "total_bytes": 19976,
+          "start_time": 185760.681857622,
+          "end_time": 185760.681860340,
+          "duration": 0.000002718,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.681857622,
+              "end_time": 185760.681860340,
+              "duration": 0.000002718,
+              "rank": 0,
+              "iteration": 20
+            }
+          ]
+        },
+        {
+          "iteration": 21,
+          "total_bytes": 19976,
+          "start_time": 185760.684780700,
+          "end_time": 185760.684784056,
+          "duration": 0.000003356,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.684780700,
+              "end_time": 185760.684784056,
+              "duration": 0.000003356,
+              "rank": 0,
+              "iteration": 21
+            }
+          ]
+        },
+        {
+          "iteration": 22,
+          "total_bytes": 19976,
+          "start_time": 185760.687684865,
+          "end_time": 185760.687687358,
+          "duration": 0.000002493,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.687684865,
+              "end_time": 185760.687687358,
+              "duration": 0.000002493,
+              "rank": 0,
+              "iteration": 22
+            }
+          ]
+        },
+        {
+          "iteration": 23,
+          "total_bytes": 19976,
+          "start_time": 185760.690895157,
+          "end_time": 185760.690897831,
+          "duration": 0.000002674,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.690895157,
+              "end_time": 185760.690897831,
+              "duration": 0.000002674,
+              "rank": 0,
+              "iteration": 23
+            }
+          ]
+        },
+        {
+          "iteration": 24,
+          "total_bytes": 19976,
+          "start_time": 185760.693819319,
+          "end_time": 185760.693821858,
+          "duration": 0.000002539,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.693819319,
+              "end_time": 185760.693821858,
+              "duration": 0.000002539,
+              "rank": 0,
+              "iteration": 24
+            }
+          ]
+        },
+        {
+          "iteration": 25,
+          "total_bytes": 19976,
+          "start_time": 185760.697024879,
+          "end_time": 185760.697027523,
+          "duration": 0.000002644,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.697024879,
+              "end_time": 185760.697027523,
+              "duration": 0.000002644,
+              "rank": 0,
+              "iteration": 25
+            }
+          ]
+        },
+        {
+          "iteration": 26,
+          "total_bytes": 19976,
+          "start_time": 185760.700247075,
+          "end_time": 185760.700249713,
+          "duration": 0.000002638,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.700247075,
+              "end_time": 185760.700249713,
+              "duration": 0.000002638,
+              "rank": 0,
+              "iteration": 26
+            }
+          ]
+        },
+        {
+          "iteration": 27,
+          "total_bytes": 19976,
+          "start_time": 185760.703215403,
+          "end_time": 185760.703217841,
+          "duration": 0.000002438,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.703215403,
+              "end_time": 185760.703217841,
+              "duration": 0.000002438,
+              "rank": 0,
+              "iteration": 27
+            }
+          ]
+        },
+        {
+          "iteration": 28,
+          "total_bytes": 19976,
+          "start_time": 185760.706113417,
+          "end_time": 185760.706116822,
+          "duration": 0.000003405,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.706113417,
+              "end_time": 185760.706116822,
+              "duration": 0.000003405,
+              "rank": 0,
+              "iteration": 28
+            }
+          ]
+        },
+        {
+          "iteration": 29,
+          "total_bytes": 19976,
+          "start_time": 185760.708786212,
+          "end_time": 185760.708788778,
+          "duration": 0.000002566,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.708786212,
+              "end_time": 185760.708788778,
+              "duration": 0.000002566,
+              "rank": 0,
+              "iteration": 29
+            }
+          ]
+        },
+        {
+          "iteration": 30,
+          "total_bytes": 19976,
+          "start_time": 185760.711432466,
+          "end_time": 185760.711434946,
+          "duration": 0.000002480,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.711432466,
+              "end_time": 185760.711434946,
+              "duration": 0.000002480,
+              "rank": 0,
+              "iteration": 30
+            }
+          ]
+        },
+        {
+          "iteration": 31,
+          "total_bytes": 19976,
+          "start_time": 185760.714139873,
+          "end_time": 185760.714142387,
+          "duration": 0.000002514,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.714139873,
+              "end_time": 185760.714142387,
+              "duration": 0.000002514,
+              "rank": 0,
+              "iteration": 31
+            }
+          ]
+        },
+        {
+          "iteration": 32,
+          "total_bytes": 19976,
+          "start_time": 185760.717927831,
+          "end_time": 185760.717930591,
+          "duration": 0.000002760,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.717927831,
+              "end_time": 185760.717930591,
+              "duration": 0.000002760,
+              "rank": 0,
+              "iteration": 32
+            }
+          ]
+        },
+        {
+          "iteration": 33,
+          "total_bytes": 19976,
+          "start_time": 185760.721264845,
+          "end_time": 185760.721267582,
+          "duration": 0.000002737,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.721264845,
+              "end_time": 185760.721267582,
+              "duration": 0.000002737,
+              "rank": 0,
+              "iteration": 33
+            }
+          ]
+        },
+        {
+          "iteration": 34,
+          "total_bytes": 19976,
+          "start_time": 185760.724593829,
+          "end_time": 185760.724596433,
+          "duration": 0.000002604,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.724593829,
+              "end_time": 185760.724596433,
+              "duration": 0.000002604,
+              "rank": 0,
+              "iteration": 34
+            }
+          ]
+        },
+        {
+          "iteration": 35,
+          "total_bytes": 19976,
+          "start_time": 185760.727899969,
+          "end_time": 185760.727902574,
+          "duration": 0.000002605,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.727899969,
+              "end_time": 185760.727902574,
+              "duration": 0.000002605,
+              "rank": 0,
+              "iteration": 35
+            }
+          ]
+        },
+        {
+          "iteration": 36,
+          "total_bytes": 19976,
+          "start_time": 185760.731188709,
+          "end_time": 185760.731191353,
+          "duration": 0.000002644,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.731188709,
+              "end_time": 185760.731191353,
+              "duration": 0.000002644,
+              "rank": 0,
+              "iteration": 36
+            }
+          ]
+        },
+        {
+          "iteration": 37,
+          "total_bytes": 19976,
+          "start_time": 185760.733993201,
+          "end_time": 185760.733995575,
+          "duration": 0.000002374,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.733993201,
+              "end_time": 185760.733995575,
+              "duration": 0.000002374,
+              "rank": 0,
+              "iteration": 37
+            }
+          ]
+        },
+        {
+          "iteration": 38,
+          "total_bytes": 19976,
+          "start_time": 185760.737111907,
+          "end_time": 185760.737114682,
+          "duration": 0.000002775,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.737111907,
+              "end_time": 185760.737114682,
+              "duration": 0.000002775,
+              "rank": 0,
+              "iteration": 38
+            }
+          ]
+        },
+        {
+          "iteration": 39,
+          "total_bytes": 19976,
+          "start_time": 185760.740510829,
+          "end_time": 185760.740513739,
+          "duration": 0.000002910,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.740510829,
+              "end_time": 185760.740513739,
+              "duration": 0.000002910,
+              "rank": 0,
+              "iteration": 39
+            }
+          ]
+        },
+        {
+          "iteration": 40,
+          "total_bytes": 19976,
+          "start_time": 185760.743502518,
+          "end_time": 185760.743505522,
+          "duration": 0.000003004,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.743502518,
+              "end_time": 185760.743505522,
+              "duration": 0.000003004,
+              "rank": 0,
+              "iteration": 40
+            }
+          ]
+        },
+        {
+          "iteration": 41,
+          "total_bytes": 19976,
+          "start_time": 185760.746758840,
+          "end_time": 185760.746761497,
+          "duration": 0.000002657,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.746758840,
+              "end_time": 185760.746761497,
+              "duration": 0.000002657,
+              "rank": 0,
+              "iteration": 41
+            }
+          ]
+        },
+        {
+          "iteration": 42,
+          "total_bytes": 19976,
+          "start_time": 185760.749974783,
+          "end_time": 185760.749977301,
+          "duration": 0.000002518,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.749974783,
+              "end_time": 185760.749977301,
+              "duration": 0.000002518,
+              "rank": 0,
+              "iteration": 42
+            }
+          ]
+        },
+        {
+          "iteration": 43,
+          "total_bytes": 19976,
+          "start_time": 185760.753337647,
+          "end_time": 185760.753340225,
+          "duration": 0.000002578,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.753337647,
+              "end_time": 185760.753340225,
+              "duration": 0.000002578,
+              "rank": 0,
+              "iteration": 43
+            }
+          ]
+        },
+        {
+          "iteration": 44,
+          "total_bytes": 19976,
+          "start_time": 185760.756871044,
+          "end_time": 185760.756873669,
+          "duration": 0.000002625,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.756871044,
+              "end_time": 185760.756873669,
+              "duration": 0.000002625,
+              "rank": 0,
+              "iteration": 44
+            }
+          ]
+        },
+        {
+          "iteration": 45,
+          "total_bytes": 19976,
+          "start_time": 185760.760044928,
+          "end_time": 185760.760047709,
+          "duration": 0.000002781,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.760044928,
+              "end_time": 185760.760047709,
+              "duration": 0.000002781,
+              "rank": 0,
+              "iteration": 45
+            }
+          ]
+        },
+        {
+          "iteration": 46,
+          "total_bytes": 19976,
+          "start_time": 185760.763363633,
+          "end_time": 185760.763366246,
+          "duration": 0.000002613,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.763363633,
+              "end_time": 185760.763366246,
+              "duration": 0.000002613,
+              "rank": 0,
+              "iteration": 46
+            }
+          ]
+        },
+        {
+          "iteration": 47,
+          "total_bytes": 19976,
+          "start_time": 185760.766665605,
+          "end_time": 185760.766668172,
+          "duration": 0.000002567,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.766665605,
+              "end_time": 185760.766668172,
+              "duration": 0.000002567,
+              "rank": 0,
+              "iteration": 47
+            }
+          ]
+        },
+        {
+          "iteration": 48,
+          "total_bytes": 19976,
+          "start_time": 185760.770444402,
+          "end_time": 185760.770446949,
+          "duration": 0.000002547,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.770444402,
+              "end_time": 185760.770446949,
+              "duration": 0.000002547,
+              "rank": 0,
+              "iteration": 48
+            }
+          ]
+        },
+        {
+          "iteration": 49,
+          "total_bytes": 19976,
+          "start_time": 185760.773873958,
+          "end_time": 185760.773877112,
+          "duration": 0.000003154,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.773873958,
+              "end_time": 185760.773877112,
+              "duration": 0.000003154,
+              "rank": 0,
+              "iteration": 49
+            }
+          ]
+        },
+        {
+          "iteration": 50,
+          "total_bytes": 19976,
+          "start_time": 185760.777355731,
+          "end_time": 185760.777358824,
+          "duration": 0.000003093,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.777355731,
+              "end_time": 185760.777358824,
+              "duration": 0.000003093,
+              "rank": 0,
+              "iteration": 50
+            }
+          ]
+        },
+        {
+          "iteration": 51,
+          "total_bytes": 19976,
+          "start_time": 185760.781003696,
+          "end_time": 185760.781006496,
+          "duration": 0.000002800,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.781003696,
+              "end_time": 185760.781006496,
+              "duration": 0.000002800,
+              "rank": 0,
+              "iteration": 51
+            }
+          ]
+        },
+        {
+          "iteration": 52,
+          "total_bytes": 19976,
+          "start_time": 185760.784455061,
+          "end_time": 185760.784457839,
+          "duration": 0.000002778,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.784455061,
+              "end_time": 185760.784457839,
+              "duration": 0.000002778,
+              "rank": 0,
+              "iteration": 52
+            }
+          ]
+        },
+        {
+          "iteration": 53,
+          "total_bytes": 19976,
+          "start_time": 185760.787687189,
+          "end_time": 185760.787689838,
+          "duration": 0.000002649,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.787687189,
+              "end_time": 185760.787689838,
+              "duration": 0.000002649,
+              "rank": 0,
+              "iteration": 53
+            }
+          ]
+        },
+        {
+          "iteration": 54,
+          "total_bytes": 19976,
+          "start_time": 185760.791479155,
+          "end_time": 185760.791481783,
+          "duration": 0.000002628,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.791479155,
+              "end_time": 185760.791481783,
+              "duration": 0.000002628,
+              "rank": 0,
+              "iteration": 54
+            }
+          ]
+        },
+        {
+          "iteration": 55,
+          "total_bytes": 19976,
+          "start_time": 185760.795434744,
+          "end_time": 185760.795437373,
+          "duration": 0.000002629,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.795434744,
+              "end_time": 185760.795437373,
+              "duration": 0.000002629,
+              "rank": 0,
+              "iteration": 55
+            }
+          ]
+        },
+        {
+          "iteration": 56,
+          "total_bytes": 19976,
+          "start_time": 185760.798953123,
+          "end_time": 185760.798955681,
+          "duration": 0.000002558,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.798953123,
+              "end_time": 185760.798955681,
+              "duration": 0.000002558,
+              "rank": 0,
+              "iteration": 56
+            }
+          ]
+        },
+        {
+          "iteration": 57,
+          "total_bytes": 19976,
+          "start_time": 185760.802386400,
+          "end_time": 185760.802388793,
+          "duration": 0.000002393,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.802386400,
+              "end_time": 185760.802388793,
+              "duration": 0.000002393,
+              "rank": 0,
+              "iteration": 57
+            }
+          ]
+        },
+        {
+          "iteration": 58,
+          "total_bytes": 19976,
+          "start_time": 185760.805877571,
+          "end_time": 185760.805880079,
+          "duration": 0.000002508,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.805877571,
+              "end_time": 185760.805880079,
+              "duration": 0.000002508,
+              "rank": 0,
+              "iteration": 58
+            }
+          ]
+        },
+        {
+          "iteration": 59,
+          "total_bytes": 19976,
+          "start_time": 185760.809643403,
+          "end_time": 185760.809646401,
+          "duration": 0.000002998,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.809643403,
+              "end_time": 185760.809646401,
+              "duration": 0.000002998,
+              "rank": 0,
+              "iteration": 59
+            }
+          ]
+        },
+        {
+          "iteration": 60,
+          "total_bytes": 19976,
+          "start_time": 185760.813063207,
+          "end_time": 185760.813066007,
+          "duration": 0.000002800,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.813063207,
+              "end_time": 185760.813066007,
+              "duration": 0.000002800,
+              "rank": 0,
+              "iteration": 60
+            }
+          ]
+        },
+        {
+          "iteration": 61,
+          "total_bytes": 19976,
+          "start_time": 185760.816681644,
+          "end_time": 185760.816684421,
+          "duration": 0.000002777,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.816681644,
+              "end_time": 185760.816684421,
+              "duration": 0.000002777,
+              "rank": 0,
+              "iteration": 61
+            }
+          ]
+        },
+        {
+          "iteration": 62,
+          "total_bytes": 19976,
+          "start_time": 185760.820536787,
+          "end_time": 185760.820539569,
+          "duration": 0.000002782,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.820536787,
+              "end_time": 185760.820539569,
+              "duration": 0.000002782,
+              "rank": 0,
+              "iteration": 62
+            }
+          ]
+        },
+        {
+          "iteration": 63,
+          "total_bytes": 19976,
+          "start_time": 185760.824310846,
+          "end_time": 185760.824313345,
+          "duration": 0.000002499,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.824310846,
+              "end_time": 185760.824313345,
+              "duration": 0.000002499,
+              "rank": 0,
+              "iteration": 63
+            }
+          ]
+        },
+        {
+          "iteration": 64,
+          "total_bytes": 19976,
+          "start_time": 185760.828614259,
+          "end_time": 185760.828616844,
+          "duration": 0.000002585,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.828614259,
+              "end_time": 185760.828616844,
+              "duration": 0.000002585,
+              "rank": 0,
+              "iteration": 64
+            }
+          ]
+        },
+        {
+          "iteration": 65,
+          "total_bytes": 19976,
+          "start_time": 185760.832603281,
+          "end_time": 185760.832605891,
+          "duration": 0.000002610,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.832603281,
+              "end_time": 185760.832605891,
+              "duration": 0.000002610,
+              "rank": 0,
+              "iteration": 65
+            }
+          ]
+        },
+        {
+          "iteration": 66,
+          "total_bytes": 19976,
+          "start_time": 185760.836118267,
+          "end_time": 185760.836120200,
+          "duration": 0.000001933,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.836118267,
+              "end_time": 185760.836120200,
+              "duration": 0.000001933,
+              "rank": 0,
+              "iteration": 66
+            }
+          ]
+        },
+        {
+          "iteration": 67,
+          "total_bytes": 19976,
+          "start_time": 185760.840161194,
+          "end_time": 185760.840162902,
+          "duration": 0.000001708,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.840161194,
+              "end_time": 185760.840162902,
+              "duration": 0.000001708,
+              "rank": 0,
+              "iteration": 67
+            }
+          ]
+        },
+        {
+          "iteration": 68,
+          "total_bytes": 19976,
+          "start_time": 185760.843981942,
+          "end_time": 185760.843983584,
+          "duration": 0.000001642,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.843981942,
+              "end_time": 185760.843983584,
+              "duration": 0.000001642,
+              "rank": 0,
+              "iteration": 68
+            }
+          ]
+        },
+        {
+          "iteration": 69,
+          "total_bytes": 19976,
+          "start_time": 185760.848016392,
+          "end_time": 185760.848019396,
+          "duration": 0.000003004,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.848016392,
+              "end_time": 185760.848019396,
+              "duration": 0.000003004,
+              "rank": 0,
+              "iteration": 69
+            }
+          ]
+        },
+        {
+          "iteration": 70,
+          "total_bytes": 19976,
+          "start_time": 185760.851746548,
+          "end_time": 185760.851749382,
+          "duration": 0.000002834,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.851746548,
+              "end_time": 185760.851749382,
+              "duration": 0.000002834,
+              "rank": 0,
+              "iteration": 70
+            }
+          ]
+        },
+        {
+          "iteration": 71,
+          "total_bytes": 19976,
+          "start_time": 185760.855834850,
+          "end_time": 185760.855837965,
+          "duration": 0.000003115,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.855834850,
+              "end_time": 185760.855837965,
+              "duration": 0.000003115,
+              "rank": 0,
+              "iteration": 71
+            }
+          ]
+        },
+        {
+          "iteration": 72,
+          "total_bytes": 19976,
+          "start_time": 185760.859734032,
+          "end_time": 185760.859737009,
+          "duration": 0.000002977,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.859734032,
+              "end_time": 185760.859737009,
+              "duration": 0.000002977,
+              "rank": 0,
+              "iteration": 72
+            }
+          ]
+        },
+        {
+          "iteration": 73,
+          "total_bytes": 19976,
+          "start_time": 185760.863620286,
+          "end_time": 185760.863623331,
+          "duration": 0.000003045,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.863620286,
+              "end_time": 185760.863623331,
+              "duration": 0.000003045,
+              "rank": 0,
+              "iteration": 73
+            }
+          ]
+        },
+        {
+          "iteration": 74,
+          "total_bytes": 19976,
+          "start_time": 185760.867389162,
+          "end_time": 185760.867391649,
+          "duration": 0.000002487,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.867389162,
+              "end_time": 185760.867391649,
+              "duration": 0.000002487,
+              "rank": 0,
+              "iteration": 74
+            }
+          ]
+        },
+        {
+          "iteration": 75,
+          "total_bytes": 19976,
+          "start_time": 185760.871334932,
+          "end_time": 185760.871337434,
+          "duration": 0.000002502,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.871334932,
+              "end_time": 185760.871337434,
+              "duration": 0.000002502,
+              "rank": 0,
+              "iteration": 75
+            }
+          ]
+        },
+        {
+          "iteration": 76,
+          "total_bytes": 19976,
+          "start_time": 185760.875419034,
+          "end_time": 185760.875422171,
+          "duration": 0.000003137,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.875419034,
+              "end_time": 185760.875422171,
+              "duration": 0.000003137,
+              "rank": 0,
+              "iteration": 76
+            }
+          ]
+        },
+        {
+          "iteration": 77,
+          "total_bytes": 19976,
+          "start_time": 185760.879403958,
+          "end_time": 185760.879407161,
+          "duration": 0.000003203,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.879403958,
+              "end_time": 185760.879407161,
+              "duration": 0.000003203,
+              "rank": 0,
+              "iteration": 77
+            }
+          ]
+        },
+        {
+          "iteration": 78,
+          "total_bytes": 19976,
+          "start_time": 185760.883322695,
+          "end_time": 185760.883325785,
+          "duration": 0.000003090,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.883322695,
+              "end_time": 185760.883325785,
+              "duration": 0.000003090,
+              "rank": 0,
+              "iteration": 78
+            }
+          ]
+        },
+        {
+          "iteration": 79,
+          "total_bytes": 19976,
+          "start_time": 185760.887099126,
+          "end_time": 185760.887101652,
+          "duration": 0.000002526,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.887099126,
+              "end_time": 185760.887101652,
+              "duration": 0.000002526,
+              "rank": 0,
+              "iteration": 79
+            }
+          ]
+        },
+        {
+          "iteration": 80,
+          "total_bytes": 19976,
+          "start_time": 185760.891784103,
+          "end_time": 185760.891786745,
+          "duration": 0.000002642,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.891784103,
+              "end_time": 185760.891786745,
+              "duration": 0.000002642,
+              "rank": 0,
+              "iteration": 80
+            }
+          ]
+        },
+        {
+          "iteration": 81,
+          "total_bytes": 19976,
+          "start_time": 185760.896106761,
+          "end_time": 185760.896109826,
+          "duration": 0.000003065,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.896106761,
+              "end_time": 185760.896109826,
+              "duration": 0.000003065,
+              "rank": 0,
+              "iteration": 81
+            }
+          ]
+        },
+        {
+          "iteration": 82,
+          "total_bytes": 19976,
+          "start_time": 185760.900303554,
+          "end_time": 185760.900306614,
+          "duration": 0.000003060,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.900303554,
+              "end_time": 185760.900306614,
+              "duration": 0.000003060,
+              "rank": 0,
+              "iteration": 82
+            }
+          ]
+        },
+        {
+          "iteration": 83,
+          "total_bytes": 19976,
+          "start_time": 185760.904601533,
+          "end_time": 185760.904604337,
+          "duration": 0.000002804,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.904601533,
+              "end_time": 185760.904604337,
+              "duration": 0.000002804,
+              "rank": 0,
+              "iteration": 83
+            }
+          ]
+        },
+        {
+          "iteration": 84,
+          "total_bytes": 19976,
+          "start_time": 185760.908824034,
+          "end_time": 185760.908826869,
+          "duration": 0.000002835,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.908824034,
+              "end_time": 185760.908826869,
+              "duration": 0.000002835,
+              "rank": 0,
+              "iteration": 84
+            }
+          ]
+        },
+        {
+          "iteration": 85,
+          "total_bytes": 19976,
+          "start_time": 185760.913066438,
+          "end_time": 185760.913069225,
+          "duration": 0.000002787,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.913066438,
+              "end_time": 185760.913069225,
+              "duration": 0.000002787,
+              "rank": 0,
+              "iteration": 85
+            }
+          ]
+        },
+        {
+          "iteration": 86,
+          "total_bytes": 19976,
+          "start_time": 185760.917308478,
+          "end_time": 185760.917311372,
+          "duration": 0.000002894,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.917308478,
+              "end_time": 185760.917311372,
+              "duration": 0.000002894,
+              "rank": 0,
+              "iteration": 86
+            }
+          ]
+        },
+        {
+          "iteration": 87,
+          "total_bytes": 19976,
+          "start_time": 185760.921414529,
+          "end_time": 185760.921417331,
+          "duration": 0.000002802,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.921414529,
+              "end_time": 185760.921417331,
+              "duration": 0.000002802,
+              "rank": 0,
+              "iteration": 87
+            }
+          ]
+        },
+        {
+          "iteration": 88,
+          "total_bytes": 19976,
+          "start_time": 185760.925605605,
+          "end_time": 185760.925608455,
+          "duration": 0.000002850,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.925605605,
+              "end_time": 185760.925608455,
+              "duration": 0.000002850,
+              "rank": 0,
+              "iteration": 88
+            }
+          ]
+        },
+        {
+          "iteration": 89,
+          "total_bytes": 19976,
+          "start_time": 185760.929906956,
+          "end_time": 185760.929909732,
+          "duration": 0.000002776,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.929906956,
+              "end_time": 185760.929909732,
+              "duration": 0.000002776,
+              "rank": 0,
+              "iteration": 89
+            }
+          ]
+        },
+        {
+          "iteration": 90,
+          "total_bytes": 19976,
+          "start_time": 185760.933752851,
+          "end_time": 185760.933755713,
+          "duration": 0.000002862,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.933752851,
+              "end_time": 185760.933755713,
+              "duration": 0.000002862,
+              "rank": 0,
+              "iteration": 90
+            }
+          ]
+        },
+        {
+          "iteration": 91,
+          "total_bytes": 19976,
+          "start_time": 185760.937883020,
+          "end_time": 185760.937885835,
+          "duration": 0.000002815,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.937883020,
+              "end_time": 185760.937885835,
+              "duration": 0.000002815,
+              "rank": 0,
+              "iteration": 91
+            }
+          ]
+        },
+        {
+          "iteration": 92,
+          "total_bytes": 19976,
+          "start_time": 185760.942143301,
+          "end_time": 185760.942146261,
+          "duration": 0.000002960,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.942143301,
+              "end_time": 185760.942146261,
+              "duration": 0.000002960,
+              "rank": 0,
+              "iteration": 92
+            }
+          ]
+        },
+        {
+          "iteration": 93,
+          "total_bytes": 19976,
+          "start_time": 185760.946307315,
+          "end_time": 185760.946310300,
+          "duration": 0.000002985,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.946307315,
+              "end_time": 185760.946310300,
+              "duration": 0.000002985,
+              "rank": 0,
+              "iteration": 93
+            }
+          ]
+        },
+        {
+          "iteration": 94,
+          "total_bytes": 19976,
+          "start_time": 185760.950835531,
+          "end_time": 185760.950838482,
+          "duration": 0.000002951,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.950835531,
+              "end_time": 185760.950838482,
+              "duration": 0.000002951,
+              "rank": 0,
+              "iteration": 94
+            }
+          ]
+        },
+        {
+          "iteration": 95,
+          "total_bytes": 19976,
+          "start_time": 185760.955275373,
+          "end_time": 185760.955278273,
+          "duration": 0.000002900,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.955275373,
+              "end_time": 185760.955278273,
+              "duration": 0.000002900,
+              "rank": 0,
+              "iteration": 95
+            }
+          ]
+        },
+        {
+          "iteration": 96,
+          "total_bytes": 19976,
+          "start_time": 185760.960207758,
+          "end_time": 185760.960210504,
+          "duration": 0.000002746,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.960207758,
+              "end_time": 185760.960210504,
+              "duration": 0.000002746,
+              "rank": 0,
+              "iteration": 96
+            }
+          ]
+        },
+        {
+          "iteration": 97,
+          "total_bytes": 19976,
+          "start_time": 185760.964918735,
+          "end_time": 185760.964921684,
+          "duration": 0.000002949,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.964918735,
+              "end_time": 185760.964921684,
+              "duration": 0.000002949,
+              "rank": 0,
+              "iteration": 97
+            }
+          ]
+        },
+        {
+          "iteration": 98,
+          "total_bytes": 19976,
+          "start_time": 185760.969417904,
+          "end_time": 185760.969420963,
+          "duration": 0.000003059,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.969417904,
+              "end_time": 185760.969420963,
+              "duration": 0.000003059,
+              "rank": 0,
+              "iteration": 98
+            }
+          ]
+        },
+        {
+          "iteration": 99,
+          "total_bytes": 19976,
+          "start_time": 185760.973899659,
+          "end_time": 185760.973902483,
+          "duration": 0.000002824,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.973899659,
+              "end_time": 185760.973902483,
+              "duration": 0.000002824,
+              "rank": 0,
+              "iteration": 99
+            }
+          ]
+        },
+        {
+          "iteration": 100,
+          "total_bytes": 19976,
+          "start_time": 185760.978679945,
+          "end_time": 185760.978682856,
+          "duration": 0.000002911,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.978679945,
+              "end_time": 185760.978682856,
+              "duration": 0.000002911,
+              "rank": 0,
+              "iteration": 100
+            }
+          ]
+        },
+        {
+          "iteration": 101,
+          "total_bytes": 19976,
+          "start_time": 185760.982916745,
+          "end_time": 185760.982919920,
+          "duration": 0.000003175,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.982916745,
+              "end_time": 185760.982919920,
+              "duration": 0.000003175,
+              "rank": 0,
+              "iteration": 101
+            }
+          ]
+        },
+        {
+          "iteration": 102,
+          "total_bytes": 19976,
+          "start_time": 185760.987440966,
+          "end_time": 185760.987444050,
+          "duration": 0.000003084,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.987440966,
+              "end_time": 185760.987444050,
+              "duration": 0.000003084,
+              "rank": 0,
+              "iteration": 102
+            }
+          ]
+        },
+        {
+          "iteration": 103,
+          "total_bytes": 19976,
+          "start_time": 185760.991968377,
+          "end_time": 185760.991971242,
+          "duration": 0.000002865,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.991968377,
+              "end_time": 185760.991971242,
+              "duration": 0.000002865,
+              "rank": 0,
+              "iteration": 103
+            }
+          ]
+        },
+        {
+          "iteration": 104,
+          "total_bytes": 19976,
+          "start_time": 185760.996638362,
+          "end_time": 185760.996641318,
+          "duration": 0.000002956,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.996638362,
+              "end_time": 185760.996641318,
+              "duration": 0.000002956,
+              "rank": 0,
+              "iteration": 104
+            }
+          ]
+        },
+        {
+          "iteration": 105,
+          "total_bytes": 19976,
+          "start_time": 185761.001356160,
+          "end_time": 185761.001359222,
+          "duration": 0.000003062,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.001356160,
+              "end_time": 185761.001359222,
+              "duration": 0.000003062,
+              "rank": 0,
+              "iteration": 105
+            }
+          ]
+        },
+        {
+          "iteration": 106,
+          "total_bytes": 19976,
+          "start_time": 185761.006050316,
+          "end_time": 185761.006053331,
+          "duration": 0.000003015,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.006050316,
+              "end_time": 185761.006053331,
+              "duration": 0.000003015,
+              "rank": 0,
+              "iteration": 106
+            }
+          ]
+        },
+        {
+          "iteration": 107,
+          "total_bytes": 19976,
+          "start_time": 185761.010670220,
+          "end_time": 185761.010673149,
+          "duration": 0.000002929,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.010670220,
+              "end_time": 185761.010673149,
+              "duration": 0.000002929,
+              "rank": 0,
+              "iteration": 107
+            }
+          ]
+        },
+        {
+          "iteration": 108,
+          "total_bytes": 19976,
+          "start_time": 185761.015032770,
+          "end_time": 185761.015035680,
+          "duration": 0.000002910,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.015032770,
+              "end_time": 185761.015035680,
+              "duration": 0.000002910,
+              "rank": 0,
+              "iteration": 108
+            }
+          ]
+        },
+        {
+          "iteration": 109,
+          "total_bytes": 19976,
+          "start_time": 185761.019721222,
+          "end_time": 185761.019724375,
+          "duration": 0.000003153,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.019721222,
+              "end_time": 185761.019724375,
+              "duration": 0.000003153,
+              "rank": 0,
+              "iteration": 109
+            }
+          ]
+        },
+        {
+          "iteration": 110,
+          "total_bytes": 19976,
+          "start_time": 185761.024236737,
+          "end_time": 185761.024239729,
+          "duration": 0.000002992,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.024236737,
+              "end_time": 185761.024239729,
+              "duration": 0.000002992,
+              "rank": 0,
+              "iteration": 110
+            }
+          ]
+        },
+        {
+          "iteration": 111,
+          "total_bytes": 19976,
+          "start_time": 185761.028742778,
+          "end_time": 185761.028745742,
+          "duration": 0.000002964,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.028742778,
+              "end_time": 185761.028745742,
+              "duration": 0.000002964,
+              "rank": 0,
+              "iteration": 111
+            }
+          ]
+        },
+        {
+          "iteration": 112,
+          "total_bytes": 19976,
+          "start_time": 185761.033569194,
+          "end_time": 185761.033572072,
+          "duration": 0.000002878,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.033569194,
+              "end_time": 185761.033572072,
+              "duration": 0.000002878,
+              "rank": 0,
+              "iteration": 112
+            }
+          ]
+        },
+        {
+          "iteration": 113,
+          "total_bytes": 19976,
+          "start_time": 185761.038510364,
+          "end_time": 185761.038513332,
+          "duration": 0.000002968,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.038510364,
+              "end_time": 185761.038513332,
+              "duration": 0.000002968,
+              "rank": 0,
+              "iteration": 113
+            }
+          ]
+        },
+        {
+          "iteration": 114,
+          "total_bytes": 19976,
+          "start_time": 185761.043254900,
+          "end_time": 185761.043257822,
+          "duration": 0.000002922,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.043254900,
+              "end_time": 185761.043257822,
+              "duration": 0.000002922,
+              "rank": 0,
+              "iteration": 114
+            }
+          ]
+        },
+        {
+          "iteration": 115,
+          "total_bytes": 19976,
+          "start_time": 185761.048148629,
+          "end_time": 185761.048151489,
+          "duration": 0.000002860,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.048148629,
+              "end_time": 185761.048151489,
+              "duration": 0.000002860,
+              "rank": 0,
+              "iteration": 115
+            }
+          ]
+        },
+        {
+          "iteration": 116,
+          "total_bytes": 19976,
+          "start_time": 185761.053038380,
+          "end_time": 185761.053041100,
+          "duration": 0.000002720,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.053038380,
+              "end_time": 185761.053041100,
+              "duration": 0.000002720,
+              "rank": 0,
+              "iteration": 116
+            }
+          ]
+        },
+        {
+          "iteration": 117,
+          "total_bytes": 19976,
+          "start_time": 185761.057746723,
+          "end_time": 185761.057749923,
+          "duration": 0.000003200,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.057746723,
+              "end_time": 185761.057749923,
+              "duration": 0.000003200,
+              "rank": 0,
+              "iteration": 117
+            }
+          ]
+        },
+        {
+          "iteration": 118,
+          "total_bytes": 19976,
+          "start_time": 185761.062795523,
+          "end_time": 185761.062798838,
+          "duration": 0.000003315,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.062795523,
+              "end_time": 185761.062798838,
+              "duration": 0.000003315,
+              "rank": 0,
+              "iteration": 118
+            }
+          ]
+        },
+        {
+          "iteration": 119,
+          "total_bytes": 19976,
+          "start_time": 185761.067637575,
+          "end_time": 185761.067640945,
+          "duration": 0.000003370,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.067637575,
+              "end_time": 185761.067640945,
+              "duration": 0.000003370,
+              "rank": 0,
+              "iteration": 119
+            }
+          ]
+        },
+        {
+          "iteration": 120,
+          "total_bytes": 19976,
+          "start_time": 185761.074780512,
+          "end_time": 185761.074783439,
+          "duration": 0.000002927,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.074780512,
+              "end_time": 185761.074783439,
+              "duration": 0.000002927,
+              "rank": 0,
+              "iteration": 120
+            }
+          ]
+        },
+        {
+          "iteration": 121,
+          "total_bytes": 19976,
+          "start_time": 185761.079554677,
+          "end_time": 185761.079557588,
+          "duration": 0.000002911,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.079554677,
+              "end_time": 185761.079557588,
+              "duration": 0.000002911,
+              "rank": 0,
+              "iteration": 121
+            }
+          ]
+        },
+        {
+          "iteration": 122,
+          "total_bytes": 19976,
+          "start_time": 185761.084460834,
+          "end_time": 185761.084463611,
+          "duration": 0.000002777,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.084460834,
+              "end_time": 185761.084463611,
+              "duration": 0.000002777,
+              "rank": 0,
+              "iteration": 122
+            }
+          ]
+        },
+        {
+          "iteration": 123,
+          "total_bytes": 19976,
+          "start_time": 185761.089113599,
+          "end_time": 185761.089116454,
+          "duration": 0.000002855,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.089113599,
+              "end_time": 185761.089116454,
+              "duration": 0.000002855,
+              "rank": 0,
+              "iteration": 123
+            }
+          ]
+        },
+        {
+          "iteration": 124,
+          "total_bytes": 19976,
+          "start_time": 185761.093997478,
+          "end_time": 185761.094000541,
+          "duration": 0.000003063,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.093997478,
+              "end_time": 185761.094000541,
+              "duration": 0.000003063,
+              "rank": 0,
+              "iteration": 124
+            }
+          ]
+        },
+        {
+          "iteration": 125,
+          "total_bytes": 19976,
+          "start_time": 185761.098892076,
+          "end_time": 185761.098895441,
+          "duration": 0.000003365,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.098892076,
+              "end_time": 185761.098895441,
+              "duration": 0.000003365,
+              "rank": 0,
+              "iteration": 125
+            }
+          ]
+        },
+        {
+          "iteration": 126,
+          "total_bytes": 19976,
+          "start_time": 185761.103722157,
+          "end_time": 185761.103725513,
+          "duration": 0.000003356,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.103722157,
+              "end_time": 185761.103725513,
+              "duration": 0.000003356,
+              "rank": 0,
+              "iteration": 126
+            }
+          ]
+        },
+        {
+          "iteration": 127,
+          "total_bytes": 19976,
+          "start_time": 185761.108463479,
+          "end_time": 185761.108466277,
+          "duration": 0.000002798,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.108463479,
+              "end_time": 185761.108466277,
+              "duration": 0.000002798,
+              "rank": 0,
+              "iteration": 127
+            }
+          ]
+        },
+        {
+          "iteration": 128,
+          "total_bytes": 19976,
+          "start_time": 185761.113327093,
+          "end_time": 185761.113329959,
+          "duration": 0.000002866,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.113327093,
+              "end_time": 185761.113329959,
+              "duration": 0.000002866,
+              "rank": 0,
+              "iteration": 128
+            }
+          ]
+        },
+        {
+          "iteration": 129,
+          "total_bytes": 19976,
+          "start_time": 185761.118358796,
+          "end_time": 185761.118361660,
+          "duration": 0.000002864,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.118358796,
+              "end_time": 185761.118361660,
+              "duration": 0.000002864,
+              "rank": 0,
+              "iteration": 129
+            }
+          ]
+        },
+        {
+          "iteration": 130,
+          "total_bytes": 19976,
+          "start_time": 185761.123033339,
+          "end_time": 185761.123036203,
+          "duration": 0.000002864,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.123033339,
+              "end_time": 185761.123036203,
+              "duration": 0.000002864,
+              "rank": 0,
+              "iteration": 130
+            }
+          ]
+        },
+        {
+          "iteration": 131,
+          "total_bytes": 19976,
+          "start_time": 185761.127295642,
+          "end_time": 185761.127298412,
+          "duration": 0.000002770,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.127295642,
+              "end_time": 185761.127298412,
+              "duration": 0.000002770,
+              "rank": 0,
+              "iteration": 131
+            }
+          ]
+        },
+        {
+          "iteration": 132,
+          "total_bytes": 19976,
+          "start_time": 185761.132141968,
+          "end_time": 185761.132144816,
+          "duration": 0.000002848,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.132141968,
+              "end_time": 185761.132144816,
+              "duration": 0.000002848,
+              "rank": 0,
+              "iteration": 132
+            }
+          ]
+        },
+        {
+          "iteration": 133,
+          "total_bytes": 19976,
+          "start_time": 185761.136770456,
+          "end_time": 185761.136773258,
+          "duration": 0.000002802,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.136770456,
+              "end_time": 185761.136773258,
+              "duration": 0.000002802,
+              "rank": 0,
+              "iteration": 133
+            }
+          ]
+        },
+        {
+          "iteration": 134,
+          "total_bytes": 19976,
+          "start_time": 185761.141596334,
+          "end_time": 185761.141599804,
+          "duration": 0.000003470,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.141596334,
+              "end_time": 185761.141599804,
+              "duration": 0.000003470,
+              "rank": 0,
+              "iteration": 134
+            }
+          ]
+        },
+        {
+          "iteration": 135,
+          "total_bytes": 19976,
+          "start_time": 185761.146424441,
+          "end_time": 185761.146427806,
+          "duration": 0.000003365,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.146424441,
+              "end_time": 185761.146427806,
+              "duration": 0.000003365,
+              "rank": 0,
+              "iteration": 135
+            }
+          ]
+        },
+        {
+          "iteration": 136,
+          "total_bytes": 19976,
+          "start_time": 185761.150993623,
+          "end_time": 185761.150996515,
+          "duration": 0.000002892,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.150993623,
+              "end_time": 185761.150996515,
+              "duration": 0.000002892,
+              "rank": 0,
+              "iteration": 136
+            }
+          ]
+        },
+        {
+          "iteration": 137,
+          "total_bytes": 19976,
+          "start_time": 185761.155967754,
+          "end_time": 185761.155971638,
+          "duration": 0.000003884,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.155967754,
+              "end_time": 185761.155971638,
+              "duration": 0.000003884,
+              "rank": 0,
+              "iteration": 137
+            }
+          ]
+        },
+        {
+          "iteration": 138,
+          "total_bytes": 19976,
+          "start_time": 185761.160609531,
+          "end_time": 185761.160613574,
+          "duration": 0.000004043,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.160609531,
+              "end_time": 185761.160613574,
+              "duration": 0.000004043,
+              "rank": 0,
+              "iteration": 138
+            }
+          ]
+        },
+        {
+          "iteration": 139,
+          "total_bytes": 19976,
+          "start_time": 185761.164905312,
+          "end_time": 185761.164907820,
+          "duration": 0.000002508,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.164905312,
+              "end_time": 185761.164907820,
+              "duration": 0.000002508,
+              "rank": 0,
+              "iteration": 139
+            }
+          ]
+        },
+        {
+          "iteration": 140,
+          "total_bytes": 19976,
+          "start_time": 185761.169556458,
+          "end_time": 185761.169559118,
+          "duration": 0.000002660,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.169556458,
+              "end_time": 185761.169559118,
+              "duration": 0.000002660,
+              "rank": 0,
+              "iteration": 140
+            }
+          ]
+        },
+        {
+          "iteration": 141,
+          "total_bytes": 19976,
+          "start_time": 185761.174239363,
+          "end_time": 185761.174242399,
+          "duration": 0.000003036,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.174239363,
+              "end_time": 185761.174242399,
+              "duration": 0.000003036,
+              "rank": 0,
+              "iteration": 141
+            }
+          ]
+        },
+        {
+          "iteration": 142,
+          "total_bytes": 19976,
+          "start_time": 185761.178791186,
+          "end_time": 185761.178794302,
+          "duration": 0.000003116,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.178791186,
+              "end_time": 185761.178794302,
+              "duration": 0.000003116,
+              "rank": 0,
+              "iteration": 142
+            }
+          ]
+        },
+        {
+          "iteration": 143,
+          "total_bytes": 19976,
+          "start_time": 185761.183712237,
+          "end_time": 185761.183715235,
+          "duration": 0.000002998,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.183712237,
+              "end_time": 185761.183715235,
+              "duration": 0.000002998,
+              "rank": 0,
+              "iteration": 143
+            }
+          ]
+        },
+        {
+          "iteration": 144,
+          "total_bytes": 19976,
+          "start_time": 185761.188843237,
+          "end_time": 185761.188846325,
+          "duration": 0.000003088,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.188843237,
+              "end_time": 185761.188846325,
+              "duration": 0.000003088,
+              "rank": 0,
+              "iteration": 144
+            }
+          ]
+        },
+        {
+          "iteration": 145,
+          "total_bytes": 19976,
+          "start_time": 185761.193975019,
+          "end_time": 185761.193978025,
+          "duration": 0.000003006,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.193975019,
+              "end_time": 185761.193978025,
+              "duration": 0.000003006,
+              "rank": 0,
+              "iteration": 145
+            }
+          ]
+        },
+        {
+          "iteration": 146,
+          "total_bytes": 19976,
+          "start_time": 185761.198711546,
+          "end_time": 185761.198714326,
+          "duration": 0.000002780,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.198711546,
+              "end_time": 185761.198714326,
+              "duration": 0.000002780,
+              "rank": 0,
+              "iteration": 146
+            }
+          ]
+        },
+        {
+          "iteration": 147,
+          "total_bytes": 19976,
+          "start_time": 185761.203789031,
+          "end_time": 185761.203792081,
+          "duration": 0.000003050,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.203789031,
+              "end_time": 185761.203792081,
+              "duration": 0.000003050,
+              "rank": 0,
+              "iteration": 147
+            }
+          ]
+        },
+        {
+          "iteration": 148,
+          "total_bytes": 19976,
+          "start_time": 185761.208615310,
+          "end_time": 185761.208618630,
+          "duration": 0.000003320,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.208615310,
+              "end_time": 185761.208618630,
+              "duration": 0.000003320,
+              "rank": 0,
+              "iteration": 148
+            }
+          ]
+        },
+        {
+          "iteration": 149,
+          "total_bytes": 19976,
+          "start_time": 185761.213580348,
+          "end_time": 185761.213583357,
+          "duration": 0.000003009,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.213580348,
+              "end_time": 185761.213583357,
+              "duration": 0.000003009,
+              "rank": 0,
+              "iteration": 149
+            }
+          ]
+        },
+        {
+          "iteration": 150,
+          "total_bytes": 19976,
+          "start_time": 185761.218525299,
+          "end_time": 185761.218528050,
+          "duration": 0.000002751,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.218525299,
+              "end_time": 185761.218528050,
+              "duration": 0.000002751,
+              "rank": 0,
+              "iteration": 150
+            }
+          ]
+        },
+        {
+          "iteration": 151,
+          "total_bytes": 19976,
+          "start_time": 185761.223164816,
+          "end_time": 185761.223167463,
+          "duration": 0.000002647,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.223164816,
+              "end_time": 185761.223167463,
+              "duration": 0.000002647,
+              "rank": 0,
+              "iteration": 151
+            }
+          ]
+        },
+        {
+          "iteration": 152,
+          "total_bytes": 19976,
+          "start_time": 185761.228248961,
+          "end_time": 185761.228251768,
+          "duration": 0.000002807,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.228248961,
+              "end_time": 185761.228251768,
+              "duration": 0.000002807,
+              "rank": 0,
+              "iteration": 152
+            }
+          ]
+        },
+        {
+          "iteration": 153,
+          "total_bytes": 19976,
+          "start_time": 185761.233299189,
+          "end_time": 185761.233302379,
+          "duration": 0.000003190,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.233299189,
+              "end_time": 185761.233302379,
+              "duration": 0.000003190,
+              "rank": 0,
+              "iteration": 153
+            }
+          ]
+        },
+        {
+          "iteration": 154,
+          "total_bytes": 19976,
+          "start_time": 185761.238292209,
+          "end_time": 185761.238295451,
+          "duration": 0.000003242,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.238292209,
+              "end_time": 185761.238295451,
+              "duration": 0.000003242,
+              "rank": 0,
+              "iteration": 154
+            }
+          ]
+        },
+        {
+          "iteration": 155,
+          "total_bytes": 19976,
+          "start_time": 185761.243276248,
+          "end_time": 185761.243279086,
+          "duration": 0.000002838,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.243276248,
+              "end_time": 185761.243279086,
+              "duration": 0.000002838,
+              "rank": 0,
+              "iteration": 155
+            }
+          ]
+        },
+        {
+          "iteration": 156,
+          "total_bytes": 19976,
+          "start_time": 185761.248192706,
+          "end_time": 185761.248195592,
+          "duration": 0.000002886,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.248192706,
+              "end_time": 185761.248195592,
+              "duration": 0.000002886,
+              "rank": 0,
+              "iteration": 156
+            }
+          ]
+        },
+        {
+          "iteration": 157,
+          "total_bytes": 19976,
+          "start_time": 185761.253203191,
+          "end_time": 185761.253206252,
+          "duration": 0.000003061,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.253203191,
+              "end_time": 185761.253206252,
+              "duration": 0.000003061,
+              "rank": 0,
+              "iteration": 157
+            }
+          ]
+        },
+        {
+          "iteration": 158,
+          "total_bytes": 19976,
+          "start_time": 185761.258223551,
+          "end_time": 185761.258226370,
+          "duration": 0.000002819,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.258223551,
+              "end_time": 185761.258226370,
+              "duration": 0.000002819,
+              "rank": 0,
+              "iteration": 158
+            }
+          ]
+        },
+        {
+          "iteration": 159,
+          "total_bytes": 19976,
+          "start_time": 185761.263165902,
+          "end_time": 185761.263168837,
+          "duration": 0.000002935,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.263165902,
+              "end_time": 185761.263168837,
+              "duration": 0.000002935,
+              "rank": 0,
+              "iteration": 159
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epoch": 1,
+      "start_iteration": 16,
+      "end_iteration": 31,
+      "num_iterations": 16,
+      "iterations": [
+        {
+          "iteration": 16,
+          "total_bytes": 19976,
+          "start_time": 185760.670109965,
+          "end_time": 185760.670112340,
+          "duration": 0.000002375,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.670109965,
+              "end_time": 185760.670112340,
+              "duration": 0.000002375,
+              "rank": 0,
+              "iteration": 16
+            }
+          ]
+        },
+        {
+          "iteration": 17,
+          "total_bytes": 19976,
+          "start_time": 185760.672827825,
+          "end_time": 185760.672830241,
+          "duration": 0.000002416,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.672827825,
+              "end_time": 185760.672830241,
+              "duration": 0.000002416,
+              "rank": 0,
+              "iteration": 17
+            }
+          ]
+        },
+        {
+          "iteration": 18,
+          "total_bytes": 19976,
+          "start_time": 185760.675746730,
+          "end_time": 185760.675749444,
+          "duration": 0.000002714,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.675746730,
+              "end_time": 185760.675749444,
+              "duration": 0.000002714,
+              "rank": 0,
+              "iteration": 18
+            }
+          ]
+        },
+        {
+          "iteration": 19,
+          "total_bytes": 19976,
+          "start_time": 185760.678876605,
+          "end_time": 185760.678879923,
+          "duration": 0.000003318,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.678876605,
+              "end_time": 185760.678879923,
+              "duration": 0.000003318,
+              "rank": 0,
+              "iteration": 19
+            }
+          ]
+        },
+        {
+          "iteration": 20,
+          "total_bytes": 19976,
+          "start_time": 185760.681857622,
+          "end_time": 185760.681860340,
+          "duration": 0.000002718,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.681857622,
+              "end_time": 185760.681860340,
+              "duration": 0.000002718,
+              "rank": 0,
+              "iteration": 20
+            }
+          ]
+        },
+        {
+          "iteration": 21,
+          "total_bytes": 19976,
+          "start_time": 185760.684780700,
+          "end_time": 185760.684784056,
+          "duration": 0.000003356,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.684780700,
+              "end_time": 185760.684784056,
+              "duration": 0.000003356,
+              "rank": 0,
+              "iteration": 21
+            }
+          ]
+        },
+        {
+          "iteration": 22,
+          "total_bytes": 19976,
+          "start_time": 185760.687684865,
+          "end_time": 185760.687687358,
+          "duration": 0.000002493,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.687684865,
+              "end_time": 185760.687687358,
+              "duration": 0.000002493,
+              "rank": 0,
+              "iteration": 22
+            }
+          ]
+        },
+        {
+          "iteration": 23,
+          "total_bytes": 19976,
+          "start_time": 185760.690895157,
+          "end_time": 185760.690897831,
+          "duration": 0.000002674,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.690895157,
+              "end_time": 185760.690897831,
+              "duration": 0.000002674,
+              "rank": 0,
+              "iteration": 23
+            }
+          ]
+        },
+        {
+          "iteration": 24,
+          "total_bytes": 19976,
+          "start_time": 185760.693819319,
+          "end_time": 185760.693821858,
+          "duration": 0.000002539,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.693819319,
+              "end_time": 185760.693821858,
+              "duration": 0.000002539,
+              "rank": 0,
+              "iteration": 24
+            }
+          ]
+        },
+        {
+          "iteration": 25,
+          "total_bytes": 19976,
+          "start_time": 185760.697024879,
+          "end_time": 185760.697027523,
+          "duration": 0.000002644,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.697024879,
+              "end_time": 185760.697027523,
+              "duration": 0.000002644,
+              "rank": 0,
+              "iteration": 25
+            }
+          ]
+        },
+        {
+          "iteration": 26,
+          "total_bytes": 19976,
+          "start_time": 185760.700247075,
+          "end_time": 185760.700249713,
+          "duration": 0.000002638,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.700247075,
+              "end_time": 185760.700249713,
+              "duration": 0.000002638,
+              "rank": 0,
+              "iteration": 26
+            }
+          ]
+        },
+        {
+          "iteration": 27,
+          "total_bytes": 19976,
+          "start_time": 185760.703215403,
+          "end_time": 185760.703217841,
+          "duration": 0.000002438,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.703215403,
+              "end_time": 185760.703217841,
+              "duration": 0.000002438,
+              "rank": 0,
+              "iteration": 27
+            }
+          ]
+        },
+        {
+          "iteration": 28,
+          "total_bytes": 19976,
+          "start_time": 185760.706113417,
+          "end_time": 185760.706116822,
+          "duration": 0.000003405,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.706113417,
+              "end_time": 185760.706116822,
+              "duration": 0.000003405,
+              "rank": 0,
+              "iteration": 28
+            }
+          ]
+        },
+        {
+          "iteration": 29,
+          "total_bytes": 19976,
+          "start_time": 185760.708786212,
+          "end_time": 185760.708788778,
+          "duration": 0.000002566,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.708786212,
+              "end_time": 185760.708788778,
+              "duration": 0.000002566,
+              "rank": 0,
+              "iteration": 29
+            }
+          ]
+        },
+        {
+          "iteration": 30,
+          "total_bytes": 19976,
+          "start_time": 185760.711432466,
+          "end_time": 185760.711434946,
+          "duration": 0.000002480,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.711432466,
+              "end_time": 185760.711434946,
+              "duration": 0.000002480,
+              "rank": 0,
+              "iteration": 30
+            }
+          ]
+        },
+        {
+          "iteration": 31,
+          "total_bytes": 19976,
+          "start_time": 185760.714139873,
+          "end_time": 185760.714142387,
+          "duration": 0.000002514,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.714139873,
+              "end_time": 185760.714142387,
+              "duration": 0.000002514,
+              "rank": 0,
+              "iteration": 31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epoch": 2,
+      "start_iteration": 32,
+      "end_iteration": 47,
+      "num_iterations": 16,
+      "iterations": [
+        {
+          "iteration": 32,
+          "total_bytes": 19976,
+          "start_time": 185760.717927831,
+          "end_time": 185760.717930591,
+          "duration": 0.000002760,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.717927831,
+              "end_time": 185760.717930591,
+              "duration": 0.000002760,
+              "rank": 0,
+              "iteration": 32
+            }
+          ]
+        },
+        {
+          "iteration": 33,
+          "total_bytes": 19976,
+          "start_time": 185760.721264845,
+          "end_time": 185760.721267582,
+          "duration": 0.000002737,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.721264845,
+              "end_time": 185760.721267582,
+              "duration": 0.000002737,
+              "rank": 0,
+              "iteration": 33
+            }
+          ]
+        },
+        {
+          "iteration": 34,
+          "total_bytes": 19976,
+          "start_time": 185760.724593829,
+          "end_time": 185760.724596433,
+          "duration": 0.000002604,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.724593829,
+              "end_time": 185760.724596433,
+              "duration": 0.000002604,
+              "rank": 0,
+              "iteration": 34
+            }
+          ]
+        },
+        {
+          "iteration": 35,
+          "total_bytes": 19976,
+          "start_time": 185760.727899969,
+          "end_time": 185760.727902574,
+          "duration": 0.000002605,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.727899969,
+              "end_time": 185760.727902574,
+              "duration": 0.000002605,
+              "rank": 0,
+              "iteration": 35
+            }
+          ]
+        },
+        {
+          "iteration": 36,
+          "total_bytes": 19976,
+          "start_time": 185760.731188709,
+          "end_time": 185760.731191353,
+          "duration": 0.000002644,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.731188709,
+              "end_time": 185760.731191353,
+              "duration": 0.000002644,
+              "rank": 0,
+              "iteration": 36
+            }
+          ]
+        },
+        {
+          "iteration": 37,
+          "total_bytes": 19976,
+          "start_time": 185760.733993201,
+          "end_time": 185760.733995575,
+          "duration": 0.000002374,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.733993201,
+              "end_time": 185760.733995575,
+              "duration": 0.000002374,
+              "rank": 0,
+              "iteration": 37
+            }
+          ]
+        },
+        {
+          "iteration": 38,
+          "total_bytes": 19976,
+          "start_time": 185760.737111907,
+          "end_time": 185760.737114682,
+          "duration": 0.000002775,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.737111907,
+              "end_time": 185760.737114682,
+              "duration": 0.000002775,
+              "rank": 0,
+              "iteration": 38
+            }
+          ]
+        },
+        {
+          "iteration": 39,
+          "total_bytes": 19976,
+          "start_time": 185760.740510829,
+          "end_time": 185760.740513739,
+          "duration": 0.000002910,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.740510829,
+              "end_time": 185760.740513739,
+              "duration": 0.000002910,
+              "rank": 0,
+              "iteration": 39
+            }
+          ]
+        },
+        {
+          "iteration": 40,
+          "total_bytes": 19976,
+          "start_time": 185760.743502518,
+          "end_time": 185760.743505522,
+          "duration": 0.000003004,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.743502518,
+              "end_time": 185760.743505522,
+              "duration": 0.000003004,
+              "rank": 0,
+              "iteration": 40
+            }
+          ]
+        },
+        {
+          "iteration": 41,
+          "total_bytes": 19976,
+          "start_time": 185760.746758840,
+          "end_time": 185760.746761497,
+          "duration": 0.000002657,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.746758840,
+              "end_time": 185760.746761497,
+              "duration": 0.000002657,
+              "rank": 0,
+              "iteration": 41
+            }
+          ]
+        },
+        {
+          "iteration": 42,
+          "total_bytes": 19976,
+          "start_time": 185760.749974783,
+          "end_time": 185760.749977301,
+          "duration": 0.000002518,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.749974783,
+              "end_time": 185760.749977301,
+              "duration": 0.000002518,
+              "rank": 0,
+              "iteration": 42
+            }
+          ]
+        },
+        {
+          "iteration": 43,
+          "total_bytes": 19976,
+          "start_time": 185760.753337647,
+          "end_time": 185760.753340225,
+          "duration": 0.000002578,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.753337647,
+              "end_time": 185760.753340225,
+              "duration": 0.000002578,
+              "rank": 0,
+              "iteration": 43
+            }
+          ]
+        },
+        {
+          "iteration": 44,
+          "total_bytes": 19976,
+          "start_time": 185760.756871044,
+          "end_time": 185760.756873669,
+          "duration": 0.000002625,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.756871044,
+              "end_time": 185760.756873669,
+              "duration": 0.000002625,
+              "rank": 0,
+              "iteration": 44
+            }
+          ]
+        },
+        {
+          "iteration": 45,
+          "total_bytes": 19976,
+          "start_time": 185760.760044928,
+          "end_time": 185760.760047709,
+          "duration": 0.000002781,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.760044928,
+              "end_time": 185760.760047709,
+              "duration": 0.000002781,
+              "rank": 0,
+              "iteration": 45
+            }
+          ]
+        },
+        {
+          "iteration": 46,
+          "total_bytes": 19976,
+          "start_time": 185760.763363633,
+          "end_time": 185760.763366246,
+          "duration": 0.000002613,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.763363633,
+              "end_time": 185760.763366246,
+              "duration": 0.000002613,
+              "rank": 0,
+              "iteration": 46
+            }
+          ]
+        },
+        {
+          "iteration": 47,
+          "total_bytes": 19976,
+          "start_time": 185760.766665605,
+          "end_time": 185760.766668172,
+          "duration": 0.000002567,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.766665605,
+              "end_time": 185760.766668172,
+              "duration": 0.000002567,
+              "rank": 0,
+              "iteration": 47
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epoch": 3,
+      "start_iteration": 48,
+      "end_iteration": 63,
+      "num_iterations": 16,
+      "iterations": [
+        {
+          "iteration": 48,
+          "total_bytes": 19976,
+          "start_time": 185760.770444402,
+          "end_time": 185760.770446949,
+          "duration": 0.000002547,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.770444402,
+              "end_time": 185760.770446949,
+              "duration": 0.000002547,
+              "rank": 0,
+              "iteration": 48
+            }
+          ]
+        },
+        {
+          "iteration": 49,
+          "total_bytes": 19976,
+          "start_time": 185760.773873958,
+          "end_time": 185760.773877112,
+          "duration": 0.000003154,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.773873958,
+              "end_time": 185760.773877112,
+              "duration": 0.000003154,
+              "rank": 0,
+              "iteration": 49
+            }
+          ]
+        },
+        {
+          "iteration": 50,
+          "total_bytes": 19976,
+          "start_time": 185760.777355731,
+          "end_time": 185760.777358824,
+          "duration": 0.000003093,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.777355731,
+              "end_time": 185760.777358824,
+              "duration": 0.000003093,
+              "rank": 0,
+              "iteration": 50
+            }
+          ]
+        },
+        {
+          "iteration": 51,
+          "total_bytes": 19976,
+          "start_time": 185760.781003696,
+          "end_time": 185760.781006496,
+          "duration": 0.000002800,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.781003696,
+              "end_time": 185760.781006496,
+              "duration": 0.000002800,
+              "rank": 0,
+              "iteration": 51
+            }
+          ]
+        },
+        {
+          "iteration": 52,
+          "total_bytes": 19976,
+          "start_time": 185760.784455061,
+          "end_time": 185760.784457839,
+          "duration": 0.000002778,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.784455061,
+              "end_time": 185760.784457839,
+              "duration": 0.000002778,
+              "rank": 0,
+              "iteration": 52
+            }
+          ]
+        },
+        {
+          "iteration": 53,
+          "total_bytes": 19976,
+          "start_time": 185760.787687189,
+          "end_time": 185760.787689838,
+          "duration": 0.000002649,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.787687189,
+              "end_time": 185760.787689838,
+              "duration": 0.000002649,
+              "rank": 0,
+              "iteration": 53
+            }
+          ]
+        },
+        {
+          "iteration": 54,
+          "total_bytes": 19976,
+          "start_time": 185760.791479155,
+          "end_time": 185760.791481783,
+          "duration": 0.000002628,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.791479155,
+              "end_time": 185760.791481783,
+              "duration": 0.000002628,
+              "rank": 0,
+              "iteration": 54
+            }
+          ]
+        },
+        {
+          "iteration": 55,
+          "total_bytes": 19976,
+          "start_time": 185760.795434744,
+          "end_time": 185760.795437373,
+          "duration": 0.000002629,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.795434744,
+              "end_time": 185760.795437373,
+              "duration": 0.000002629,
+              "rank": 0,
+              "iteration": 55
+            }
+          ]
+        },
+        {
+          "iteration": 56,
+          "total_bytes": 19976,
+          "start_time": 185760.798953123,
+          "end_time": 185760.798955681,
+          "duration": 0.000002558,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.798953123,
+              "end_time": 185760.798955681,
+              "duration": 0.000002558,
+              "rank": 0,
+              "iteration": 56
+            }
+          ]
+        },
+        {
+          "iteration": 57,
+          "total_bytes": 19976,
+          "start_time": 185760.802386400,
+          "end_time": 185760.802388793,
+          "duration": 0.000002393,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.802386400,
+              "end_time": 185760.802388793,
+              "duration": 0.000002393,
+              "rank": 0,
+              "iteration": 57
+            }
+          ]
+        },
+        {
+          "iteration": 58,
+          "total_bytes": 19976,
+          "start_time": 185760.805877571,
+          "end_time": 185760.805880079,
+          "duration": 0.000002508,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.805877571,
+              "end_time": 185760.805880079,
+              "duration": 0.000002508,
+              "rank": 0,
+              "iteration": 58
+            }
+          ]
+        },
+        {
+          "iteration": 59,
+          "total_bytes": 19976,
+          "start_time": 185760.809643403,
+          "end_time": 185760.809646401,
+          "duration": 0.000002998,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.809643403,
+              "end_time": 185760.809646401,
+              "duration": 0.000002998,
+              "rank": 0,
+              "iteration": 59
+            }
+          ]
+        },
+        {
+          "iteration": 60,
+          "total_bytes": 19976,
+          "start_time": 185760.813063207,
+          "end_time": 185760.813066007,
+          "duration": 0.000002800,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.813063207,
+              "end_time": 185760.813066007,
+              "duration": 0.000002800,
+              "rank": 0,
+              "iteration": 60
+            }
+          ]
+        },
+        {
+          "iteration": 61,
+          "total_bytes": 19976,
+          "start_time": 185760.816681644,
+          "end_time": 185760.816684421,
+          "duration": 0.000002777,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.816681644,
+              "end_time": 185760.816684421,
+              "duration": 0.000002777,
+              "rank": 0,
+              "iteration": 61
+            }
+          ]
+        },
+        {
+          "iteration": 62,
+          "total_bytes": 19976,
+          "start_time": 185760.820536787,
+          "end_time": 185760.820539569,
+          "duration": 0.000002782,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.820536787,
+              "end_time": 185760.820539569,
+              "duration": 0.000002782,
+              "rank": 0,
+              "iteration": 62
+            }
+          ]
+        },
+        {
+          "iteration": 63,
+          "total_bytes": 19976,
+          "start_time": 185760.824310846,
+          "end_time": 185760.824313345,
+          "duration": 0.000002499,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.824310846,
+              "end_time": 185760.824313345,
+              "duration": 0.000002499,
+              "rank": 0,
+              "iteration": 63
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epoch": 4,
+      "start_iteration": 64,
+      "end_iteration": 79,
+      "num_iterations": 16,
+      "iterations": [
+        {
+          "iteration": 64,
+          "total_bytes": 19976,
+          "start_time": 185760.828614259,
+          "end_time": 185760.828616844,
+          "duration": 0.000002585,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.828614259,
+              "end_time": 185760.828616844,
+              "duration": 0.000002585,
+              "rank": 0,
+              "iteration": 64
+            }
+          ]
+        },
+        {
+          "iteration": 65,
+          "total_bytes": 19976,
+          "start_time": 185760.832603281,
+          "end_time": 185760.832605891,
+          "duration": 0.000002610,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.832603281,
+              "end_time": 185760.832605891,
+              "duration": 0.000002610,
+              "rank": 0,
+              "iteration": 65
+            }
+          ]
+        },
+        {
+          "iteration": 66,
+          "total_bytes": 19976,
+          "start_time": 185760.836118267,
+          "end_time": 185760.836120200,
+          "duration": 0.000001933,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.836118267,
+              "end_time": 185760.836120200,
+              "duration": 0.000001933,
+              "rank": 0,
+              "iteration": 66
+            }
+          ]
+        },
+        {
+          "iteration": 67,
+          "total_bytes": 19976,
+          "start_time": 185760.840161194,
+          "end_time": 185760.840162902,
+          "duration": 0.000001708,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.840161194,
+              "end_time": 185760.840162902,
+              "duration": 0.000001708,
+              "rank": 0,
+              "iteration": 67
+            }
+          ]
+        },
+        {
+          "iteration": 68,
+          "total_bytes": 19976,
+          "start_time": 185760.843981942,
+          "end_time": 185760.843983584,
+          "duration": 0.000001642,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.843981942,
+              "end_time": 185760.843983584,
+              "duration": 0.000001642,
+              "rank": 0,
+              "iteration": 68
+            }
+          ]
+        },
+        {
+          "iteration": 69,
+          "total_bytes": 19976,
+          "start_time": 185760.848016392,
+          "end_time": 185760.848019396,
+          "duration": 0.000003004,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.848016392,
+              "end_time": 185760.848019396,
+              "duration": 0.000003004,
+              "rank": 0,
+              "iteration": 69
+            }
+          ]
+        },
+        {
+          "iteration": 70,
+          "total_bytes": 19976,
+          "start_time": 185760.851746548,
+          "end_time": 185760.851749382,
+          "duration": 0.000002834,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.851746548,
+              "end_time": 185760.851749382,
+              "duration": 0.000002834,
+              "rank": 0,
+              "iteration": 70
+            }
+          ]
+        },
+        {
+          "iteration": 71,
+          "total_bytes": 19976,
+          "start_time": 185760.855834850,
+          "end_time": 185760.855837965,
+          "duration": 0.000003115,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.855834850,
+              "end_time": 185760.855837965,
+              "duration": 0.000003115,
+              "rank": 0,
+              "iteration": 71
+            }
+          ]
+        },
+        {
+          "iteration": 72,
+          "total_bytes": 19976,
+          "start_time": 185760.859734032,
+          "end_time": 185760.859737009,
+          "duration": 0.000002977,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.859734032,
+              "end_time": 185760.859737009,
+              "duration": 0.000002977,
+              "rank": 0,
+              "iteration": 72
+            }
+          ]
+        },
+        {
+          "iteration": 73,
+          "total_bytes": 19976,
+          "start_time": 185760.863620286,
+          "end_time": 185760.863623331,
+          "duration": 0.000003045,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.863620286,
+              "end_time": 185760.863623331,
+              "duration": 0.000003045,
+              "rank": 0,
+              "iteration": 73
+            }
+          ]
+        },
+        {
+          "iteration": 74,
+          "total_bytes": 19976,
+          "start_time": 185760.867389162,
+          "end_time": 185760.867391649,
+          "duration": 0.000002487,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.867389162,
+              "end_time": 185760.867391649,
+              "duration": 0.000002487,
+              "rank": 0,
+              "iteration": 74
+            }
+          ]
+        },
+        {
+          "iteration": 75,
+          "total_bytes": 19976,
+          "start_time": 185760.871334932,
+          "end_time": 185760.871337434,
+          "duration": 0.000002502,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.871334932,
+              "end_time": 185760.871337434,
+              "duration": 0.000002502,
+              "rank": 0,
+              "iteration": 75
+            }
+          ]
+        },
+        {
+          "iteration": 76,
+          "total_bytes": 19976,
+          "start_time": 185760.875419034,
+          "end_time": 185760.875422171,
+          "duration": 0.000003137,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.875419034,
+              "end_time": 185760.875422171,
+              "duration": 0.000003137,
+              "rank": 0,
+              "iteration": 76
+            }
+          ]
+        },
+        {
+          "iteration": 77,
+          "total_bytes": 19976,
+          "start_time": 185760.879403958,
+          "end_time": 185760.879407161,
+          "duration": 0.000003203,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.879403958,
+              "end_time": 185760.879407161,
+              "duration": 0.000003203,
+              "rank": 0,
+              "iteration": 77
+            }
+          ]
+        },
+        {
+          "iteration": 78,
+          "total_bytes": 19976,
+          "start_time": 185760.883322695,
+          "end_time": 185760.883325785,
+          "duration": 0.000003090,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.883322695,
+              "end_time": 185760.883325785,
+              "duration": 0.000003090,
+              "rank": 0,
+              "iteration": 78
+            }
+          ]
+        },
+        {
+          "iteration": 79,
+          "total_bytes": 19976,
+          "start_time": 185760.887099126,
+          "end_time": 185760.887101652,
+          "duration": 0.000002526,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.887099126,
+              "end_time": 185760.887101652,
+              "duration": 0.000002526,
+              "rank": 0,
+              "iteration": 79
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epoch": 5,
+      "start_iteration": 80,
+      "end_iteration": 95,
+      "num_iterations": 16,
+      "iterations": [
+        {
+          "iteration": 80,
+          "total_bytes": 19976,
+          "start_time": 185760.891784103,
+          "end_time": 185760.891786745,
+          "duration": 0.000002642,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.891784103,
+              "end_time": 185760.891786745,
+              "duration": 0.000002642,
+              "rank": 0,
+              "iteration": 80
+            }
+          ]
+        },
+        {
+          "iteration": 81,
+          "total_bytes": 19976,
+          "start_time": 185760.896106761,
+          "end_time": 185760.896109826,
+          "duration": 0.000003065,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.896106761,
+              "end_time": 185760.896109826,
+              "duration": 0.000003065,
+              "rank": 0,
+              "iteration": 81
+            }
+          ]
+        },
+        {
+          "iteration": 82,
+          "total_bytes": 19976,
+          "start_time": 185760.900303554,
+          "end_time": 185760.900306614,
+          "duration": 0.000003060,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.900303554,
+              "end_time": 185760.900306614,
+              "duration": 0.000003060,
+              "rank": 0,
+              "iteration": 82
+            }
+          ]
+        },
+        {
+          "iteration": 83,
+          "total_bytes": 19976,
+          "start_time": 185760.904601533,
+          "end_time": 185760.904604337,
+          "duration": 0.000002804,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.904601533,
+              "end_time": 185760.904604337,
+              "duration": 0.000002804,
+              "rank": 0,
+              "iteration": 83
+            }
+          ]
+        },
+        {
+          "iteration": 84,
+          "total_bytes": 19976,
+          "start_time": 185760.908824034,
+          "end_time": 185760.908826869,
+          "duration": 0.000002835,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.908824034,
+              "end_time": 185760.908826869,
+              "duration": 0.000002835,
+              "rank": 0,
+              "iteration": 84
+            }
+          ]
+        },
+        {
+          "iteration": 85,
+          "total_bytes": 19976,
+          "start_time": 185760.913066438,
+          "end_time": 185760.913069225,
+          "duration": 0.000002787,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.913066438,
+              "end_time": 185760.913069225,
+              "duration": 0.000002787,
+              "rank": 0,
+              "iteration": 85
+            }
+          ]
+        },
+        {
+          "iteration": 86,
+          "total_bytes": 19976,
+          "start_time": 185760.917308478,
+          "end_time": 185760.917311372,
+          "duration": 0.000002894,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.917308478,
+              "end_time": 185760.917311372,
+              "duration": 0.000002894,
+              "rank": 0,
+              "iteration": 86
+            }
+          ]
+        },
+        {
+          "iteration": 87,
+          "total_bytes": 19976,
+          "start_time": 185760.921414529,
+          "end_time": 185760.921417331,
+          "duration": 0.000002802,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.921414529,
+              "end_time": 185760.921417331,
+              "duration": 0.000002802,
+              "rank": 0,
+              "iteration": 87
+            }
+          ]
+        },
+        {
+          "iteration": 88,
+          "total_bytes": 19976,
+          "start_time": 185760.925605605,
+          "end_time": 185760.925608455,
+          "duration": 0.000002850,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.925605605,
+              "end_time": 185760.925608455,
+              "duration": 0.000002850,
+              "rank": 0,
+              "iteration": 88
+            }
+          ]
+        },
+        {
+          "iteration": 89,
+          "total_bytes": 19976,
+          "start_time": 185760.929906956,
+          "end_time": 185760.929909732,
+          "duration": 0.000002776,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.929906956,
+              "end_time": 185760.929909732,
+              "duration": 0.000002776,
+              "rank": 0,
+              "iteration": 89
+            }
+          ]
+        },
+        {
+          "iteration": 90,
+          "total_bytes": 19976,
+          "start_time": 185760.933752851,
+          "end_time": 185760.933755713,
+          "duration": 0.000002862,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.933752851,
+              "end_time": 185760.933755713,
+              "duration": 0.000002862,
+              "rank": 0,
+              "iteration": 90
+            }
+          ]
+        },
+        {
+          "iteration": 91,
+          "total_bytes": 19976,
+          "start_time": 185760.937883020,
+          "end_time": 185760.937885835,
+          "duration": 0.000002815,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.937883020,
+              "end_time": 185760.937885835,
+              "duration": 0.000002815,
+              "rank": 0,
+              "iteration": 91
+            }
+          ]
+        },
+        {
+          "iteration": 92,
+          "total_bytes": 19976,
+          "start_time": 185760.942143301,
+          "end_time": 185760.942146261,
+          "duration": 0.000002960,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.942143301,
+              "end_time": 185760.942146261,
+              "duration": 0.000002960,
+              "rank": 0,
+              "iteration": 92
+            }
+          ]
+        },
+        {
+          "iteration": 93,
+          "total_bytes": 19976,
+          "start_time": 185760.946307315,
+          "end_time": 185760.946310300,
+          "duration": 0.000002985,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.946307315,
+              "end_time": 185760.946310300,
+              "duration": 0.000002985,
+              "rank": 0,
+              "iteration": 93
+            }
+          ]
+        },
+        {
+          "iteration": 94,
+          "total_bytes": 19976,
+          "start_time": 185760.950835531,
+          "end_time": 185760.950838482,
+          "duration": 0.000002951,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.950835531,
+              "end_time": 185760.950838482,
+              "duration": 0.000002951,
+              "rank": 0,
+              "iteration": 94
+            }
+          ]
+        },
+        {
+          "iteration": 95,
+          "total_bytes": 19976,
+          "start_time": 185760.955275373,
+          "end_time": 185760.955278273,
+          "duration": 0.000002900,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.955275373,
+              "end_time": 185760.955278273,
+              "duration": 0.000002900,
+              "rank": 0,
+              "iteration": 95
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epoch": 6,
+      "start_iteration": 96,
+      "end_iteration": 111,
+      "num_iterations": 16,
+      "iterations": [
+        {
+          "iteration": 96,
+          "total_bytes": 19976,
+          "start_time": 185760.960207758,
+          "end_time": 185760.960210504,
+          "duration": 0.000002746,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.960207758,
+              "end_time": 185760.960210504,
+              "duration": 0.000002746,
+              "rank": 0,
+              "iteration": 96
+            }
+          ]
+        },
+        {
+          "iteration": 97,
+          "total_bytes": 19976,
+          "start_time": 185760.964918735,
+          "end_time": 185760.964921684,
+          "duration": 0.000002949,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.964918735,
+              "end_time": 185760.964921684,
+              "duration": 0.000002949,
+              "rank": 0,
+              "iteration": 97
+            }
+          ]
+        },
+        {
+          "iteration": 98,
+          "total_bytes": 19976,
+          "start_time": 185760.969417904,
+          "end_time": 185760.969420963,
+          "duration": 0.000003059,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.969417904,
+              "end_time": 185760.969420963,
+              "duration": 0.000003059,
+              "rank": 0,
+              "iteration": 98
+            }
+          ]
+        },
+        {
+          "iteration": 99,
+          "total_bytes": 19976,
+          "start_time": 185760.973899659,
+          "end_time": 185760.973902483,
+          "duration": 0.000002824,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.973899659,
+              "end_time": 185760.973902483,
+              "duration": 0.000002824,
+              "rank": 0,
+              "iteration": 99
+            }
+          ]
+        },
+        {
+          "iteration": 100,
+          "total_bytes": 19976,
+          "start_time": 185760.978679945,
+          "end_time": 185760.978682856,
+          "duration": 0.000002911,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.978679945,
+              "end_time": 185760.978682856,
+              "duration": 0.000002911,
+              "rank": 0,
+              "iteration": 100
+            }
+          ]
+        },
+        {
+          "iteration": 101,
+          "total_bytes": 19976,
+          "start_time": 185760.982916745,
+          "end_time": 185760.982919920,
+          "duration": 0.000003175,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.982916745,
+              "end_time": 185760.982919920,
+              "duration": 0.000003175,
+              "rank": 0,
+              "iteration": 101
+            }
+          ]
+        },
+        {
+          "iteration": 102,
+          "total_bytes": 19976,
+          "start_time": 185760.987440966,
+          "end_time": 185760.987444050,
+          "duration": 0.000003084,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.987440966,
+              "end_time": 185760.987444050,
+              "duration": 0.000003084,
+              "rank": 0,
+              "iteration": 102
+            }
+          ]
+        },
+        {
+          "iteration": 103,
+          "total_bytes": 19976,
+          "start_time": 185760.991968377,
+          "end_time": 185760.991971242,
+          "duration": 0.000002865,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.991968377,
+              "end_time": 185760.991971242,
+              "duration": 0.000002865,
+              "rank": 0,
+              "iteration": 103
+            }
+          ]
+        },
+        {
+          "iteration": 104,
+          "total_bytes": 19976,
+          "start_time": 185760.996638362,
+          "end_time": 185760.996641318,
+          "duration": 0.000002956,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185760.996638362,
+              "end_time": 185760.996641318,
+              "duration": 0.000002956,
+              "rank": 0,
+              "iteration": 104
+            }
+          ]
+        },
+        {
+          "iteration": 105,
+          "total_bytes": 19976,
+          "start_time": 185761.001356160,
+          "end_time": 185761.001359222,
+          "duration": 0.000003062,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.001356160,
+              "end_time": 185761.001359222,
+              "duration": 0.000003062,
+              "rank": 0,
+              "iteration": 105
+            }
+          ]
+        },
+        {
+          "iteration": 106,
+          "total_bytes": 19976,
+          "start_time": 185761.006050316,
+          "end_time": 185761.006053331,
+          "duration": 0.000003015,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.006050316,
+              "end_time": 185761.006053331,
+              "duration": 0.000003015,
+              "rank": 0,
+              "iteration": 106
+            }
+          ]
+        },
+        {
+          "iteration": 107,
+          "total_bytes": 19976,
+          "start_time": 185761.010670220,
+          "end_time": 185761.010673149,
+          "duration": 0.000002929,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.010670220,
+              "end_time": 185761.010673149,
+              "duration": 0.000002929,
+              "rank": 0,
+              "iteration": 107
+            }
+          ]
+        },
+        {
+          "iteration": 108,
+          "total_bytes": 19976,
+          "start_time": 185761.015032770,
+          "end_time": 185761.015035680,
+          "duration": 0.000002910,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.015032770,
+              "end_time": 185761.015035680,
+              "duration": 0.000002910,
+              "rank": 0,
+              "iteration": 108
+            }
+          ]
+        },
+        {
+          "iteration": 109,
+          "total_bytes": 19976,
+          "start_time": 185761.019721222,
+          "end_time": 185761.019724375,
+          "duration": 0.000003153,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.019721222,
+              "end_time": 185761.019724375,
+              "duration": 0.000003153,
+              "rank": 0,
+              "iteration": 109
+            }
+          ]
+        },
+        {
+          "iteration": 110,
+          "total_bytes": 19976,
+          "start_time": 185761.024236737,
+          "end_time": 185761.024239729,
+          "duration": 0.000002992,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.024236737,
+              "end_time": 185761.024239729,
+              "duration": 0.000002992,
+              "rank": 0,
+              "iteration": 110
+            }
+          ]
+        },
+        {
+          "iteration": 111,
+          "total_bytes": 19976,
+          "start_time": 185761.028742778,
+          "end_time": 185761.028745742,
+          "duration": 0.000002964,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.028742778,
+              "end_time": 185761.028745742,
+              "duration": 0.000002964,
+              "rank": 0,
+              "iteration": 111
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epoch": 7,
+      "start_iteration": 112,
+      "end_iteration": 127,
+      "num_iterations": 16,
+      "iterations": [
+        {
+          "iteration": 112,
+          "total_bytes": 19976,
+          "start_time": 185761.033569194,
+          "end_time": 185761.033572072,
+          "duration": 0.000002878,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.033569194,
+              "end_time": 185761.033572072,
+              "duration": 0.000002878,
+              "rank": 0,
+              "iteration": 112
+            }
+          ]
+        },
+        {
+          "iteration": 113,
+          "total_bytes": 19976,
+          "start_time": 185761.038510364,
+          "end_time": 185761.038513332,
+          "duration": 0.000002968,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.038510364,
+              "end_time": 185761.038513332,
+              "duration": 0.000002968,
+              "rank": 0,
+              "iteration": 113
+            }
+          ]
+        },
+        {
+          "iteration": 114,
+          "total_bytes": 19976,
+          "start_time": 185761.043254900,
+          "end_time": 185761.043257822,
+          "duration": 0.000002922,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.043254900,
+              "end_time": 185761.043257822,
+              "duration": 0.000002922,
+              "rank": 0,
+              "iteration": 114
+            }
+          ]
+        },
+        {
+          "iteration": 115,
+          "total_bytes": 19976,
+          "start_time": 185761.048148629,
+          "end_time": 185761.048151489,
+          "duration": 0.000002860,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.048148629,
+              "end_time": 185761.048151489,
+              "duration": 0.000002860,
+              "rank": 0,
+              "iteration": 115
+            }
+          ]
+        },
+        {
+          "iteration": 116,
+          "total_bytes": 19976,
+          "start_time": 185761.053038380,
+          "end_time": 185761.053041100,
+          "duration": 0.000002720,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.053038380,
+              "end_time": 185761.053041100,
+              "duration": 0.000002720,
+              "rank": 0,
+              "iteration": 116
+            }
+          ]
+        },
+        {
+          "iteration": 117,
+          "total_bytes": 19976,
+          "start_time": 185761.057746723,
+          "end_time": 185761.057749923,
+          "duration": 0.000003200,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.057746723,
+              "end_time": 185761.057749923,
+              "duration": 0.000003200,
+              "rank": 0,
+              "iteration": 117
+            }
+          ]
+        },
+        {
+          "iteration": 118,
+          "total_bytes": 19976,
+          "start_time": 185761.062795523,
+          "end_time": 185761.062798838,
+          "duration": 0.000003315,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.062795523,
+              "end_time": 185761.062798838,
+              "duration": 0.000003315,
+              "rank": 0,
+              "iteration": 118
+            }
+          ]
+        },
+        {
+          "iteration": 119,
+          "total_bytes": 19976,
+          "start_time": 185761.067637575,
+          "end_time": 185761.067640945,
+          "duration": 0.000003370,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.067637575,
+              "end_time": 185761.067640945,
+              "duration": 0.000003370,
+              "rank": 0,
+              "iteration": 119
+            }
+          ]
+        },
+        {
+          "iteration": 120,
+          "total_bytes": 19976,
+          "start_time": 185761.074780512,
+          "end_time": 185761.074783439,
+          "duration": 0.000002927,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.074780512,
+              "end_time": 185761.074783439,
+              "duration": 0.000002927,
+              "rank": 0,
+              "iteration": 120
+            }
+          ]
+        },
+        {
+          "iteration": 121,
+          "total_bytes": 19976,
+          "start_time": 185761.079554677,
+          "end_time": 185761.079557588,
+          "duration": 0.000002911,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.079554677,
+              "end_time": 185761.079557588,
+              "duration": 0.000002911,
+              "rank": 0,
+              "iteration": 121
+            }
+          ]
+        },
+        {
+          "iteration": 122,
+          "total_bytes": 19976,
+          "start_time": 185761.084460834,
+          "end_time": 185761.084463611,
+          "duration": 0.000002777,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.084460834,
+              "end_time": 185761.084463611,
+              "duration": 0.000002777,
+              "rank": 0,
+              "iteration": 122
+            }
+          ]
+        },
+        {
+          "iteration": 123,
+          "total_bytes": 19976,
+          "start_time": 185761.089113599,
+          "end_time": 185761.089116454,
+          "duration": 0.000002855,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.089113599,
+              "end_time": 185761.089116454,
+              "duration": 0.000002855,
+              "rank": 0,
+              "iteration": 123
+            }
+          ]
+        },
+        {
+          "iteration": 124,
+          "total_bytes": 19976,
+          "start_time": 185761.093997478,
+          "end_time": 185761.094000541,
+          "duration": 0.000003063,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.093997478,
+              "end_time": 185761.094000541,
+              "duration": 0.000003063,
+              "rank": 0,
+              "iteration": 124
+            }
+          ]
+        },
+        {
+          "iteration": 125,
+          "total_bytes": 19976,
+          "start_time": 185761.098892076,
+          "end_time": 185761.098895441,
+          "duration": 0.000003365,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.098892076,
+              "end_time": 185761.098895441,
+              "duration": 0.000003365,
+              "rank": 0,
+              "iteration": 125
+            }
+          ]
+        },
+        {
+          "iteration": 126,
+          "total_bytes": 19976,
+          "start_time": 185761.103722157,
+          "end_time": 185761.103725513,
+          "duration": 0.000003356,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.103722157,
+              "end_time": 185761.103725513,
+              "duration": 0.000003356,
+              "rank": 0,
+              "iteration": 126
+            }
+          ]
+        },
+        {
+          "iteration": 127,
+          "total_bytes": 19976,
+          "start_time": 185761.108463479,
+          "end_time": 185761.108466277,
+          "duration": 0.000002798,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.108463479,
+              "end_time": 185761.108466277,
+              "duration": 0.000002798,
+              "rank": 0,
+              "iteration": 127
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epoch": 8,
+      "start_iteration": 128,
+      "end_iteration": 143,
+      "num_iterations": 16,
+      "iterations": [
+        {
+          "iteration": 128,
+          "total_bytes": 19976,
+          "start_time": 185761.113327093,
+          "end_time": 185761.113329959,
+          "duration": 0.000002866,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.113327093,
+              "end_time": 185761.113329959,
+              "duration": 0.000002866,
+              "rank": 0,
+              "iteration": 128
+            }
+          ]
+        },
+        {
+          "iteration": 129,
+          "total_bytes": 19976,
+          "start_time": 185761.118358796,
+          "end_time": 185761.118361660,
+          "duration": 0.000002864,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.118358796,
+              "end_time": 185761.118361660,
+              "duration": 0.000002864,
+              "rank": 0,
+              "iteration": 129
+            }
+          ]
+        },
+        {
+          "iteration": 130,
+          "total_bytes": 19976,
+          "start_time": 185761.123033339,
+          "end_time": 185761.123036203,
+          "duration": 0.000002864,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.123033339,
+              "end_time": 185761.123036203,
+              "duration": 0.000002864,
+              "rank": 0,
+              "iteration": 130
+            }
+          ]
+        },
+        {
+          "iteration": 131,
+          "total_bytes": 19976,
+          "start_time": 185761.127295642,
+          "end_time": 185761.127298412,
+          "duration": 0.000002770,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.127295642,
+              "end_time": 185761.127298412,
+              "duration": 0.000002770,
+              "rank": 0,
+              "iteration": 131
+            }
+          ]
+        },
+        {
+          "iteration": 132,
+          "total_bytes": 19976,
+          "start_time": 185761.132141968,
+          "end_time": 185761.132144816,
+          "duration": 0.000002848,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.132141968,
+              "end_time": 185761.132144816,
+              "duration": 0.000002848,
+              "rank": 0,
+              "iteration": 132
+            }
+          ]
+        },
+        {
+          "iteration": 133,
+          "total_bytes": 19976,
+          "start_time": 185761.136770456,
+          "end_time": 185761.136773258,
+          "duration": 0.000002802,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.136770456,
+              "end_time": 185761.136773258,
+              "duration": 0.000002802,
+              "rank": 0,
+              "iteration": 133
+            }
+          ]
+        },
+        {
+          "iteration": 134,
+          "total_bytes": 19976,
+          "start_time": 185761.141596334,
+          "end_time": 185761.141599804,
+          "duration": 0.000003470,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.141596334,
+              "end_time": 185761.141599804,
+              "duration": 0.000003470,
+              "rank": 0,
+              "iteration": 134
+            }
+          ]
+        },
+        {
+          "iteration": 135,
+          "total_bytes": 19976,
+          "start_time": 185761.146424441,
+          "end_time": 185761.146427806,
+          "duration": 0.000003365,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.146424441,
+              "end_time": 185761.146427806,
+              "duration": 0.000003365,
+              "rank": 0,
+              "iteration": 135
+            }
+          ]
+        },
+        {
+          "iteration": 136,
+          "total_bytes": 19976,
+          "start_time": 185761.150993623,
+          "end_time": 185761.150996515,
+          "duration": 0.000002892,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.150993623,
+              "end_time": 185761.150996515,
+              "duration": 0.000002892,
+              "rank": 0,
+              "iteration": 136
+            }
+          ]
+        },
+        {
+          "iteration": 137,
+          "total_bytes": 19976,
+          "start_time": 185761.155967754,
+          "end_time": 185761.155971638,
+          "duration": 0.000003884,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.155967754,
+              "end_time": 185761.155971638,
+              "duration": 0.000003884,
+              "rank": 0,
+              "iteration": 137
+            }
+          ]
+        },
+        {
+          "iteration": 138,
+          "total_bytes": 19976,
+          "start_time": 185761.160609531,
+          "end_time": 185761.160613574,
+          "duration": 0.000004043,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.160609531,
+              "end_time": 185761.160613574,
+              "duration": 0.000004043,
+              "rank": 0,
+              "iteration": 138
+            }
+          ]
+        },
+        {
+          "iteration": 139,
+          "total_bytes": 19976,
+          "start_time": 185761.164905312,
+          "end_time": 185761.164907820,
+          "duration": 0.000002508,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.164905312,
+              "end_time": 185761.164907820,
+              "duration": 0.000002508,
+              "rank": 0,
+              "iteration": 139
+            }
+          ]
+        },
+        {
+          "iteration": 140,
+          "total_bytes": 19976,
+          "start_time": 185761.169556458,
+          "end_time": 185761.169559118,
+          "duration": 0.000002660,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.169556458,
+              "end_time": 185761.169559118,
+              "duration": 0.000002660,
+              "rank": 0,
+              "iteration": 140
+            }
+          ]
+        },
+        {
+          "iteration": 141,
+          "total_bytes": 19976,
+          "start_time": 185761.174239363,
+          "end_time": 185761.174242399,
+          "duration": 0.000003036,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.174239363,
+              "end_time": 185761.174242399,
+              "duration": 0.000003036,
+              "rank": 0,
+              "iteration": 141
+            }
+          ]
+        },
+        {
+          "iteration": 142,
+          "total_bytes": 19976,
+          "start_time": 185761.178791186,
+          "end_time": 185761.178794302,
+          "duration": 0.000003116,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.178791186,
+              "end_time": 185761.178794302,
+              "duration": 0.000003116,
+              "rank": 0,
+              "iteration": 142
+            }
+          ]
+        },
+        {
+          "iteration": 143,
+          "total_bytes": 19976,
+          "start_time": 185761.183712237,
+          "end_time": 185761.183715235,
+          "duration": 0.000002998,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.183712237,
+              "end_time": 185761.183715235,
+              "duration": 0.000002998,
+              "rank": 0,
+              "iteration": 143
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epoch": 9,
+      "start_iteration": 144,
+      "end_iteration": 159,
+      "num_iterations": 16,
+      "iterations": [
+        {
+          "iteration": 144,
+          "total_bytes": 19976,
+          "start_time": 185761.188843237,
+          "end_time": 185761.188846325,
+          "duration": 0.000003088,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.188843237,
+              "end_time": 185761.188846325,
+              "duration": 0.000003088,
+              "rank": 0,
+              "iteration": 144
+            }
+          ]
+        },
+        {
+          "iteration": 145,
+          "total_bytes": 19976,
+          "start_time": 185761.193975019,
+          "end_time": 185761.193978025,
+          "duration": 0.000003006,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.193975019,
+              "end_time": 185761.193978025,
+              "duration": 0.000003006,
+              "rank": 0,
+              "iteration": 145
+            }
+          ]
+        },
+        {
+          "iteration": 146,
+          "total_bytes": 19976,
+          "start_time": 185761.198711546,
+          "end_time": 185761.198714326,
+          "duration": 0.000002780,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.198711546,
+              "end_time": 185761.198714326,
+              "duration": 0.000002780,
+              "rank": 0,
+              "iteration": 146
+            }
+          ]
+        },
+        {
+          "iteration": 147,
+          "total_bytes": 19976,
+          "start_time": 185761.203789031,
+          "end_time": 185761.203792081,
+          "duration": 0.000003050,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.203789031,
+              "end_time": 185761.203792081,
+              "duration": 0.000003050,
+              "rank": 0,
+              "iteration": 147
+            }
+          ]
+        },
+        {
+          "iteration": 148,
+          "total_bytes": 19976,
+          "start_time": 185761.208615310,
+          "end_time": 185761.208618630,
+          "duration": 0.000003320,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.208615310,
+              "end_time": 185761.208618630,
+              "duration": 0.000003320,
+              "rank": 0,
+              "iteration": 148
+            }
+          ]
+        },
+        {
+          "iteration": 149,
+          "total_bytes": 19976,
+          "start_time": 185761.213580348,
+          "end_time": 185761.213583357,
+          "duration": 0.000003009,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.213580348,
+              "end_time": 185761.213583357,
+              "duration": 0.000003009,
+              "rank": 0,
+              "iteration": 149
+            }
+          ]
+        },
+        {
+          "iteration": 150,
+          "total_bytes": 19976,
+          "start_time": 185761.218525299,
+          "end_time": 185761.218528050,
+          "duration": 0.000002751,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.218525299,
+              "end_time": 185761.218528050,
+              "duration": 0.000002751,
+              "rank": 0,
+              "iteration": 150
+            }
+          ]
+        },
+        {
+          "iteration": 151,
+          "total_bytes": 19976,
+          "start_time": 185761.223164816,
+          "end_time": 185761.223167463,
+          "duration": 0.000002647,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.223164816,
+              "end_time": 185761.223167463,
+              "duration": 0.000002647,
+              "rank": 0,
+              "iteration": 151
+            }
+          ]
+        },
+        {
+          "iteration": 152,
+          "total_bytes": 19976,
+          "start_time": 185761.228248961,
+          "end_time": 185761.228251768,
+          "duration": 0.000002807,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.228248961,
+              "end_time": 185761.228251768,
+              "duration": 0.000002807,
+              "rank": 0,
+              "iteration": 152
+            }
+          ]
+        },
+        {
+          "iteration": 153,
+          "total_bytes": 19976,
+          "start_time": 185761.233299189,
+          "end_time": 185761.233302379,
+          "duration": 0.000003190,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.233299189,
+              "end_time": 185761.233302379,
+              "duration": 0.000003190,
+              "rank": 0,
+              "iteration": 153
+            }
+          ]
+        },
+        {
+          "iteration": 154,
+          "total_bytes": 19976,
+          "start_time": 185761.238292209,
+          "end_time": 185761.238295451,
+          "duration": 0.000003242,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.238292209,
+              "end_time": 185761.238295451,
+              "duration": 0.000003242,
+              "rank": 0,
+              "iteration": 154
+            }
+          ]
+        },
+        {
+          "iteration": 155,
+          "total_bytes": 19976,
+          "start_time": 185761.243276248,
+          "end_time": 185761.243279086,
+          "duration": 0.000002838,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.243276248,
+              "end_time": 185761.243279086,
+              "duration": 0.000002838,
+              "rank": 0,
+              "iteration": 155
+            }
+          ]
+        },
+        {
+          "iteration": 156,
+          "total_bytes": 19976,
+          "start_time": 185761.248192706,
+          "end_time": 185761.248195592,
+          "duration": 0.000002886,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.248192706,
+              "end_time": 185761.248195592,
+              "duration": 0.000002886,
+              "rank": 0,
+              "iteration": 156
+            }
+          ]
+        },
+        {
+          "iteration": 157,
+          "total_bytes": 19976,
+          "start_time": 185761.253203191,
+          "end_time": 185761.253206252,
+          "duration": 0.000003061,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.253203191,
+              "end_time": 185761.253206252,
+              "duration": 0.000003061,
+              "rank": 0,
+              "iteration": 157
+            }
+          ]
+        },
+        {
+          "iteration": 158,
+          "total_bytes": 19976,
+          "start_time": 185761.258223551,
+          "end_time": 185761.258226370,
+          "duration": 0.000002819,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.258223551,
+              "end_time": 185761.258226370,
+              "duration": 0.000002819,
+              "rank": 0,
+              "iteration": 158
+            }
+          ]
+        },
+        {
+          "iteration": 159,
+          "total_bytes": 19976,
+          "start_time": 185761.263165902,
+          "end_time": 185761.263168837,
+          "duration": 0.000002935,
+          "num_ops": 1,
+          "operations": [
+            {
+              "func": "AllReduce",
+              "bytes": 19976,
+              "start_time": 185761.263165902,
+              "end_time": 185761.263168837,
+              "duration": 0.000002935,
+              "rank": 0,
+              "iteration": 159
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

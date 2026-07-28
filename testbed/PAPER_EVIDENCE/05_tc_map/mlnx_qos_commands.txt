@@ -1,0 +1,30 @@
+=== mlnx_qos 采集命令记录 ===
+日期: 2026-07-24
+机器: 10.1 (guolab-10), 226 (guolab-226)
+网卡: 10.1 = enp130s0f0np0, 226 = enp59s0f0np0
+
+命令:
+  mlnx_qos -i mlx5_0
+
+输出关键行:
+  # 旧映射 (修正前):
+  tc:0(prio0,dscp0-7) > tc:1(prio1,dscp8-15) > tc:2(prio2,dscp16-23) > 
+  tc:3(prio3,dscp24-31) > tc:4(prio4,dscp32-39) > tc:5(prio5,dscp40-47) >
+  tc:6(prio6,dscp48-55) > tc:7(prio7,dscp56-63)
+
+  # 注意: mlnx_qos 的输出是 tc→prio→dscp 方向
+  # 而多优先级调度关心的是 dscp→tc 方向（收到的 DSCP 标记映射到哪个 TC）
+  # 在 trust dscp 模式下，dscp→tc 映射由硬件自动推导
+  # dscp X 进入 tc floor(X/8)，即 DSCP=48→tc:6
+
+限制:
+  mlnx_qos -i mlx5_0 报告 "Priority trust state is not supported"
+  因此无法通过 mlnx_qos 修改 trust 状态
+  但 trust dscp 是默认/当前模式，DSCP 标记正确映射到对应 TC
+
+NIC 计数器验证:
+  ethtool -S enp130s0f0np0 | grep tx_prio
+  # 修正后映射下:
+  # tx_prio3 (P3 背景流, DSCP=24→tc:3): 5.3TB
+  # tx_prio4 (P4 天花板, DSCP=32→tc:4): 49GB
+  # tx_prio6 (旧 P6, DSCP=48→tc:6): 1.2GB

@@ -1,0 +1,17 @@
+V6 统计重演 复制1 — 结果汇总
+日期: 2026-07-24
+
+Round 1 (LL→CX):
+  LL tight B P2: 1.04-1.14× (P4, DSCP=0→tc:1)
+  CRUX tight B P2: 1.29-1.31× (P3, DSCP=16→tc:2)
+  LL 优势 ~13-17%
+
+Round 2 (CX→LL):
+  LL tight B P2: 1.08-1.14× (P4, DSCP=0→tc:1)
+  CRUX tight B P2: 1.26-1.30× (P3, DSCP=16→tc:2)
+  LL 优势 ~13-15%
+
+两轮均复现 V6-P4 段结论:
+  - Phase 2 tight B: LL 决定性优势 (无区间重叠)
+  - Phase 1 tight A: 持平略优
+  - Epoch 12-14 衰减: CRUX 侧可见, LL 侧微小 (Job B phase 2 无大衰减)

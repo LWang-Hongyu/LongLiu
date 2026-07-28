@@ -1,0 +1,21 @@
+=== run_meta: V6 P6 放开钳位 ===
+实验日期: 2026-07-24
+发起机: 10.1 (guolab-10)
+实验类型: V6 正式两轮 (P6 放开钳位, 新映射)
+背景流: 12×500M iperf3 UDP, DSCP=P3 (DSCP=16→tc:2), TOS=64, 6 Gbps
+Warmup: 5 min
+c_i: tight=1.2, loose=3.0 (epoch 7 翻转)
+T_target: V5 校准 (1024MB, A=4201ms, B=3905ms)
+顺序: Round 1 = LL→CX, Round 2 = CX→LL
+LongLiu: --initial-priority 3 (无 max_priority 钳制, 允许 π>0.3→P6)
+CRUX: --crux-priority-a 3 --crux-priority-b 3 (静态 P3)
+映射版本:
+  slo_scheduler.py: d4a5b4b9798b7c1fff314ed88ce75077
+  multi_comm.c:     a6947ae68b82308808fbf0f33f1d5e16
+  NCCL: LongLiu 23007 (动态库)
+脚本: run_v6_full.sh (2026-07-24 版)
+预期 (预登记): 若映射修正完整, P6(tc:0) 应 ≤P4 钳位版(1.08-1.19×) 或更优;
+  若反而变差, 说明 tc:0 之上仍有未建模争抢 (上报, 禁止自行解释)
+NIC 计数器 (实验前):
+  10.1 enp130s0f0np0 tx_prio: [见运行前快照]
+  226  enp59s0f0np0 tx_prio: [仅 prio0 非零]

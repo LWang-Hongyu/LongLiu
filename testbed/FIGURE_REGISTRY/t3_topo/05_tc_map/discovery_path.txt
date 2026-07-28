@@ -1,0 +1,22 @@
+=== 发现路径：映射反转 → 全类探测 → 修正 → 验证 ===
+(参见文档 L1083-L1242 "V6 实验（旧 DSCP 映射倒挂）" + "倒挂原因排查实验")
+
+Step 1: 发现倒挂 (V6 旧映射, 2026-07-21)
+  LongLiu 升频后反而 slowdown 更高
+  → 怀疑 DSCP→TC 映射异常
+
+Step 2: 全类探测 (2026-07-24)
+  方法: P0-P7 (DSCP 0-56) 1G 探针 vs 6G P3 背景流
+  发现: P6 在旧映射下位于 tc:6 (最低队列)
+  → 确认优先级反转根因
+
+Step 3: 修正映射
+  调整 slo_scheduler.py PRIORITY_TO_DSCP
+  调整 multi_comm.c prio_dscp[] 
+  P6→DSCP=8→tc:0 (最高)
+  P4→DSCP=0→tc:1 
+  P3→DSCP=16→tc:2
+
+Step 4: 验证修正
+  V6-P4 正式两轮: 修正后 LL tight 1.08-1.19× vs CRUX 1.29-1.33×
+  确认 P4→tc:1 相对 P3→tc:2 高一档可解释差异

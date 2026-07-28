@@ -1,0 +1,44 @@
+# ── Build artifacts (large, not source) ──
+nccl-dscp/build/
+nccl-master/
+**/build/
+*.o
+*.so
+*.a
+*.la
+compile_commands.json
+
+# ── Simulation side (separate codebase) ──
+LongLiu_py/
+
+# ── Python cache ──
+__pycache__/
+*.pyc
+*.pyo
+
+# ── Conversation logs & scratch ──
+talking.txt
+ddp_out.txt
+ddp_r1_out.txt
+
+# ── Generated plots in experiments ──
+experiments/**/*.png
+
+# ── Temp / backup files ──
+*.new
+*.bak
+*.bkp
+*.swp
+*.swo
+*~
+
+# ── Editor / OS ──
+.DS_Store
+.vscode/
+.idea/
+
+# ── Git backup artifacts ──
+.git_backup*/
+
+# ── Sync markers ──
+.sync_ready

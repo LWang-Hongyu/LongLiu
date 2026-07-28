@@ -1,0 +1,53 @@
+% ============================================================
+% T-3: Testbed Hardware Topology & DSCP-to-TC Mapping Tables
+% Two sub-tables: (a) tc_map correction (3 exercised classes),
+%                 (b) NIC classification asymmetry w/ probe counters
+% Label: tab:testbed-hw
+% Source: PAPER_EVIDENCE/00_documents/t3_data_table.csv
+% IEEEtran double-column format
+% ============================================================
+\begin{table*}[htbp]
+\centering
+\caption{Testbed topology and DSCP-to-traffic-class mapping validation.
+(a)~Corrected DSCP-to-TC mapping for the three priority classes
+exercised in our experiments;
+(b)~NIC classification asymmetry and full-class probe counters.
+All counter values from hardware ${tx\_prio}$ registers.}
+\label{tab:testbed-hw}
+\footnotesize
+\begin{tabular}{lcccc}
+\toprule
+\multicolumn{5}{l}{\textbf{(a) DSCP-to-TC mapping (only three classes exercised)}} \\
+\cmidrule(lr){1-5}
+\textbf{Priority} & \textbf{Old DSCP} & \textbf{Old TC} & \textbf{New DSCP} & \textbf{New TC} \\
+& \multicolumn{2}{c}{(default $\times 8$)} & \multicolumn{2}{c}{(revised)} \\
+\midrule
+P6 (highest in experiments) & 48 & 6 (lowest\,!) & 8  & 0 (highest) \\
+P4                         & 32 & 4             & 0  & 1 \\
+P3 (background)            & 24 & 3             & 16 & 2 \\
+\midrule
+\multicolumn{5}{p{0.85\linewidth}}{\small\textit{Key observation:} Under the default formula $\texttt{trafficClass} = \mathtt{priority} \times 8$, the highest exercised priority (P6) maps to the lowest SP hardware class (tc:6).  The revised mapping restores the intended SP ordering: P6$\rightarrow$tc:0 $>$ P4$\rightarrow$tc:1 $>$ P3$\rightarrow$tc:2.  Only P6, P4, and P3 were exercised in V6 experiments.} \\
+\bottomrule
+\end{tabular}
+
+\vspace{8pt}
+\begin{tabular}{lcccc}
+\toprule
+\multicolumn{5}{l}{\textbf{(b) NIC classification asymmetry \& full-class probe counters}} \\
+\cmidrule(lr){1-5}
+& \multicolumn{2}{c}{\textbf{226 NIC (receiver)}} & \multicolumn{2}{c}{\textbf{10.1 NIC (sender)}} \\
+\textbf{Prio} & \textbf{${tx\_prio}$ (TB)} & \textbf{Classifies?} & \textbf{${tx\_prio}$ (TB)} & \textbf{Classifies?} \\
+\midrule
+0 & 9.79 & Yes (all traffic) & 0.001 & No \\
+1 & 0    & No                & 0.001 & No \\
+2 & 0    & No                & 0.001 & No \\
+3 & 0    & No                & 5.300 & Yes (P3 bkgnd) \\
+4 & 0    & No                & 0.049 & Yes (P4 probe) \\
+5 & 0    & No                & 0.001 & No \\
+6 & 0    & No                & 0.001 & No \\
+7 & 0    & No                & 0.001 & No \\
+\midrule
+\multicolumn{5}{p{0.85\linewidth}}{\small\textit{Method \& conclusion:} The 226 NIC does not classify DSCP (only prio0 non-zero).  The 10.1 NIC correctly distributes traffic (prio3=5.3\,TB from 12$\times$500\,M iperf3 UDP background at P3/DSCP=24; prio4=0.049\,TB from P4 ceiling probe at DSCP=32; prio6=0.001\,TB from old inverted mapping).  Probe: 1\,Gbps iperf3 UDP $\times$ 15\,s per DSCP value against 6\,Gbps P3 background stream; reverse-mode iperf3 UDP 200\,M $\times$ DSCP 0--56 step 8 for 226 ${tx\_prio}$.  Per-priority enforcement on the 226 sinks to the first switch hop.} \\
+\bottomrule
+\end{tabular}
+\end{table*}

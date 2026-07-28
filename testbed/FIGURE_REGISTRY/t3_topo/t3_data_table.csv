@@ -1,0 +1,60 @@
+# T-3: 物理侧拓扑与映射验证数据汇总
+# 来源: 03_class_probe, 04_226_probe, 05_tc_map
+# 生成日期: 2026-07-27
+#
+# === 表A: DSCP→TC 全类探测 (03_class_probe) ===
+# 方法: 1G iperf3 UDP 探针 × 15s vs 6G P3 (DSCP=24) 背景流
+# 接收端: 226 (86% UDP loss bottleneck — 吞吐值仅供参考)
+# 权威证据: 10.1 NIC tx_prio 计数器
+A_SOURCE,03_class_probe
+A_PROBE_METHOD,1G iperf3 UDP × 15s vs 6G P3 background
+A_BG_CONFIG,"12×500M UDP, DSCP=24 (TOS=96), 300s"
+A_NOTE,"226 receiver UDP loss bottleneck (86% loss); throughput not a reliable priority indicator"
+A_DSCP,A_PRIO,A_PROBE_THROUGHPUT_GBPS,A_LOSS_PCT,A_10P1_TX_PRIO_COUNTER_TB
+0,P0,0.00,0,-
+8,P1,0.88,12,-
+16,P2,0.34,0.56,-
+24,P3,0.01,99,5.3 (background)
+32,P4,0.00,0,0.049 (minimal)
+40,P5,0.02,88,-
+48,P6,0.02,97,0.001 (minimal)
+56,P7,0.00,0,-
+# 关键结论: 10.1 NIC tx_prio counters confirm correct DSCP→prio mapping,
+# but 226 does NOT classify — all rx traffic lands on prio0.
+
+# === 表B: 226 NIC 分类能力探针 (04_226_probe) ===
+# 方法: 反向模式 iperf3 UDP 200M × DSCP 0-56 step 8, 20s each
+# 测量: 226 tx_prio counters before/after each DSCP value
+B_SOURCE,04_226_probe
+B_PROBE_METHOD,"Reverse-mode iperf3 UDP 200M, DSCP 0-56 step 8, 20s"
+B_PROBE_DIRECTION,226→10.1
+B_PHASE1,Probe 226 tx_prio increment (226→10.1 reverse iperf3)
+B_PHASE2,"6G P3 (12×500M) background 10.1→226, measure 226 rx_prio"
+B_226_PRIO_COUNTERS_TB
+B_PRIO,B_BEFORE_DSCP48,B_AFTER_DSCP48,B_PHASE2_RX_AFTER_BG
+0,9.79,9.79,-
+1,0,0,-
+2,0,0,-
+3,0,0,-
+4,0,0,-
+5,0,0,-
+6,0,0,-
+7,0,0,-
+B_CONCLUSION,226 NIC does NOT classify DSCP — all traffic lands on prio0
+
+# === 表C: tc_map 修正前后对照 (05_tc_map) ===
+C_SOURCE,05_tc_map
+C_OLD_FORMULA,"trafficClass = priority × 8 (DSCP = prio × 8)"
+C_NEW_FORMULA,"Revised mapping: slo_scheduler.py PRIORITY_TO_DSCP + multi_comm.c prio_dscp[]"
+C_QUEUE_DISCIPLINE,SP (Strict Priority)
+C_PRIO,C_OLD_DSCP,C_OLD_TC,C_OLD_ORDER,C_NEW_DSCP,C_NEW_TC,C_NEW_ORDER
+P6,48,6,lowest (inverted!),8,0,highest
+P5,40,5,2nd lowest,16,2,mid
+P4,32,4,3rd lowest,0,1,2nd highest
+P3,24,3,mid,16,2,mid
+P2,16,2,2nd highest,24,3,mid-low
+P1,8,1,highest,32,4,low
+P0,0,0,highest,40,5,lowest
+C_VERIFICATION,"V6-P4 results: LL tight 1.08-1.19× vs CRUX 1.29-1.33× — P4→tc:1 > P3→tc:2 consistent"
+C_COLLECTION_CMD,"mlnx_qos -i mlx5_0; ethtool -S enp130s0f0np0 | grep tx_prio"
+C_LIMITATION,"mlnx_qos reports 'Priority trust state is not supported'"

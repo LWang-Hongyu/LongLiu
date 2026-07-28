@@ -1,0 +1,14 @@
+=== run_meta: V6 统计重演 复制1 Round 2 (CX→LL) ===
+实验日期: 2026-07-24
+发起机: 10.1 (guolab-10)
+实验类型: V6 统计重演 — 复制1, Round 2: CX→LL (P6 无钳制)
+背景流: 12×500M iperf3 UDP, DSCP=P3 (DSCP=16→tc:2), TOS=64, 6 Gbps
+Warmup: 5 min (背景流持续)
+c_i: tight=1.2, loose=3.0 (epoch 7 翻转)
+T_target: V5 校准 (1024MB, A=4201ms, B=3905ms)
+LongLiu: --initial-priority 3 (无 max_priority 钳制, 允许 π>0.3→P6)
+CRUX: --crux-priority-a 3 --crux-priority-b 3 (静态 P3)
+p4_job_reverse.py hash: ca6c271a2ea9b64570d9eacb89bf79bf (双端一致)
+启动时间: 2026-07-24T16:33:49+08:00
+脚本: run_v6_full.sh (from experiment dir)
+前序: Round 1 (LL→CX) 已完成, 结果见同目录

@@ -1,0 +1,45 @@
+% ============================================================
+% T-3 正文数字与 t3_data_table.csv 逐格对照表
+% Cell-by-cell mapping: tab_t3.tex → t3_data_table.csv
+% Source: PAPER_EVIDENCE/00_documents/t3_data_table.csv
+% ============================================================
+\subsection*{Cross-Reference: T-3 Numbers to CSV Cells}
+\label{tab:t3-crossref}
+
+\begin{table}[htbp]
+\centering
+\caption{Cell-by-cell mapping between Table~\ref{tab:testbed-hw} numbers and
+the corresponding rows/columns in \texttt{t3\_data\_table.csv}.}
+\label{tab:t3-crossref-table}
+\footnotesize
+\begin{tabular}{llll}
+\toprule
+\textbf{Tab location} & \textbf{CSV identifier} & \textbf{Field} & \textbf{Value}\\
+\midrule
+\multicolumn{4}{l}{\textit{Sub-table (a): DSCP-to-TC mapping (three exercised classes)}} \\
+P6 old DSCP=48 & C\_OLD\_DSCP, prio=P6 & C\_OLD\_DSCP & 48\\
+P6 old TC=6 & C\_OLD\_TC, prio=P6 & C\_OLD\_TC & 6\\
+P6 new DSCP=8 & C\_NEW\_DSCP, prio=P6 & C\_NEW\_DSCP & 8\\
+P6 new TC=0 & C\_NEW\_TC, prio=P6 & C\_NEW\_TC & 0\\
+P4 new DSCP=0 & C\_NEW\_DSCP, prio=P4 & C\_NEW\_DSCP & 0\\
+P4 new TC=1 & C\_NEW\_TC, prio=P4 & C\_NEW\_TC & 1\\
+P3 new DSCP=16 & C\_NEW\_DSCP, prio=P3 & C\_NEW\_DSCP & 16\\
+P3 new TC=2 & C\_NEW\_TC, prio=P3 & C\_NEW\_TC & 2\\
+Formula: $\times 8$ & C\_OLD\_FORMULA & text & trafficClass = priority $\times 8$\\
+\midrule
+\multicolumn{4}{l}{\textit{Sub-table (b): NIC asymmetry \& full-class probe (merged)}} \\
+226 prio0=9.79 TB & B\_BEFORE\_DSCP48, prio=0 & B\_BEFORE\_DSCP48 & 9.79\\
+226 prio1-7=0 TB & B\_PRIO\_COUNTERS\_TB, prio=1..7 & all counters & 0\\
+226 conclusion & B\_CONCLUSION & text & 226 NIC does NOT classify DSCP \\
+10.1 prio3=5.300 TB & A\_10P1\_TX\_PRIO\_COUNTER\_TB, DSCP=24 & counter & 5.3\\
+10.1 prio4=0.049 TB & A\_10P1\_TX\_PRIO\_COUNTER\_TB, DSCP=32 & counter & 0.049\\
+10.1 prio6=0.001 TB & A\_10P1\_TX\_PRIO\_COUNTER\_TB, DSCP=48 & counter & 0.001 (old inv. mapping)\\
+10.1 prio0-2/5/7=0.001 & A\_10P1\_TX\_PRIO\_COUNTER\_TB, others & counter & 0.001 (negligible)\\
+Probe method & A\_PROBE\_METHOD & text & 1G iperf3 UDP × 15s vs 6G P3 bg\\
+Background config & A\_BG\_CONFIG & text & 12×500M UDP, DSCP=24, 300s\\
+226 probe method & B\_PROBE\_METHOD & text & Reverse-mode iperf3 UDP 200M\\
+226 probe direction & B\_PROBE\_DIRECTION & text & 226→10.1\\
+226 classifier note & A\_NOTE & text & 226 does NOT classify DSCP\\
+\bottomrule
+\end{tabular}
+\end{table}

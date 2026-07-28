@@ -1,0 +1,29 @@
+round_id,order,scheduler,phase,tight_job,c_i,epochs,n_epochs,slowdown_mean,slowdown_min,slowdown_max,slowdown_std,epoch_detail,note
+orig_r1,LL→CX,longliu,phase1_tight,A,1.2,0-6,7,1.0251,0.7077,1.2984,0.2709,e0:0.7209;e1:0.7077;e2:0.7135;e3:1.2036;e4:1.2482;e5:1.2984;e6:1.2836,
+orig_r1,LL→CX,crux,phase1_tight,A,1.2,0-6,7,0.9914,0.6970,1.2188,0.2458,e0:0.7214;e1:0.7059;e2:0.6970;e3:1.1780;e4:1.2188;e5:1.2028;e6:1.2162,
+orig_r1,LL→CX,longliu,phase2_tight_stable,B,1.2,7-11,5,1.1075,1.0780,1.1441,0.0235,e7:1.1441;e8:1.1220;e9:1.1036;e10:1.0780;e11:1.0897,
+orig_r1,LL→CX,crux,phase2_tight_stable,B,1.2,7-11,5,1.3022,1.2942,1.3101,0.0055,e7:1.3062;e8:1.2997;e9:1.2942;e10:1.3101;e11:1.3008,
+orig_r1,LL→CX,longliu,phase2_tight_full,B,1.2,7-14,8,1.0941,1.0415,1.1441,0.0291,e7:1.1441;e8:1.1220;e9:1.1036;e10:1.0780;e11:1.0897;e12:1.0985;e13:1.0758;e14:1.0415,
+orig_r1,LL→CX,crux,phase2_tight_full,B,1.2,7-14,8,1.0958,0.7460,1.3101,0.2665,e7:1.3062;e8:1.2997;e9:1.2942;e10:1.3101;e11:1.3008;e12:0.7602;e13:0.7460;e14:0.7496,
+rep1_r1,LL→CX,longliu,phase2_tight_stable,B,1.2,7-11,5,1.1075,1.0780,1.1441,0.0235,e7:1.1441;e8:1.1220;e9:1.1036;e10:1.0780;e11:1.0897,byte-for-byte identical to orig (md5 verified)
+rep1_r1,LL→CX,crux,phase2_tight_stable,B,1.2,7-11,5,1.3022,1.2942,1.3101,0.0055,e7:1.3062;e8:1.2997;e9:1.2942;e10:1.3101;e11:1.3008,byte-for-byte identical to orig (md5 verified)
+rep1_r1,LL→CX,longliu,phase2_tight_full,B,1.2,7-14,8,1.0941,1.0415,1.1441,0.0291,e7:1.1441;e8:1.1220;e9:1.1036;e10:1.0780;e11:1.0897;e12:1.0985;e13:1.0758;e14:1.0415,byte-for-byte identical to orig (md5 verified)
+rep1_r1,LL→CX,crux,phase2_tight_full,B,1.2,7-14,8,1.0958,0.7460,1.3101,0.2665,e7:1.3062;e8:1.2997;e9:1.2942;e10:1.3101;e11:1.3008;e12:0.7602;e13:0.7460;e14:0.7496,byte-for-byte identical to orig (md5 verified)
+rep2_r1,LL→CX,longliu,phase2_tight_stable,B,1.2,7-11,5,1.2496,1.1378,1.2909,0.0573,e7:1.1378;e8:1.2888;e9:1.2746;e10:1.2909;e11:1.2558,
+rep2_r1,LL→CX,crux,phase2_tight_stable,B,1.2,7-11,5,1.2541,1.2478,1.2618,0.0045,e7:1.2478;e8:1.2528;e9:1.2536;e10:1.2544;e11:1.2618,
+rep2_r1,LL→CX,longliu,phase2_tight_full,B,1.2,7-14,8,1.2061,0.9430,1.2909,0.1098,e7:1.1378;e8:1.2888;e9:1.2746;e10:1.2909;e11:1.2558;e12:1.2415;e13:1.2161;e14:0.9430,
+rep2_r1,LL→CX,crux,phase2_tight_full,B,1.2,7-14,8,1.2692,1.2478,1.2963,0.0199,e7:1.2478;e8:1.2528;e9:1.2536;e10:1.2544;e11:1.2618;e12:1.2963;e13:1.2937;e14:1.2936,
+orig_r2,CX→LL,longliu,phase1_tight,A,1.2,0-6,7,0.9900,0.6831,1.2496,0.2641,e0:0.6831;e1:0.6896;e2:0.6837;e3:1.2044;e4:1.2496;e5:1.2206;e6:1.1987,
+orig_r2,CX→LL,crux,phase1_tight,A,1.2,0-6,7,0.9646,0.6980,1.1934,0.2262,e0:0.7086;e1:0.7066;e2:0.6980;e3:1.1595;e4:1.1213;e5:1.1649;e6:1.1934,
+orig_r2,CX→LL,longliu,phase2_tight_stable,B,1.2,7-11,5,1.1069,1.0840,1.1346,0.0163,e7:1.1075;e8:1.1346;e9:1.0840;e10:1.1012;e11:1.1071,
+orig_r2,CX→LL,crux,phase2_tight_stable,B,1.2,7-11,5,1.2824,1.2586,1.3034,0.0146,e7:1.3034;e8:1.2831;e9:1.2784;e10:1.2883;e11:1.2586,
+orig_r2,CX→LL,longliu,phase2_tight_full,B,1.2,7-14,8,1.0998,1.0811,1.1346,0.0167,e7:1.1075;e8:1.1346;e9:1.0840;e10:1.1012;e11:1.1071;e12:1.0811;e13:1.0821;e14:1.1008,
+orig_r2,CX→LL,crux,phase2_tight_full,B,1.2,7-14,8,1.2807,1.2586,1.3034,0.0132,e7:1.3034;e8:1.2831;e9:1.2784;e10:1.2883;e11:1.2586;e12:1.2916;e13:1.2737;e14:1.2685,
+rep1_r2,CX→LL,longliu,phase2_tight_stable,B,1.2,7-11,5,1.1069,1.0840,1.1346,0.0163,e7:1.1075;e8:1.1346;e9:1.0840;e10:1.1012;e11:1.1071,byte-for-byte identical to orig (md5 verified)
+rep1_r2,CX→LL,crux,phase2_tight_stable,B,1.2,7-11,5,1.2824,1.2586,1.3034,0.0146,e7:1.3034;e8:1.2831;e9:1.2784;e10:1.2883;e11:1.2586,byte-for-byte identical to orig (md5 verified)
+rep1_r2,CX→LL,longliu,phase2_tight_full,B,1.2,7-14,8,1.0998,1.0811,1.1346,0.0167,e7:1.1075;e8:1.1346;e9:1.0840;e10:1.1012;e11:1.1071;e12:1.0811;e13:1.0821;e14:1.1008,byte-for-byte identical to orig (md5 verified)
+rep1_r2,CX→LL,crux,phase2_tight_full,B,1.2,7-14,8,1.2807,1.2586,1.3034,0.0132,e7:1.3034;e8:1.2831;e9:1.2784;e10:1.2883;e11:1.2586;e12:1.2916;e13:1.2737;e14:1.2685,byte-for-byte identical to orig (md5 verified)
+rep2_r2,CX→LL,longliu,phase2_tight_stable,B,1.2,7-11,5,1.1123,1.0978,1.1482,0.0188,e7:1.0995;e8:1.1482;e9:1.1022;e10:1.1137;e11:1.0978,
+rep2_r2,CX→LL,crux,phase2_tight_stable,B,1.2,7-11,5,1.3365,1.2785,1.3825,0.0358,e7:1.2785;e8:1.3623;e9:1.3392;e10:1.3201;e11:1.3825,
+rep2_r2,CX→LL,longliu,phase2_tight_full,B,1.2,7-14,8,1.1099,1.0856,1.1482,0.0176,e7:1.0995;e8:1.1482;e9:1.1022;e10:1.1137;e11:1.0978;e12:1.1197;e13:1.1125;e14:1.0856,
+rep2_r2,CX→LL,crux,phase2_tight_full,B,1.2,7-14,8,1.3376,1.2785,1.3825,0.0311,e7:1.2785;e8:1.3623;e9:1.3392;e10:1.3201;e11:1.3825;e12:1.3621;e13:1.3440;e14:1.3122,

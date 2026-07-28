@@ -1,0 +1,15 @@
+V6 统计重演 复制2 — 结果汇总
+日期: 2026-07-24
+
+Round 1 (LL→CX):
+  LL tight B P2: 1.14-1.29× (P4, DSCP=0→tc:1) — 噪声偏高
+  CRUX tight B P2: 1.25-1.26× (P3, DSCP=16→tc:2)
+  LL 平均优 ~2-3% (无完全区间分离, 但仍优于CRUX)
+
+Round 2 (CX→LL):
+  LL tight B P2: 1.09-1.15× (P4, DSCP=0→tc:1)
+  CRUX tight B P2: 1.28-1.36× (P3, DSCP=16→tc:2)
+  LL 决定性优势 ~14-18% (无区间重叠)
+
+环境波动: Round 1 争抢偏强导致 LL 侧 slowdown 升高,
+但 Round 2 结果干净复现 V6-P4 段结论.

@@ -1,0 +1,62 @@
+% ============================================================
+% §6.6 EQ5 — 正文数字与 CSV 逐格对照表
+% Cell-by-cell mapping: paper text → fig6_data.csv
+% Source: PAPER_EVIDENCE/01_V6_main/fig6_data.csv
+% ============================================================
+\subsection*{Cross-Reference: Text Numbers to CSV Cells}
+\label{sec:eq5-crossref}
+
+\begin{table}[htbp]
+\centering
+\caption{Cell-by-cell mapping between \S\ref{sec:eq5} numbers and the corresponding rows/columns in \texttt{fig6\_data.csv}.}
+\label{tab:eq5-crossref}
+\footnotesize
+\begin{tabular}{lllr}
+\toprule
+\textbf{Text reference} & \textbf{CSV identifier} & \textbf{Column} & \textbf{Value}\\
+\midrule
+\multicolumn{4}{l}{\textit{Stable window (epochs~7--11) -- main metric}} \\
+orig\_r1: LongLiu mean & round\_id=orig\_r1, scheduler=longliu & slowdown\_mean & 1.1075\\
+orig\_r1: LongLiu min & round\_id=orig\_r1, scheduler=longliu & slowdown\_min & 1.0780\\
+orig\_r1: LongLiu max & round\_id=orig\_r1, scheduler=longliu & slowdown\_max & 1.1441\\
+orig\_r1: CRUX mean & round\_id=orig\_r1, scheduler=crux & slowdown\_mean & 1.3022\\
+orig\_r1: CRUX min & round\_id=orig\_r1, scheduler=crux & slowdown\_min & 1.2942\\
+orig\_r1: CRUX max & round\_id=orig\_r1, scheduler=crux & slowdown\_max & 1.3101\\
+orig\_r2: LongLiu mean & round\_id=orig\_r2, scheduler=longliu & slowdown\_mean & 1.1069\\
+orig\_r2: LongLiu min & round\_id=orig\_r2, scheduler=longliu & slowdown\_min & 1.0840\\
+orig\_r2: LongLiu max & round\_id=orig\_r2, scheduler=longliu & slowdown\_max & 1.1346\\
+orig\_r2: CRUX mean & round\_id=orig\_r2, scheduler=crux & slowdown\_mean & 1.2824\\
+orig\_r2: CRUX min & round\_id=orig\_r2, scheduler=crux & slowdown\_min & 1.2586\\
+orig\_r2: CRUX max & round\_id=orig\_r2, scheduler=crux & slowdown\_max & 1.3034\\
+rep2\_r1: LongLiu mean & round\_id=rep2\_r1, scheduler=longliu & slowdown\_mean & 1.2496\\
+rep2\_r1: CRUX mean & round\_id=rep2\_r1, scheduler=crux & slowdown\_mean & 1.2541\\
+rep2\_r2: LongLiu mean & round\_id=rep2\_r2, scheduler=longliu & slowdown\_mean & 1.1123\\
+rep2\_r2: CRUX mean & round\_id=rep2\_r2, scheduler=crux & slowdown\_mean & 1.3365\\
+\midrule
+\multicolumn{4}{l}{\textit{Derived advantage (non-overlapping rounds only)}} \\
+orig\_r1 advantage & (CRUX mean $-$ LL mean) / CRUX mean & ${}^{\dagger}$ & 14.95\%\\
+orig\_r2 advantage & (1.2824 $-$ 1.1069) / 1.2824 & ${}^{\dagger}$ & 13.68\%\\
+rep2\_r2 advantage & (1.3365 $-$ 1.1123) / 1.3365 & ${}^{\dagger}$ & 16.78\%\\
+\midrule
+\multicolumn{4}{l}{\textit{Full window (epochs~7--14) -- reference metric}} \\
+orig\_r1: LongLiu mean & round\_id=orig\_r1, scheduler=longliu, phase2\_tight\_full & slowdown\_mean & 1.0941\\
+orig\_r1: CRUX mean & round\_id=orig\_r1, scheduler=crux, phase2\_tight\_full & slowdown\_mean & 1.0958\\
+orig\_r2: LongLiu mean & round\_id=orig\_r2, scheduler=longliu, phase2\_tight\_full & slowdown\_mean & 1.0998\\
+orig\_r2: CRUX mean & round\_id=orig\_r2, scheduler=crux, phase2\_tight\_full & slowdown\_mean & 1.2807\\
+rep2\_r1: LongLiu mean & round\_id=rep2\_r1, scheduler=longliu, phase2\_tight\_full & slowdown\_mean & 1.2061\\
+rep2\_r1: CRUX mean & round\_id=rep2\_r1, scheduler=crux, phase2\_tight\_full & slowdown\_mean & 1.2692\\
+rep2\_r2: LongLiu mean & round\_id=rep2\_r2, scheduler=longliu, phase2\_tight\_full & slowdown\_mean & 1.1099\\
+rep2\_r2: CRUX mean & round\_id=rep2\_r2, scheduler=crux, phase2\_tight\_full & slowdown\_mean & 1.3376\\
+\midrule
+\multicolumn{4}{l}{\textit{Cross-check: rep1 md5 identity (excluded from independent rounds)}} \\
+rep1\_r1 LL stable mean & round\_id=rep1\_r1, scheduler=longliu, phase2\_tight\_stable & slowdown\_mean & 1.1075\\
+rep1\_r1 CRUX stable mean & round\_id=rep1\_r1, scheduler=crux, phase2\_tight\_stable & slowdown\_mean & 1.3022\\
+rep1\_r2 LL stable mean & round\_id=rep1\_r2, scheduler=longliu, phase2\_tight\_stable & slowdown\_mean & 1.1069\\
+rep1\_r2 CRUX stable mean & round\_id=rep1\_r2, scheduler=crux, phase2\_tight\_stable & slowdown\_mean & 1.2824\\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\raggedfootnote
+${}^{\dagger}$Derived values; the constituent means are directly traceable
+to \texttt{fig6\_data.csv} rows as shown above.
+\end{table}

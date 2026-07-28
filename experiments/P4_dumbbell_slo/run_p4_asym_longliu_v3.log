@@ -1,0 +1,78 @@
+bash: cannot set terminal process group (932014): Inappropriate ioctl for device
+bash: no job control in this shell
+==========================================
+P4 V3 Asymmetric Workload (Two Jobs)
+Mode: longliu
+==========================================
+
+Job1: 30ms compute, c_i=1.2 (strict SLO, comm-intensive)
+Job2: 80ms compute, c_i=2.0 (loose SLO, compute-intensive)
+
+==========================================
+Phase 1: Launching Job1 (30ms, c_i=1.2)
+==========================================
+Launching Job1 rank 0 on 10.1...
+Launching Job1 rank 1 on 226...
+Job1 launched (PIDs: 932105 on 10.1, 932106 on 226)
+
+Waiting 10s for Job1 to initialize...
+==========================================
+Phase 2: Launching Job2 (80ms, c_i=2.0)
+==========================================
+Launching Job2 rank 0 on 10.1...
+Launching Job2 rank 1 on 226...
+Job2 launched (PIDs: 932279 on 10.1, 932280 on 226)
+
+==========================================
+All jobs running...
+==========================================
+
+Job1 PIDs: 932105 (10.1), 932106 (226)
+Job2 PIDs: 932279 (10.1), 932280 (226)
+
+Running experiment... (this will take ~10-15 minutes)
+
+
+==========================================
+Experiment completed
+Job1 exit codes: 0 (10.1), 0 (226)
+Job2 exit codes: 0 (10.1), 0 (226)
+==========================================
+
+=== Job1 Results ===
+Job1 rank 0 (last 10 iterations):
+289,14,0.513633,16.7239,contested
+290,14,0.532805,16.1221,contested
+291,14,0.526823,16.3052,contested
+292,14,0.505202,17.003,contested
+293,14,0.535118,16.0524,contested
+294,14,0.539555,15.9204,contested
+295,14,0.529279,16.2295,contested
+296,14,0.532628,16.1275,contested
+297,14,0.528278,16.2602,contested
+298,14,0.520626,16.4992,contested
+299,14,0.523815,16.3988,contested
+
+=== Job2 Results ===
+Job2 rank 0 (last 10 iterations):
+289,14,0.301763,28.4658,contested
+290,14,0.293491,29.2681,contested
+291,14,0.27362,31.3937,contested
+292,14,0.291641,29.4538,contested
+293,14,0.30505,28.1591,contested
+294,14,0.305655,28.1033,contested
+295,14,0.297087,28.9139,contested
+296,14,0.293378,29.2794,contested
+297,14,0.297255,28.8975,contested
+298,14,0.292076,29.41,contested
+299,14,0.29519,29.0997,contested
+
+Results saved to:
+  - p4_job1_asym_longliu_rank*.csv
+  - p4_job2_asym_longliu_rank*.csv
+
+Logs saved to:
+  - p4_job1_asym_longliu_node101.log
+  - p4_job1_asym_longliu_node226.log
+  - p4_job2_asym_longliu_node101.log
+  - p4_job2_asym_longliu_node226.log

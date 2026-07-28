@@ -1,0 +1,59 @@
+==========================================
+P4-1 Role-Reversal V2 (payload reversal)
+  scheduler = v1(pi) / CRUX-static
+  queue     = SP
+  c_i       = 1.3 (both jobs)
+  iters     = 300 (15 epochs x 20 iters/epoch)
+  reversal  = payload swap at epoch 7
+  T_target  = solo pre-learning (Phase 0)
+  date      = 2026-07-19T16:01:16+08:00
+==========================================
+
+==========================================
+Phase 0a: Calibrate Job A (solo, heavy=2048MB, 5 epochs)
+==========================================
+Job A calibration launched (PIDs: 2015856 on 10.1, 2015857 on 226)
+Job A calibration done (exits: 0, 0)
+T_target_A: {
+  "job": "A",
+  "mode": "longliu",
+  "payload_mb": 2048,
+  "c_i": 1.3,
+  "sleep_us": 30000,
+  "calib_epochs": 5,
+  "iters_per_epoch": 20,
+  "target_comm_time_ms": 5743.498,
+  "timestamp": "2026-07-19T16:01:50"
+}
+
+==========================================
+Phase 0b: Calibrate Job B (solo, light=256MB, 5 epochs)
+==========================================
+Job B calibration launched (PIDs: 2016234 on 10.1, 2016235 on 226)
+Job B calibration done (exits: 0, 0)
+T_target_B: {
+  "job": "B",
+  "mode": "longliu",
+  "payload_mb": 256,
+  "c_i": 1.3,
+  "sleep_us": 30000,
+  "calib_epochs": 5,
+  "iters_per_epoch": 20,
+  "target_comm_time_ms": 694.467,
+  "timestamp": "2026-07-19T16:02:03"
+}
+
+==========================================
+Phase 1+2: Main experiment — Mode=longliu (scheduler=v1(pi))
+==========================================
+Job A launched (PIDs: 2016374 on 10.1, 2016375 on 226)
+Waiting 10s for Job A to initialize...
+Job B launched (PIDs: 2016502 on 10.1, 2016503 on 226)
+
+Running longliu experiment (scheduler=v1(pi), queue=SP)...
+Job A: heavy→light, Job B: light→heavy, reversal at epoch 7
+
+run_p4_reverse.sh: line 277: 2016374 Killed                  CUDA_VISIBLE_DEVICES=0 MASTER_ADDR=192.10.10.110 MASTER_PORT=$PORT_JA WORLD_SIZE=2 RANK=0 MULTI_COMM_PORT=$PORT_JA NCCL_SOCKET_IFNAME=enp130s0f0np0 NCCL_DEBUG_FILE=/tmp/nccl_jA_${MODE}_101_%h_%p.log python3 -u p4_job_reverse.py --job A --mode $MODE --phase main --ttarget-file $TTARGET_A > p4_jobA_reverse_${MODE}_node101.log 2>&1
+run_p4_reverse.sh: line 277: 2016375 Killed                  ssh $NODE_226 "cd $EXP_DIR &&         CUDA_VISIBLE_DEVICES=0 MASTER_ADDR=192.10.10.110 MASTER_PORT=$PORT_JA         WORLD_SIZE=2 RANK=1         MULTI_COMM_PORT=$PORT_JA         NCCL_IB_HCA=mlx5_0 NCCL_IB_GID_INDEX=3 NCCL_DEBUG=INFO         NCCL_ALGO=RING NCCL_PROTO=SIMPLE NCCL_SOCKET_IFNAME=enp59s0f0np0         LD_LIBRARY_PATH=/home/why/LongLiu_rebuild/nccl-master/build/lib:\$LD_LIBRARY_PATH         PYTHONPATH=/home/why/LongLiu_rebuild/multi_comm_slo/src:\$PYTHONPATH         NCCL_DEBUG_FILE=/tmp/nccl_jA_${MODE}_226_%h_%p.log         python3 -u p4_job_reverse.py --job A --mode $MODE --phase main             --ttarget-file $TTARGET_A             > p4_jobA_reverse_${MODE}_node226.log 2>&1"
+run_p4_reverse.sh: line 277: 2016502 Killed                  CUDA_VISIBLE_DEVICES=0 MASTER_ADDR=192.10.10.110 MASTER_PORT=$PORT_JB WORLD_SIZE=2 RANK=0 MULTI_COMM_PORT=$PORT_JB NCCL_SOCKET_IFNAME=enp130s0f0np0 NCCL_DEBUG_FILE=/tmp/nccl_jB_${MODE}_101_%h_%p.log python3 -u p4_job_reverse.py --job B --mode $MODE --phase main --ttarget-file $TTARGET_B > p4_jobB_reverse_${MODE}_node101.log 2>&1
+run_p4_reverse.sh: line 277: 2016503 Killed                  ssh $NODE_226 "cd $EXP_DIR &&         CUDA_VISIBLE_DEVICES=0 MASTER_ADDR=192.10.10.110 MASTER_PORT=$PORT_JB         WORLD_SIZE=2 RANK=1         MULTI_COMM_PORT=$PORT_JB         NCCL_IB_HCA=mlx5_0 NCCL_IB_GID_INDEX=3 NCCL_DEBUG=INFO         NCCL_ALGO=RING NCCL_PROTO=SIMPLE NCCL_SOCKET_IFNAME=enp59s0f0np0         LD_LIBRARY_PATH=/home/why/LongLiu_rebuild/nccl-master/build/lib:\$LD_LIBRARY_PATH         PYTHONPATH=/home/why/LongLiu_rebuild/multi_comm_slo/src:\$PYTHONPATH         NCCL_DEBUG_FILE=/tmp/nccl_jB_${MODE}_226_%h_%p.log         python3 -u p4_job_reverse.py --job B --mode $MODE --phase main             --ttarget-file $TTARGET_B             > p4_jobB_reverse_${MODE}_node226.log 2>&1"

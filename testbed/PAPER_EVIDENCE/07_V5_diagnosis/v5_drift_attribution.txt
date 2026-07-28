@@ -1,0 +1,30 @@
+=== V5 漂移归因数据 ===
+实验日期: 2026-07-20
+场景: payload 1024MB×2, c_i Phase 1: A=1.7/B=3.0, Phase 2: A=3.0/B=1.7
+运行顺序: LongLiu 先 (13:28-29), CRUX 后 (13:30-31), 间隔 ~2 分钟
+
+问题: 被 SP 保护的 tight job 反而比 CRUX 平权时更慢
+
+诊断方法: Phase 1 对照（两臂等优先级）
+
+Phase 1 tight job A 对比 (LL=P2, CX=P3):
+  LL avg: 271.5ms, CX avg: 224.0ms
+  差值: +47.5ms (+21.2%)
+  
+Phase 1 loose job B 对比 (LL=P2, CX=P3):
+  LL avg: 334.1ms, CX avg: 280.7ms
+  差值: +53.4ms (+19.0%)
+
+结论: 环境漂移是主因（等优先级不应有 gap，gap ~20% 与运行顺序吻合）
+
+漂移校正一阶估计:
+  Phase 1 gap (纯漂移基线): 21.2%
+  Phase 2 gap (漂移 + SP 保护): 10.6%
+  SP 保护效果: 21.2% - 10.6% = 10.6pp
+
+V5 修正后结论:
+  - 机制验证成立：π→优先级翻转在真实 RoCE 上按设计工作
+  - Outcome 层面：两臂均达标，主因是环境漂移
+  - V6 通过 5min warmup + 交替运行分离漂移
+
+参见: QUOTA_EXPERIMENT_RESULTS.md L820-L961

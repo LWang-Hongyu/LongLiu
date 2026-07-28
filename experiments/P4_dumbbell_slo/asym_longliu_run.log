@@ -1,0 +1,18 @@
+bash: cannot set terminal process group (700809): Inappropriate ioctl for device
+bash: no job control in this shell
+==========================================
+P4 V3 Asymmetric Workload Experiment
+Mode: longliu
+==========================================
+
+Job1: 30ms compute, c_i=1.2 (strict SLO, comm-intensive)
+Job2: 80ms compute, c_i=2.0 (loose SLO, compute-intensive)
+
+Launching Job1 on 10.1 (rank 0)...
+Launching Job2 on 226 (rank 1)...
+
+Job1 PID: 701047
+Job2 PID: 701096
+
+Running experiment... (this will take ~5-10 minutes)
+

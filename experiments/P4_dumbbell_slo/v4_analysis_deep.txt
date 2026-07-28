@@ -1,0 +1,149 @@
+================================================================================
+V4 Deep Analysis: Phase Overlap, Bandwidth Share, Transient Diagnosis
+================================================================================
+
+T_target (from JSON calibration):
+  Job A: 1504.513ms/epoch = 75.23ms/iter
+  Job B: 1405.502ms/epoch = 70.28ms/iter
+Compute time (fixed): 30ms/iter
+
+--------------------------------------------------------------------------------
+1. Phase Overlap Analysis (comm duty cycle & overlap ratio)
+--------------------------------------------------------------------------------
+
+duty_cycle = avg_comm_dur / (avg_comm_dur + compute_dur)
+overlap_ratio ≈ duty_A × duty_B  (probability both jobs in comm simultaneously)
+expected_slowdown_under_equal_share = 1 + overlap_ratio  (contended→2x, solo→1x)
+
+  LongLiu v1(π):
+  epoch |  duty_A |  duty_B |  overlap |  exp_slow | act_slow_A | act_slow_B
+      0 |   0.728 |   0.831 |    0.605 |     1.605x |      0.668x |      0.699x  [P1]
+      1 |   0.726 |   0.819 |    0.595 |     1.595x |      0.662x |      0.645x  [P1]
+      2 |   0.712 |   0.811 |    0.578 |     1.578x |      0.616x |      0.612x  [P1]
+      3 |   0.719 |   0.813 |    0.584 |     1.584x |      0.637x |      0.617x  [P1]
+      4 |   0.708 |   0.812 |    0.575 |     1.575x |      0.606x |      0.613x  [P1]
+      5 |   0.697 |   0.809 |    0.564 |     1.564x |      0.574x |      0.603x  [P1]
+      6 |   0.702 |   0.809 |    0.568 |     1.568x |      0.587x |      0.603x  [P1]
+      7 |   0.771 |   0.765 |    0.589 |     1.589x |      0.447x |      0.868x  [P2]
+      8 |   0.806 |   0.687 |    0.554 |     1.554x |      0.551x |      0.586x  [P2]
+      9 |   0.809 |   0.690 |    0.558 |     1.558x |      0.564x |      0.593x  [P2]
+     10 |   0.813 |   0.691 |    0.562 |     1.562x |      0.579x |      0.597x  [P2]
+     11 |   0.811 |   0.692 |    0.561 |     1.561x |      0.569x |      0.600x  [P2]
+     12 |   0.810 |   0.691 |    0.559 |     1.559x |      0.567x |      0.596x  [P2]
+     13 |   0.810 |   0.690 |    0.559 |     1.559x |      0.567x |      0.593x  [P2]
+     14 |   0.810 |   0.699 |    0.566 |     1.566x |      0.568x |      0.618x  [P2]
+
+  CRUX-static:
+  epoch |  duty_A |  duty_B |  overlap |  exp_slow | act_slow_A | act_slow_B
+      0 |   0.747 |   0.854 |    0.638 |     1.638x |      0.736x |      0.830x  [P1]
+      1 |   0.749 |   0.852 |    0.638 |     1.638x |      0.746x |      0.818x  [P1]
+      2 |   0.744 |   0.848 |    0.631 |     1.631x |      0.725x |      0.791x  [P1]
+      3 |   0.752 |   0.851 |    0.640 |     1.640x |      0.757x |      0.812x  [P1]
+      4 |   0.739 |   0.851 |    0.629 |     1.629x |      0.705x |      0.814x  [P1]
+      5 |   0.747 |   0.847 |    0.633 |     1.633x |      0.737x |      0.787x  [P1]
+      6 |   0.848 |   0.854 |    0.724 |     1.724x |      1.389x |      0.831x  [P1]
+      7 |   0.853 |   0.848 |    0.723 |     1.723x |      0.771x |      1.483x  [P2]
+      8 |   0.850 |   0.851 |    0.723 |     1.723x |      0.753x |      1.520x  [P2]
+      9 |   0.853 |   0.708 |    0.604 |     1.604x |      0.769x |      0.646x  [P2]
+     10 |   0.852 |   0.682 |    0.581 |     1.581x |      0.763x |      0.572x  [P2]
+     11 |   0.851 |   0.681 |    0.579 |     1.579x |      0.756x |      0.568x  [P2]
+     12 |   0.855 |   0.679 |    0.580 |     1.580x |      0.785x |      0.563x  [P2]
+     13 |   0.850 |   0.686 |    0.584 |     1.584x |      0.754x |      0.584x  [P2]
+     14 |   0.850 |   0.685 |    0.582 |     1.582x |      0.752x |      0.580x  [P2]
+
+--------------------------------------------------------------------------------
+2. CRUX Job B Phase 2 Transient Diagnosis (epoch 7-14)
+--------------------------------------------------------------------------------
+
+  Transition (epoch 7-8): avg slowdown = 1.501x, avg comm = 168.8ms
+  Steady state (epoch 9-14): avg slowdown = 0.586x, avg comm = 65.8ms
+  Recovery ratio: slowdown drops 2.6x from transition to steady
+
+  CRUX Job B Phase 2 per-epoch detail:
+    epoch  7: comm=167ms, slow=1.483x, bw=13.0Gbps, SLO_target=112ms, margin=-54ms
+    epoch  8: comm=171ms, slow=1.520x, bw=12.8Gbps, SLO_target=112ms, margin=-58ms
+    epoch  9: comm=73ms, slow=0.646x, bw=31.5Gbps, SLO_target=112ms, margin=+40ms
+    epoch 10: comm=64ms, slow=0.572x, bw=33.5Gbps, SLO_target=112ms, margin=+48ms
+    epoch 11: comm=64ms, slow=0.568x, bw=33.6Gbps, SLO_target=112ms, margin=+49ms
+    epoch 12: comm=63ms, slow=0.563x, bw=34.0Gbps, SLO_target=112ms, margin=+49ms
+    epoch 13: comm=66ms, slow=0.584x, bw=32.9Gbps, SLO_target=112ms, margin=+47ms
+    epoch 14: comm=65ms, slow=0.580x, bw=33.0Gbps, SLO_target=112ms, margin=+47ms
+
+  Explanation: CRUX Job B's recovery at epoch 9 iter 182 suggests a NCCL-level state change
+  (comm re-negotiation / channel reset). After the state change, Job B gets ~solo bandwidth
+  (~33 Gbps / ~64ms) while Job A remains contended (~13 Gbps / ~170ms).
+  This asymmetry in equal-priority sharing is a NIC/driver artifact, not policy-driven.
+
+--------------------------------------------------------------------------------
+3. Bandwidth Share (per epoch, Gbps)
+--------------------------------------------------------------------------------
+
+  LongLiu:
+  epoch | bw_A(Gbps) | bw_B(Gbps) |  share_A |  share_B |    total
+      0 |      27.78 |      15.52 |    0.642 |    0.358 |    43.30  [P1]
+      1 |      28.76 |      16.34 |    0.638 |    0.362 |    45.11  [P1]
+      2 |      29.09 |      16.71 |    0.635 |    0.365 |    45.79  [P1]
+      3 |      28.25 |      16.58 |    0.630 |    0.370 |    44.83  [P1]
+      4 |      29.66 |      16.67 |    0.640 |    0.360 |    46.33  [P1]
+      5 |      31.29 |      16.93 |    0.649 |    0.351 |    48.22  [P1]
+      6 |      30.54 |      16.93 |    0.643 |    0.357 |    47.47  [P1]
+      7 |      21.68 |      24.49 |    0.470 |    0.530 |    46.18  [P2]
+      8 |      18.24 |      32.68 |    0.358 |    0.642 |    50.91  [P2]
+      9 |      16.90 |      32.40 |    0.343 |    0.657 |    49.31  [P2]
+     10 |      16.48 |      32.11 |    0.339 |    0.661 |    48.59  [P2]
+     11 |      16.74 |      32.00 |    0.343 |    0.657 |    48.74  [P2]
+     12 |      16.82 |      32.27 |    0.343 |    0.657 |    49.09  [P2]
+     13 |      16.80 |      32.42 |    0.341 |    0.659 |    49.22  [P2]
+     14 |      16.79 |      31.22 |    0.350 |    0.650 |    48.01  [P2]
+
+  CRUX:
+  epoch | bw_A(Gbps) | bw_B(Gbps) |  share_A |  share_B |    total
+      0 |      25.42 |      12.67 |    0.667 |    0.333 |    38.09  [P1]
+      1 |      24.36 |      12.60 |    0.659 |    0.341 |    36.96  [P1]
+      2 |      25.18 |      12.96 |    0.660 |    0.340 |    38.15  [P1]
+      3 |      23.86 |      12.64 |    0.654 |    0.346 |    36.50  [P1]
+      4 |      25.86 |      12.63 |    0.672 |    0.328 |    38.49  [P1]
+      5 |      24.81 |      13.06 |    0.655 |    0.345 |    37.87  [P1]
+      6 |      13.01 |      12.41 |    0.512 |    0.488 |    25.42  [P1]
+      7 |      12.49 |      12.99 |    0.490 |    0.510 |    25.48  [P2]
+      8 |      12.75 |      12.80 |    0.499 |    0.501 |    25.55  [P2]
+      9 |      12.47 |      31.46 |    0.284 |    0.716 |    43.93  [P2]
+     10 |      12.62 |      33.49 |    0.274 |    0.726 |    46.11  [P2]
+     11 |      12.65 |      33.63 |    0.273 |    0.727 |    46.28  [P2]
+     12 |      12.28 |      33.95 |    0.266 |    0.734 |    46.23  [P2]
+     13 |      12.76 |      32.86 |    0.280 |    0.720 |    45.61  [P2]
+     14 |      12.84 |      33.01 |    0.280 |    0.720 |    45.85  [P2]
+
+  LongLiu Phase 1 avg share: A=0.640 B=0.360 (1.77:1 ratio)
+  LongLiu Phase 2 avg share: A=0.361 B=0.639 (0.56:1 ratio)
+
+  CRUX Phase 1 avg share: A=0.640 B=0.360 (1.78:1 ratio)
+  CRUX Phase 2 avg share: A=0.331 B=0.669 (0.49:1 ratio)
+
+--------------------------------------------------------------------------------
+4. Structural Violation Requirement (V5 design)
+--------------------------------------------------------------------------------
+
+Problem: CRUX violation is transient (epoch 7-8 only), then recovers due to NCCL state artifact.
+This makes comparison threshold-sensitive ('绊了一下' vs '走错了路').
+
+Solution: Increase comm duty cycle so steady-state slowdown > c_i threshold even after noise.
+
+V4 duty cycle: ~0.70 (512MB, 30ms compute)
+  → overlap = 0.49, expected contention slowdown ≈ 1.5x
+  → with c_i=1.6 (tight), threshold at 1.6x → violation is marginal & transient
+
+V5 target: 1GB payload, 30ms compute
+  → estimated duty cycle ≈ 0.90, overlap ≈ 0.81, expected slowdown ≈ 1.8x
+  → with c_i=1.7, steady-state slowdown 1.8x > 1.7x → STRUCTURAL violation
+  → LongLiu tight job gets ~2:1 bandwidth → slowdown ~0.9x < 1.7x → always met
+
+--------------------------------------------------------------------------------
+5. V4 c_i Transparency
+--------------------------------------------------------------------------------
+
+Actual c_i values used in V4:
+  Job A: Phase 1 c_i=1.6, SLO target=120.4ms/iter
+  Job A: Phase 2 c_i=3.0, SLO target=225.7ms/iter
+  Job B: Phase 1 c_i=3.0, SLO target=210.8ms/iter
+  Job B: Phase 2 c_i=1.6, SLO target=112.4ms/iter

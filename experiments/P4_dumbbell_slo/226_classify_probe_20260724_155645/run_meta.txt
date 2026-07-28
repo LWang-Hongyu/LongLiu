@@ -1,0 +1,9 @@
+=== run_meta: 226 分类能力探针 ===
+实验日期: 2026-07-24
+发起机: 10.1 (guolab-10)
+探针方向: 226 → 10.1
+探针速率: 1000M iperf3 UDP (solo sweep DSCP 0-56 step 8)
+相一: solo 探针，测 226 tx_prio 增量（判断 226 是否分类）
+相二: 6G P3 (12×500M) 背景流 10.1→226，测 226 rx_prio 增量
+脚本: probe_226_classify.sh (hash: e9aaaa8478dfe8cd249dd330fbfcd1e4)
+结果目录: /home/why/LongLiu_rebuild/experiments/P4_dumbbell_slo/226_classify_probe_20260724_155645

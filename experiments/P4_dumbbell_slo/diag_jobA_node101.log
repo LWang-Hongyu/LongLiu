@@ -1,0 +1,31 @@
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 0: initializing 7 priorities across 1 devices
+[MultiComm] Rank 0: waiting for TCP connections on port 29520...
+[MultiComm] Rank 0: sent 7 IDs to rank 1
+[MultiComm] Rank 0: created communicator for priority P0 (DSCP=0)
+[MultiComm] Rank 0: created communicator for priority P1 (DSCP=8)
+[MultiComm] Rank 0: created communicator for priority P2 (DSCP=16)
+[MultiComm] Rank 0: created communicator for priority P3 (DSCP=24)
+[MultiComm] Rank 0: created communicator for priority P4 (DSCP=32)
+[MultiComm] Rank 0: created communicator for priority P5 (DSCP=40)
+[MultiComm] Rank 0: created communicator for priority P6 (DSCP=48)
+[MultiComm] Rank 0: initialization complete, starting at P6 (DSCP=48)
+[MultiComm] Initialized: rank=0, world_size=2, master=192.10.10.110:29520, priority=P0
+[Diag-A] payload=2048MB, priority=P0 (DSCP=0), heavy/P0
+[Diag-A] 200 iters, 20/epoch, 10 epochs
+[Diag-A] Warmup done.
+[MultiComm] Rank 0: switching priority P6 -> P0 (DSCP 48 -> 0)
+[Diag-A] epoch 0: comm=405.3ms, bw=21.19 Gbps
+[Diag-A] epoch 1: comm=265.3ms, bw=32.38 Gbps
+[Diag-A] epoch 2: comm=418.9ms, bw=20.50 Gbps
+[Diag-A] epoch 3: comm=420.3ms, bw=20.44 Gbps
+[Diag-A] epoch 4: comm=282.9ms, bw=30.37 Gbps
+[Diag-A] epoch 5: comm=303.4ms, bw=28.31 Gbps
+[Diag-A] epoch 6: comm=261.7ms, bw=32.82 Gbps
+[Diag-A] epoch 7: comm=310.3ms, bw=27.68 Gbps
+[Diag-A] epoch 8: comm=284.5ms, bw=30.20 Gbps
+[Diag-A] epoch 9: comm=290.8ms, bw=29.54 Gbps
+[Diag-A] Results saved to diag_isolation_jobA_rank0.csv
+[Diag-A] Summary: avg_comm=315.5ms, avg_bw=27.92 Gbps
+[Diag-A] Total wall time: 63.2s
+[MultiComm] Rank 0: destroyed

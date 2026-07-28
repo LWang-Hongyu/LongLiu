@@ -1,0 +1,38 @@
+=== run_meta: V6 统计重演 复制1 Round 1 (LL→CX) ===
+实验日期: 2026-07-24
+发起机: 10.1 (guolab-10)
+实验类型: V6 统计重演 — 复制1, Round 1: LL→CX (P6 无钳制)
+背景流: 12×500M iperf3 UDP, DSCP=P3 (DSCP=16→tc:2), TOS=64, 6 Gbps
+Warmup: 5 min (背景流持续)
+c_i: tight=1.2, loose=3.0 (epoch 7 翻转)
+T_target: V5 校准 (1024MB, A=4201ms, B=3905ms)
+LongLiu: --initial-priority 3 (无 max_priority 钳制, 允许 π>0.3→P6)
+CRUX: --crux-priority-a 3 --crux-priority-b 3 (静态 P3)
+p4_job_reverse.py hash: ca6c271a2ea9b64570d9eacb89bf79bf (双端一致)
+T_target 文件: jobA={
+  "job": "A",
+  "mode": "longliu",
+  "payload_mb": 1024,
+  "c_i_calib": 1.7,
+  "sleep_us": 30000,
+  "calib_epochs": 5,
+  "iters_per_epoch": 20,
+  "target_comm_time_ms": 4201.087,
+  "unit": "per_epoch_ms",
+  "timestamp": "2026-07-20T13:26:47"
+}, jobB={
+  "job": "B",
+  "mode": "longliu",
+  "payload_mb": 1024,
+  "c_i_calib": 3.0,
+  "sleep_us": 30000,
+  "calib_epochs": 5,
+  "iters_per_epoch": 20,
+  "target_comm_time_ms": 3905.163,
+  "unit": "per_epoch_ms",
+  "timestamp": "2026-07-20T13:27:17"
+}
+NIC DSCP→TC 映射 (mlnx_qos): P6→DSCP=8→tc:0, P4→DSCP=0→tc:1, P3→DSCP=16→tc:2
+启动时间: 2026-07-24T16:24:07+08:00
+脚本: run_v6_full.sh (from experiment dir)
+输出日志: round1_LLthenCX_*.log

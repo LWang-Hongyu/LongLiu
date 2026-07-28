@@ -1,0 +1,6 @@
+epoch,total_bytes,comm_dur_s,bw_obs_gbps,phase
+5,5368709120,4.308263,9.969,contested
+6,5368709120,4.145585,10.36,contested
+7,5368709120,4.159323,10.326,contested
+8,5368709120,4.198082,10.231,contested
+9,5368709120,3.715996,11.558,contested

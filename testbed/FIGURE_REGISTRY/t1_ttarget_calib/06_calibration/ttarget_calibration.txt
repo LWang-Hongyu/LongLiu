@@ -1,0 +1,31 @@
+=== T_target 标定记录 ===
+源: V5 校准 (2026-07-21, 1024MB payload, solo epoch 级通信时间)
+文件: /tmp/ttarget_v5_jobA.json, /tmp/ttarget_v5_jobB.json
+
+Job A (tight, 先启动):
+  T_target_epoch_ms: 4201.087
+  unit: per_epoch_ms
+  ITERS_PER_EPOCH: 20
+  T_target_per_iter: 4201.087 / 20 = 210.05435 ms
+  per-iter: ~210.1 ms
+
+Job B (loose/先松后紧, 后启动):
+  T_target_epoch_ms: 3905.163
+  unit: per_epoch_ms
+  ITERS_PER_EPOCH: 20
+  T_target_per_iter: 3905.163 / 20 = 195.25815 ms
+  per-iter: ~195.3 ms
+
+使用条件:
+  背景流: 12×500M iperf3 UDP = 6 Gbps
+  背景 DSCP: P3 (DSCP=16→tc:2)
+  持续时间: 570s (300s warmup + 270s 实验)
+  接受批次: V6 校准 Step 2 确定 6G 使 tight slowdown ∈ [1.3, 2.0]
+  
+Slowdown 计算:
+  slowdown = avg_comm / (c_i × T_target_per_iter)
+  c_i: tight=1.2, loose=3.0 (epoch 7 翻转)
+  
+注意: T_target 单位断言为 per_epoch_ms
+  JSON 中必须包含 "unit": "per_epoch_ms" 字段
+  读取处必须做 assert unit == 'per_epoch_ms'

@@ -1,0 +1,69 @@
+========================================================================================================================
+V5 Experiment Results: LongLiu vs CRUX (1GB payload, c_i swap at epoch 7)
+========================================================================================================================
+
+--- jobA (T_target_per_iter = 210.1ms) ---
+Epoch   Phase   c_i | LL pri   LL sd LL viol | CX pri   CX sd CX viol | LL bw% CX bw%
+----------------------------------------------------------------------------------------------------
+    0  phase1   1.7 |      2   0.503         |      3   0.471         |  0.001  0.001
+    1  phase1   1.7 |      2   0.568         |      3   0.442         |  0.001  0.001
+    2  phase1   1.7 |      2   0.611         |      3   0.452         |  0.001  0.001
+    3  phase1   1.7 |      2   0.812         |      3   0.674         |  0.001  0.001
+    4  phase1   1.7 |      2   0.937         |      3   0.787         |  0.001  0.001
+    5  phase1   1.7 |      2   0.945         |      3   0.789         |  0.001  0.001
+    6  phase1   1.7 |      2   0.946         |      3   0.776         |  0.001  0.001
+    7  phase2   3.0 |      1   0.533         |      3   0.450         |  0.001  0.001
+    8  phase2   3.0 |      1   0.518         |      3   0.442         |  0.001  0.001
+    9  phase2   3.0 |      1   0.505         |      3   0.449         |  0.001  0.001
+   10  phase2   3.0 |      1   0.508         |      3   0.442         |  0.001  0.001
+   11  phase2   3.0 |      1   0.420         |      3   0.446         |  0.001  0.001
+   12  phase2   3.0 |      1   0.412         |      3   0.447         |  0.001  0.001
+   13  phase2   3.0 |      1   0.415         |      3   0.446         |  0.001  0.001
+   14  phase2   3.0 |      1   0.424         |      3   0.447         |  0.001  0.001
+
+--- jobB (T_target_per_iter = 195.3ms) ---
+Epoch   Phase   c_i | LL pri   LL sd LL viol | CX pri   CX sd CX viol | LL bw% CX bw%
+----------------------------------------------------------------------------------------------------
+    0  phase1   3.0 |      2   0.598         |      3   0.485         |  0.001  0.001
+    1  phase1   3.0 |      2   0.587         |      3   0.484         |  0.001  0.001
+    2  phase1   3.0 |      2   0.575         |      3   0.478         |  0.001  0.001
+    3  phase1   3.0 |      2   0.578         |      3   0.472         |  0.001  0.001
+    4  phase1   3.0 |      2   0.571         |      3   0.481         |  0.001  0.001
+    5  phase1   3.0 |      2   0.535         |      3   0.476         |  0.001  0.001
+    6  phase1   3.0 |      2   0.548         |      3   0.479         |  0.001  0.001
+    7  phase2   1.7 |      4   0.979         |      3   0.846         |  0.001  0.001
+    8  phase2   1.7 |      4   0.977         |      3   0.840         |  0.001  0.001
+    9  phase2   1.7 |      4   0.980         |      3   0.853         |  0.001  0.001
+   10  phase2   1.7 |      4   1.008       ✗ |      3   0.838         |  0.001  0.001
+   11  phase2   1.7 |      4   0.656         |      3   0.750         |  0.001  0.001
+   12  phase2   1.7 |      4   0.510         |      3   0.482         |  0.001  0.001
+   13  phase2   1.7 |      4   0.523         |      3   0.488         |  0.001  0.001
+   14  phase2   1.7 |      2   0.524         |      3   0.472         |  0.001  0.001
+
+--- Summary ---
+  longliu/jobA: 0/15 epochs violated
+  longliu/jobB: 1/15 epochs violated
+  crux/jobA: 0/15 epochs violated
+  crux/jobB: 0/15 epochs violated
+  TOTAL: LongLiu 1/30 vs CRUX 0/30
+
+--- Priority Trajectory (epoch 6→7→14) ---
+  jobA: LongLiu [2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1] | CRUX [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+  jobB: LongLiu [2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 2] | CRUX [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+
+--- π Separation at Swap (epoch 6→7) ---
+  longliu: JobA π @epoch6=-0.2358, @epoch7=-0.5540 | JobB π @epoch6=-0.4259, @epoch7=0.0097
+  crux: JobA π @epoch6=-0.3692, @epoch7=-0.6305 | JobB π @epoch6=-0.5170, @epoch7=-0.1475
+
+================================================================================
+Diagnostic: Phase 2 comm_dur Transition Analysis
+================================================================================
+  longliu/jobA: no transition detected
+  longliu/jobB: transition at iter 225 (epoch 11) — comm_dur 332ms → 197ms
+  crux/jobA: no transition detected
+  crux/jobB: transition at iter 235 (epoch 11) — comm_dur 273ms → 158ms
+
+  Conclusion: Transition occurs in BOTH schedulers around epoch 11,
+  indicating environmental artifact (NCCL adaptation / NIC stabilization),
+  NOT scheduler behavior.
+

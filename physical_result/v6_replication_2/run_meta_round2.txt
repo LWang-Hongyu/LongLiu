@@ -1,0 +1,6 @@
+=== run_meta: V6 统计重演 复制2 Round 2 (CX→LL) ===
+实验日期: 2026-07-24
+实验类型: V6 统计重演 — 复制2, Round 2: CX→LL (P6 无钳制)
+背景流: 12×500M iperf3 UDP, DSCP=P3 (DSCP=16→tc:2), TOS=64, 6 Gbps
+启动时间: 2026-07-24T16:52:44+08:00
+前序: Round 1 (LL→CX) 显示 LL tight B P2 1.14-1.29× vs CRUX 1.25-1.26×
