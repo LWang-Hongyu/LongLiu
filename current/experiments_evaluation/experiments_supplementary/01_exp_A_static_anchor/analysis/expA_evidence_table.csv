@@ -1,0 +1,7 @@
+scenario,label,capacity,payload_mb,c_i,slowdown_hw,slowdown_sim,rel_error,attain_hw,attain_sim,attain_diff_pp,holdout,anchor_source
+S1,2job_50G_ci1.2,50G,1024,1.2,1.0776,1.4147,0.3128,0.8980,1.1790,28.09,N,V5 measured solo BW (1024MB)
+S2,2job_50G_ci1.5,50G,1024,1.5,0.8975,1.1318,0.2610,0.5983,0.7545,15.62,N,V5 measured solo BW (1024MB)
+S3,2job_bg_44G_ci1.2,~44G (50G - 6G bg),1024,1.2,1.1698,1.6077,0.3743,0.9749,1.3397,36.49,N,V5 measured solo BW (1024MB)
+S4,2job_bg_44G_ci1.5,~44G (50G - 6G bg),1024,1.5,0.9183,1.2719,0.3850,0.6122,0.8479,23.57,N,V5 measured solo BW (1024MB)
+S5,2job_25G_ci1.2_HOLDOUT,~25G,512,1.2,1.2708,1.6667,0.3116,1.0590,1.3889,32.99,Y,Theoretical BW = 50G × 0.5 (half payload) — NOT measured solo
+S6,2job_35G_ci1.5,~35G,768,1.5,1.1928,1.5488,0.2984,0.7952,1.0325,23.73,N,ExpA measured solo BW (768MB)

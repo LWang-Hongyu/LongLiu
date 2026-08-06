@@ -1,0 +1,233 @@
+{
+  "_version": "v2.1",
+  "_desc": "Experiment C v2.1 — Adjusted for measured BW_effective≈30-46Gbps (vs theoretical 50Gbps). Larger payloads to increase Tcomm, adjusted φ targets scaled by B/BW_eff to maintain intended contention levels.",
+  "_design_doc": "/home/why/LongLiu_rebuild/实验C_场景参数表_v2.md",
+  "_calibration_note": "2026-07-30: Measured BW for small payloads (~1.5MB) ≈ 30Gbps; for 4MB ≈ 46Gbps. Payload sizes increased to 2-8MB per iter to get meaningful Tcomm. φ targets scaled by B/BW_eff to maintain intended b̄.",
+  "_iron_rules": [
+    "1. Real contention: Σb̄ ≥ BW_effective in scarce regimes",
+    "2. Fair must fail: premium b^att ≥ 1.5×(BW_eff/N)",
+    "3. LongLiu must pass: λ≥0.8 → premium slowdown ≤ c_eval"
+  ],
+  "link_bw_gbps": 50.0,
+  "bw_effective_gbps": 35.0,
+  "beta": 0.5,
+  "topology": "dumbbell",
+  "nodes": {
+    "client": "10.1 (guolab-10)",
+    "server": "226 (guolab-226)"
+  },
+  "nic": "mlx5_0",
+  "gid_index": 3,
+  "base_port": 31000,
+  "experiment_params": {
+    "num_epochs": 200,
+    "iters_per_epoch": 20,
+    "warmup_epochs": 5,
+    "tail_epochs": 5,
+    "jitter_pct": 5,
+    "num_rounds": 5,
+    "runtime_s": 900,
+    "daemon_poll_interval_s": 0.1
+  },
+  "analysis_params": {
+    "analysis_lo_epoch": 5,
+    "analysis_hi_epoch": 194,
+    "slowdown_formula": "s = (Tcomp + comm) / (Tcomp + Tcomm_solo)",
+    "attainment_formula": "att = s / c_eval",
+    "slo_met": "att <= 1.0"
+  },
+  "scenarios": {
+    "S1": {
+      "_desc": "Premium protection ladder — reproduces simulation EQ1. 5 jobs (2P+3S). Payload sizes chosen for meaningful Tcomm (2-8MB per iter).",
+      "_b_demand_design": "b̄_premium = 8Gbps, b̄_standard = 4.5-7Gbps. With BW_eff≈35Gbps, Σb̄/BW_eff ≈ 0.94 (moderate), up to 1.88 (very_deep).",
+      "base_jobs": [
+        {
+          "job_id": 0,
+          "label": "J0_P_L",
+          "tier": "premium",
+          "c_policy": 1.35,
+          "c_eval": 1.5,
+          "payload_kb": 8192,
+          "sleep_us": 0,
+          "phi_target": 0.267,
+          "phi_paper": 0.16,
+          "b_bar_target_gbps": 8.0
+        },
+        {
+          "job_id": 1,
+          "label": "J1_P_M",
+          "tier": "premium",
+          "c_policy": 1.35,
+          "c_eval": 1.5,
+          "payload_kb": 6144,
+          "sleep_us": 0,
+          "phi_target": 0.267,
+          "phi_paper": 0.16,
+          "b_bar_target_gbps": 8.0
+        },
+        {
+          "job_id": 2,
+          "label": "J2_S_M",
+          "tier": "standard",
+          "c_policy": 2.0,
+          "c_eval": 2.0,
+          "payload_kb": 4096,
+          "sleep_us": 0,
+          "phi_target": 0.233,
+          "phi_paper": 0.14,
+          "b_bar_target_gbps": 7.0
+        },
+        {
+          "job_id": 3,
+          "label": "J3_S_S",
+          "tier": "standard",
+          "c_policy": 2.0,
+          "c_eval": 2.0,
+          "payload_kb": 3072,
+          "sleep_us": 0,
+          "phi_target": 0.183,
+          "phi_paper": 0.11,
+          "b_bar_target_gbps": 5.5
+        },
+        {
+          "job_id": 4,
+          "label": "J4_S_XS",
+          "tier": "standard",
+          "c_policy": 2.0,
+          "c_eval": 2.0,
+          "payload_kb": 2048,
+          "sleep_us": 0,
+          "phi_target": 0.150,
+          "phi_paper": 0.09,
+          "b_bar_target_gbps": 4.5
+        }
+      ],
+      "regimes": {
+        "S1_ample": {
+          "d_scale": 0.6,
+          "_desc": "Light load — everyone meets SLO, verify 'LongLiu at no cost'",
+          "_sigma_b_bar_over_bw_eff": 0.56
+        },
+        "S1_moderate": {
+          "d_scale": 1.0,
+          "_desc": "Fair starts hurting premium — the ladder begins",
+          "_sigma_b_bar_over_bw_eff": 0.94
+        },
+        "S1_deep": {
+          "d_scale": 1.3,
+          "_desc": "Fair premium clearly violates SLO",
+          "_sigma_b_bar_over_bw_eff": 1.22
+        },
+        "S1_very_deep": {
+          "d_scale": 2.0,
+          "_desc": "Only regime with Σb̄>BW_eff — tests policy/eval margin",
+          "_sigma_b_bar_over_bw_eff": 1.88
+        }
+      }
+    },
+    "S2": {
+      "_desc": "Starvation control — proves 'bounded vs unbounded degradation'. 6 jobs (3P+3S), premium φ=0.5 adjusted.",
+      "_b_demand_design": "b̄_premium = 25Gbps, b̄_standard = 9.5Gbps. Σb̄/BW_eff ≈ 2.96.",
+      "base_jobs": [
+        {
+          "job_id": 0,
+          "label": "J0_P_H0",
+          "tier": "premium",
+          "c_policy": 1.35,
+          "c_eval": 1.5,
+          "payload_kb": 8192,
+          "sleep_us": 0,
+          "phi_target": 0.556,
+          "phi_paper": 0.50,
+          "b_bar_target_gbps": 25.0
+        },
+        {
+          "job_id": 1,
+          "label": "J1_P_H1",
+          "tier": "premium",
+          "c_policy": 1.35,
+          "c_eval": 1.5,
+          "payload_kb": 8192,
+          "sleep_us": 0,
+          "phi_target": 0.556,
+          "phi_paper": 0.50,
+          "b_bar_target_gbps": 25.0
+        },
+        {
+          "job_id": 2,
+          "label": "J2_P_H2",
+          "tier": "premium",
+          "c_policy": 1.35,
+          "c_eval": 1.5,
+          "payload_kb": 8192,
+          "sleep_us": 0,
+          "phi_target": 0.556,
+          "phi_paper": 0.50,
+          "b_bar_target_gbps": 25.0
+        },
+        {
+          "job_id": 3,
+          "label": "J3_S_M",
+          "tier": "standard",
+          "c_policy": 2.0,
+          "c_eval": 2.0,
+          "payload_kb": 4096,
+          "sleep_us": 0,
+          "phi_target": 0.217,
+          "phi_paper": 0.19,
+          "b_bar_target_gbps": 9.5
+        },
+        {
+          "job_id": 4,
+          "label": "J4_S_L",
+          "tier": "standard",
+          "c_policy": 2.0,
+          "c_eval": 2.0,
+          "payload_kb": 4096,
+          "sleep_us": 0,
+          "phi_target": 0.217,
+          "phi_paper": 0.19,
+          "b_bar_target_gbps": 9.5
+        },
+        {
+          "job_id": 5,
+          "label": "J5_S_XL",
+          "tier": "standard",
+          "c_policy": 2.0,
+          "c_eval": 2.0,
+          "payload_kb": 4096,
+          "sleep_us": 0,
+          "phi_target": 0.217,
+          "phi_paper": 0.19,
+          "b_bar_target_gbps": 9.5
+        }
+      ],
+      "regimes": {
+        "S2_starvation": {
+          "d_scale": 1.0,
+          "_desc": "No arm can save premium — compare bounded vs unbounded degradation",
+          "_sigma_b_bar_over_bw_eff": 2.96
+        }
+      }
+    }
+  },
+  "arms": {
+    "longliu": {
+      "_desc": "Dynamic priority via SLOScheduler (π-based, c_policy for scheduling)",
+      "initial_priority": 4,
+      "initial_dscp": 0
+    },
+    "static": {
+      "_desc": "Tier-fixed: premium→P6, standard→P2",
+      "premium_priority": 6,
+      "premium_dscp": 8,
+      "standard_priority": 2,
+      "standard_dscp": 24
+    },
+    "fair": {
+      "_desc": "All jobs same priority P4/DSCP=0 (no differentiation)",
+      "static_priority": 4,
+      "static_dscp": 0
+    }
+  }
+}

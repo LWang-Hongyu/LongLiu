@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "doc": "Experiment A — 6 static scenarios for HW-vs-Sim 0.2% fidelity evidence table",
+    "source": "LongLiu_补充实验方案.md §A.1",
+    "frozen_date": "2026-07-28",
+    "design_notes": [
+      "Capacity dimension realized via payload size (no per-QP rate limit API available).",
+      "Solo BW is calibrated per payload; simulator mirrors same payload × sleep × c_i.",
+      "S5 is the hold-out: anchor comes from theoretical BW, not measured solo BW.",
+      "All scenarios run in static mode (no tier swap, --reverse-epoch 999).",
+      "Both jobs use LongLiu mode (dynamic priority) to match the production scheduler."
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "S1",
+      "label": "2job_50G_ci1.2",
+      "jobs": 2,
+      "bg_flow": false,
+      "payload_mb": 1024,
+      "c_i": 1.2,
+      "capacity_label": "50G",
+      "ttarget_a": "/tmp/ttarget_v5_jobA.json",
+      "ttarget_b": "/tmp/ttarget_v5_jobB.json",
+      "holdout": false,
+      "anchor_source": "V5 measured solo BW (1024MB)"
+    },
+    {
+      "id": "S2",
+      "label": "2job_50G_ci1.5",
+      "jobs": 2,
+      "bg_flow": false,
+      "payload_mb": 1024,
+      "c_i": 1.5,
+      "capacity_label": "50G",
+      "ttarget_a": "/tmp/ttarget_v5_jobA.json",
+      "ttarget_b": "/tmp/ttarget_v5_jobB.json",
+      "holdout": false,
+      "anchor_source": "V5 measured solo BW (1024MB)"
+    },
+    {
+      "id": "S3",
+      "label": "2job_bg_44G_ci1.2",
+      "jobs": 2,
+      "bg_flow": true,
+      "bg_rate_gbps": 6.0,
+      "bg_dscp": 16,
+      "payload_mb": 1024,
+      "c_i": 1.2,
+      "capacity_label": "~44G (50G - 6G bg)",
+      "ttarget_a": "/tmp/ttarget_v5_jobA.json",
+      "ttarget_b": "/tmp/ttarget_v5_jobB.json",
+      "holdout": false,
+      "anchor_source": "V5 measured solo BW (1024MB)"
+    },
+    {
+      "id": "S4",
+      "label": "2job_bg_44G_ci1.5",
+      "jobs": 2,
+      "bg_flow": true,
+      "bg_rate_gbps": 6.0,
+      "bg_dscp": 16,
+      "payload_mb": 1024,
+      "c_i": 1.5,
+      "capacity_label": "~44G (50G - 6G bg)",
+      "ttarget_a": "/tmp/ttarget_v5_jobA.json",
+      "ttarget_b": "/tmp/ttarget_v5_jobB.json",
+      "holdout": false,
+      "anchor_source": "V5 measured solo BW (1024MB)"
+    },
+    {
+      "id": "S5",
+      "label": "2job_25G_ci1.2_HOLDOUT",
+      "jobs": 2,
+      "bg_flow": false,
+      "payload_mb": 512,
+      "c_i": 1.2,
+      "capacity_label": "~25G",
+      "ttarget_a": "THEORETICAL",
+      "ttarget_b": "THEORETICAL",
+      "holdout": true,
+      "anchor_source": "Theoretical BW = 50G × 0.5 (half payload) — NOT measured solo"
+    },
+    {
+      "id": "S6",
+      "label": "2job_35G_ci1.5",
+      "jobs": 2,
+      "bg_flow": false,
+      "payload_mb": 768,
+      "c_i": 1.5,
+      "capacity_label": "~35G",
+      "ttarget_a": "/tmp/ttarget_expA_jobA_768.json",
+      "ttarget_b": "/tmp/ttarget_expA_jobB_768.json",
+      "holdout": false,
+      "anchor_source": "ExpA measured solo BW (768MB)"
+    }
+  ],
+  "success_criteria": {
+    "fidelity_target": 0.002,
+    "metrics": [
+      "slowdown relative error |sim - hw| / hw (report max + mean)",
+      "attainment diff in percentage points (attain = slowdown / c_i)"
+    ],
+    "holdout_rule": "S5 anchor from theoretical BW; if sim matches HW within tolerance despite no measured anchor, the model generalizes."
+  }
+}
