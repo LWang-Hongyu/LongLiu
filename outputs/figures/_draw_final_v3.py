@@ -1,5 +1,5 @@
 """
-LongLiu 论文终版绘图 v3 — INFOCOM 双栏发表级
+LongLiu 论文终版绘图 v3 — 双栏发表级
 v3 改进: 共享图例/白色bbox/fig5全重做/CRUX W3核查/T-1 v1.1血统
 SEMANTICS_VERSION: anchor-v2+rerun, 5-seed canonical, ddof=0
 """
@@ -10,7 +10,8 @@ from collections import defaultdict
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+_BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, _BASE)
 from longliu_sim.trace.synthetic import FEAS_BOUNDARY_V3_WORKLOAD, FEAS_BOUNDARY_V3_PRO_WORKLOAD
 from longliu_sim.utils.model_params import MODEL_PARAMS
 from longliu_sim.utils.config import load_config
@@ -19,7 +20,7 @@ _cfg = load_config()
 OVERHEAD = _cfg["frozen"]["overhead_factor"]
 OVERLAP  = _cfg["frozen"]["overlap_factor"]
 
-PROJ       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJ       = _BASE
 FIG_REG    = os.path.join(PROJ, "PAPER_EVIDENCE", "FIGURE_REGISTRY")
 E3_BASE    = os.path.join(PROJ, "PAPER_EVIDENCE", "05_E3_swap_main")
 ANCHOR_D   = os.path.join(PROJ, "PAPER_EVIDENCE", "01_baseline_anchor")
@@ -36,12 +37,12 @@ plt.rcParams.update({
     'font.family':      'serif',
     'font.serif':       ['Nimbus Roman', 'TeX Gyre Termes', 'Times New Roman', 'Times'],
     'mathtext.fontset': 'stix',
-    'font.size':         9,
-    'axes.titlesize':    9,
-    'axes.labelsize':    9,
-    'xtick.labelsize':   8,
-    'ytick.labelsize':   8,
-    'legend.fontsize':   8,
+    'font.size':         12,
+    'axes.titlesize':    12,
+    'axes.labelsize':    12,
+    'xtick.labelsize':   10.7,
+    'ytick.labelsize':   10.7,
+    'legend.fontsize':   10.7,
     'axes.linewidth':    0.8,
     'grid.linewidth':    0.4,
     'grid.alpha':        0.3,
@@ -202,17 +203,17 @@ def draw_fig1():
     td_e3,   md_e3,   sd_e3   = load_df_csv(os.path.join(FIG_REG,"fig4_d1_trajectory_e3.csv"))
     td_e3p,  md_e3p,  sd_e3p  = load_df_csv(os.path.join(FIG_REG,"fig4_d1_trajectory_e3p.csv"))
 
-    fig, (ax1, ax2) = plt.subplots(2,1, figsize=(FULL_W, 3.4), sharex=True)
+    fig, (ax1, ax2) = plt.subplots(2,1, figsize=(FULL_W, 3.6), sharex=True)
 
-    # Store handles for shared legend
+    # Collect legend handles only from first panel to avoid duplicates
     legend_handles = []
 
-    for ax, panel, panel_title, (tv,mv,sv),(tc,mc,sc),(td,md,sd) in [
-        (ax1, "(a)", "E3, 800 Gbps", (tv4_e3,mv4_e3,sv4_e3),(tc_e3,mc_e3,sc_e3),(td_e3,md_e3,sd_e3)),
-        (ax2, "(b)", "E3' kill, 630 Gbps", (tv4_e3p,mv4_e3p,sv4_e3p),(tc_e3p,mc_e3p,sc_e3p),(td_e3p,md_e3p,sd_e3p)),
+    for ax, panel, panel_title, (tv,mv,sv),(tc,mc,sc),(td,md,sd), is_first in [
+        (ax1, "(a)", "E3, 800 Gbps", (tv4_e3,mv4_e3,sv4_e3),(tc_e3,mc_e3,sc_e3),(td_e3,md_e3,sd_e3), True),
+        (ax2, "(b)", "E3' kill, 630 Gbps", (tv4_e3p,mv4_e3p,sv4_e3p),(tc_e3p,mc_e3p,sc_e3p),(td_e3p,md_e3p,sd_e3p), False),
     ]:
-        ax.text(0.02, 0.94, f"{panel}  {panel_title}", transform=ax.transAxes,
-                fontsize=9, fontweight='bold')
+        ax.text(0.02, 1.03, f"{panel}  {panel_title}", transform=ax.transAxes,
+                fontsize=12, fontweight='bold', va='bottom', clip_on=False)
 
         # LongLiu — real truncated-window trajectory
         if tv is not None:
@@ -220,43 +221,45 @@ def draw_fig1():
                         label="LongLiu", zorder=5)
             ax.fill_between(tv, np.clip((mv-sv)*100,0,None), np.clip((mv+sv)*100,0,105),
                             color=POLICY_COLOR["LongLiu"], alpha=0.15, lw=0)
-            if not legend_handles: legend_handles.append(h[0])
+            if is_first: legend_handles.append(h[0])
 
         # DF
         h = ax.plot(td, md*100, color=POLICY_COLOR["DF"], ls=POLICY_LS["DF"], lw=1.4,
                     label="DF", zorder=4)
         ax.fill_between(td, np.clip((md-sd)*100,0,None), np.clip((md+sd)*100,0,105),
                         color=POLICY_COLOR["DF"], alpha=0.15, lw=0)
-        if not legend_handles: legend_handles.append(h[0])
+        if is_first: legend_handles.append(h[0])
 
         # CRUX — dashed, no std band
         if tc is not None:
             h = ax.plot(tc, mc*100, color=POLICY_COLOR["CRUX"], ls='--', lw=1.4,
                         label="CRUX", zorder=3)
-            if not legend_handles: legend_handles.append(h[0])
+            if is_first: legend_handles.append(h[0])
 
         # Swap line
         ax.axvline(x=SWAP_TIME_S, color='#666666', ls='--', lw=1.0, alpha=0.7)
-        ax.text(SWAP_TIME_S+3, 2.5, 'tier swap', fontsize=8, color='#666666')
+        ax.text(SWAP_TIME_S+3, 2.5, 'tier swap', fontsize=10.7, color='#666666')
 
-        # Window region labels
+        # Window region labels — above axes, clipped off
         for (ws,we),wl in [((200,300),"W1"),((300,320),"W2"),((500,600),"W3")]:
             ax.axvspan(ws, we, alpha=0.12, color='gray', lw=0)
-            ax.text((ws+we)/2, 104, wl, ha='center', va='bottom',
-                    fontsize=8, fontweight='bold', color='#555555')
+            ax.text((ws+we)/2, 1.02, wl, transform=ax.get_xaxis_transform(),
+                    ha='center', va='bottom',
+                    fontsize=10.7, fontweight='bold', color='#555555',
+                    clip_on=False)
 
-        ax.set_ylabel("P-attn (%)", fontsize=9)
-        ax.set_ylim(-5, 115)
+        ax.set_ylabel("P-attn (%)", fontsize=12, labelpad=8)
+        ax.set_ylim(0, 120)
         ax.grid(True)
 
-    ax2.set_xlabel("Time (s)", fontsize=9)
+    ax2.set_xlabel("Time (s)", fontsize=12, labelpad=8)
     ax1.set_xlim(100, 600)
 
-    # Shared legend below both panels
-    fig.legend(handles=legend_handles, loc='lower center', fontsize=9, ncol=3,
-               frameon=True, framealpha=0.9, edgecolor='#CCCCCC')
+    # Shared legend closer to plots
+    fig.legend(handles=legend_handles, loc='lower center', fontsize=12, ncol=3,
+               frameon=True, framealpha=0.9, edgecolor='#CCCCCC', bbox_to_anchor=(0.5, 0.01))
 
-    fig.tight_layout(rect=[0, 0.06, 1, 0.98])
+    fig.tight_layout(rect=[0, 0.05, 1, 1.0], pad=1.5, h_pad=1.0)
     path = os.path.join(OUT_DIR, "fig1_hero")
     save_both(fig, path)
     plt.close(fig)
@@ -273,35 +276,36 @@ def draw_fig2():
     bws = [400,500,630,800,1000,1200]
     ANNOTATE_BWS = {400,500,630}  # only annotate these
 
-    fig, ax = plt.subplots(figsize=(FULL_W, 2.4))
+    fig, ax = plt.subplots(figsize=(FULL_W, 2.6))
     for pol in POLICY_ORDER:
         m = np.array([e1d[pol][b][0]*100 for b in bws])
         s = np.array([e1d[pol][b][1]*100 for b in bws])
         ax.errorbar(bws, m, yerr=s, color=POLICY_COLOR[pol], ls=POLICY_LS[pol],
                     marker=POLICY_MARKER[pol], markersize=7, lw=1.4,
                     capsize=2.5, label=POLICY_LABEL[pol], zorder=5)
-        if pol=="LongLiu":
-            for bw, mv in zip(bws, m):
-                if bw not in ANNOTATE_BWS: continue
-                ax.annotate(f"{mv:.1f}%", (bw, mv), textcoords="offset points",
-                            xytext=(14, 2), ha='left', va='center', fontsize=8,
-                            color=POLICY_COLOR[pol], fontweight='bold',
-                            bbox=BBOX_WHITE, zorder=10)
 
-    ax.set_xlabel("Spine bandwidth (Gbps)", fontsize=9)
-    ax.set_ylabel("P-attn (%)", fontsize=9)
-    ax.set_ylim(0,110); ax.set_xlim(350,1250)
-    ax.legend(loc='lower right', ncol=5, fontsize=8)
+    ax.set_xlabel("Spine bandwidth (Gbps)", fontsize=12, labelpad=8)
+    ax.set_ylabel("P-attn (%)", fontsize=12, labelpad=8)
+    ax.set_ylim(0,130); ax.set_xlim(350,1250)
+    ax.legend(loc='lower right', ncol=5, fontsize=10.7)
     ax.grid(True)
 
-    ax.axvspan(350,550, alpha=0.10, color='red',   lw=0)
-    ax.axvspan(550,750, alpha=0.10, color='orange',lw=0)
-    ax.axvspan(750,1250,alpha=0.10, color='green', lw=0)
-    ax.text(450,107,"Scarce",    ha='center',fontsize=8,color='red',   alpha=0.7)
-    ax.text(650,107,"Transition",ha='center',fontsize=8,color='orange',alpha=0.7)
-    ax.text(1000,107,"Abundant", ha='center',fontsize=8,color='green', alpha=0.7)
+    # Shaded regions — full height to top spine label
+    ax.axvspan(350,550, alpha=0.12, color='red',   lw=0)
+    ax.axvspan(550,750, alpha=0.12, color='orange',lw=0)
+    ax.axvspan(750,1250,alpha=0.12, color='green', lw=0)
 
-    fig.tight_layout()
+    # Region labels — higher, inside shaded area, white bbox, dark color
+    REGION_BBOX = dict(boxstyle='round,pad=0.2', facecolor='white',
+                       edgecolor='none', alpha=0.85)
+    ax.text(450,118,"Scarce",    ha='center',fontsize=10.7,color='darkred',
+            fontweight='bold', bbox=REGION_BBOX, zorder=10)
+    ax.text(650,118,"Transition",ha='center',fontsize=10.7,color='#B85C00',
+            fontweight='bold', bbox=REGION_BBOX, zorder=10)
+    ax.text(1000,118,"Abundant", ha='center',fontsize=10.7,color='#1B5E20',
+            fontweight='bold', bbox=REGION_BBOX, zorder=10)
+
+    fig.tight_layout(rect=[0, 0.05, 1, 1.0], pad=1.5)
     path = os.path.join(OUT_DIR,"fig2_e1_ladder")
     save_both(fig, path)
     plt.close(fig)
@@ -316,42 +320,34 @@ def draw_fig3():
     data = load_e1_e2(os.path.join(FIG_REG,"fig3_e2_ladder_5seed.csv"))
     d1 = data["E2'"]; d2 = data["E2-pro"]
 
-    fig, (ax1, ax2) = plt.subplots(1,2, figsize=(FULL_W, 2.6))
+    fig, (ax1, ax2) = plt.subplots(1,2, figsize=(FULL_W, 2.8))
 
     for ax, panel, policy_data, bws in [
-        (ax1,"(a)",d1,[400,500,630,800]),
-        (ax2,"(b)",d2,[630,800]),
+        (ax1,"(a)  E2",d1,[400,500,630,800]),
+        (ax2,"(b) E2-pro",d2,[630,800]),
     ]:
-        ax.text(0.04,0.94, panel, transform=ax.transAxes, fontsize=9, fontweight='bold')
+        ax.text(0.04, 1.03, panel, transform=ax.transAxes, fontsize=12, fontweight='bold',
+                va='bottom', clip_on=False)
         for pol in POLICY_ORDER:
             m = np.array([policy_data[pol][b][0]*100 for b in bws])
             s = np.array([policy_data[pol][b][1]*100 for b in bws])
             ax.errorbar(bws, m, yerr=s, color=POLICY_COLOR[pol],
                         ls=POLICY_LS[pol], marker=POLICY_MARKER[pol],
                         markersize=7, lw=1.4, capsize=2.5, label=POLICY_LABEL[pol])
-            if pol=="LongLiu":
-                for bw,mv in zip(bws,m):
-                    # Stagger x-offset to avoid error bar collision
-                    xoff = 16 if bw<600 else -16
-                    yoff =  0 if bw!=800 else -10
-                    ax.annotate(f"{round(mv,1)}%",(bw,mv),textcoords="offset points",
-                                xytext=(xoff,yoff-14),ha='center',va='top',
-                                fontsize=8,color=POLICY_COLOR[pol],fontweight='bold',
-                                bbox=BBOX_WHITE, zorder=10)
-        ax.set_xlabel("Spine bandwidth (Gbps)", fontsize=9)
-        ax.set_ylabel("P-attn (%)", fontsize=9)
-        ax.set_ylim(0,110)
+        ax.set_xlabel("Spine bandwidth (Gbps)", fontsize=12, labelpad=8)
+        ax.set_ylabel("P-attn (%)", fontsize=12, labelpad=8)
+        ax.set_ylim(0,120)
         ax.grid(True)
 
-    ax1.set_title("E2' (disadvantaging CRUX)", fontsize=8, fontweight='bold', loc='left', pad=2)
-    ax2.set_title("E2-pro (favorable CRUX)",  fontsize=8, fontweight='bold', loc='left', pad=2)
+    # ax1.set_title("(a) E2' (disadvantaging CRUX)", fontsize=10.7, fontweight='bold', loc='left', pad=3)
+    # ax2.set_title("(b) E2-pro (favorable CRUX)",  fontsize=10.7, fontweight='bold', loc='left', pad=3)
 
     # Single shared legend
     handles, labels = ax1.get_legend_handles_labels()
-    fig.legend(handles, labels, loc='lower center', fontsize=8, ncol=5,
-               frameon=True, framealpha=0.9, edgecolor='#CCCCCC')
+    fig.legend(handles, labels, loc='lower center', fontsize=10.7, ncol=5,
+               frameon=True, framealpha=0.9, edgecolor='#CCCCCC', bbox_to_anchor=(0.5, 0.01))
 
-    fig.tight_layout(rect=[0, 0.06, 1, 1])
+    fig.tight_layout(rect=[0, 0.05, 1, 1.0], pad=1.5, w_pad=2.5)
     path = os.path.join(OUT_DIR,"fig3_e2_orthogonal")
     save_both(fig, path)
     plt.close(fig)
@@ -366,14 +362,14 @@ def draw_fig4():
     te3,me3,se3   = load_df_csv(os.path.join(FIG_REG,"fig4_d1_trajectory_e3.csv"))
     te3p,me3p,se3p = load_df_csv(os.path.join(FIG_REG,"fig4_d1_trajectory_e3p.csv"))
 
-    fig,(ax1,ax2)=plt.subplots(2,1,figsize=(FULL_W,3.0),sharex=True)
+    fig,(ax1,ax2)=plt.subplots(2,1,figsize=(FULL_W,3.2),sharex=True)
 
     for ax,panel,title,t,m,s in [
         (ax1,"(a)","E3, 800 Gbps",te3,me3,se3),
         (ax2,"(b)","E3' kill, 630 Gbps",te3p,me3p,se3p),
     ]:
-        ax.text(0.02,0.94,f"{panel}  {title}",transform=ax.transAxes,
-                fontsize=9,fontweight='bold')
+        ax.text(0.02, 1.03, f"{panel}  {title}", transform=ax.transAxes,
+                fontsize=12, fontweight='bold', va='bottom', clip_on=False)
 
         # DF trajectory
         ax.plot(t,m*100,color=POLICY_COLOR["DF"],ls=POLICY_LS["DF"],lw=1.4,label="DF")
@@ -383,42 +379,30 @@ def draw_fig4():
         # LongLiu reference line
         ax.axhline(y=100,color=POLICY_COLOR["LongLiu"],ls='-',lw=1.0,alpha=0.7,label="LongLiu")
 
-        # Windows
+        # Windows — above axes, clipped off
         for (ws,we),wl in [((200,300),"W1"),((300,320),"W2"),((500,600),"W3")]:
             ax.axvspan(ws,we,alpha=0.12,color='gray',lw=0)
-            ax.text((ws+we)/2,104,wl,ha='center',va='bottom',
-                    fontsize=8,fontweight='bold',color='#555555')
+            ax.text((ws+we)/2, 1.02, wl, transform=ax.get_xaxis_transform(),
+                    ha='center',va='bottom',
+                    fontsize=10.7,fontweight='bold',color='#555555',
+                    clip_on=False)
 
         # Swap
         ax.axvline(x=300,color='#666666',ls='--',lw=1.0,alpha=0.7)
-        ax.text(303,2,'tier swap',fontsize=8,color='#666666')
+        ax.text(303,2,'tier swap',fontsize=10.7,color='#666666')
 
-        # Annotate fixed-window means at W1 midpoint and W3 midpoint
-        i1=np.argmin(np.abs(t-250)); i3=np.argmin(np.abs(t-550))
-        # W1: right side, above
-        ax.annotate(f"{m[i1]*100:.1f}%",(t[i1],m[i1]*100),
-                    textcoords="offset points",xytext=(14,8),
-                    fontsize=8,fontweight='bold',color=POLICY_COLOR["DF"],
-                    bbox=BBOX_WHITE, zorder=10)
-        # W3: right side, below (to avoid W3 label)
-        yoff_w3 = -16 if m[i3]*100 < 40 else -14
-        ax.annotate(f"{m[i3]*100:.1f}%",(t[i3],m[i3]*100),
-                    textcoords="offset points",xytext=(14,yoff_w3),
-                    fontsize=8,fontweight='bold',color=POLICY_COLOR["DF"],
-                    bbox=BBOX_WHITE, zorder=10)
-
-        ax.set_ylabel("P-attn (%)",fontsize=9)
-        ax.set_ylim(-5,115)
+        ax.set_ylabel("P-attn (%)",fontsize=12, labelpad=8)
+        ax.set_ylim(0,130)
         ax.grid(True)
 
-    ax2.set_xlabel("Time (s)",fontsize=9)
+    ax2.set_xlabel("Time (s)",fontsize=12, labelpad=8)
 
     # Shared legend
     handles, labels = ax1.get_legend_handles_labels()
-    fig.legend(handles, labels, loc='lower center', fontsize=9, ncol=2,
-               frameon=True, framealpha=0.9, edgecolor='#CCCCCC')
+    fig.legend(handles, labels, loc='lower center', fontsize=12, ncol=2,
+               frameon=True, framealpha=0.9, edgecolor='#CCCCCC', bbox_to_anchor=(0.5, 0.01))
 
-    fig.tight_layout(rect=[0,0.06,1,0.98])
+    fig.tight_layout(rect=[0,0.05,1,1.0], pad=1.5, h_pad=1.0)
     path = os.path.join(OUT_DIR,"fig4_d1_trajectory")
     save_both(fig,path)
     plt.close(fig)
@@ -480,7 +464,7 @@ def draw_fig5():
     BLUES  = plt.cm.Blues(np.linspace(0.4, 0.9, max(len(all_pre),1)))
     REDS   = plt.cm.Reds(np.linspace(0.4, 0.9, max(len(all_post),1)))
 
-    fig,(ax1,ax2)=plt.subplots(2,1,figsize=(FULL_W,3.2),sharex=True)
+    fig,(ax1,ax2)=plt.subplots(2,1,figsize=(FULL_W,3.5),sharex=True)
 
     # Panel (a): pre-swap premium jobs
     for idx, jid in enumerate(all_pre):
@@ -512,15 +496,27 @@ def draw_fig5():
     for ax in [ax1,ax2]:
         ax.axvline(x=swap_t,color='#666666',ls='--',lw=1.0,alpha=0.7)
         ax.axhline(y=0,color='black',lw=0.5,alpha=0.25)
-        ax.set_ylabel("π",fontsize=9)
+        ax.set_ylabel("π",fontsize=12, labelpad=8)
         ax.grid(True)
 
-    # Panel labels
-    ax1.text(0.02,0.94,"(a) Jobs premium before swap",transform=ax1.transAxes,
-             fontsize=9,fontweight='bold')
-    ax2.text(0.02,0.94,"(b) Jobs standard before swap",transform=ax2.transAxes,
-             fontsize=9,fontweight='bold')
-    ax2.set_xlabel("Time (s)",fontsize=9)
+    # Shared y-axis label via fig.text for perfect alignment
+    fig.text(0.025, 0.5, "π", fontsize=12, fontweight='bold',
+             rotation='vertical', va='center', ha='center')
+    ax1.set_ylabel("")
+    ax2.set_ylabel("")
+
+    # Panel labels — "pre-swap X" = grouped by tier before swap, full timeline shown
+    ax1.text(0.02, 1.03, "(a) Pre-swap premium jobs", transform=ax1.transAxes,
+             fontsize=12, fontweight='bold', va='bottom', clip_on=False)
+    ax2.text(0.02, 1.03, "(b) Pre-swap standard jobs", transform=ax2.transAxes,
+             fontsize=12, fontweight='bold', va='bottom', clip_on=False)
+
+    # Swap annotation on both panels (axes coords, like Fig-1/Fig-4)
+    for ax in [ax1, ax2]:
+        ax.text(swap_t, 0.05, 'tier swap', transform=ax.get_xaxis_transform(),
+                fontsize=10.7, color='#666666', ha='left', va='bottom',
+                clip_on=False)
+    ax2.set_xlabel("Time (s)",fontsize=12, labelpad=8)
 
     # Shared external legend — collect from both axes
     h1,l1 = ax1.get_legend_handles_labels()
@@ -532,10 +528,11 @@ def draw_fig5():
     for h,l in zip(all_h, all_l):
         if l not in seen:
             seen.add(l); uniq_h.append(h); uniq_l.append(l)
-    fig.legend(uniq_h, uniq_l, loc='lower center', fontsize=7.5, ncol=4,
-               frameon=True, framealpha=0.95, edgecolor='#CCCCCC')
+    fig.legend(uniq_h, uniq_l, loc='lower center', fontsize=10, ncol=5,
+               frameon=True, framealpha=0.95, edgecolor='#CCCCCC',
+               bbox_to_anchor=(0.52, -0.06))
 
-    fig.tight_layout(rect=[0,0.08,1,0.98])
+    fig.tight_layout(rect=[0,0.06,1,1.0], pad=1.5, h_pad=1.0)
     path = os.path.join(OUT_DIR,"fig5_pi_timeseries")
     save_both(fig,path)
     plt.close(fig)
@@ -657,7 +654,7 @@ def self_check():
 # ═══════════════════════════════════════════════════════════════
 def main():
     print("="*60)
-    print("LongLiu 终版绘图 v3 — INFOCOM 双栏发表级")
+    print("LongLiu 终版绘图 v3 — 双栏发表级")
     print("="*60)
     draw_fig1()
     draw_fig2()

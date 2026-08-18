@@ -1,0 +1,21 @@
+# E11b: Overlap 带宽浪费率实验（回应"串行模型过度分配"关切）
+# Waste Ratio = (Σallocated − Σused) / Σallocated
+name: "e11b_overlap_waste"
+topology:
+  type: "fatree"
+  k: 4
+  host_bw_bps: 100000000000.0  # 100 Gbps
+  tor_bw_bps: 100000000000.0
+  spine_bw_bps: 500000000000.0  # 默认 500 Gbps（实验脚本会覆盖）
+duration_ms: 600000  # 10 分钟
+
+policies: ["v4", "WFS"]  # LongLiu 主测，WFS 作 P-attn 参照
+seeds: [0, 1, 2, 3, 4]
+
+# 过渡区带宽点（Gbps）
+spine_bw_gbps: [500, 630]
+
+# 重叠率扫描点（0=完全串行, 1=完全重叠, 0.85=冻结值）
+overlap_factors: [0.0, 0.3, 0.5, 0.85, 1.0]
+
+premium_ci_threshold: 2.0  # ci <= 2.0 → premium

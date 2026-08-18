@@ -1,0 +1,24 @@
+# E15: Straggler 注入实验
+# 验证 LongLiu 的窗口平均机制吸收 2-5× 计算时间膨胀，无雪崩降级
+name: "e15_straggler_injection"
+topology:
+  type: "fatree"
+  k: 4
+  host_bw_bps: 100000000000.0  # 100 Gbps
+  tor_bw_bps: 100000000000.0
+  spine_bw_bps: 400000000000.0  # 400 Gbps（压到稀缺区制造拥塞）
+duration_ms: 600000  # 10 分钟
+
+policies: ["Fair", "CRUX", "SP", "D1", "v4"]
+seeds: [0, 1, 2, 3, 4]
+
+# Straggler 膨胀因子
+straggler_factors: [1.0, 2.0, 3.0, 5.0]  # 1.0=control
+
+# Straggler 注入参数
+n_straggler_jobs: 2           # 随机选 2 个 job 作为 straggler
+inflation_start_ms: 200000    # t=200s 开始膨胀
+inflation_duration_iters: 50  # 持续 50 次迭代
+recovery_time_ms: 400000      # t=400s 恢复
+
+premium_ci_threshold: 2.0  # ci <= 2.0 → premium

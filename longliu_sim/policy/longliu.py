@@ -56,6 +56,10 @@ class LongLiu(Policy):
     # DSCP 0 (P0), 18 (P1), 28 (P2)
     LOW_PRIORITY_FLOOR_DSCPS = {0: 0.05, 18: 0.05, 28: 0.05}
 
+    # 被动校准观测信任度（按优先级 level 0-6）：P6=1.0 全信，P0=0.05 几乎不信
+    # 低优先级 job 的迭代时间观测可能只是"没分到带宽"，不可全信
+    EMA_PRIORITY_WEIGHTS = [0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 1.0]
+
     def __init__(self, K: float = 3.0, min_w: float = 0.5, base_w: float = 4.0,
                  use_dynamic_T_target: bool = True,
                  no_startup: bool = False,
@@ -70,7 +74,10 @@ class LongLiu(Policy):
                  # --- DWRR 地板参数 ---
                  dwrr_floor: bool = False,
                  # --- 低优先级地板参数 ---
-                 low_priority_floor: bool = False):
+                 low_priority_floor: bool = False,
+                 # --- 被动校准参数（方案1+2，替代主动探测） ---
+                 ema_passive: bool = False,
+                 ema_weights: list = None):
         """
         参数：
             K: deficit 指数增益
@@ -125,6 +132,16 @@ class LongLiu(Policy):
         # 低优先级地板
         self.low_priority_floor = low_priority_floor
 
+        # 被动校准（方案1+2）：所有 job 每轮弱更新 EMA，按优先级折扣
+        self.ema_passive = ema_passive
+        # 信任权重表（level 0-6），None 用默认
+        if ema_weights is not None:
+            if len(ema_weights) != 7:
+                raise ValueError(f"ema_weights must have 7 entries (level 0-6), got {len(ema_weights)}")
+            self.ema_weights = list(ema_weights)
+        else:
+            self.ema_weights = list(self.EMA_PRIORITY_WEIGHTS)
+
         # 运行时状态
         self._last_dscp: Dict[str, int] = {}          # 每个 job 的上次 DSCP（迟滞用）
         self._starved_epochs: Dict[str, int] = {}     # 每个 job 的连续饿死计数（老化用）
@@ -139,6 +156,14 @@ class LongLiu(Policy):
         self._dead_zone_hits = 0
         self._aging_activations = 0
         self._hysteresis_actions = 0
+
+        # 主动探测机制（E14）
+        self.probe_enabled = False
+        self.probe_frozen_threshold = 10  # 连续 N 个窗口未更新则触发探测
+        self.probe_duration = 0           # 探测保持最高优先级的 allocate 次数（0=不限制）
+        self._probe_counters: Dict[str, int] = {}  # 每个 job 的冻结计数器
+        self._probe_remaining: Dict[str, int] = {}  # 每个 job 剩余探测期 allocate 次数
+        self._probe_activations = 0  # 探测触发次数
 
     def get_instrumentation(self) -> dict:
         """返回插桩数据。"""
@@ -201,6 +226,13 @@ class LongLiu(Policy):
         link = links[0]
         jobs: Set[str] = set(f.jid for f in flows)
 
+        # 将策略的 window_size 同步到每个 job 的滑窗（惰性，保证注入的新 job 也生效）
+        if self.window_size > 0:
+            for jid in jobs:
+                job = job_stats[jid]
+                if job.sliding_window_len != self.window_size:
+                    job.set_window_size(self.window_size)
+
         # --- 启动期插桩 ---
         self._total_alloc_calls += 1
         startup_jobs = sum(1 for jid in jobs if job_stats[jid].is_first_iter)
@@ -247,8 +279,15 @@ class LongLiu(Policy):
                     pi = avg_iter_ms / T_target - 1.0
                 else:
                     pi = 0.0
-                if has_highest_priority and job.last_iter_comm_time_ms is not None:
-                    job.update_ema_from_comm_time()
+                if job.last_iter_comm_time_ms is not None:
+                    if has_highest_priority:
+                        # 最高优先级：观测最可信，全额采纳
+                        job.update_ema_from_comm_time(weight=1.0)
+                    elif self.ema_passive:
+                        # 被动弱更新（方案1+2）：所有 job 每轮更新，按优先级折扣
+                        level = self._DSCP_LEVEL_MAP.get(dscp, 0)
+                        weight = self.ema_weights[level]
+                        job.update_ema_from_comm_time(weight=weight)
                 # 用更新后的 pi 重新计算 DSCP（含死区）
                 dscp = self.get_dscp(pi)
 
@@ -294,6 +333,30 @@ class LongLiu(Policy):
                     if curr_idx - 1 >= 0:  # 不能超过 P6
                         dscp = dscp_levels[curr_idx - 1]
                         self._aging_activations += 1
+
+            # 5. 主动探测机制（E14）：检测 T_target_ema 冻结
+            if self.probe_enabled and self.use_dynamic_T_target:
+                # 处于探测期：保持最高优先级，消耗剩余探测次数
+                if self._probe_remaining.get(jid, 0) > 0:
+                    dscp = 38
+                    self._probe_remaining[jid] -= 1
+                    self._probe_counters[jid] = 0
+                elif has_highest_priority:
+                    # 已获得最高优先级（自然调度），重置冻结计数器
+                    self._probe_counters[jid] = 0
+                else:
+                    # 未获得最高优先级，计数器 +1
+                    counter = self._probe_counters.get(jid, 0)
+                    counter += 1
+                    self._probe_counters[jid] = counter
+
+                    # 如果连续 N 个窗口未获得最高优先级，触发探测：
+                    # 立即提升到 P6（DSCP 38）采样，保持 probe_duration 次 allocate
+                    if counter >= self.probe_frozen_threshold:
+                        self._probe_remaining[jid] = max(0, self.probe_duration - 1)
+                        self._probe_counters[jid] = 0
+                        self._probe_activations += 1
+                        dscp = 38
 
             job_dscp[jid] = dscp
             job_pi[jid] = pi  # 保存 pi 用于加权

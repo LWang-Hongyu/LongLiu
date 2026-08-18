@@ -91,6 +91,7 @@ class Job:
         self.alpha = alpha
         self.last_iter_comm_time_ms: float | None = None
         self.ema_initialized = False
+        self.ema_update_count = 0  # EMA 更新次数（插桩，验证硬冻结）
 
         # 运行时状态
         self.completed_iters = 0
@@ -149,6 +150,11 @@ class Job:
             return None
         return sum(self._iter_times_deque) / len(self._iter_times_deque)
 
+    @property
+    def sliding_window_len(self) -> int:
+        """当前滑窗长度 W（deque maxlen）。"""
+        return self._iter_times_deque.maxlen
+
     def set_window_size(self, w: int) -> None:
         """动态调整滑窗大小。"""
         self._iter_times_deque = deque(self._iter_times_deque, maxlen=w)
@@ -194,24 +200,39 @@ class Job:
         # 4. 回退：RTT probe 或静态默认值
         return self.T_target_probed or self.default_T_target
 
-    def update_ema_from_comm_time(self) -> None:
+    def update_ema_from_comm_time(self, weight: float = 1.0) -> None:
         """
-        根据上次迭代的实际通信时间强制更新 T_target EMA。
-        在 LongLiu 策略确定当前 job 有最高优先级后调用。
-        与 get_T_target 分离，允许在 allocate 中控制更新时机。
+        根据上次迭代的实际通信时间更新 T_target EMA。
+
+        参数：
+            weight: 观测信任度（0-1）。最高优先级 job 传 1.0，
+                    被动校准模式下低优先级 job 按优先级折扣（P6=1.0 → P0=0.05）。
+
+        单边更新（防止冻结 + 防止被饥饿观测带偏）：
+        - 观测值低于当前 EMA（实际更快）→ 物理上必可达，全额采纳（安全方向）
+        - 观测值高于当前 EMA（实际更慢）→ 可能只是没分到带宽而非容量不足，
+          按 weight 折扣，避免 T_target 被系统性拉高。
         """
         if self.T_target_static is not None:
             return
         if self.last_iter_comm_time_ms is None:
             return
+        obs = self.last_iter_comm_time_ms
         if not self.ema_initialized:
-            self.T_target_ema = self.last_iter_comm_time_ms
+            self.T_target_ema = obs
             self.ema_initialized = True
+            self.ema_update_count += 1
+            return
+        if obs < self.T_target_ema:
+            # 安全方向：观测更快 → 全额采纳，防止 EMA 冻结/被拉高
+            eff_alpha = max(self.alpha, 0.5)
         else:
-            self.T_target_ema = (
-                self.alpha * self.last_iter_comm_time_ms +
-                (1.0 - self.alpha) * self.T_target_ema
-            )
+            # 观测更慢 → 可能是带宽不足，按信任度折扣
+            eff_alpha = self.alpha * max(0.0, min(1.0, weight))
+        self.T_target_ema = (
+            eff_alpha * obs + (1.0 - eff_alpha) * self.T_target_ema
+        )
+        self.ema_update_count += 1
 
     # --- Deficit 计算 ---
 

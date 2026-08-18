@@ -1,0 +1,5 @@
+config,seed0_p_attn,seed1_p_attn,mean,frozen_mean
+baseline,0.4667,0.5333,0.5000,11.5
+passive,0.5333,0.5667,0.5500,17.5
+probe_pass,0.4667,0.5000,0.4833,14.0
+probe_only,0.4333,0.5000,0.4667,16.0

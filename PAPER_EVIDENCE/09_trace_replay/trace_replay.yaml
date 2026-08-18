@@ -1,0 +1,26 @@
+# Trace 对照实验配置：Alibaba Lingjun 2023 时段重放
+# 用途：基于真实 trace 的 robustness 对照实验（论文新增 robustness 章节）
+# 设计：选取到达最密集的 6h 窗口，等比压缩到仿真时长，保留真实到达间隔分布
+name: "trace_replay_lingjun"
+topology:
+  type: "fatree"
+  k: 4
+  host_bw_bps: 100000000000.0  # 100 Gbps（16 host × 100G）
+  tor_bw_bps: 100000000000.0
+  spine_bw_bps: 400000000000.0  # 400 Gbps
+duration_ms: 600000  # 10 分钟
+
+trace:
+  source: "lingjun"
+  zip_path: "/home/why/LongLiu_rebuild/alibaba-lingjun-dataset-2023-main.zip"
+  min_gpus: 2            # dp 下限：dp=1 无 AllReduce、不产生网络流量，且锚点 SAS 虚高
+  max_gpus: 8            # dp 上限，与仿真器 16 节点适配
+  window_hours: 6.0       # 重放窗口长度（自动选到达最密集的窗口）
+  window_start: null      # null = 自动选窗口；可指定 "YYYY/MM/DD HH:MM"
+  max_jobs: null          # null = 窗口内全部保留；可限制数量以控制竞争强度
+  num_hosts: 16           # 与拓扑主机数一致（worker 放置范围）
+
+policies: ["Fair", "CRUX", "SP", "D1", "v4"]
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+premium_ci_threshold: 2.0  # ci <= 2.0 → premium tier

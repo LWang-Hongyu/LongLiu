@@ -7,9 +7,10 @@ from .longliu import LongLiu
 from .crux import CRUX
 from .cassini import CASSINI
 from .dwrr import LongLiuDWRR, LongLiuDWRRGap, LongLiuDWRRFair
+from .wfs import WFS
 
 __all__ = [
     "Policy", "Allocation",
-    "Fair", "SRPT", "LongLiu", "CRUX", "CASSINI",
+    "Fair", "SRPT", "LongLiu", "CRUX", "CASSINI", "WFS",
     "LongLiuDWRR", "LongLiuDWRRGap", "LongLiuDWRRFair",
 ]

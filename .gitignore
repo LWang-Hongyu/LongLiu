@@ -43,10 +43,16 @@ outputs/
 # Experiment data (trace.jsonl files are 100-178MB, too large for GitHub)
 PAPER_EVIDENCE/**
 !PAPER_EVIDENCE/FIGURE_REGISTRY/
+!PAPER_EVIDENCE/FIGURE_REGISTRY/*.csv
 !PAPER_EVIDENCE/01_baseline_anchor/
 !PAPER_EVIDENCE/00_convention/
 !PAPER_EVIDENCE/02_design_docs/
 !PAPER_EVIDENCE/07_workloads/
+!PAPER_EVIDENCE/09_trace_replay/
+!PAPER_EVIDENCE/09_trace_replay/*.csv
+!PAPER_EVIDENCE/09_trace_replay/*.json
+!PAPER_EVIDENCE/09_trace_replay/*.yaml
+!PAPER_EVIDENCE/09_trace_replay/*.py
 !PAPER_EVIDENCE/06_D1_mechanism/
 !PAPER_EVIDENCE/03_E1_ladder/summary*.json
 !PAPER_EVIDENCE/03_E1_ladder/*/

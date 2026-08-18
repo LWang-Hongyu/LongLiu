@@ -1,0 +1,21 @@
+# E10: Weighted Fair Sharing (WFS) 基线对照实验
+# 对比 6 策略（Fair/WFS/CRUX/SP/D1/v4）在 E1 阶梯和 E3 swap 场景下的表现
+name: "e10_wfs_baseline"
+topology:
+  type: "fatree"
+  k: 4
+  host_bw_bps: 100000000000.0  # 100 Gbps
+  tor_bw_bps: 100000000000.0
+  spine_bw_bps: 400000000000.0  # 默认 400 Gbps（实验脚本会覆盖）
+duration_ms: 600000  # 10 分钟
+
+policies: ["Fair", "WFS", "CRUX", "SP", "D1", "v4"]
+seeds: [0, 1, 2, 3, 4]
+
+# E1 带宽阶梯点（Gbps）
+e1_spine_bw_gbps: [400, 500, 630, 800, 1000, 1200]
+
+# E3 swap 场景带宽（Gbps）
+e3_spine_bw_gbps: 800
+
+premium_ci_threshold: 2.0  # ci <= 2.0 → premium

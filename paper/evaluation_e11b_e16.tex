@@ -1,0 +1,105 @@
+% ============================================================================
+% E11b & E16: Allocation Precision and Operator Sensitivity
+% ============================================================================
+% This file contains the LaTeX content for experiments E11b (allocation
+% precision vs. overlap factor) and E16 (beta sensitivity).
+% Insert this section after the "Robustness and Sensitivity Analysis"
+% subsection (E10-E15) in the Evaluation section.
+% ============================================================================
+
+\subsection{Allocation Precision and Operator Sensitivity}
+
+We conduct two additional experiments to address reviewer concerns about the
+serial-overlap model and the $\beta$ knob: E11b measures how precisely each
+policy's allocated bandwidth tracks the per-job attainable requirement
+(allocation precision) across the overlap factor $\rho$, and E16 sweeps the
+operator-facing $\beta$ parameter to verify that the scheduler's performance
+is insensitive to this knob. All experiments use 5 random seeds.
+
+\subsubsection{Allocation Precision under Overlap Variation (E11b)}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{../sim-nextgen/outputs/figures/fig_e11b_overlap_waste.png}
+\caption{E11b: Allocation Precision vs.\ Overlap Factor. Allocation precision
+$\mathrm{Prec}=\sum_j \min(a_j, b_j^{\text{att}})/\sum_j a_j$, where $a_j$ is
+the bandwidth allocated to job $j$ and $b_j^{\text{att}}$ its attainable
+requirement, across overlap factors $\rho \in \{0.0, 0.3, 0.5, 0.85, 1.0\}$
+at 500 and 630~Gbps (5 seeds, mean $\pm$ std). LongLiu achieves precision
+$\approx 1.0$ at every operating point, whereas the WFS baseline
+over-allocates bandwidth to jobs beyond their attainable requirement
+(precision 0.70--0.88).}
+\label{fig:e11b_precision}
+\end{figure}
+
+A reviewer concern with the serial compute-communication model is whether
+LongLiu over-allocates bandwidth---reserving more than a job can physically
+consume---and thereby wastes scarce capacity. We define the \emph{allocation
+precision} $\mathrm{Prec}=\sum_j \min(a_j, b_j^{\text{att}})/\sum_j a_j$, which
+equals 1 when every job receives at most its attainable requirement
+$b_j^{\text{att}}$ (computed from the closed-form model with the given
+$\rho$) and falls below 1 when the scheduler hands bandwidth to a job beyond
+what it can use. Figure~\ref{fig:e11b_precision} reports precision as a
+function of the overlap factor $\rho$ at 500 and 630~Gbps. LongLiu maintains
+$\mathrm{Prec} \approx 1.0$ ($0.996$--$1.000$) at every measured point,
+confirming that its closed-form allocation is exactly demand-tracking and
+never over-allocates. In contrast, the WFS baseline yields precision
+$0.70$--$0.88$, because its weight-based sharing ($1/c_i$) can assign a job
+more bandwidth than its attainable requirement when the aggregate premium
+demand is not saturated. Notably, LongLiu simultaneously delivers the higher
+premium SLO attainment (82.5--87.5\% at 500~Gbps and 92.5--97.5\% at
+630~Gbps, vs.\ WFS's 70--80\%), showing that the allocation is not merely
+demand-tracking but also \emph{precisely} targeted at the premium jobs that
+need protection.
+
+\subsubsection{Operator Sensitivity to $\beta$ (E16)}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{../sim-nextgen/outputs/figures/fig_e16_beta.png}
+\caption{E16: Sensitivity to the operator knob $\beta$. Premium SLO attainment
+rate (P-attn, left axis) and the average per-iteration SLO slowdown S-cont
+(right axis) vs.\ the $\beta$ parameter at 500 and 630~Gbps, 5 seeds
+(mean $\pm$ std). 500~Gbps uses solid lines and 630~Gbps dashed lines; blue
+denotes P-attn and chocolate S-cont. P-attn remains within 85--95\% (500~Gbps)
+and 92.5--97.5\% (630~Gbps) across the entire $\beta \in \{0.3, 0.5, 0.7,
+1.0\}$ range, while S-cont rises monotonically from 0.978 to 0.999.}
+\label{fig:e16_beta}
+\end{figure}
+
+The $\beta$ parameter is the most operator-facing knob of LongLiu's
+deficit-to-priority mapping, and a natural robustness question is whether
+performance hinges on its exact value. Figure~\ref{fig:e16_beta} sweeps
+$\beta \in \{0.3, 0.5, 0.7, 1.0\}$ at 500 and 630~Gbps. Premium SLO attainment
+is essentially flat: 85--95\% at 500~Gbps (peak at $\beta=1.0$) and
+92.5--97.5\% at 630~Gbps across all four settings, with per-point variation
+comparable to the seed-level noise. The average per-iteration SLO slowdown
+S-cont (mean SAS of running jobs) improves monotonically from 0.978 to 0.999,
+consistent with a higher $\beta$ pushing more deficit weight to the premium
+pool. The wide plateau confirms that operators can choose $\beta$ freely
+within $[0.3, 1.0]$ without compromising premium guarantees: the mechanism's
+benefit is structural, not contingent on a fragile calibration.
+
+\subsubsection{Summary}
+
+Table~\ref{tab:e11b_e16_summary} summarizes the two experiments. LongLiu's
+closed-form allocation is exactly demand-tracking (precision $\approx 1.0$)
+under all overlap configurations---unlike the over-allocating WFS baseline---
+and the premium SLO attainment is flat across the entire operator-facing
+$\beta$ range, so no fragile calibration is required.
+
+\begin{table}[t]
+\centering
+\caption{Summary of E11b and E16 (5 seeds each)}
+\label{tab:e11b_e16_summary}
+\begin{tabular}{lll}
+\toprule
+\textbf{Experiment} & \textbf{Key Finding} & \textbf{v4 Result} \\
+\midrule
+E11b (Precision) & v4 tracks attainable BW exactly & Prec $\approx$ 1.0 at all $\rho$ \\
+E11b (Precision) & WFS over-allocates beyond need & Prec 0.70--0.88 \\
+E16 ($\beta$) & P-attn flat across $\beta$ & 85--95\% (500G), 92.5--97.5\% (630G) \\
+E16 ($\beta$) & S-cont improves with $\beta$ & 0.978 $\rightarrow$ 0.999 \\
+\bottomrule
+\end{tabular}
+\end{table}

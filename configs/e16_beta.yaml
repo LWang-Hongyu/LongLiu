@@ -1,0 +1,20 @@
+# E16: β（standard 降级界限）敏感性实验
+# β ∈ {0.3, 0.5, 0.7, 1.0}，E1 工作负载，500/630 Gbps
+name: "e16_beta"
+topology:
+  type: "fatree"
+  k: 4
+  host_bw_bps: 100000000000.0
+  tor_bw_bps: 100000000000.0
+  spine_bw_bps: 500000000000.0
+duration_ms: 600000
+
+policies: ["v4"]
+seeds: [0, 1, 2, 3, 4]
+
+spine_bw_gbps: [500, 630]
+
+# β 扫描点（0.5 = 论文默认值）
+beta_values: [0.3, 0.5, 0.7, 1.0]
+
+premium_ci_threshold: 2.0

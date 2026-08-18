@@ -1,0 +1,17 @@
+{
+  "config_hash": "57f57512",
+  "SEMANTICS_VERSION": "anchor-v2",
+  "strategy": "v4",
+  "probe_enabled": false,
+  "spine_bw": 800,
+  "seed": 3,
+  "timestamp": "2026-08-14 16:21:28",
+  "n_premium": 30,
+  "n_standard": 0,
+  "p_attn": 0.8333,
+  "p_cap": 0.9639,
+  "s_cont_cap": 0.0,
+  "starv": 0,
+  "n_frozen_jobs": 0,
+  "total_iters": 6267
+}

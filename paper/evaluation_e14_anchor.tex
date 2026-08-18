@@ -1,0 +1,47 @@
+% ============================================================================
+% E14: Anchor Freezing - A Design Case Study
+% ============================================================================
+% This file contains the LaTeX content for experiment E14 only.
+% Insert this subsection after the "Ablation: Sensitivity to Calibration
+% Parameters" subsection in the Evaluation section.
+%
+% Data sources:
+%   - baseline / passive: outputs/e14_probe/summary_passive_10seeds.csv (10 seeds)
+%   - naive probe        : experiments/_quick_scan_e14_passive.py (2-seed scan,
+%                          best config)
+%   - hard-frozen jobs   : experiments/_verify_e14_hardfrozen.py (instrumentation)
+% ============================================================================
+
+\subsubsection{Anchor Freezing: A Design Case Study (E14)}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{../sim-nextgen/outputs/figures/fig_e14_anchor.png}
+\caption{E14: Anchor-Freezing Remedies under Sustained Congestion. Premium SLO attainment rate for the control-loop baseline, the naive active-probe variant, and passive recalibration (error bars are std.\ dev.\ over 10 seeds, except the probe which is a 2-seed scan). Passive recalibration eliminates anchor freezing (9--10 $\rightarrow$ 0 hard-frozen jobs) and reduces variance, but the mean gain is not statistically significant.}
+\label{fig:e14_anchor}
+\end{figure}
+
+The LongLiu control-loop policy calibrates each job's target iteration time $T_{\mathrm{target}}^{\mathrm{ema}}$ through an EMA that is refreshed only while the job holds the highest priority (DSCP 38). Under sustained congestion, jobs that rarely obtain DSCP 38 never sample the true network capacity, leaving their anchor frozen at a stale value. We measure this directly: in the baseline control loop, 9--10 of 30 premium jobs complete iterations but never refresh their EMA (hard freeze), and the premium SLO attainment rate over 10 seeds is $53.3\pm11.5\%$.
+
+We evaluate two remedies. First, a \emph{naive active probe} temporarily promotes a frozen job to DSCP 38 to sample capacity. Under strict-priority (SP) allocation this is counterproductive: sampling requires DSCP 38, but DSCP 38 monopolizes the entire link, so a probe starves the other premium jobs. In a parameter scan, every probe configuration falls below the baseline (best: 48.3\% vs.\ 50.0\% over 2 seeds). Sampling and preemption are inherently coupled under SP, so the mechanism cannot be rescued by tuning.
+
+Second, a \emph{passive recalibration} lets every job weakly update its EMA at each iteration, weighted by its current priority level, with a one-sided rule that fully trusts observations faster than the current anchor (physically always reachable) and discounts slower ones (which may simply reflect bandwidth scarcity). Figure~\ref{fig:e14_anchor} and Table~\ref{tab:e14_anchor} show that passive recalibration eliminates hard freezing entirely (9--10 $\rightarrow$ 0 jobs) and reduces the variance of the attainment rate by 25\% ($\pm$11.5 $\rightarrow$ $\pm$8.6), yet the mean improvement is only $+2.0$ percentage points and is not statistically significant (paired $t$-test $p=0.66$; Cohen's $d=0.14$).
+
+\textbf{Architecture of passive recalibration.} The original two-stage calibration updates the EMA $T_{\mathrm{target}}^{\mathrm{ema}}$ only while a job holds DSCP 38; this is precisely the source of anchor freezing. The passive variant replaces the ``highest-priority-only'' rule with three layers. (i)~\emph{Update trigger}: every job refreshes its EMA at the end of each completed iteration, regardless of priority. (ii)~\emph{Trust weighting}: the observation is discounted by the job's current priority level, $\{1.0, 0.8, 0.6, 0.4, 0.2, 0.1, 0.05\}$ for levels P6 down to P0, since a low-priority job's slow iteration may simply reflect bandwidth scarcity rather than a lower achievable rate. (iii)~\emph{One-sided direction}: an observation \emph{faster} than the current anchor is always fully adopted ($\alpha \leftarrow \max(\alpha, 0.5)$), because it is physically reachable and adopting it prevents the anchor from being inflated by starvation episodes; an observation \emph{slower} than the anchor is discounted by $\alpha \times \mathrm{weight}$, so transient bandwidth starvation cannot drift the anchor upward. Together these rules guarantee that the anchor is refreshed every iteration (no hard freeze) while remaining anchored to physically achievable values.
+
+This negative result is informative. The freeze problem is real; naive probing cannot fix it under SP; and even a mechanism that provably eliminates freezing does not raise SLO attainment. It reinforces the design of LongLiu's closed-form allocator (v4): because v4 re-solves the optimal allocation every window directly from the link capacity, it maintains no per-job anchors and is immune to freezing by construction.
+
+\begin{table}[t]
+\centering
+\caption{Anchor-freezing remedies under sustained congestion (premium SLO attainment rate).}
+\label{tab:e14_anchor}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Config} & \textbf{P-attn (\%)} & \textbf{Hard-frozen jobs} & \textbf{Seeds} \\
+\midrule
+Baseline (control loop) & $53.3\pm11.5$ & 9--10 / 30 & 10 \\
+Naive active probe & 48.3 & --- & 2 (scan) \\
+Passive recalibration & $55.3\pm8.6$ & 0 / 30 & 10 \\
+\bottomrule
+\end{tabular}
+\end{table}

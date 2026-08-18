@@ -1,0 +1,21 @@
+# E13: 窗口大小 W 敏感性实验
+# 测试 LongLiu 控制环策略在不同 window_size 下的瞬态响应
+name: "e13_window_sensitivity"
+topology:
+  type: "fatree"
+  k: 4
+  host_bw_bps: 100000000000.0  # 100 Gbps
+  tor_bw_bps: 100000000000.0
+  spine_bw_bps: 500000000000.0  # 500 Gbps（过渡区，制造动态压力）
+duration_ms: 300000  # 5 分钟（缩短以放大动态变化影响）
+
+policy: "LongLiu"  # 控制环策略（非 v4 闭式解）
+seeds: [0, 1, 2, 3, 4]
+
+# 窗口大小扫描点
+window_sizes: [5, 10, 20, 50]
+
+# E3 swap 场景参数
+swap_time_ms: 300000  # t=300s 执行 tier swap
+
+premium_ci_threshold: 2.0  # ci <= 2.0 → premium

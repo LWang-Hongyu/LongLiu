@@ -1,0 +1,27 @@
+# E14: 锚点冻结 + 主动探测实验
+# 验证长期高负载下锚点冻结导致性能下降，单次主动探测可恢复
+name: "e14_anchor_probe"
+topology:
+  type: "fatree"
+  k: 4
+  host_bw_bps: 100000000000.0  # 100 Gbps
+  tor_bw_bps: 100000000000.0
+  spine_bw_bps: 800000000000.0  # 800 Gbps
+duration_ms: 600000  # 10 分钟
+
+policy: "v4"
+seeds: [0, 1, 2, 3, 4]
+
+# 探测开关
+probe_enabled: [false, true]  # false=冻结锚点, true=主动探测
+
+# 高负载场景参数
+n_jobs: 30
+arrival_rate_per_sec: 0.05  # Poisson 到达率
+total_demand_ratio: 0.95    # 总需求占 spine 容量的 95%
+
+# 关键时间点（ms）
+freeze_time_ms: 300000      # t=300s 冻结锚点
+probe_time_ms: 350000       # t=350s 执行探测
+
+premium_ci_threshold: 2.0  # ci <= 2.0 → premium

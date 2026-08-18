@@ -1,0 +1,21 @@
+# E12: DSCP 量化误差实验
+# 对比 v4 (闭式解) 与 D1 (DWRR + DSCP 量化) 在不同作业规模下的表现
+name: "e12_dscp_quantization"
+topology:
+  type: "fatree"
+  k: 4
+  host_bw_bps: 100000000000.0  # 100 Gbps
+  tor_bw_bps: 100000000000.0
+  spine_bw_bps: 800000000000.0  # 固定 800 Gbps
+duration_ms: 600000  # 10 分钟
+
+policies: ["v4", "D1"]
+seeds: [0, 1, 2, 3, 4]
+
+# 作业规模扫描点
+n_jobs_list: [14, 50, 100]
+
+# 基础 workload（14 jobs）
+base_workload: "FEAS_BOUNDARY_V3_WORKLOAD"
+
+premium_ci_threshold: 2.0  # ci <= 2.0 → premium

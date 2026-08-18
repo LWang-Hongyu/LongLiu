@@ -1,0 +1,99 @@
+% ============================================================================
+% E10-E15: Robustness and Sensitivity Analysis
+% ============================================================================
+% This file contains the LaTeX content for the new experiments E10-E15.
+% Insert this section after the "Ablation: Sensitivity to Calibration Parameters"
+% subsection in the Evaluation section.
+% ============================================================================
+
+\subsection{Robustness and Sensitivity Analysis}
+
+We conduct six additional experiments to validate LongLiu's robustness against alternative baselines, parameter sensitivity, and real-world perturbations. All experiments use 5 random seeds.
+
+\subsubsection{Comparison with Weighted Fair Sharing (E10)}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{../sim-nextgen/outputs/figures/fig_e10_wfs.png}
+\caption{E10: WFS Baseline Comparison. Premium SLO attainment rate across 6 policies (Fair, WFS, CRUX, SP, D1, v4) at varying spine bandwidths. LongLiu v4 consistently outperforms all baselines in the bandwidth-scarce region (400--630 Gbps).}
+\label{fig:e10_wfs}
+\end{figure}
+
+We introduce \textbf{Weighted Fair Sharing (WFS)} as a more reasonable baseline: each job receives bandwidth proportional to $1/c_i$, so tighter-SLO jobs naturally receive more bandwidth. Figure~\ref{fig:e10_wfs} shows that LongLiu v4 outperforms WFS by 20\% at 400 Gbps (72.5\% vs 52.5\%) and 22.5\% at 630 Gbps (97.5\% vs 75.0\%). The advantage narrows as bandwidth increases, confirming that LongLiu's deficit-aware scheduling provides the most value precisely when the network is most congested.
+
+\subsubsection{Overlap Factor Sensitivity (E11)}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{../sim-nextgen/outputs/figures/fig_e11_overlap.png}
+\caption{E11: Overlap Factor Sensitivity. Premium SLO attainment rate at 500 Gbps and 630 Gbps across overlap factors $\rho \in \{0.0, 0.3, 0.5, 0.85, 1.0\}$. LongLiu v4 maintains stable performance across all overlap configurations.}
+\label{fig:e11_overlap}
+\end{figure}
+
+The overlap factor $\rho$ controls the degree of compute-communication overlap ($\rho=0$: serial, $\rho=1$: full overlap). Figure~\ref{fig:e11_overlap} shows that LongLiu v4 maintains stable performance across all $\rho$ values: 87.5\% at 500 Gbps and 92.5--97.5\% at 630 Gbps. Other policies degrade more significantly as $\rho$ increases, particularly CRUX (from 82.5\% to 77.5\% at 630 Gbps). This confirms that LongLiu's iteration-granularity scheduling is robust to varying compute-communication patterns.
+
+\subsubsection{DSCP Quantization Error Analysis (E12)}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{../sim-nextgen/outputs/figures/fig_e12_dscp.png}
+\caption{E12: DSCP Quantization Error Analysis. Premium SLO attainment rate comparing v4 (closed-form allocation) vs D1 (DWRR + 7-level DSCP quantization) at increasing job counts. The advantage of closed-form allocation grows with scale.}
+\label{fig:e12_dscp}
+\end{figure}
+
+We compare LongLiu v4 (closed-form allocation with continuous $\pi$ values) against D1 (DWRR with 7-level DSCP quantization of $\pi$) to quantify the impact of priority discretization. Figure~\ref{fig:e12_dscp} shows that both policies achieve 97.5\% at 14 jobs (sufficient bandwidth), but the gap widens dramatically with scale: 60.0\% vs 35.7\% at 50 jobs, and 36.8\% vs 6.0\% at 100 jobs. This demonstrates that the closed-form allocation in v4 avoids the quantization-induced priority collisions that degrade D1's performance under high contention. At 100 jobs, D1's 7-level quantization collapses to 6.0\% because multiple jobs with distinct $\pi$ values are mapped to the same DSCP level, causing unfair bandwidth sharing within priority classes.
+
+\subsubsection{Window Size Sensitivity (E13)}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{../sim-nextgen/outputs/figures/fig_e13_window.png}
+\caption{E13: Window Size $W$ Sensitivity. Premium SLO attainment rate for the LongLiu control-loop policy with $W \in \{5, 10, 20, 50\}$ under dynamic job injection at 500 Gbps. No statistically significant difference across window sizes; $W=20$ achieves the highest mean and lowest variance.}
+\label{fig:e13_window}
+\end{figure}
+
+We test the sensitivity of the LongLiu control-loop policy to the sliding window size $W$ under a dynamic scenario with three new jobs injected at $t=100$s. Figure~\ref{fig:e13_window} shows that $W$ has no statistically significant impact on the premium SLO attainment rate ($W=5$: 70.9\%$\pm$18.5\%, $W=10$: 69.1\%$\pm$22.0\%, $W=20$: 76.4\%$\pm$17.8\%, $W=50$: 72.7\%$\pm$24.4\%): the means differ by at most 7.3 percentage points and the error bars overlap substantially across all configurations. $W=20$ achieves the highest mean and the lowest variance, consistent with our default configuration. This robustness arises because the sliding-window average of the iteration time converges rapidly once the system reaches a quasi-steady state, and the deficit-based priority mapping reacts to sustained progress deviations rather than transient per-iteration noise. We therefore fix $W=20$ as the engineering default: large enough to smooth measurement noise, small enough to react to genuine workload changes.
+
+\subsubsection{Anchor Freezing and Active Probing (E14)}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{../sim-nextgen/outputs/figures/fig_e14_probe.png}
+\caption{E14: Anchor Freezing and Active Probing. Premium SLO attainment rate with and without the active probing mechanism under sustained congestion. Probing improves attainment by 2\% (49.3\% to 51.3\%) and reduces variance.}
+\label{fig:e14_probe}
+\end{figure}
+
+Under sustained congestion, the $T_{\text{target}}^{\text{ema}}$ anchor can freeze at incorrect values, causing persistent misallocation. We implement an active probing mechanism: if a job's $T_{\text{target}}^{\text{ema}}$ has not been updated for 10 consecutive windows, it is temporarily promoted to the highest priority (DSCP 38) to sample the true network capacity. Figure~\ref{fig:e14_probe} shows that probing improves premium SLO attainment from 49.3\% to 51.3\% and reduces the standard deviation from 10.6\% to 5.4\%. Even without probing, LongLiu achieves 49.3\% attainment, demonstrating the robustness of the core closed-form allocator.
+
+\subsubsection{Straggler Injection (E15)}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{../sim-nextgen/outputs/figures/fig_e15_straggler.png}
+\caption{E15: Straggler Injection Experiment. Premium SLO attainment rate under straggler factors $\{1.0, 2.0, 3.0, 5.0\}$ at 400 Gbps. LongLiu v4 maintains the highest attainment across all straggler severities, demonstrating resilience to compute-time anomalies.}
+\label{fig:e15_straggler}
+\end{figure}
+
+We inject stragglers by randomly inflating compute times of a subset of jobs by factors $\{1.0, 2.0, 3.0, 5.0\}$ under bandwidth-scarce conditions (400 Gbps). Figure~\ref{fig:e15_straggler} shows that LongLiu v4 maintains the highest premium SLO attainment across all straggler severities: 72.5\% at 1.0$\times$, 72.5\% at 2.0$\times$, 67.5\% at 3.0$\times$, and 67.5\% at 5.0$\times$. In contrast, D1 degrades from 52.5\% to 45.0\%, and CRUX from 65.0\% to 60.0\%. LongLiu's window-level averaging and closed-form reallocation absorb straggler-induced anomalies more effectively than reactive baselines.
+
+\subsubsection{Summary}
+
+Table~\ref{tab:e10_e15_summary} summarizes the key findings from experiments E10--E15. LongLiu v4 demonstrates consistent superiority across all robustness tests: it outperforms the more reasonable WFS baseline, maintains stability across overlap factors, benefits from closed-form allocation over DSCP quantization, and absorbs straggler-induced anomalies more effectively than all baselines.
+
+\begin{table}[t]
+\centering
+\caption{Summary of Robustness Experiments E10--E15 (5 seeds each)}
+\label{tab:e10_e15_summary}
+\begin{tabular}{lll}
+\toprule
+\textbf{Experiment} & \textbf{Key Finding} & \textbf{v4 Advantage} \\
+\midrule
+E10 (WFS) & v4 > WFS at scarce BW & +20\% at 400G \\
+E11 (Overlap) & v4 stable across $\rho$ & +15--20\% at 500G \\
+E12 (DSCP) & Closed-form > quantized & +24--31\% at scale \\
+E13 (Window) & No significant $W$ effect & $W=20$ best mean/var \\
+E14 (Probe) & Probing reduces variance & +2\% attainment \\
+E15 (Straggler) & v4 absorbs anomalies & +15--22\% vs D1 \\
+\bottomrule
+\end{tabular}
+\end{table}
