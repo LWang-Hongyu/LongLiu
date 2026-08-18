@@ -1,0 +1,18 @@
+=== run_meta: V6 统计重演 复制4 Round 2 (CX→LL) ===
+实验日期: 2026-08-10
+发起机: 10.1 (guolab-10)
+实验类型: V6 统计重演 — 复制4, Round 2: CX→LL (P6 无钳制)
+脚本: run_v6_full.sh (round=2, bg_rate=6 Gbps) — 1095s 背景流版本
+背景流: 12×500M iperf3 UDP, DSCP=P3, TOS=64, 6 Gbps
+Warmup: 5 min (13:44:08-13:49:08)
+c_i: tight=1.2, loose=3.0 (epoch 7 翻转)
+T_target: V5 校准 (1024MB)
+LongLiu: --initial-priority 3
+CRUX: --crux-priority-a 3 --crux-priority-b 3 (静态 P3)
+时间线:
+  WARMUP START 13:44:08 → WARMUP END 13:49:08
+  MODE START crux 13:49:08 → MODE END 13:51:23 (duration=135s)
+  GAP 13:51:23-13:51:38
+  MODE START longliu 13:51:38 → MODE END 13:53:37 (duration=119s)
+备注:
+  - 4 个 job 全部 exit=0, 15 epoch 完整 (300 iter)

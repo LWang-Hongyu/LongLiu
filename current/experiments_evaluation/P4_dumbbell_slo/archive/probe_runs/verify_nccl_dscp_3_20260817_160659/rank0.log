@@ -1,0 +1,13 @@
+[mc_solo_prio] rank=0 prio=P3 payload=1024MB iters=60
+  iter=0  comm=685.8ms  bw=6.3Gbps
+  iter=20  comm=702.3ms  bw=6.1Gbps
+  iter=40  comm=726.8ms  bw=5.9Gbps
+[mc_solo_prio] done
+[MultiComm] Rank 0: active priorities = 3 (1 total)
+[MultiComm] Rank 0: initializing 7 priorities across 1 devices
+[MultiComm] Rank 0: waiting for TCP connections on port 29900...
+[MultiComm] Rank 0: sent 1 IDs to rank 1
+[MultiComm] Rank 0: created communicator for priority P3 (DSCP=16, ToS=64)
+[MultiComm] Rank 0: initialization complete, starting at P6 (DSCP=8)
+[MultiComm] Rank 0: switching priority P6 -> P3 (DSCP 8 -> 16)
+[MultiComm] Rank 0: destroyed

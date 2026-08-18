@@ -142,7 +142,7 @@ current/multi_comm_slo/
 │   └── run_expC_v2.sh           # v2运行脚本
 ├── data_v2/                     # v2实验数据（75轮）
 ├── analysis/
-│   ├── plot_expC_v2.py          # 绘图脚本（生成3张IEEE风格图）
+│   ├── expC_v2_per_round.csv    # v2 per-round 数据（绘图副本 → figures_unified/fig_expC/data/）
 │   ├── expC_v2_results.md       # 结果文档
 │   └── expC_v2_analysis.md      # 分析文档
 └── README.md                    # 实验说明
@@ -231,7 +231,7 @@ current/.../03_exp_C_scale_ladder/daemon/alloc_daemon_v2.py (8/6) ← ExpC v2专
     ↓ import SLOScheduler from multi_comm_slo
     ↓ 调度逻辑完全一致
     ↓
-实验结果 → plot_expC_v2.py → 论文图表 → Evaluation.tex
+实验结果 → figures_unified/fig_expC/scripts/plot_expC_v2.py → 论文图表 → Evaluation.tex
 ```
 
 ---

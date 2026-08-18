@@ -1,0 +1,1436 @@
+bash: cannot set terminal process group (3691840): Inappropriate ioctl for device
+bash: no job control in this shell
+[monitor_nic] run=conc duration=600s interval=1s
+[monitor_nic] 10.1 -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv
+[monitor_nic] 226  -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv
+bash: cannot set terminal process group (3691879): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (3692050): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (3692216): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (3692374): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (3692516): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (3692645): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (3692778): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (3692914): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (3693075): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (3693201): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (3693343): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (3693472): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3693777): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3694039): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3694323): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3694577): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3694845): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3695101): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3695359): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3695621): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3695938): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3696190): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3696458): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3696710): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3696972): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3697234): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3697493): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3697772): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3698040): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3698292): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3698554): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3698816): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3699074): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3699356): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3699624): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3699877): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3700139): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3700391): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3700659): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3700939): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3701197): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3701459): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3701717): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3701973): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3702236): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3702521): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3702773): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3703041): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3703297): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3703555): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3703817): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3704102): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3704363): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3704632): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3704887): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3705145): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3705407): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3705665): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3705947): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3706215): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3706467): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3706729): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3706992): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3707250): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3707528): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3707796): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3708048): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3708309): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3708571): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3708829): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3709111): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3709380): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3709632): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3709893): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3710156): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3710415): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3710699): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3710967): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3711219): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3711482): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3711745): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3712003): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3712282): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3712550): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3712802): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3713060): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3713325): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3713580): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3713843): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3714127): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3714385): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3714637): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3714908): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3715160): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3715418): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3715706): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3715964): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3716217): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3716488): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3716741): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3716999): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3717287): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3717545): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3717797): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3718069): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3718321): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3718581): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3718870): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3719129): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3719381): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3719652): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3719904): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3720162): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3720449): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3720707): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3720960): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3721228): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3721484): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3721742): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3722004): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3722322): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3722459): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3722601): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3722730): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3722860): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3722999): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3723187): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3723316): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3723442): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3723587): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3723713): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3723846): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3724008): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3724141): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3724268): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3724414): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3724540): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3724672): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3724835): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3724967): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3725093): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3725239): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3725366): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3725498): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3725662): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3725827): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3725953): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3726095): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3726225): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3726357): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3726493): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3726653): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3726779): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3726923): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3727052): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3727184): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3727356): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3727515): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3727641): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3727783): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3727912): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3728045): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3728182): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3728341): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3728467): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3728609): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3728738): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3728870): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3729006): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3729162): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3729292): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3729429): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3729565): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3729691): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3729834): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3729988): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3730153): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3730289): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3730422): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3730552): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3730695): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3730821): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3730984): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3731120): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3731253): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3731382): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3731525): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3731651): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3731813): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3731950): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3732082): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3732211): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3732354): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3732480): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3732641): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3732777): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3732910): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3733040): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3733183): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3733309): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3733467): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3733603): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3733735): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3733861): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3734006): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3734132): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3734290): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3734430): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3734562): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3734688): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3734830): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3734959): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3735109): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3735254): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3735380): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3735513): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3735652): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3735785): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3735911): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3736078): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3736207): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3736339): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3736475): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3736611): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3736738): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3736904): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3737034): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3737166): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3737292): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3737438): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3737564): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3737721): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3737860): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3737993): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3738126): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3738272): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3738398): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3738553): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3738689): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3738825): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3738951): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3739093): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3739224): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3739381): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3739518): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3739653): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3739779): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3739922): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3740074): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3740255): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3740416): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3740549): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3740678): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3740818): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3740951): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3741077): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3741246): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3741374): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3741509): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3741645): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3741778): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3741908): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3742075): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3742201): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3742336): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3742472): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3742604): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3742734): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3742899): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3743026): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3743161): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3743298): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3743431): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3743560): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3743725): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3743851): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3743983): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3744122): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3744255): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3744381): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3744529): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3744682): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3744814): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3744953): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3745085): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3745211): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3745357): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3745506): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3745639): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3745781): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3745913): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3746039): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3746184): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3746335): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3746467): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3746603): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3746738): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3746865): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3747008): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3747161): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3747293): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3747429): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3747562): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3747693): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3747829): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3747987): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3748114): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3748257): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3748386): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3748518): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3748654): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3748789): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3748938): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3749080): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3749206): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3749343): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3749480): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3749612): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3749764): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3749906): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3750032): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3750167): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3750303): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3750435): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3750590): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3750733): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3750859): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3750994): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3751130): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3751262): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3751416): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3751558): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3751684): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3751820): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3751957): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3752089): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3752244): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3752376): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3752512): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3752647): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3752773): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3752915): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3753042): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3753199): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3753339): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3753465): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3753600): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3753736): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3753868): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3754021): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3754163): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3754290): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3754426): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3754563): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3754695): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3754848): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3754990): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3755116): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3755252): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3755388): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3755521): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3755672): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+bash: cannot set terminal process group (3755815): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_10.csv: No such file or directory
+bash: /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc/nic_226.csv: No such file or directory
+[monitor_nic] done: 363 samples per node -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/attempt1/conc

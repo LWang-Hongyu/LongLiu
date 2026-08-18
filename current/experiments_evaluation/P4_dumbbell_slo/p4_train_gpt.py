@@ -168,13 +168,13 @@ def main():
     if JOB_ID == 1:
         SLO_C_I = 1.5
         NUM_ITERS = 300
-        ITERS_PER_EPOCH = 20
-        NUM_EPOCHS = NUM_ITERS // ITERS_PER_EPOCH  # 15
+        ITERS_PER_WINDOW = 20
+        NUM_WINDOWS = NUM_ITERS // ITERS_PER_WINDOW  # 15
     else:
         SLO_C_I = 2.5
         NUM_ITERS = 200
-        ITERS_PER_EPOCH = 20
-        NUM_EPOCHS = NUM_ITERS // ITERS_PER_EPOCH  # 10
+        ITERS_PER_WINDOW = 20
+        NUM_WINDOWS = NUM_ITERS // ITERS_PER_WINDOW  # 10
 
     _adapter_enabled = (MODE == 'longliu')
 
@@ -197,8 +197,8 @@ def main():
     if torch.cuda.current_device() == 0:
         print(f"[Job{JOB_ID}] MODE={MODE}, Model=GPT({config.n_layer}L,{config.n_embd}D), "
               f"Params={param_bytes/1e6:.0f}M, GradSize={BYTES_PER_ITER/1e6:.0f}MB")
-        print(f"[Job{JOB_ID}] {NUM_ITERS} iters, {ITERS_PER_EPOCH}/epoch, "
-              f"{NUM_EPOCHS} epochs, SLO c_i={SLO_C_I}, "
+        print(f"[Job{JOB_ID}] {NUM_ITERS} iters, {ITERS_PER_WINDOW}/window, "
+              f"{NUM_WINDOWS} windows, SLO c_i={SLO_C_I}, "
               f"batch={BATCH_SIZE}, seq={SEQ_LEN}")
 
     # ============================================================
@@ -223,18 +223,22 @@ def main():
             _slo_scheduler, rank, world_size, '0',
             master_addr, port)
 
-        def epoch_start(epoch):
+        def window_start(window):
             if _mc_wrapper is not None:
-                _mc_wrapper.epoch_start(epoch)
+                _mc_wrapper.window_start(window)
 
-        def epoch_end(epoch):
+        def window_end(window):
             if _mc_wrapper is not None:
-                _mc_wrapper.epoch_end(epoch, data_size=BYTES_PER_ITER)
+                _mc_wrapper.window_end(window, data_size=BYTES_PER_ITER)
 
         def allreduce(tensor):
             if _mc_wrapper is not None:
+                # datatype 必须传 ncclFloat32(=7)。传 0(=ncclInt8) 会让 NCCL
+                # 只同步 count×1B（梯度 float32 的 1/4）且按 int8 求和 → 训练数值无效。
+                # 2026-08-10 修正：此前 7/16 的 longliu 运行即受此 bug 影响
+                # （solo 76ms vs longliu 28ms 的 3-4 倍差距即 1/4 传输量的证据）。
                 _mc_wrapper.allreduce(tensor.data_ptr(), tensor.data_ptr(),
-                                       tensor.numel(), 0, 0, 0)
+                                       tensor.numel(), 7, 0, 0)
             else:
                 torch.distributed.all_reduce(tensor)
     else:
@@ -242,10 +246,10 @@ def main():
         rank = torch.distributed.get_rank()
         world_size = torch.distributed.get_world_size()
 
-        def epoch_start(epoch):
+        def window_start(window):
             pass
 
-        def epoch_end(epoch):
+        def window_end(window):
             pass
 
         def allreduce(tensor):
@@ -263,11 +267,11 @@ def main():
     t_total_start = time.perf_counter()
     results = []
 
-    for epoch in range(NUM_EPOCHS):
-        epoch_start(epoch)
+    for window in range(NUM_WINDOWS):
+        window_start(window)
 
-        for i in range(ITERS_PER_EPOCH):
-            global_iter = epoch * ITERS_PER_EPOCH + i
+        for i in range(ITERS_PER_WINDOW):
+            global_iter = window * ITERS_PER_WINDOW + i
 
             # Generate random training data
             input_ids = torch.randint(0, config.vocab_size,
@@ -312,19 +316,22 @@ def main():
                 phase = 'contested'
 
             if rank == 0:
-                print(f"[Job{JOB_ID}] iter {global_iter:2d} (epoch {epoch}, "
+                print(f"[Job{JOB_ID}] iter {global_iter:2d} (window {window}, "
                       f"iter {i}): comm={comm_dur*1000:.1f}ms, "
-                      f"bw={bw_gbps:.2f} Gbps [{phase}]")
+                      f"bw={bw_gbps:.2f} Gbps, loss={loss.item():.4f} [{phase}]")
 
             results.append({
                 'iter': global_iter,
-                'epoch': epoch,
+                'window': window,
                 'comm_dur_s': round(comm_dur, 6),
                 'bw_gbps': round(bw_gbps, 4),
                 'phase': phase,
+                # loss 用于验证训练数值有效性：datatype 修复后（ncclFloat32）
+                # loss 应随迭代稳定下降；若为 int8 则梯度 1/4 且求和错误，loss 不降。
+                'loss': round(loss.item(), 4),
             })
 
-        epoch_end(epoch)
+        window_end(window)
 
     t_total_end = time.perf_counter()
 
@@ -335,12 +342,12 @@ def main():
         csv_path = f'/tmp/p4_train_JOB{JOB_ID}_{MODE}_rank0.csv'
         with open(csv_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['iter', 'epoch', 'comm_dur_s',
-                             'bw_gbps', 'phase'])
+            writer.writerow(['iter', 'window', 'comm_dur_s',
+                             'bw_gbps', 'phase', 'loss'])
             for r in results:
-                writer.writerow([r['iter'], r['epoch'],
+                writer.writerow([r['iter'], r['window'],
                                  r['comm_dur_s'], r['bw_gbps'],
-                                 r['phase']])
+                                 r['phase'], r['loss']])
         print(f"[Job{JOB_ID}] Results saved to {csv_path}")
 
         # Summary

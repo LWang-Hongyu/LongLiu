@@ -1,0 +1,4 @@
+[monitor_nic] run=exp2_test3_r2_20260810_150650 duration=120s interval=1s
+[monitor_nic] 10.1 -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test3_r2_20260810_150650/nic_10.csv
+[monitor_nic] 226  -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test3_r2_20260810_150650/nic_226.csv
+[monitor_nic] done: 73 samples per node -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test3_r2_20260810_150650

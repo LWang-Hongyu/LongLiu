@@ -1,0 +1,18 @@
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/current/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 0: active priorities = 6 (1 total)
+[MultiComm] Rank 0: initializing 7 priorities across 1 devices
+[MultiComm] Rank 0: waiting for TCP connections on port 29763...
+[MultiComm] Rank 0: sent 1 IDs to rank 1
+[MultiComm] Rank 0: created communicator for priority P6 (DSCP=8, ToS=32)
+[MultiComm] Rank 0: initialization complete, starting at P6 (DSCP=8)
+[MultiComm] Initialized: rank=0, world_size=2, master=192.10.10.110:29763, priority=P6
+[Exp2-jobB] priority=P6 (DSCP=8) payload=512MB iters=60 sleep=10000us
+[Exp2-jobB] iter 0: comm=117.0ms bw=18.35Gbps
+[Exp2-jobB] iter 10: comm=111.6ms bw=19.23Gbps
+[Exp2-jobB] iter 20: comm=106.8ms bw=20.10Gbps
+[Exp2-jobB] iter 30: comm=116.4ms bw=18.44Gbps
+[Exp2-jobB] iter 40: comm=109.0ms bw=19.70Gbps
+[Exp2-jobB] iter 50: comm=115.5ms bw=18.59Gbps
+[Exp2-jobB] iter 59: comm=119.0ms bw=18.04Gbps
+[Exp2-jobB] P6 平均带宽 = 18.73 Gbps (solo=28.71) -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r5_20260810_060422/exp2_jobB_rank0_iter.csv
+[MultiComm] Rank 0: destroyed

@@ -1,0 +1,80 @@
+=== LongLiu 环境核实 2026-08-07T11:23:53+08:00 ===
+
+### 10.1 (guolab-10) ###
+-- host --
+guolab-10
+5.15.0-132-generic
+-- GPU --
+0, Quadro RTX 4000, 550.54.15, 8192 MiB, 125.00 W
+-- CUDA --
+-- torch/nccl --
+torch unavailable
+-- NIC (enp130s0f0np0) --
+driver: mlx5_core
+version: 5.8-3.0.7
+firmware-version: 22.41.1000 (MT_0000000359)
+expansion-rom-version: 
+	Speed: 50000Mb/s
+	Link detected: yes
+vendor_id: 0x15b3  device_id: 0x101d
+-- QoS (mlnx_qos) --
+DCBX mode: OS controlled
+Priority trust state: dscp
+dscp2prio mapping:
+	prio:0 dscp:07,06,05,04,03,02,01,00,
+	prio:1 dscp:15,14,13,12,11,10,09,08,
+	prio:2 dscp:23,22,21,20,19,18,17,16,
+	prio:3 dscp:31,30,29,28,27,26,25,24,
+	prio:4 dscp:39,38,37,36,35,34,33,32,
+	prio:5 dscp:47,46,45,44,43,42,41,40,
+	prio:6 dscp:55,54,53,52,51,50,49,48,
+	prio:7 dscp:63,62,61,60,59,58,57,56,
+default priority:
+Receive buffer size (bytes): 0,156096,0,0,0,0,0,0,max_buffer_size=1027728
+Cable len: 7
+PFC configuration:
+	priority    0   1   2   3   4   5   6   7
+	enabled     0   0   0   0   0   0   0   0   
+	buffer      1   1   1   1   1   1   1   1   
+tc: 0 ratelimit: unlimited, tsa: strict
+	 priority:  1
+tc: 1 ratelimit: unlimited, tsa: strict
+	 priority:  0
+tc: 2 ratelimit: unlimited, tsa: strict
+	 priority:  2
+tc: 3 ratelimit: unlimited, tsa: strict
+	 priority:  3
+tc: 4 ratelimit: unlimited, tsa: strict
+	 priority:  4
+tc: 5 ratelimit: unlimited, tsa: strict
+	 priority:  5
+tc: 6 ratelimit: unlimited, tsa: strict
+	 priority:  6
+tc: 7 ratelimit: unlimited, tsa: strict
+	 priority:  7
+-- IB port state --
+4: ACTIVE
+50 Gb/sec (2X EDR)
+
+### 226 (guolab-226) ###
+-- host --
+guolab-226
+6.5.0-18-generic
+-- GPU --
+0, Quadro RTX 5000, 560.28.03, 16384 MiB, 230.00 W
+1, Quadro RTX 5000, 560.28.03, 16384 MiB, 230.00 W
+-- torch/nccl --
+torch unavailable
+-- NIC (enp59s0f0np0) --
+driver: mlx5_core
+version: 25.10-1.2.2
+firmware-version: 32.41.1000 (MT_0000000965)
+expansion-rom-version: 
+	Speed: 100000Mb/s
+	Link detected: yes
+vendor_id: 0x15b3  device_id: 0xa2dc
+-- IB port state --
+4: ACTIVE
+100 Gb/sec (4X EDR)
+
+=== end ===

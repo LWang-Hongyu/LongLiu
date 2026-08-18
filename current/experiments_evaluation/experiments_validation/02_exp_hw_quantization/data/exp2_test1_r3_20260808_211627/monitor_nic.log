@@ -1,0 +1,224 @@
+bash: cannot set terminal process group (-1): Inappropriate ioctl for device
+bash: no job control in this shell
+[monitor_nic] run=exp2_test1_r3_20260808_211627 duration=180s interval=1s
+[monitor_nic] 10.1 -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r3_20260808_211627/nic_10.csv
+[monitor_nic] 226  -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r3_20260808_211627/nic_226.csv
+bash: cannot set terminal process group (2839663): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2839817): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2839952): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2840088): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2840221): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2840350): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2840492): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2840618): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2840780): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2840916): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2841049): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2841179): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2841321): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2841447): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2841602): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2841741): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2841867): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2842004): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2842140): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2842273): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2842429): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2842571): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2842697): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2842832): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2842968): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2843100): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2843254): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2843427): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2843554): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2843690): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2843826): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2843958): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2844111): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2844253): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2844386): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2844521): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2844657): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2844790): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2844930): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2845086): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2845212): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2845344): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2845483): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2845612): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2845741): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2845905): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2846038): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2846165): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2846311): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2846437): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2846569): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2846732): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2846864): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2846991): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2847136): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2847263): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2847396): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2847562): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2847694): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2847820): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2847966): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2848092): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2848224): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2848390): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2848524): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2848652): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2848797): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2848923): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2849055): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2849218): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2849350): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2849476): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2849618): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2849748): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2849875): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2850017): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2850173): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2850305): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2850441): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2850576): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2850702): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2850844): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2851001): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2851134): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2851271): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2851407): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2851533): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2851675): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2851828): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2851960): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2852096): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2852233): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2852360): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2852492): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2852655): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2852787): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2852913): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2853059): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2853185): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2853317): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2853482): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2853615): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2853741): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2853880): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2854013): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2854139): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2854281): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2854435): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (2854567): Inappropriate ioctl for device
+bash: no job control in this shell
+[monitor_nic] done: 109 samples per node -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r3_20260808_211627

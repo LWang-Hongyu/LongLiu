@@ -1,0 +1,22 @@
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 1: initializing 7 priorities across 1 devices
+[MultiComm] Rank 1: connected to 192.10.10.110:29601
+[MultiComm] Rank 1: received 7 IDs
+[MultiComm] Rank 1: created communicator for priority P0 (DSCP=40)
+[MultiComm] Rank 1: created communicator for priority P1 (DSCP=32)
+[MultiComm] Rank 1: created communicator for priority P2 (DSCP=24)
+[MultiComm] Rank 1: created communicator for priority P3 (DSCP=16)
+[MultiComm] Rank 1: created communicator for priority P4 (DSCP=0)
+[MultiComm] Rank 1: created communicator for priority P5 (DSCP=0)
+[MultiComm] Rank 1: created communicator for priority P6 (DSCP=8)
+[MultiComm] Rank 1: initialization complete, starting at P6 (DSCP=8)
+[MultiComm] Initialized: rank=1, world_size=2, master=192.10.10.110:29601, priority=P3
+[MultiComm] Rank 1: switching priority P6 -> P3 (DSCP 8 -> 16)
+[SLO] T_target initialized: 3632.9ms (c_i=1.5, SLO target=5449.4ms)
+[SLO] Epoch 1: π=-0.333 (A=3.63s, expected=5.45s, T_target=3632.9ms, k=1), Priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 1: switching priority P3 -> P2 (DSCP 16 -> 24)
+[SLO] T_target EMA update (warmup): 3636.1ms (delta=+3.2ms, epoch=2)
+[SLO] T_target EMA update (warmup): 3604.3ms (delta=-31.7ms, epoch=3)
+[SLO] T_target EMA update (warmup): 3567.3ms (delta=-37.0ms, epoch=4)
+[SLO] T_target EMA update (warmup): 3544.3ms (delta=-23.0ms, epoch=5)
+[MultiComm] Rank 1: destroyed

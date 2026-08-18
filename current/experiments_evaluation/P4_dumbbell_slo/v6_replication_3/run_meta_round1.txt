@@ -1,0 +1,22 @@
+=== run_meta: V6 统计重演 复制3 Round 1 (LL→CX) ===
+实验日期: 2026-08-10
+发起机: 10.1 (guolab-10)
+实验类型: V6 统计重演 — 复制3, Round 1: LL→CX (P6 无钳制)
+脚本: run_v6_full.sh (round=1, bg_rate=6 Gbps) — 1095s 背景流版本（修复 570s 耗尽伪影）
+背景流: 12×500M iperf3 UDP, DSCP=P3 (DSCP=16→tc:2), TOS=64, 6 Gbps, 实际存活 571.76s (round1 结束被 kill)
+Warmup: 5 min (背景流持续, 13:11:08-13:16:08)
+c_i: tight=1.2, loose=3.0 (epoch 7 翻转)
+T_target: V5 校准 (1024MB, A=4201ms, B=3905ms)
+LongLiu: --initial-priority 3 (无 max_priority 钳制)
+CRUX: --crux-priority-a 3 --crux-priority-b 3 (静态 P3)
+p4_job_reverse.py hash: ca6c271a2ea9b64570d9eacb89bf79bf (双端一致)
+时间线:
+  WARMUP START 13:11:08 → WARMUP END 13:16:08
+  MODE START longliu 13:16:08 → MODE END 13:18:08 (duration=120s)
+  GAP 13:18:08-13:18:23
+  MODE START crux 13:18:23 → MODE END 13:20:37 (duration=134s)
+备注:
+  - 4 个 job 全部 exit=0, 15 epoch 完整 (300 iter)
+  - 背景流全程在线（12×0.50 Gbps），crux phase2 后段骤降与背景流无关
+  - crux Job B phase2 epoch 12-14 slowdown 骤降 (1.5→0.85) 为网络层动态拥塞现象，
+    核心对比取 epoch 7-11（背景流稳定前段）

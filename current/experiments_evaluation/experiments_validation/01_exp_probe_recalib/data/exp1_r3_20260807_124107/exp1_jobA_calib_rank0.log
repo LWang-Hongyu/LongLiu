@@ -1,0 +1,183 @@
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/current/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 0: initializing 7 priorities across 1 devices
+[MultiComm] Rank 0: waiting for TCP connections on port 29603...
+[MultiComm] Rank 0: sent 7 IDs to rank 1
+[MultiComm] Rank 0: created communicator for priority P0 (DSCP=40)
+[MultiComm] Rank 0: created communicator for priority P1 (DSCP=32)
+[MultiComm] Rank 0: created communicator for priority P2 (DSCP=24)
+[MultiComm] Rank 0: created communicator for priority P3 (DSCP=16)
+[MultiComm] Rank 0: created communicator for priority P4 (DSCP=0)
+[MultiComm] Rank 0: created communicator for priority P5 (DSCP=0)
+[MultiComm] Rank 0: created communicator for priority P6 (DSCP=8)
+[MultiComm] Rank 0: initialization complete, starting at P6 (DSCP=8)
+[MultiComm] Initialized: rank=0, world_size=2, master=192.10.10.110:29603, priority=P3
+[MultiComm] Rank 0: switching priority P6 -> P3 (DSCP 8 -> 16)
+[Exp1-CALIB-JA] epoch 0 iter 0: comm=323.8ms bw=13.26G
+[Exp1-CALIB-JA] epoch 0 iter 1: comm=194.3ms bw=22.11G
+[Exp1-CALIB-JA] epoch 0 iter 2: comm=178.6ms bw=24.04G
+[Exp1-CALIB-JA] epoch 0 iter 3: comm=183.6ms bw=23.40G
+[Exp1-CALIB-JA] epoch 0 iter 4: comm=175.4ms bw=24.49G
+[Exp1-CALIB-JA] epoch 0 iter 5: comm=182.3ms bw=23.56G
+[Exp1-CALIB-JA] epoch 0 iter 6: comm=179.9ms bw=23.87G
+[Exp1-CALIB-JA] epoch 0 iter 7: comm=185.0ms bw=23.21G
+[Exp1-CALIB-JA] epoch 0 iter 8: comm=184.1ms bw=23.33G
+[Exp1-CALIB-JA] epoch 0 iter 9: comm=174.5ms bw=24.62G
+[Exp1-CALIB-JA] epoch 0 iter 10: comm=182.3ms bw=23.56G
+[Exp1-CALIB-JA] epoch 0 iter 11: comm=175.0ms bw=24.54G
+[Exp1-CALIB-JA] epoch 0 iter 12: comm=182.9ms bw=23.49G
+[Exp1-CALIB-JA] epoch 0 iter 13: comm=177.4ms bw=24.21G
+[Exp1-CALIB-JA] epoch 0 iter 14: comm=189.9ms bw=22.61G
+[Exp1-CALIB-JA] epoch 0 iter 15: comm=163.2ms bw=26.32G
+[Exp1-CALIB-JA] epoch 0 iter 16: comm=169.7ms bw=25.31G
+[Exp1-CALIB-JA] epoch 0 iter 17: comm=194.1ms bw=22.12G
+[Exp1-CALIB-JA] epoch 0 iter 18: comm=176.7ms bw=24.30G
+[Exp1-CALIB-JA] epoch 0 iter 19: comm=178.2ms bw=24.10G
+[SLO] T_target initialized: 3753.3ms (c_i=1.5, SLO target=5629.9ms)
+[SLO] Epoch 1: π=-0.333 (A=3.75s, expected=5.63s, T_target=3753.3ms, k=1), Priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 0: switching priority P3 -> P2 (DSCP 16 -> 24)
+[Exp1-CALIB-JA] epoch 1 iter 0: comm=318.4ms bw=13.49G
+[Exp1-CALIB-JA] epoch 1 iter 1: comm=172.5ms bw=24.90G
+[Exp1-CALIB-JA] epoch 1 iter 2: comm=173.6ms bw=24.74G
+[Exp1-CALIB-JA] epoch 1 iter 3: comm=167.5ms bw=25.64G
+[Exp1-CALIB-JA] epoch 1 iter 4: comm=172.2ms bw=24.94G
+[Exp1-CALIB-JA] epoch 1 iter 5: comm=171.0ms bw=25.12G
+[Exp1-CALIB-JA] epoch 1 iter 6: comm=172.4ms bw=24.91G
+[Exp1-CALIB-JA] epoch 1 iter 7: comm=159.9ms bw=26.86G
+[Exp1-CALIB-JA] epoch 1 iter 8: comm=175.0ms bw=24.54G
+[Exp1-CALIB-JA] epoch 1 iter 9: comm=173.5ms bw=24.76G
+[Exp1-CALIB-JA] epoch 1 iter 10: comm=167.2ms bw=25.69G
+[Exp1-CALIB-JA] epoch 1 iter 11: comm=167.6ms bw=25.63G
+[Exp1-CALIB-JA] epoch 1 iter 12: comm=171.2ms bw=25.09G
+[Exp1-CALIB-JA] epoch 1 iter 13: comm=172.8ms bw=24.86G
+[Exp1-CALIB-JA] epoch 1 iter 14: comm=179.0ms bw=23.99G
+[Exp1-CALIB-JA] epoch 1 iter 15: comm=171.1ms bw=25.11G
+[Exp1-CALIB-JA] epoch 1 iter 16: comm=170.5ms bw=25.19G
+[Exp1-CALIB-JA] epoch 1 iter 17: comm=174.1ms bw=24.67G
+[Exp1-CALIB-JA] epoch 1 iter 18: comm=173.4ms bw=24.77G
+[Exp1-CALIB-JA] epoch 1 iter 19: comm=181.3ms bw=23.69G
+[SLO] T_target EMA update (warmup): 3702.9ms (delta=-50.3ms, epoch=2)
+[Exp1-CALIB-JA] epoch 2 iter 0: comm=175.7ms bw=24.44G
+[Exp1-CALIB-JA] epoch 2 iter 1: comm=171.0ms bw=25.12G
+[Exp1-CALIB-JA] epoch 2 iter 2: comm=173.0ms bw=24.82G
+[Exp1-CALIB-JA] epoch 2 iter 3: comm=180.7ms bw=23.77G
+[Exp1-CALIB-JA] epoch 2 iter 4: comm=169.9ms bw=25.29G
+[Exp1-CALIB-JA] epoch 2 iter 5: comm=171.0ms bw=25.11G
+[Exp1-CALIB-JA] epoch 2 iter 6: comm=171.9ms bw=24.99G
+[Exp1-CALIB-JA] epoch 2 iter 7: comm=167.4ms bw=25.66G
+[Exp1-CALIB-JA] epoch 2 iter 8: comm=177.5ms bw=24.20G
+[Exp1-CALIB-JA] epoch 2 iter 9: comm=182.5ms bw=23.53G
+[Exp1-CALIB-JA] epoch 2 iter 10: comm=165.0ms bw=26.03G
+[Exp1-CALIB-JA] epoch 2 iter 11: comm=170.4ms bw=25.20G
+[Exp1-CALIB-JA] epoch 2 iter 12: comm=174.8ms bw=24.57G
+[Exp1-CALIB-JA] epoch 2 iter 13: comm=165.4ms bw=25.97G
+[Exp1-CALIB-JA] epoch 2 iter 14: comm=183.2ms bw=23.45G
+[Exp1-CALIB-JA] epoch 2 iter 15: comm=167.9ms bw=25.58G
+[Exp1-CALIB-JA] epoch 2 iter 16: comm=168.7ms bw=25.47G
+[Exp1-CALIB-JA] epoch 2 iter 17: comm=175.6ms bw=24.46G
+[Exp1-CALIB-JA] epoch 2 iter 18: comm=169.5ms bw=25.33G
+[Exp1-CALIB-JA] epoch 2 iter 19: comm=172.8ms bw=24.85G
+[SLO] T_target EMA update (warmup): 3628.7ms (delta=-74.3ms, epoch=3)
+[Exp1-CALIB-JA] epoch 3 iter 0: comm=177.4ms bw=24.22G
+[Exp1-CALIB-JA] epoch 3 iter 1: comm=171.6ms bw=25.03G
+[Exp1-CALIB-JA] epoch 3 iter 2: comm=174.4ms bw=24.62G
+[Exp1-CALIB-JA] epoch 3 iter 3: comm=171.1ms bw=25.09G
+[Exp1-CALIB-JA] epoch 3 iter 4: comm=175.6ms bw=24.45G
+[Exp1-CALIB-JA] epoch 3 iter 5: comm=165.6ms bw=25.94G
+[Exp1-CALIB-JA] epoch 3 iter 6: comm=166.1ms bw=25.85G
+[Exp1-CALIB-JA] epoch 3 iter 7: comm=179.1ms bw=23.98G
+[Exp1-CALIB-JA] epoch 3 iter 8: comm=168.5ms bw=25.49G
+[Exp1-CALIB-JA] epoch 3 iter 9: comm=180.6ms bw=23.78G
+[Exp1-CALIB-JA] epoch 3 iter 10: comm=180.4ms bw=23.81G
+[Exp1-CALIB-JA] epoch 3 iter 11: comm=177.2ms bw=24.24G
+[Exp1-CALIB-JA] epoch 3 iter 12: comm=178.9ms bw=24.01G
+[Exp1-CALIB-JA] epoch 3 iter 13: comm=176.7ms bw=24.30G
+[Exp1-CALIB-JA] epoch 3 iter 14: comm=177.8ms bw=24.16G
+[Exp1-CALIB-JA] epoch 3 iter 15: comm=181.1ms bw=23.71G
+[Exp1-CALIB-JA] epoch 3 iter 16: comm=179.4ms bw=23.94G
+[Exp1-CALIB-JA] epoch 3 iter 17: comm=173.2ms bw=24.80G
+[Exp1-CALIB-JA] epoch 3 iter 18: comm=179.1ms bw=23.99G
+[Exp1-CALIB-JA] epoch 3 iter 19: comm=166.0ms bw=25.87G
+[SLO] T_target EMA update (warmup): 3590.5ms (delta=-38.2ms, epoch=4)
+[Exp1-CALIB-JA] epoch 4 iter 0: comm=182.2ms bw=23.57G
+[Exp1-CALIB-JA] epoch 4 iter 1: comm=178.2ms bw=24.11G
+[Exp1-CALIB-JA] epoch 4 iter 2: comm=172.3ms bw=24.93G
+[Exp1-CALIB-JA] epoch 4 iter 3: comm=163.8ms bw=26.22G
+[Exp1-CALIB-JA] epoch 4 iter 4: comm=182.5ms bw=23.54G
+[Exp1-CALIB-JA] epoch 4 iter 5: comm=182.6ms bw=23.51G
+[Exp1-CALIB-JA] epoch 4 iter 6: comm=165.9ms bw=25.89G
+[Exp1-CALIB-JA] epoch 4 iter 7: comm=171.6ms bw=25.02G
+[Exp1-CALIB-JA] epoch 4 iter 8: comm=173.5ms bw=24.76G
+[Exp1-CALIB-JA] epoch 4 iter 9: comm=178.3ms bw=24.09G
+[Exp1-CALIB-JA] epoch 4 iter 10: comm=172.1ms bw=24.96G
+[Exp1-CALIB-JA] epoch 4 iter 11: comm=165.5ms bw=25.95G
+[Exp1-CALIB-JA] epoch 4 iter 12: comm=176.4ms bw=24.35G
+[Exp1-CALIB-JA] epoch 4 iter 13: comm=180.6ms bw=23.79G
+[Exp1-CALIB-JA] epoch 4 iter 14: comm=184.7ms bw=23.25G
+[Exp1-CALIB-JA] epoch 4 iter 15: comm=186.1ms bw=23.08G
+[Exp1-CALIB-JA] epoch 4 iter 16: comm=168.3ms bw=25.51G
+[Exp1-CALIB-JA] epoch 4 iter 17: comm=163.8ms bw=26.23G
+[Exp1-CALIB-JA] epoch 4 iter 18: comm=175.8ms bw=24.43G
+[Exp1-CALIB-JA] epoch 4 iter 19: comm=172.0ms bw=24.98G
+[SLO] T_target EMA update (warmup): 3562.6ms (delta=-27.9ms, epoch=5)
+[Exp1-CALIB-JA] epoch 5 iter 0: comm=169.0ms bw=25.41G
+[Exp1-CALIB-JA] epoch 5 iter 1: comm=174.2ms bw=24.66G
+[Exp1-CALIB-JA] epoch 5 iter 2: comm=168.1ms bw=25.54G
+[Exp1-CALIB-JA] epoch 5 iter 3: comm=174.3ms bw=24.63G
+[Exp1-CALIB-JA] epoch 5 iter 4: comm=176.6ms bw=24.32G
+[Exp1-CALIB-JA] epoch 5 iter 5: comm=175.5ms bw=24.48G
+[Exp1-CALIB-JA] epoch 5 iter 6: comm=174.1ms bw=24.67G
+[Exp1-CALIB-JA] epoch 5 iter 7: comm=179.4ms bw=23.95G
+[Exp1-CALIB-JA] epoch 5 iter 8: comm=177.1ms bw=24.26G
+[Exp1-CALIB-JA] epoch 5 iter 9: comm=183.3ms bw=23.43G
+[Exp1-CALIB-JA] epoch 5 iter 10: comm=174.3ms bw=24.64G
+[Exp1-CALIB-JA] epoch 5 iter 11: comm=169.3ms bw=25.37G
+[Exp1-CALIB-JA] epoch 5 iter 12: comm=176.9ms bw=24.27G
+[Exp1-CALIB-JA] epoch 5 iter 13: comm=177.6ms bw=24.18G
+[Exp1-CALIB-JA] epoch 5 iter 14: comm=174.7ms bw=24.59G
+[Exp1-CALIB-JA] epoch 5 iter 15: comm=175.6ms bw=24.47G
+[Exp1-CALIB-JA] epoch 5 iter 16: comm=170.8ms bw=25.15G
+[Exp1-CALIB-JA] epoch 5 iter 17: comm=185.6ms bw=23.14G
+[Exp1-CALIB-JA] epoch 5 iter 18: comm=176.0ms bw=24.41G
+[Exp1-CALIB-JA] epoch 5 iter 19: comm=170.6ms bw=25.18G
+[Exp1-CALIB-JA] epoch 6 iter 0: comm=173.6ms bw=24.74G
+[Exp1-CALIB-JA] epoch 6 iter 1: comm=172.7ms bw=24.87G
+[Exp1-CALIB-JA] epoch 6 iter 2: comm=177.1ms bw=24.26G
+[Exp1-CALIB-JA] epoch 6 iter 3: comm=181.6ms bw=23.65G
+[Exp1-CALIB-JA] epoch 6 iter 4: comm=180.7ms bw=23.77G
+[Exp1-CALIB-JA] epoch 6 iter 5: comm=172.7ms bw=24.87G
+[Exp1-CALIB-JA] epoch 6 iter 6: comm=179.1ms bw=23.98G
+[Exp1-CALIB-JA] epoch 6 iter 7: comm=182.5ms bw=23.53G
+[Exp1-CALIB-JA] epoch 6 iter 8: comm=183.5ms bw=23.41G
+[Exp1-CALIB-JA] epoch 6 iter 9: comm=176.2ms bw=24.37G
+[Exp1-CALIB-JA] epoch 6 iter 10: comm=182.2ms bw=23.58G
+[Exp1-CALIB-JA] epoch 6 iter 11: comm=170.7ms bw=25.16G
+[Exp1-CALIB-JA] epoch 6 iter 12: comm=169.4ms bw=25.36G
+[Exp1-CALIB-JA] epoch 6 iter 13: comm=173.0ms bw=24.82G
+[Exp1-CALIB-JA] epoch 6 iter 14: comm=174.4ms bw=24.63G
+[Exp1-CALIB-JA] epoch 6 iter 15: comm=181.1ms bw=23.72G
+[Exp1-CALIB-JA] epoch 6 iter 16: comm=174.0ms bw=24.68G
+[Exp1-CALIB-JA] epoch 6 iter 17: comm=179.1ms bw=23.98G
+[Exp1-CALIB-JA] epoch 6 iter 18: comm=165.9ms bw=25.90G
+[Exp1-CALIB-JA] epoch 6 iter 19: comm=176.9ms bw=24.28G
+[Exp1-CALIB-JA] epoch 7 iter 0: comm=170.9ms bw=25.14G
+[Exp1-CALIB-JA] epoch 7 iter 1: comm=159.5ms bw=26.92G
+[Exp1-CALIB-JA] epoch 7 iter 2: comm=162.4ms bw=26.44G
+[Exp1-CALIB-JA] epoch 7 iter 3: comm=175.6ms bw=24.46G
+[Exp1-CALIB-JA] epoch 7 iter 4: comm=171.5ms bw=25.04G
+[Exp1-CALIB-JA] epoch 7 iter 5: comm=179.4ms bw=23.94G
+[Exp1-CALIB-JA] epoch 7 iter 6: comm=176.3ms bw=24.35G
+[Exp1-CALIB-JA] epoch 7 iter 7: comm=169.9ms bw=25.28G
+[Exp1-CALIB-JA] epoch 7 iter 8: comm=166.2ms bw=25.84G
+[Exp1-CALIB-JA] epoch 7 iter 9: comm=168.7ms bw=25.47G
+[Exp1-CALIB-JA] epoch 7 iter 10: comm=170.0ms bw=25.27G
+[Exp1-CALIB-JA] epoch 7 iter 11: comm=176.9ms bw=24.29G
+[Exp1-CALIB-JA] epoch 7 iter 12: comm=172.9ms bw=24.84G
+[Exp1-CALIB-JA] epoch 7 iter 13: comm=178.6ms bw=24.05G
+[Exp1-CALIB-JA] epoch 7 iter 14: comm=175.1ms bw=24.53G
+[Exp1-CALIB-JA] epoch 7 iter 15: comm=172.0ms bw=24.97G
+[Exp1-CALIB-JA] epoch 7 iter 16: comm=179.0ms bw=23.99G
+[Exp1-CALIB-JA] epoch 7 iter 17: comm=180.8ms bw=23.76G
+[Exp1-CALIB-JA] epoch 7 iter 18: comm=186.1ms bw=23.08G
+[Exp1-CALIB-JA] epoch 7 iter 19: comm=169.1ms bw=25.41G
+[Exp1-CALIB-JA] T_target=3562.62ms solo_bw=24.45Gbps -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/01_exp_probe_recalib/data/exp1_r3_20260807_124107/ttarget.json
+[MultiComm] Rank 0: destroyed

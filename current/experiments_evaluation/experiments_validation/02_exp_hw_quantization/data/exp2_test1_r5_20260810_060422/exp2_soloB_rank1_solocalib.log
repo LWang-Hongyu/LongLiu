@@ -1,0 +1,9 @@
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 1: active priorities = 6 (1 total)
+[MultiComm] Rank 1: initializing 7 priorities across 1 devices
+[MultiComm] Rank 1: connected to 192.10.10.110:29761
+[MultiComm] Rank 1: received 1 IDs
+[MultiComm] Rank 1: created communicator for priority P6 (DSCP=8, ToS=32)
+[MultiComm] Rank 1: initialization complete, starting at P6 (DSCP=8)
+[MultiComm] Initialized: rank=1, world_size=2, master=192.10.10.110:29761, priority=P6
+[MultiComm] Rank 1: destroyed

@@ -285,7 +285,7 @@ def draw_panel_b(ax):
             fontsize=5.5, color=C['arrow_fb'], fontweight='bold')
     ax.text(0.9, 1.55, 'BW change', ha='center', va='center',
             fontsize=4.5, color=C['arrow_fb'])
-    ax.text(0.9, 1.25, r'$\rightarrow$ next epoch', ha='center', va='center',
+    ax.text(0.9, 1.25, r'$\rightarrow$ next window', ha='center', va='center',
             fontsize=4.5, color=C['arrow_fb'])
 
     # ── Key design badges ──
@@ -299,7 +299,7 @@ def draw_panel_b(ax):
                 bbox=dict(boxstyle='round,pad=0.15', fc=clr, ec='none'))
 
     # T_target annotation
-    ax.text(2.5, 2.8, r'$T^{\mathrm{tgt}}$: EMA calibrated from solo epochs',
+    ax.text(2.5, 2.8, r'$T^{\mathrm{tgt}}$: EMA calibrated from solo windows',
             ha='center', va='top', fontsize=5, color=C['text_light'], style='italic',
             bbox=dict(boxstyle='round,pad=0.06', fc='#FFFDE7', ec='#F9A825', lw=0.3, alpha=0.85))
 

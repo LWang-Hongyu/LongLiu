@@ -1,0 +1,20 @@
+=== run_meta: V6 统计重演 复制3 Round 2 (CX→LL) ===
+实验日期: 2026-08-10
+发起机: 10.1 (guolab-10)
+实验类型: V6 统计重演 — 复制3, Round 2: CX→LL (P6 无钳制)
+脚本: run_v6_full.sh (round=2, bg_rate=6 Gbps) — 1095s 背景流版本
+背景流: 12×500M iperf3 UDP, DSCP=P3, TOS=64, 6 Gbps (round2 内全程在线)
+Warmup: 5 min (13:20:58-13:25:58)
+c_i: tight=1.2, loose=3.0 (epoch 7 翻转)
+T_target: V5 校准 (1024MB)
+LongLiu: --initial-priority 3
+CRUX: --crux-priority-a 3 --crux-priority-b 3 (静态 P3)
+p4_job_reverse.py hash: ca6c271a2ea9b64570d9eacb89bf79bf (双端一致)
+时间线:
+  WARMUP START 13:20:58 → WARMUP END 13:25:58
+  MODE START crux 13:25:58 → MODE END 13:28:13 (duration=135s)
+  GAP 13:28:13-13:28:28
+  MODE START longliu 13:28:28 → MODE END 13:30:27 (duration=119s)
+备注:
+  - 4 个 job 全部 exit=0, 15 epoch 完整 (300 iter)
+  - crux Job B phase2 epoch 12-14 slowdown 骤降 (1.5→0.85)，与 round1 一致的网络现象

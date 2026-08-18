@@ -41,10 +41,14 @@ NODE_226="192.10.10.226"
 NODE_101_IF="enp130s0f0np0"
 NODE_226_IF="enp59s0f0np0"
 
-# NCCL 2.30.7 (with trafficClass API) — used only in longliu mode
-NCCL_2307_LIB="/home/why/LongLiu_rebuild/nccl-master/build/lib"
-# Multi-Comm library path
-MULTI_COMM_DIR="/home/why/LongLiu_rebuild/multi_comm_slo"
+# NCCL with trafficClass API — used only in longliu mode.
+# NOTE: nccl-master/build 目录在两节点均不存在。各节点 fallback 到系统 NCCL：
+#   10.1 → /usr/local/lib/libnccl.so.2 (2.30.7)
+#   226  → /usr/lib/x86_64-linux-gnu/libnccl.so.2 (2.29.7, 同样支持 trafficClass)
+NCCL_2307_LIB="/usr/local/lib"
+NCCL_2307_LIB_226="/usr/lib/x86_64-linux-gnu"
+# Multi-Comm library path (两节点统一位于 current/ 下，与脚本目录相对位置一致)
+MULTI_COMM_DIR="/home/why/LongLiu_rebuild/current/multi_comm_slo"
 
 # PyTorch's bundled NCCL (for fair/solo mode)
 PT_NCCL_101="/home/why/.local/lib/python3.8/site-packages/nvidia/nccl/lib"
@@ -53,7 +57,7 @@ PT_NCCL_226="/home/why/.local/lib/python3.10/site-packages/nvidia/nccl/lib"
 echo "========================================================"
 echo "P4 V3: Synchronous Competition — MODE=$MODE"
 if [[ "$MODE" == "train_gpt" ]]; then
-    echo "Model: GPT-2 (78M params), seq=512, batch=2"
+    echo "Model: GPT-2 (124M params, 768D/12L), seq=64, batch=1"
     echo "Job1: 300 iters, c_i=1.5; Job2: 200 iters, c_i=2.5"
 else
     echo "Job1: 2048MB, 50ms compute, 15 epochs (300 iters), c_i=1.5"
@@ -74,8 +78,10 @@ PORT_J2=$(( PORT_BASE + 1 ))
 if [[ "$MODE" == "train_gpt" ]]; then
     JOB1_SCRIPT="p4_train_gpt.py"
     JOB2_SCRIPT="p4_train_gpt.py"
-    JOB1_ARGS="--job 1 --tiny"
-    JOB2_ARGS="--job 2 --tiny"
+    # 默认 GPT config（768D/12L ≈ 124M params, 495MB 梯度）+ 小 seq/batch
+    # → 计算↓（~30ms/iter），通信占 ~80%+ → 两作业共享链路时真实拥塞 → P6 可触发
+    JOB1_ARGS="--job 1 --seq-len 64 --batch-size 1"
+    JOB2_ARGS="--job 2 --seq-len 64 --batch-size 1"
     # For train_gpt, the scheduler mode can be specified as 2nd arg (default: longliu)
     SCHED_MODE="${SCHEDULE:-longliu}"
 elif [[ "$MODE" == "crux" ]]; then
@@ -130,7 +136,14 @@ case "$SCHED_MODE" in
         ;;
 esac
 
-echo "Multi-Comm: $([ "$SCHED_MODE" == "longliu" ] && echo 'enabled (7 priorities, DSCP 0,8,16,24,32,40)' || [ "$SCHED_MODE" == "crux" ] && echo 'enabled (static GPU Intensity priority)' || echo 'disabled')"
+if [[ "$SCHED_MODE" == "longliu" ]]; then
+    MULTI_COMM_MSG="enabled (7 priorities, DSCP 0,8,16,24,32,40)"
+elif [[ "$SCHED_MODE" == "crux" ]]; then
+    MULTI_COMM_MSG="enabled (static GPU Intensity priority)"
+else
+    MULTI_COMM_MSG="disabled"
+fi
+echo "Multi-Comm: $MULTI_COMM_MSG"
 echo "Job1 extra: ${J1_EXTRA:-none}"
 echo "Job2 extra: ${J2_EXTRA:-none}"
 
@@ -143,15 +156,16 @@ NCCL_COMMON="NCCL_IB_HCA=mlx5_0 NCCL_IB_GID_INDEX=3 NCCL_DEBUG=INFO NCCL_ALGO=RI
 # Build env strings per job/node
 # ============================================================
 if [[ "$SCHED_MODE" == "longliu" || "$SCHED_MODE" == "static_dscp" || "$SCHED_MODE" == "crux" ]]; then
-    # ---- LongLiu/CRUX: use NCCL 2.30.7 + libmulti_comm.so ----
+    # ---- LongLiu/CRUX: use system NCCL (trafficClass) + libmulti_comm.so ----
     LD_PATH_101="${NCCL_2307_LIB}"
-    LD_PATH_226="${NCCL_2307_LIB}"
+    LD_PATH_226="${NCCL_2307_LIB_226}"
     PYTHONPATH_EXTRA="${MULTI_COMM_DIR}/src"
     PYTHONPATH_VAR="PYTHONPATH=${PYTHONPATH_EXTRA}:\${PYTHONPATH:-}"
 else
-    # ---- Fair/Solo: use PyTorch's bundled NCCL ----
-    LD_PATH_101="${PT_NCCL_101}"
-    LD_PATH_226="${PT_NCCL_226}"
+    # ---- Fair/Solo: 统一用系统 NCCL 2.30.7（2026-08-17：bundled NCCL 慢 3 倍
+    #      且竞争极不公平（实测 8.7 vs 1.1 Gbps），fair 基线与其他模式不可比）----
+    LD_PATH_101="${NCCL_2307_LIB}"
+    LD_PATH_226="${NCCL_2307_LIB_226}"
     PYTHONPATH_VAR=""
 fi
 
@@ -188,8 +202,13 @@ PID_J1_226=$!
 echo "Job 1 launched (PIDs: $PID_J1_101 on 10.1, SSH to 226) [port=$PORT_J1]"
 
 if [[ "$MODE" != "solo" && "$SCHED_MODE" != "solo" ]]; then
-    echo "Waiting 30s (~35 iters) for Job 1 NCCL to fully settle..."
-    sleep 30
+    # 2026-08-17: sleep 30→50。实测 30s 时 Job2 在 Job1 iter ~26 加入（窗口 1 中途），
+    # 污染 warmup 期 comm baseline（窗口 1-6 全部带竞争，min 聚合也救不回 solo 基线），
+    # comm_ratio≈1.0，P6 永不触发。50s 保证 Job2 在 Job1 窗口 2 及之后加入
+    # （实测 startup≈23s + iter≈0.27s，50s→iter~80-100，慢机最坏也在窗口 2 内），
+    # 窗口 1（iters 20-39）保持纯 solo → baseline 干净。
+    echo "Waiting 50s (Job1 reaches window 2+, keeps comm-baseline window solo-clean)..."
+    sleep 50
 
     echo ""
     echo "=== Phase 2: Launching Job 2 (10 epochs, 200 iters) ==="

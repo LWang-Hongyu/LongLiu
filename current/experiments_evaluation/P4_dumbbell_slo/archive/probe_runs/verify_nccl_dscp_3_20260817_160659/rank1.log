@@ -1,0 +1,9 @@
+[mc_solo_prio] rank=1 prio=P3 payload=1024MB iters=60
+[MultiComm] Rank 1: active priorities = 3 (1 total)
+[MultiComm] Rank 1: initializing 7 priorities across 1 devices
+[MultiComm] Rank 1: connected to 192.10.10.110:29900
+[MultiComm] Rank 1: received 1 IDs
+[MultiComm] Rank 1: created communicator for priority P3 (DSCP=16, ToS=64)
+[MultiComm] Rank 1: initialization complete, starting at P6 (DSCP=8)
+[MultiComm] Rank 1: switching priority P6 -> P3 (DSCP 8 -> 16)
+[MultiComm] Rank 1: destroyed

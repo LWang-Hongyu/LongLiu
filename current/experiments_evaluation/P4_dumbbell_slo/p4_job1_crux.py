@@ -40,8 +40,8 @@ MODE = args.mode
 PAYLOAD_MB = 2048           # 2 GB fp32
 SLEEP_US   = 50000          # 50 ms simulated compute per iteration
 NUM_ITERS  = 300
-ITERS_PER_EPOCH = 20
-NUM_EPOCHS = NUM_ITERS // ITERS_PER_EPOCH  # 15
+ITERS_PER_WINDOW = 20
+NUM_WINDOWS = NUM_ITERS // ITERS_PER_WINDOW  # 15
 
 BYTES_PER_ITER = PAYLOAD_MB * 1024 * 1024
 NUM_ELEMENTS = BYTES_PER_ITER // 4  # float32
@@ -71,7 +71,8 @@ class StaticPriorityScheduler:
         self.current_priority = static_priority
         self.priority_history = [self.current_priority]
     
-    def update(self, actual_comm_time: float, data_size: float) -> int:
+    def update(self, actual_comm_time: float, data_size: float,
+               window_comm_time: float = 0.0) -> int:
         # CRUX: priority is STATIC, never updated
         return self.current_priority
     
@@ -82,20 +83,20 @@ _static_scheduler = StaticPriorityScheduler(CRUX_STATIC_PRIORITY)
 _mc_wrapper = None
 
 
-def epoch_start(epoch):
+def window_start(window):
     if _mc_wrapper is not None:
-        _mc_wrapper.epoch_start(epoch)
+        _mc_wrapper.window_start(window)
 
 
-def epoch_end(epoch):
+def window_end(window):
     if _mc_wrapper is not None:
-        _mc_wrapper.epoch_end(epoch, data_size=BYTES_PER_ITER)
+        _mc_wrapper.window_end(window, data_size=BYTES_PER_ITER)
 
 
 def allreduce(tensor):
     if _mc_wrapper is not None:
         _mc_wrapper.allreduce(tensor.data_ptr(), tensor.data_ptr(),
-                               tensor.numel(), 0, 0, 0)
+                               tensor.numel(), 7, 0, 0)  # ncclFloat32
     else:
         dist.all_reduce(tensor)
 
@@ -122,8 +123,8 @@ def main():
         print(f"[Job1-CRUX] Static Priority: P{CRUX_STATIC_PRIORITY} "
               f"(DSCP={CRUX_STATIC_PRIORITY*8})")
         print(f"[Job1-CRUX] GPU Intensity I_1 = {SLEEP_US/1000:.0f}ms / ~85ms ≈ 0.59")
-        print(f"[Job1-CRUX] {NUM_ITERS} iters, {ITERS_PER_EPOCH}/epoch, "
-              f"{NUM_EPOCHS} epochs, MultiComm mode (STATIC priority)")
+        print(f"[Job1-CRUX] {NUM_ITERS} iters, {ITERS_PER_WINDOW}/window, "
+              f"{NUM_WINDOWS} windows, MultiComm mode (STATIC priority)")
 
     if rank == 0 and device is not None:
         free_mem = torch.cuda.mem_get_info(device)[0] / (1024**3)
@@ -149,11 +150,11 @@ def main():
     results = []
     t_total_start = time.perf_counter()
 
-    for epoch in range(NUM_EPOCHS):
-        epoch_start(epoch)
+    for window in range(NUM_WINDOWS):
+        window_start(window)
 
-        for i in range(ITERS_PER_EPOCH):
-            global_iter = epoch * ITERS_PER_EPOCH + i
+        for i in range(ITERS_PER_WINDOW):
+            global_iter = window * ITERS_PER_WINDOW + i
 
             # Simulated forward/backward compute
             if SLEEP_US > 0:
@@ -169,27 +170,27 @@ def main():
             comm_dur = t1 - t0
             bw_gbps = bus_bw_gbps(BYTES_PER_ITER, comm_dur, world_size) if comm_dur > 0 else 0.0
 
-            # Phase: first 5 epochs (100 iters) are solo baseline;
-            # Job2 joins at epoch 5, subsequent iters are contested.
+            # Phase: first 5 windows (100 iters) are solo baseline;
+            # Job2 joins at window 5, subsequent iters are contested.
             if global_iter < 100:
                 phase = 'solo_rampup'
             else:
                 phase = 'contested'
 
             if rank == 0:
-                print(f"[Job1-CRUX] iter {global_iter:2d} (epoch {epoch}, "
+                print(f"[Job1-CRUX] iter {global_iter:2d} (window {window}, "
                       f"iter {i}): comm={comm_dur*1000:.1f}ms, "
                       f"bw={bw_gbps:.2f} Gbps [{phase}]")
 
             results.append({
                 'iter': global_iter,
-                'epoch': epoch,
+                'window': window,
                 'comm_dur_s': round(comm_dur, 6),
                 'bw_gbps': round(bw_gbps, 4),
                 'phase': phase,
             })
 
-        epoch_end(epoch)
+        window_end(window)
 
     t_total_end = time.perf_counter()
 
@@ -200,10 +201,10 @@ def main():
         csv_path = f'p4_job1_{MODE}_rank0.csv'
         with open(csv_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['iter', 'epoch', 'comm_dur_s',
+            writer.writerow(['iter', 'window', 'comm_dur_s',
                              'bw_gbps', 'phase'])
             for r in results:
-                writer.writerow([r['iter'], r['epoch'],
+                writer.writerow([r['iter'], r['window'],
                                  r['comm_dur_s'], r['bw_gbps'],
                                  r['phase']])
         print(f"[Job1-CRUX] Results saved to {csv_path}")

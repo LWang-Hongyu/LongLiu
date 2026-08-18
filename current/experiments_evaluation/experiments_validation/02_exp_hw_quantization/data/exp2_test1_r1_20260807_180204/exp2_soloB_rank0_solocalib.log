@@ -1,0 +1,20 @@
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/current/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 0: active priorities = 6 (1 total)
+[MultiComm] Rank 0: initializing 7 priorities across 1 devices
+[MultiComm] Rank 0: waiting for TCP connections on port 29721...
+[MultiComm] Rank 0: sent 1 IDs to rank 1
+[MultiComm] Rank 0: failed to create comm for P6 device 0 (attempt 1/3): internal error - please report this issue to the NCCL developers
+[MultiComm] Rank 0: retrying P6 creation (1/3)
+[MultiComm] Rank 0: failed to create comm for P6 device 0 (attempt 2/3): internal error - please report this issue to the NCCL developers
+[MultiComm] Rank 0: retrying P6 creation (2/3)
+[MultiComm] Rank 0: failed to create comm for P6 device 0 (attempt 3/3): internal error - please report this issue to the NCCL developers
+[MultiComm] Rank 0: retrying P6 creation (3/3)
+[MultiComm] Rank 0: giving up on P6 after 3 attempts
+Traceback (most recent call last):
+  File "/home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/scripts/fixed_prio_job.py", line 133, in <module>
+    main()
+  File "/home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/scripts/fixed_prio_job.py", line 75, in main
+    mc = MultiCommWrapper(
+  File "/home/why/LongLiu_rebuild/current/multi_comm_slo/src/slo_scheduler.py", line 308, in __init__
+    raise RuntimeError(f"multi_comm_init failed with code {ret}")
+RuntimeError: multi_comm_init failed with code -1

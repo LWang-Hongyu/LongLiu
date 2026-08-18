@@ -1,0 +1,32 @@
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 1: initializing 7 priorities across 1 devices
+[MultiComm] Rank 1: connected to 192.10.10.110:29602
+[MultiComm] Rank 1: received 7 IDs
+[MultiComm] Rank 1: created communicator for priority P0 (DSCP=40)
+[MultiComm] Rank 1: created communicator for priority P1 (DSCP=32)
+[MultiComm] Rank 1: created communicator for priority P2 (DSCP=24)
+[MultiComm] Rank 1: created communicator for priority P3 (DSCP=16)
+[MultiComm] Rank 1: created communicator for priority P4 (DSCP=0)
+[MultiComm] Rank 1: created communicator for priority P5 (DSCP=0)
+[MultiComm] Rank 1: created communicator for priority P6 (DSCP=8)
+[MultiComm] Rank 1: initialization complete, starting at P6 (DSCP=8)
+[MultiComm] Initialized: rank=1, world_size=2, master=192.10.10.110:29602, priority=P3
+[MultiComm] Rank 1: switching priority P6 -> P3 (DSCP 8 -> 16)
+[SLO] T_target PRESET (calibrated): 3802.7ms (c_i=1.5, SLO target=5704.0ms) — EMA updates SKIPPED
+[SLO] Epoch 2: π=-0.195 (A=9.19s, expected=11.41s, T_target=3802.7ms, k=2), Priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 1: switching priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 1: switching priority P2 -> P6 (DSCP 24 -> 8)
+[MultiComm] Rank 1: switching priority P6 -> P3 (DSCP 8 -> 16)
+[MultiComm] Rank 1: switching priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 1: switching priority P2 -> P6 (DSCP 24 -> 8)
+[MultiComm] Rank 1: switching priority P6 -> P3 (DSCP 8 -> 16)
+[MultiComm] Rank 1: switching priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 1: switching priority P2 -> P6 (DSCP 24 -> 8)
+[MultiComm] Rank 1: switching priority P6 -> P3 (DSCP 8 -> 16)
+[MultiComm] Rank 1: switching priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 1: switching priority P2 -> P6 (DSCP 24 -> 8)
+[MultiComm] Rank 1: switching priority P6 -> P3 (DSCP 8 -> 16)
+[MultiComm] Rank 1: switching priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 1: switching priority P2 -> P6 (DSCP 24 -> 8)
+[MultiComm] Rank 1: switching priority P6 -> P3 (DSCP 8 -> 16)
+[MultiComm] Rank 1: destroyed

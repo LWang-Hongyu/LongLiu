@@ -1,0 +1,7 @@
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/current/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 0: initializing 7 priorities across 1 devices
+[MultiComm] Rank 0: waiting for TCP connections on port 29722...
+[MultiComm] Rank 0: sent 7 IDs to rank 1
+[MultiComm] Rank 0: created communicator for priority P0 (DSCP=8, ToS=32)
+[MultiComm] Rank 0: created communicator for priority P1 (DSCP=16, ToS=64)
+[MultiComm] Rank 0: created communicator for priority P2 (DSCP=24, ToS=96)

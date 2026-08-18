@@ -274,5 +274,6 @@ S2 中 premium jobs 经常出现 "transport retry counter exceeded" 错误，导
 - **数据目录**: `data_v2/` (75 轮 × 各含 stats.csv + daemon_epoch.csv + logs)
 - **分析脚本**: `analysis/analyze_expC_v2.py`
 - **分析输出**: `analysis/expC_v2_analysis.md` + `analysis/expC_v2_per_round.csv`
+  （绘图脚本与图输出统一在 `results/figures_unified/fig_expC/`，输入数据为其 `data/` 副本）
 - **场景定义**: `scenarios/scenarios_v2.json`
 - **校准文件**: `/tmp/expC_ttarget_<jid>.json` (各 run 目录中也有归档)

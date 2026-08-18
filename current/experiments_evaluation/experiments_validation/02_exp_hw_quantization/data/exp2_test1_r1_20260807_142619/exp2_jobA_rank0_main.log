@@ -1,0 +1,48 @@
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/current/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 0: initializing 7 priorities across 1 devices
+[MultiComm] Rank 0: waiting for TCP connections on port 29722...
+[MultiComm] Rank 0: sent 7 IDs to rank 1
+[MultiComm] Rank 0: created communicator for priority P0 (DSCP=40, ToS=160)
+[MultiComm] Rank 0: created communicator for priority P1 (DSCP=32, ToS=128)
+[MultiComm] Rank 0: created communicator for priority P2 (DSCP=24, ToS=96)
+[MultiComm] Rank 0: created communicator for priority P3 (DSCP=16, ToS=64)
+[MultiComm] Rank 0: created communicator for priority P4 (DSCP=0, ToS=0)
+[MultiComm] Rank 0: created communicator for priority P5 (DSCP=0, ToS=0)
+[MultiComm] Rank 0: created communicator for priority P6 (DSCP=8, ToS=32)
+[MultiComm] Rank 0: initialization complete, starting at P6 (DSCP=8)
+[MultiComm] Initialized: rank=0, world_size=2, master=192.10.10.110:29722, priority=P3
+[MultiComm] Rank 0: switching priority P6 -> P3 (DSCP 8 -> 16)
+[Exp2-jobA] priority=P3 (DSCP=16) payload=512MB iters=300 sleep=10000us
+[Exp2-jobA] iter 0: comm=102.1ms bw=21.04Gbps
+[Exp2-jobA] iter 10: comm=77.3ms bw=27.77Gbps
+[Exp2-jobA] iter 20: comm=84.4ms bw=25.45Gbps
+[Exp2-jobA] iter 30: comm=88.3ms bw=24.31Gbps
+[Exp2-jobA] iter 40: comm=91.5ms bw=23.47Gbps
+[Exp2-jobA] iter 50: comm=112.6ms bw=19.07Gbps
+[Exp2-jobA] iter 60: comm=111.8ms bw=19.20Gbps
+[Exp2-jobA] iter 70: comm=112.3ms bw=19.12Gbps
+[Exp2-jobA] iter 80: comm=121.8ms bw=17.63Gbps
+[Exp2-jobA] iter 90: comm=127.2ms bw=16.88Gbps
+[Exp2-jobA] iter 100: comm=132.4ms bw=16.22Gbps
+[Exp2-jobA] iter 110: comm=108.5ms bw=19.79Gbps
+[Exp2-jobA] iter 120: comm=123.4ms bw=17.41Gbps
+[Exp2-jobA] iter 130: comm=103.7ms bw=20.71Gbps
+[Exp2-jobA] iter 140: comm=110.7ms bw=19.39Gbps
+[Exp2-jobA] iter 150: comm=105.9ms bw=20.28Gbps
+[Exp2-jobA] iter 160: comm=78.5ms bw=27.37Gbps
+[Exp2-jobA] iter 170: comm=77.1ms bw=27.85Gbps
+[Exp2-jobA] iter 180: comm=64.9ms bw=33.11Gbps
+[Exp2-jobA] iter 190: comm=92.3ms bw=23.27Gbps
+[Exp2-jobA] iter 200: comm=73.2ms bw=29.34Gbps
+[Exp2-jobA] iter 210: comm=67.6ms bw=31.76Gbps
+[Exp2-jobA] iter 220: comm=89.4ms bw=24.01Gbps
+[Exp2-jobA] iter 230: comm=81.9ms bw=26.21Gbps
+[Exp2-jobA] iter 240: comm=76.8ms bw=27.95Gbps
+[Exp2-jobA] iter 250: comm=80.1ms bw=26.80Gbps
+[Exp2-jobA] iter 260: comm=87.7ms bw=24.49Gbps
+[Exp2-jobA] iter 270: comm=74.6ms bw=28.80Gbps
+[Exp2-jobA] iter 280: comm=80.9ms bw=26.56Gbps
+[Exp2-jobA] iter 290: comm=68.6ms bw=31.31Gbps
+[Exp2-jobA] iter 299: comm=82.1ms bw=26.17Gbps
+[Exp2-jobA] P3 平均带宽 = 23.70 Gbps (solo=24.79) -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_test1_r1_20260807_142619/exp2_jobA_rank0_iter.csv
+[MultiComm] Rank 0: destroyed

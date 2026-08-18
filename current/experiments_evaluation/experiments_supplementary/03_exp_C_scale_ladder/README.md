@@ -195,6 +195,9 @@ analysis/
 ├── analyze_expC_v2.py        # v2 分析脚本（迭代级 slowdown）
 ├── expC_summary.md           # v1 主报告
 ├── expC_v2_analysis.md       # v2 分析报告
-├── expC_v2_per_round.csv     # v2 per-round 数据
+├── expC_v2_per_round.csv     # v2 per-round 数据（绘图副本 → results/figures_unified/fig_expC/data/）
 └── expC_v2_results.md        # v2 完整结果报告
+
+> 绘图脚本 plot_expC_v2.py 及图输出已统一迁移至
+> `current/results/figures_unified/fig_expC/`（scripts/ 与 figures/）。
 ```

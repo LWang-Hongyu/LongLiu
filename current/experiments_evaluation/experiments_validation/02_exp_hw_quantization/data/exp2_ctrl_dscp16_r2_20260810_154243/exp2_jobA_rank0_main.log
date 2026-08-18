@@ -1,0 +1,23 @@
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/current/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 0: active priorities = 3 (1 total)
+[MultiComm] Rank 0: initializing 7 priorities across 1 devices
+[MultiComm] Rank 0: waiting for TCP connections on port 29832...
+[MultiComm] Rank 0: sent 1 IDs to rank 1
+[MultiComm] Rank 0: created communicator for priority P3 (DSCP=16, ToS=64)
+[MultiComm] Rank 0: initialization complete, starting at P6 (DSCP=8)
+[MultiComm] Initialized: rank=0, world_size=2, master=192.10.10.110:29832, priority=P3
+[MultiComm] Rank 0: switching priority P6 -> P3 (DSCP 8 -> 16)
+[Exp2-jobA] priority=P3 (DSCP=16) payload=512MB iters=100 sleep=0us
+[Exp2-jobA] iter 0: comm=108.0ms bw=19.88Gbps
+[Exp2-jobA] iter 10: comm=69.2ms bw=31.05Gbps
+[Exp2-jobA] iter 20: comm=63.6ms bw=33.74Gbps
+[Exp2-jobA] iter 30: comm=68.4ms bw=31.38Gbps
+[Exp2-jobA] iter 40: comm=66.8ms bw=32.17Gbps
+[Exp2-jobA] iter 50: comm=130.5ms bw=16.46Gbps
+[Exp2-jobA] iter 60: comm=136.8ms bw=15.69Gbps
+[Exp2-jobA] iter 70: comm=136.0ms bw=15.79Gbps
+[Exp2-jobA] iter 80: comm=134.6ms bw=15.95Gbps
+[Exp2-jobA] iter 90: comm=134.6ms bw=15.95Gbps
+[Exp2-jobA] iter 99: comm=130.8ms bw=16.41Gbps
+[Exp2-jobA] P3 平均带宽 = 23.36 Gbps (solo=29.91) -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/02_exp_hw_quantization/data/exp2_ctrl_dscp16_r2_20260810_154243/exp2_jobA_rank0_iter.csv
+[MultiComm] Rank 0: destroyed

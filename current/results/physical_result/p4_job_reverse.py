@@ -3,17 +3,17 @@
 P4-1 Role-Reversal Experiment V4 (SP queue, scheduler v1(π), c_i swap, same payload)
 
 Scenario redesign (2026-07-20, V4 — same payload, asymmetric c_i):
-  - Phase 0 (calibrate): each job runs SOLO for 5 epochs to establish an
+  - Phase 0 (calibrate): each job runs SOLO for 5 windows to establish an
     uncontaminated T_target via EMA. T_target is written to a JSON file
     and reused by the main experiment (preset_target=True).
   - Both jobs use the SAME payload (512 MB) throughout — only c_i differs.
     This is the "money experiment": when jobs are identical except for SLO
     tightness, CRUX's GPU-intensity-based static priority has NOTHING to
     discriminate on (both jobs have identical GPU intensity → CRUX is blind).
-  - c_i SWAP at REVERSE_EPOCH:
-      Phase 1 (epochs 0-6): A c_i=1.6 (tight), B c_i=3.0 (loose)
-      Phase 2 (epochs 7-14): A c_i=3.0 (loose), B c_i=1.6 (tight)
-  - Both jobs run all 15 epochs — no early exit.
+  - c_i SWAP at REVERSE_WINDOW:
+      Phase 1 (windows 0-6): A c_i=1.6 (tight), B c_i=3.0 (loose)
+      Phase 2 (windows 7-14): A c_i=3.0 (loose), B c_i=1.6 (tight)
+  - Both jobs run all 15 windows — no early exit.
 
 Why same payload:
   V3 (different payloads) showed host-NIC contention makes the light job's
@@ -25,9 +25,9 @@ Expected hypothesis (falsifiable):
   CRUX Phase 1: GPU intensity tie → bandwidth split ~50/50 → tight A violates
   CRUX Phase 2: B becomes tight → also violates → CRUX fails tight job both phases
   LongLiu both phases: π tracks actual SLO status → both jobs ~0 violations,
-  priority trajectories cross at epoch 7.
+  priority trajectories cross at window 7.
 
-CSV output (main phase): per-iter and per-epoch with π, priority, dscp, slowdown, c_i.
+CSV output (main phase): per-iter and per-window with π, priority, dscp, slowdown, c_i.
 """
 
 import os
@@ -47,11 +47,11 @@ parser.add_argument('--job', type=str, required=True, choices=['A', 'B'],
 parser.add_argument('--mode', type=str, required=True, choices=['longliu', 'crux'])
 parser.add_argument('--phase', type=str, required=True, choices=['calibrate', 'main'],
                     help='calibrate=solo T_target learning; main=contested experiment')
-parser.add_argument('--reverse-epoch', type=int, default=7)
+parser.add_argument('--reverse-window', type=int, default=7)
 parser.add_argument('--num-iters', type=int, default=300)
-parser.add_argument('--iters-per-epoch', type=int, default=20)
-parser.add_argument('--calib-epochs', type=int, default=5,
-                    help='Number of solo epochs for T_target calibration')
+parser.add_argument('--iters-per-window', type=int, default=20)
+parser.add_argument('--calib-windows', type=int, default=5,
+                    help='Number of solo windows for T_target calibration')
 parser.add_argument('--ttarget-file', type=str, default=None,
                     help='JSON file path for T_target (calibrate: write; main: read)')
 parser.add_argument('--payload-mb', type=int, default=512,
@@ -76,11 +76,11 @@ args = parser.parse_args()
 JOB = args.job
 MODE = args.mode
 PHASE = args.phase
-REVERSE_EPOCH = args.reverse_epoch
+REVERSE_WINDOW = args.reverse_window
 NUM_ITERS = args.num_iters
-ITERS_PER_EPOCH = args.iters_per_epoch
-CALIB_EPOCHS = args.calib_epochs
-NUM_EPOCHS = NUM_ITERS // ITERS_PER_EPOCH  # 15
+ITERS_PER_WINDOW = args.iters_per_window
+CALIB_WINDOWS = args.calib_windows
+NUM_WINDOWS = NUM_ITERS // ITERS_PER_WINDOW  # 15
 
 # ============================================================
 # Workload configuration (parameterized via args)
@@ -91,7 +91,7 @@ PAYLOAD_MB = args.payload_mb
 # Payload is the SAME for both jobs (money experiment)
 JOB_PAYLOAD_MB = {'A': PAYLOAD_MB, 'B': PAYLOAD_MB}
 
-# c_i SWAPS at REVERSE_EPOCH — values from command line
+# c_i SWAPS at REVERSE_WINDOW — values from command line
 JOB_C_I_PHASE1 = {'A': args.ci_phase1, 'B': args.ci_phase2}
 JOB_C_I_PHASE2 = {'A': args.ci_phase2, 'B': args.ci_phase1}
 
@@ -121,13 +121,13 @@ def bus_bw_gbps(bytes_per_iter, comm_dur, world_size):
     return (bytes_per_iter * 8.0 / 1e9) * (world_size - 1) / world_size / comm_dur
 
 
-def get_c_i(epoch):
-    """c_i value based on current epoch (swap at REVERSE_EPOCH)."""
-    return C_I_PHASE1 if epoch < REVERSE_EPOCH else C_I_PHASE2
+def get_c_i(window):
+    """c_i value based on current window (swap at REVERSE_WINDOW)."""
+    return C_I_PHASE1 if window < REVERSE_WINDOW else C_I_PHASE2
 
 
-def get_phase_label(epoch):
-    return 'phase1' if epoch < REVERSE_EPOCH else 'phase2'
+def get_phase_label(window):
+    return 'phase1' if window < REVERSE_WINDOW else 'phase2'
 
 
 def allocate_tensor(payload_mb, device):
@@ -204,14 +204,14 @@ _mc_wrapper = None
 _scheduler = None
 
 
-def epoch_start(epoch):
+def window_start(window):
     if _mc_wrapper is not None:
-        _mc_wrapper.epoch_start(epoch)
+        _mc_wrapper.window_start(window)
 
 
-def epoch_end(epoch, data_size):
+def window_end(window, data_size):
     if _mc_wrapper is not None:
-        _mc_wrapper.epoch_end(epoch, data_size=data_size)
+        _mc_wrapper.window_end(window, data_size=data_size)
 
 
 def allreduce(tensor):
@@ -226,7 +226,7 @@ def allreduce(tensor):
 # Phase 0: Calibration (solo, learn T_target)
 # ============================================================
 def run_calibration(rank, world_size, device):
-    """Run CALIB_EPOCHS solo epochs with fixed payload, EMA-learn T_target."""
+    """Run CALIB_WINDOWS solo windows with fixed payload, EMA-learn T_target."""
     global _scheduler, _mc_wrapper
 
     bytes_per_iter = PAYLOAD_MB * 1024 * 1024
@@ -240,7 +240,7 @@ def run_calibration(rank, world_size, device):
 
     if rank == 0:
         print(f"[Job{JOB}-{MODE.upper()}-CALIB] solo calibration: "
-              f"{CALIB_EPOCHS} epochs, payload={PAYLOAD_MB}MB, c_i={C_I_PHASE1}")
+              f"{CALIB_WINDOWS} windows, payload={PAYLOAD_MB}MB, c_i={C_I_PHASE1}")
 
     tensor = allocate_tensor(PAYLOAD_MB, device)
 
@@ -250,9 +250,9 @@ def run_calibration(rank, world_size, device):
         allreduce(warmup)
     torch.cuda.synchronize()
 
-    for epoch in range(CALIB_EPOCHS):
-        epoch_start(epoch)
-        for i in range(ITERS_PER_EPOCH):
+    for window in range(CALIB_WINDOWS):
+        window_start(window)
+        for i in range(ITERS_PER_WINDOW):
             if SLEEP_US > 0:
                 torch.cuda._sleep(SLEEP_US)
             torch.cuda.synchronize()
@@ -261,9 +261,9 @@ def run_calibration(rank, world_size, device):
             torch.cuda.synchronize()
             t1 = time.perf_counter()
             if rank == 0:
-                print(f"[Job{JOB}-CALIB] epoch {epoch} iter {i}: "
+                print(f"[Job{JOB}-CALIB] window {window} iter {i}: "
                       f"comm={(t1-t0)*1000:.1f}ms")
-        epoch_end(epoch, data_size=bytes_per_iter)
+        window_end(window, data_size=bytes_per_iter)
 
     # Rank 0 writes T_target to JSON file
     if rank == 0 and args.ttarget_file:
@@ -274,10 +274,10 @@ def run_calibration(rank, world_size, device):
             'payload_mb': PAYLOAD_MB,
             'c_i_calib': C_I_PHASE1,
             'sleep_us': SLEEP_US,
-            'calib_epochs': CALIB_EPOCHS,
-            'iters_per_epoch': ITERS_PER_EPOCH,
+            'calib_windows': CALIB_WINDOWS,
+            'iters_per_window': ITERS_PER_WINDOW,
             'target_comm_time_ms': round(ttarget_ms, 3),
-            'unit': 'per_epoch_ms',
+            'unit': 'per_window_ms',
             'timestamp': time.strftime('%Y-%m-%dT%H:%M:%S'),
         }
         os.makedirs(os.path.dirname(args.ttarget_file) or '.', exist_ok=True)
@@ -292,7 +292,7 @@ def run_calibration(rank, world_size, device):
 # Phase 1+2: Main experiment (contested, with c_i swap)
 # ============================================================
 def run_main(rank, world_size, device):
-    """Run NUM_EPOCHS contested epochs with c_i swap at REVERSE_EPOCH."""
+    """Run NUM_WINDOWS contested windows with c_i swap at REVERSE_WINDOW."""
     global _scheduler, _mc_wrapper
 
     # Read T_target from calibration file
@@ -302,9 +302,9 @@ def run_main(rank, world_size, device):
             tdata = json.load(f)
         # Unit assertion: prevent bare-number T_target misuse
         unit = tdata.get('unit', None)
-        if unit is not None and unit != 'per_epoch_ms':
+        if unit is not None and unit != 'per_window_ms':
             raise ValueError(
-                f"T_target unit '{unit}' != expected 'per_epoch_ms' "
+                f"T_target unit '{unit}' != expected 'per_window_ms' "
                 f"in {args.ttarget_file}")
         ttarget_ms = tdata['target_comm_time_ms']
         if rank == 0:
@@ -327,11 +327,11 @@ def run_main(rank, world_size, device):
         print(f"[Job{JOB}-{MODE.upper()}-MAIN] scheduler="
               f"{'v1(pi)' if MODE == 'longliu' else 'CRUX-static'}, "
               f"queue=SP, payload={PAYLOAD_MB}MB (fixed), "
-              f"reverse_epoch={REVERSE_EPOCH} (c_i swap), "
+              f"reverse_window={REVERSE_WINDOW} (c_i swap), "
               f"num_iters={NUM_ITERS}")
-        print(f"[Job{JOB}-{MODE.upper()}-MAIN] Phase 1 (epoch 0-{REVERSE_EPOCH-1}): "
+        print(f"[Job{JOB}-{MODE.upper()}-MAIN] Phase 1 (window 0-{REVERSE_WINDOW-1}): "
               f"c_i={C_I_PHASE1}")
-        print(f"[Job{JOB}-{MODE.upper()}-MAIN] Phase 2 (epoch {REVERSE_EPOCH}-{NUM_EPOCHS-1}): "
+        print(f"[Job{JOB}-{MODE.upper()}-MAIN] Phase 2 (window {REVERSE_WINDOW}-{NUM_WINDOWS-1}): "
               f"c_i={C_I_PHASE2}")
         if MODE == 'crux':
             print(f"[Job{JOB}-CRUX] Static priority: P{CRUX_STATIC_PRIORITY} "
@@ -353,26 +353,26 @@ def run_main(rank, world_size, device):
         print(f"[Job{JOB}-{MODE.upper()}-MAIN] Warmup done.")
 
     results = []        # per-iter records
-    epoch_stats = []    # per-epoch aggregated records
+    window_stats = []    # per-window aggregated records
     t_total_start = time.perf_counter()
 
-    for epoch in range(NUM_EPOCHS):
-        c_i = get_c_i(epoch)
-        phase_label = get_phase_label(epoch)
+    for window in range(NUM_WINDOWS):
+        c_i = get_c_i(window)
+        phase_label = get_phase_label(window)
 
-        # At REVERSE_EPOCH, swap c_i in scheduler
-        if epoch == REVERSE_EPOCH:
+        # At REVERSE_WINDOW, swap c_i in scheduler
+        if window == REVERSE_WINDOW:
             _scheduler.set_slo_threshold(c_i)
             if rank == 0:
-                print(f"[Job{JOB}-{MODE.upper()}-MAIN] *** c_i SWAP at epoch {epoch}: "
+                print(f"[Job{JOB}-{MODE.upper()}-MAIN] *** c_i SWAP at window {window}: "
                       f"now c_i={c_i} ***")
 
-        epoch_start(epoch)
-        epoch_comm_times = []
-        epoch_bws = []
+        window_start(window)
+        window_comm_times = []
+        window_bws = []
 
-        for i in range(ITERS_PER_EPOCH):
-            global_iter = epoch * ITERS_PER_EPOCH + i
+        for i in range(ITERS_PER_WINDOW):
+            global_iter = window * ITERS_PER_WINDOW + i
 
             # Fixed compute (same for both jobs, both phases)
             if SLEEP_US > 0:
@@ -387,17 +387,17 @@ def run_main(rank, world_size, device):
 
             comm_dur = t1 - t0
             bw_gbps = bus_bw_gbps(bytes_per_iter, comm_dur, world_size) if comm_dur > 0 else 0.0
-            epoch_comm_times.append(comm_dur)
-            epoch_bws.append(bw_gbps)
+            window_comm_times.append(comm_dur)
+            window_bws.append(bw_gbps)
 
             if rank == 0:
-                print(f"[Job{JOB}-{MODE.upper()}-MAIN] iter {global_iter:3d} (epoch {epoch}): "
+                print(f"[Job{JOB}-{MODE.upper()}-MAIN] iter {global_iter:3d} (window {window}): "
                       f"payload={PAYLOAD_MB}MB, c_i={c_i}, sleep={SLEEP_US}us, "
                       f"comm={comm_dur*1000:.1f}ms, bw={bw_gbps:.2f} Gbps [{phase_label}]")
 
             results.append({
                 'iter': global_iter,
-                'epoch': epoch,
+                'window': window,
                 'payload_mb': PAYLOAD_MB,
                 'c_i': c_i,
                 'sleep_us': SLEEP_US,
@@ -406,24 +406,24 @@ def run_main(rank, world_size, device):
                 'phase': phase_label,
             })
 
-        # End of epoch — scheduler updates priority
-        epoch_end(epoch, data_size=bytes_per_iter)
+        # End of window — scheduler updates priority
+        window_end(window, data_size=bytes_per_iter)
 
-        # Per-epoch aggregated stats (with π, priority, slowdown)
+        # Per-window aggregated stats (with π, priority, slowdown)
         if rank == 0:
-            avg_comm = sum(epoch_comm_times) / len(epoch_comm_times)
-            avg_bw = sum(epoch_bws) / len(epoch_bws)
+            avg_comm = sum(window_comm_times) / len(window_comm_times)
+            avg_bw = sum(window_bws) / len(window_bws)
             # Slowdown = actual_comm / (c_i × T_target_per_iter)
-            # T_target_per_iter = T_target_epoch / ITERS_PER_EPOCH
+            # T_target_per_iter = T_target_window / ITERS_PER_WINDOW
             if _scheduler.target_comm_time_s is not None and _scheduler.target_comm_time_s > 0:
-                ttarget_per_iter = _scheduler.target_comm_time_s / ITERS_PER_EPOCH
+                ttarget_per_iter = _scheduler.target_comm_time_s / ITERS_PER_WINDOW
                 slowdown = avg_comm / (c_i * ttarget_per_iter)
             else:
                 slowdown = float('nan')
             pi_val = (_scheduler.last_pi if _scheduler.last_pi == _scheduler.last_pi
                       else 'nan')
-            epoch_stats.append({
-                'epoch': epoch,
+            window_stats.append({
+                'window': window,
                 'phase': phase_label,
                 'payload_mb': PAYLOAD_MB,
                 'c_i': c_i,
@@ -446,38 +446,38 @@ def run_main(rank, world_size, device):
     csv_iter_path = f'p4_job{JOB}_reverse_{MODE}_rank{rank}_iter.csv'
     with open(csv_iter_path, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['iter', 'epoch', 'payload_mb', 'c_i', 'sleep_us',
+        writer.writerow(['iter', 'window', 'payload_mb', 'c_i', 'sleep_us',
                          'comm_dur_s', 'bw_gbps', 'phase'])
         for r in results:
-            writer.writerow([r['iter'], r['epoch'], r['payload_mb'], r['c_i'],
+            writer.writerow([r['iter'], r['window'], r['payload_mb'], r['c_i'],
                              r['sleep_us'], r['comm_dur_s'], r['bw_gbps'], r['phase']])
     print(f"[Job{JOB}-{MODE.upper()}-MAIN] Per-iter results saved to {csv_iter_path}")
 
     if rank == 0:
-        csv_epoch_path = f'p4_job{JOB}_reverse_{MODE}_rank0_epoch.csv'
-        with open(csv_epoch_path, 'w', newline='') as f:
+        csv_window_path = f'p4_job{JOB}_reverse_{MODE}_rank0_window.csv'
+        with open(csv_window_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['epoch', 'phase', 'payload_mb', 'c_i', 'sleep_us',
+            writer.writerow(['window', 'phase', 'payload_mb', 'c_i', 'sleep_us',
                              'avg_comm_s', 'avg_bw_gbps', 'pi', 'priority',
                              'dscp', 'slowdown', 't_target_ms'])
-            for r in epoch_stats:
-                writer.writerow([r['epoch'], r['phase'], r['payload_mb'], r['c_i'],
+            for r in window_stats:
+                writer.writerow([r['window'], r['phase'], r['payload_mb'], r['c_i'],
                                  r['sleep_us'], r['avg_comm_s'], r['avg_bw_gbps'],
                                  r['pi'], r['priority'], r['dscp'], r['slowdown'],
                                  r['t_target_ms']])
-        print(f"[Job{JOB}-{MODE.upper()}-MAIN] Per-epoch stats saved to {csv_epoch_path}")
+        print(f"[Job{JOB}-{MODE.upper()}-MAIN] Per-window stats saved to {csv_window_path}")
 
         # Summary
-        p1 = [r for r in epoch_stats if r['phase'] == 'phase1']
-        p2 = [r for r in epoch_stats if r['phase'] == 'phase2']
+        p1 = [r for r in window_stats if r['phase'] == 'phase1']
+        p2 = [r for r in window_stats if r['phase'] == 'phase2']
         if p1:
-            print(f"[Job{JOB}-{MODE.upper()}-MAIN] Phase 1 (epochs 0-{REVERSE_EPOCH-1}): "
+            print(f"[Job{JOB}-{MODE.upper()}-MAIN] Phase 1 (windows 0-{REVERSE_WINDOW-1}): "
                   f"c_i={C_I_PHASE1}, "
                   f"avg_comm={sum(r['avg_comm_s'] for r in p1)/len(p1)*1000:.1f}ms, "
                   f"avg_bw={sum(r['avg_bw_gbps'] for r in p1)/len(p1):.2f} Gbps, "
                   f"avg_prio={sum(r['priority'] for r in p1)/len(p1):.1f}")
         if p2:
-            print(f"[Job{JOB}-{MODE.upper()}-MAIN] Phase 2 (epochs {REVERSE_EPOCH}-{NUM_EPOCHS-1}): "
+            print(f"[Job{JOB}-{MODE.upper()}-MAIN] Phase 2 (windows {REVERSE_WINDOW}-{NUM_WINDOWS-1}): "
                   f"c_i={C_I_PHASE2}, "
                   f"avg_comm={sum(r['avg_comm_s'] for r in p2)/len(p2)*1000:.1f}ms, "
                   f"avg_bw={sum(r['avg_bw_gbps'] for r in p2)/len(p2):.2f} Gbps, "

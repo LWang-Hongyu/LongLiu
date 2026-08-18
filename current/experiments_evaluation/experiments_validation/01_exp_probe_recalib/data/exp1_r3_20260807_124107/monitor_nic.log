@@ -1,0 +1,62 @@
+bash: cannot set terminal process group (1752337): Inappropriate ioctl for device
+bash: no job control in this shell
+[monitor_nic] run=exp1_r3_20260807_124107 duration=120s interval=1s
+[monitor_nic] 10.1 -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/01_exp_probe_recalib/data/exp1_r3_20260807_124107/nic_10.csv
+[monitor_nic] 226  -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/01_exp_probe_recalib/data/exp1_r3_20260807_124107/nic_226.csv
+bash: cannot set terminal process group (1752409): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1752535): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1752667): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1752826): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1752978): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1753110): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1753268): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1753407): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1753542): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1753673): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1753838): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1753964): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1754096): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1754237): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1754369): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1754495): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1754622): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1754784): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1754910): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1755044): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1755236): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1755368): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1755509): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1755759): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1756278): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1756430): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1756564): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: cannot set terminal process group (1756701): Inappropriate ioctl for device
+bash: no job control in this shell
+[monitor_nic] done: 28 samples per node -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/01_exp_probe_recalib/data/exp1_r3_20260807_124107

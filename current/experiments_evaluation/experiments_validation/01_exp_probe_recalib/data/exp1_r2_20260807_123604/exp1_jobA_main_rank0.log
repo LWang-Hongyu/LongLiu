@@ -1,0 +1,41 @@
+[Exp1-JA-MAIN] 冻结锚点: T_target=3802.66ms solo_bw=22.63Gbps (preset_target=True, max_priority=3)
+[MultiComm] Loading library from /home/why/LongLiu_rebuild/current/multi_comm_slo/build/libmulti_comm.so
+[MultiComm] Rank 0: initializing 7 priorities across 1 devices
+[MultiComm] Rank 0: waiting for TCP connections on port 29602...
+[MultiComm] Rank 0: sent 7 IDs to rank 1
+[MultiComm] Rank 0: created communicator for priority P0 (DSCP=40)
+[MultiComm] Rank 0: created communicator for priority P1 (DSCP=32)
+[MultiComm] Rank 0: created communicator for priority P2 (DSCP=24)
+[MultiComm] Rank 0: created communicator for priority P3 (DSCP=16)
+[MultiComm] Rank 0: created communicator for priority P4 (DSCP=0)
+[MultiComm] Rank 0: created communicator for priority P5 (DSCP=0)
+[MultiComm] Rank 0: created communicator for priority P6 (DSCP=8)
+[MultiComm] Rank 0: initialization complete, starting at P6 (DSCP=8)
+[MultiComm] Initialized: rank=0, world_size=2, master=192.10.10.110:29602, priority=P3
+[Exp1-JA-MAIN] payload=1024MB sleep=30000us epochs=15 probe_every=3
+[MultiComm] Rank 0: switching priority P6 -> P3 (DSCP 8 -> 16)
+[SLO] T_target PRESET (calibrated): 3802.7ms (c_i=1.5, SLO target=5704.0ms) — EMA updates SKIPPED
+[SLO] Epoch 2: π=-0.195 (A=9.18s, expected=11.41s, T_target=3802.7ms, k=2), Priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 0: switching priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 0: switching priority P2 -> P6 (DSCP 24 -> 8)
+[MultiComm] Rank 0: switching priority P6 -> P3 (DSCP 8 -> 16)
+[Exp1-JA-PROBE #1] epoch 2: P6 探测 comm=287.3ms bw=14.95Gbps (solo=22.63G, clean=N)
+[MultiComm] Rank 0: switching priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 0: switching priority P2 -> P6 (DSCP 24 -> 8)
+[MultiComm] Rank 0: switching priority P6 -> P3 (DSCP 8 -> 16)
+[Exp1-JA-PROBE #2] epoch 5: P6 探测 comm=166.4ms bw=25.81Gbps (solo=22.63G, clean=Y)
+[MultiComm] Rank 0: switching priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 0: switching priority P2 -> P6 (DSCP 24 -> 8)
+[MultiComm] Rank 0: switching priority P6 -> P3 (DSCP 8 -> 16)
+[Exp1-JA-PROBE #3] epoch 8: P6 探测 comm=255.0ms bw=16.84Gbps (solo=22.63G, clean=N)
+[MultiComm] Rank 0: switching priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 0: switching priority P2 -> P6 (DSCP 24 -> 8)
+[MultiComm] Rank 0: switching priority P6 -> P3 (DSCP 8 -> 16)
+[Exp1-JA-PROBE #4] epoch 11: P6 探测 comm=162.6ms bw=26.42Gbps (solo=22.63G, clean=Y)
+[MultiComm] Rank 0: switching priority P3 -> P2 (DSCP 16 -> 24)
+[MultiComm] Rank 0: switching priority P2 -> P6 (DSCP 24 -> 8)
+[MultiComm] Rank 0: switching priority P6 -> P3 (DSCP 8 -> 16)
+[Exp1-JA-PROBE #5] epoch 14: P6 探测 comm=192.0ms bw=22.37Gbps (solo=22.63G, clean=Y)
+[Exp1-JA-MAIN] 探测样本 5 个，无拥塞样本 3 个 (60.0%)
+[Exp1-JA-MAIN] 落盘 -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/01_exp_probe_recalib/data/exp1_r2_20260807_123604
+[MultiComm] Rank 0: destroyed

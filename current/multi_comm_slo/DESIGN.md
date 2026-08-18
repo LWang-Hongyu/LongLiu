@@ -18,9 +18,9 @@
 │                 │ priority ∈ {0..6}                   │
 │  ┌──────────────▼──────────────────────────────────┐ │
 │  │  MultiCommWrapper (ctypes)                      │ │
-│  │   - epoch_start(epoch)   → set_priority         │ │
+│  │   - window_start(w)      → set_priority         │ │
 │  │   - allreduce(...)       → 当前 priority 的 comm│ │
-│  │   - epoch_end(epoch)     → update + set_priority│ │
+│  │   - window_end(w,size)   → update + set_priority│ │
 │  └──────────────┬──────────────────────────────────┘ │
 └─────────────────┼────────────────────────────────────┘
                   │ ctypes FFI
@@ -104,14 +104,28 @@ ncclCommInitRankConfig(&comm, world_size, ids[p], rank, &config);
 
 **路径**: `src/slo_scheduler.py`，类 `SLOScheduler`
 
-#### 算法: EMA 带宽自估计
+调度粒度：**WINDOW**（论文 Section IV-F：W=20 个迭代组成一个窗口，调度器在每个 window boundary 重新计算分配并切换 DSCP）。
+
+#### 算法: Progress Deficit + 窗口通信紧急信号（双信号）
 
 ```
-ei  = EMA(历史实测带宽)      ← 自适应 solo 基线
-ai  = epoch_data_size /    ← 实测带宽（含拥塞影响）
-      epoch_wall_time
-Ui  = ai / ei               ← 利用率比
+π_i(t) = A_i(t) / (c_i × T_target × k_i(t)) - 1
+
+其中:
+  A_i(t)        = 累计实际墙钟时间
+  T_target      = solo 窗口墙钟时间基线（EMA 滑动，仅 warmup 窗口更新）
+  k_i(t)        = 已完成窗口数
+  c_i           = SLO 松弛系数（租户提供）
 ```
+
+**窗口通信紧急信号**（新增，解决计算主导负载下 π 不敏感的问题）：
+
+```
+comm_ratio = 当前窗口纯通信时间 / 基线窗口纯通信时间
+urgency    = max(π, comm_ratio × 1.5)     # comm_ratio > 1.3 时触发
+```
+
+纯通信时间由 `MultiCommWrapper.allreduce()` 内部计时累计（NCCL 调用阻塞返回即完成）。**comm 基线校准**：跳过第一个窗口（含 NCCL 首次 allreduce 初始化开销，iter0 可达数秒），从窗口 2 起在 solo warmup 期间取 min 聚合（对 iter0 型突发与 warmup 期竞争污染鲁棒），warmup 后冻结。**阈值 1.3 依据**：10.1 测试床实测两作业共享 100G 链路时自然竞争膨胀为 1.3~1.4×（solo ~21 Gbps 算法带宽 / 竞争 ~16 Gbps，链路远未饱和，1.5× 物理不可达），1.3× 高于 solo 稳态噪声（±15%）。计算主导负载（如真实模型训练）中通信膨胀即使只有 1.36×，纯 π 也几乎不变（wall 时间仅涨几个百分点），comm_ratio 信号保证通信恶化超过阈值时强制进入 P6。
 
 #### EMA 更新公式
 
@@ -125,30 +139,27 @@ else:
     )
 ```
 
-- `alpha = 0.3`：对拥塞响应较快（~3-4 epoch 稳定）
+- `alpha = 0.3`：对拥塞响应较快（~3-4 window 稳定）
+- T_target / comm 基线仅在 solo warmup（前 `SOLO_WARMUP_WINDOWS=5` 个窗口）EMA 更新，之后冻结——避免拥塞自我放大
 
-#### Priority 阈值表
+#### Priority 阈值表（π / urgency → Priority）
 
-| Ui 区间 | Priority | DSCP | 含义 |
+| 区间 | Priority | DSCP | 含义 |
 |---------|----------|------|------|
-| Ui < 0.6 | P0 | 0 | 最紧急（严重拥塞） |
-| 0.6 ≤ Ui < 0.8 | P1 | 8 | 紧急 |
-| 0.8 ≤ Ui < 1.0 | P2 | 16 | 轻度拥塞 |
-| 1.0 ≤ Ui < 1.2 | P3 | 24 | 正常 |
-| 1.2 ≤ Ui < 1.4 | P4 | 32 | 轻微空闲 |
-| 1.4 ≤ Ui < 1.6 | P5 | 40 | 空闲 |
-| Ui ≥ 1.6 | P6 | 48 | 最空闲（让出带宽） |
+| urgency > 0.3 | P6 | 8 | 显著落后（紧急） |
+| -0.1 < urgency ≤ 0.3 | P4 | 0 | SLO 边界 |
+| -0.5 < urgency ≤ -0.1 | P2 | 24 | 轻度领先 |
+| urgency ≤ -0.5 | P1 | 32 | 大幅领先 |
 
-注意：**P0 (DSCP=0) 在交换机上优先级最高，P6 (DSCP=48) 最低**（取决于 P4 交换机队列映射配置）。
+注意：**DSCP→TC 映射以 10.1 测试床实测为准**（`mlnx_qos --trust dscp` 探针实验）：DSCP=8→tc:0（最高）、DSCP=0→tc:1、DSCP=16→tc:2、DSCP=24→tc:3、DSCP=32→tc:4、DSCP=40→tc:5。P6 使用 DSCP=8 直达 tc:0 最高队列。
 
 #### 典型行为
 
-| 场景 | ai | ei | Ui | 结果 |
-|------|----|----|-----|------|
-| Solo 独占 100Gbps | ~12 GB/s | 12 GB/s | ~1.0 | P3（不变） |
-| 竞争出现，带宽被分 | ~5 GB/s | 12 GB/s | ~0.42 | → P0（最高优先级） |
-| 持续竞争 | ~7 GB/s | EMA 缓慢下降 | ~0.67 | → P1（保持高优先级） |
-| 竞争结束 | ~11 GB/s | EMA 仍在低位 | ~1.57 | → P5（降低优先级） |
+| 场景 | π | comm_ratio | urgency | 结果 |
+|------|----|------------|---------|------|
+| Solo 独占 | ~0 | 1.0 | ~0 | P4（保持） |
+| 计算主导 + 通信膨胀 1.36× | -0.39（误判领先） | 1.36 | 2.04 | → P6（紧急） |
+| 通信恢复 | 负值累积 | 1.0 | <0 | → P2/P1（让出带宽） |
 
 ### 3. Python 封装 — `MultiCommWrapper`
 
@@ -159,9 +170,9 @@ else:
 | 方法 | 功能 |
 |------|------|
 | `__init__(scheduler, rank, world_size, device_list, master_addr, port)` | 加载 .so → 初始化 7 个 communicator |
-| `epoch_start(epoch)` | 记录起止时间 + 应用当前 priority |
-| `allreduce(sendbuf, recvbuf, count, datatype, op, device_idx)` | 用当前 priority 的 comm 执行 AllReduce |
-| `epoch_end(epoch, data_size)` | 计算耗时 → scheduler.update() → 设置新 priority |
+| `window_start(window)` | 记录窗口起始时间 + 清零通信计时 + 应用当前 priority |
+| `allreduce(sendbuf, recvbuf, count, datatype, op, device_idx)` | 用当前 priority 的 comm 执行 AllReduce，内部累计窗口纯通信时间 |
+| `window_end(window, data_size)` | 计算窗口墙钟时间 → scheduler.update(wall, size, comm) → 设置新 priority |
 | `destroy()` | 销毁所有 communicator |
 
 ### 4. 实验脚本集成
@@ -206,27 +217,27 @@ p4_job*.py
 | 优先级切换 | ibv_modify_qp（运行时改 QP） | **预创建 7 个 comm**，O(1) 切换 |
 | 跨节点 ID 交换 | 自动由 NCCL bootstrap 处理 | TCP socket 手动交换 |
 | RDMA IP 配置 | 管理 IP 和 RDMA IP 分离 | 管理 IP 仅用于 TCP ID 交换 |
-| 调度粒度 | per epoch | per epoch |
+| 调度粒度 | per window | per window |
 
 ## 调度时序
 
 ```
-Epoch N:
-  epoch_start(N)
+Window N:
+  window_start(N)
     ├─ multi_comm_set_priority(Px)   ← 设置当前 priority
-    ├─ iter 0: allreduce()           ← 使用 Px 的 communicator
-    ├─ iter 1: allreduce()           ← 使用 Px 的 communicator
+    ├─ iter 0: allreduce()           ← 使用 Px 的 communicator，累计纯通信时间
+    ├─ iter 1: allreduce()           ← 使用 Px 的 communicator，累计纯通信时间
     ├─ ...
-    └─ iter 19: allreduce()          ← 使用 Px 的 communicator
-  epoch_end(N, data_size)
-    ├─ 计算 epoch wall time
-    ├─ ai = data_size / wall_time
-    ├─ ei = EMA(ai, ei)
-    ├─ Ui = ai / ei
-    └─ 查表决定新 priority Py → 设置给 Epoch N+1
+    └─ iter 19: allreduce()          ← 使用 Px 的 communicator，累计纯通信时间
+  window_end(N, data_size)
+    ├─ 计算 window wall time
+    ├─ π = A / (c_i × T_target × k) - 1
+    ├─ comm_ratio = 窗口纯通信时间 / 基线通信时间
+    ├─ urgency = max(π, comm_ratio × 1.5)
+    └─ 查表决定新 priority Py → 设置给 Window N+1
 
-Epoch N+1: (使用 Py 调度)
-  epoch_start(N+1)  ← 用新 priority
+Window N+1: (使用 Py 调度)
+  window_start(N+1)  ← 用新 priority
   ...
 ```
 

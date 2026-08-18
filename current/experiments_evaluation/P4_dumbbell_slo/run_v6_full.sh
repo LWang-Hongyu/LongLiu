@@ -54,6 +54,9 @@ WARMUP_MINUTES=5
 PORT_MAIN_A=29520
 PORT_MAIN_B=29521
 
+# 每个模式最多尝试次数（NCCL init 偶发挂死时自动重试）
+MAX_MODE_RETRY=3
+
 # T_target files (reuse V5 calibration — same 1024MB payload)
 TTARGET_A="/tmp/ttarget_v5_jobA.json"
 TTARGET_B="/tmp/ttarget_v5_jobB.json"
@@ -67,7 +70,7 @@ BG_PORT_END=6211
 NUM_BG_FLOWS=12
 DSCP_P3_TOS=64  # P3 → DSCP=16 → TOS=64
 
-EXP_DIR="/home/why/LongLiu_rebuild/experiments/P4_dumbbell_slo"
+EXP_DIR="/home/why/LongLiu_rebuild/current/experiments_evaluation/P4_dumbbell_slo"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 ROUND_LABEL="round${ROUND}_${ORDER}"
 
@@ -88,6 +91,20 @@ echo "================================================================"
 if [[ ! -f "$TTARGET_A" || ! -f "$TTARGET_B" ]]; then
     echo "ERROR: T_target files not found. Run V5 calibration first."
     echo "  bash run_p4_reverse.sh v5 both (with calibration)"
+    exit 1
+fi
+
+# Sync T_target files to 226 — CRITICAL (2026-08-10 v7 死锁根因):
+# 226 缺失该文件时，rank1 调度器回退到本地 EMA warmup 学习 T_target，
+# 与 rank0 的 preset T_target 分叉 → π 不同 → 优先级切换不同步
+# （rank0 切到 P4 而 rank1 仍留在 P2）→ 两侧使用不同 communicator
+# 的 AllReduce 永久死锁（v7 实测）。
+echo "--- Syncing T_target files to 226 ---"
+scp -q "$TTARGET_A" "$NODE_226:/tmp/" && scp -q "$TTARGET_B" "$NODE_226:/tmp/"
+if ssh "$NODE_226" "test -f $TTARGET_A && test -f $TTARGET_B"; then
+    echo "  T_target files confirmed on 226"
+else
+    echo "ERROR: T_target files missing on 226 after sync"
     exit 1
 fi
 
@@ -162,6 +179,37 @@ cleanup_jobs() {
     sleep 2
 }
 
+# 等待 4 个 job 全部结束（带超时与对端死亡检测，防止 101 侧挂死导致无限 wait）
+# 返回 0 = 全部正常结束；1 = 超时/226 侧已死而 101 侧挂起（内部已清理残留）
+wait_mode_jobs() {
+    # 2026-08-17: 30Gbps 背景流下 1024MB allreduce 实测 ~2.7s/iter，
+    # 300 iters + init ≈ 870s。原 420s 会在 Job 仍在正常推进时误杀，
+    # 放宽到 1080s（18 分钟）覆盖单模式全时长。
+    local MAX_WAIT=1080
+    local t=0
+    while [[ $t -lt $MAX_WAIT ]]; do
+        local alive_101=0 alive_226=0
+        kill -0 $JOB_A_101_PID 2>/dev/null && alive_101=1
+        kill -0 $JOB_B_101_PID 2>/dev/null && alive_101=1
+        kill -0 $JOB_A_226_PID 2>/dev/null && alive_226=1
+        kill -0 $JOB_B_226_PID 2>/dev/null && alive_226=1
+        if [[ $alive_101 -eq 0 && $alive_226 -eq 0 ]]; then
+            echo "  4 个 job 均已结束"
+            return 0
+        fi
+        if [[ $alive_101 -eq 1 && $alive_226 -eq 0 ]]; then
+            echo "  226 侧已退出而 101 侧仍挂起（对端死亡），判定失败，清理残留"
+            cleanup_jobs
+            return 1
+        fi
+        sleep 15
+        t=$((t + 15))
+    done
+    echo "  等待超时（${MAX_WAIT}s），判定失败，清理残留"
+    cleanup_jobs
+    return 1
+}
+
 # ============================================================
 # Helper: run a single mode (longliu or crux)
 # ============================================================
@@ -170,7 +218,9 @@ run_mode() {
     local MODE_LABEL=$2  # human-readable label for file naming
     local PHASE_LABEL="${ROUND_LABEL}_${MODE}"
 
+    local MODE_START_EPOCH=$(date +%s)
     echo ""
+    echo "[$(date +%F_%T)] === MODE START: ${MODE_LABEL} (${MODE}) ==="
     echo "--- Running $MODE_LABEL (${MODE}) ---"
 
     cleanup_jobs
@@ -188,6 +238,11 @@ run_mode() {
     fi
 
     # Job A rank 0 on 10.1
+    # 101 侧 Job rank 0 启动：必须显式用系统 NCCL（2026-08-17 实测
+    # PyTorch bundled NCCL 2.18.6 比系统 2.30.7 慢 3 倍——与 226 侧不对称，
+    # 是 V6 带宽仅 3.1 Gbps 的根因）
+    LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH:-} \
+    PYTHONPATH=/home/why/LongLiu_rebuild/current/multi_comm_slo/src \
     CUDA_VISIBLE_DEVICES=0 MASTER_ADDR=$RDMA_10 MASTER_PORT=$PORT_MAIN_A \
         WORLD_SIZE=2 RANK=0 \
         MULTI_COMM_PORT=$PORT_MAIN_A \
@@ -208,8 +263,8 @@ run_mode() {
         MULTI_COMM_PORT=$PORT_MAIN_A \
         NCCL_IB_HCA=mlx5_0 NCCL_IB_GID_INDEX=3 NCCL_DEBUG=INFO \
         NCCL_ALGO=RING NCCL_PROTO=SIMPLE NCCL_SOCKET_IFNAME=enp59s0f0np0 \
-        LD_LIBRARY_PATH=/home/why/LongLiu_rebuild/nccl-master/build/lib:\$LD_LIBRARY_PATH \
-        PYTHONPATH=/home/why/LongLiu_rebuild/multi_comm_slo/src:\$PYTHONPATH \
+        LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:\$LD_LIBRARY_PATH \
+        PYTHONPATH=/home/why/LongLiu_rebuild/current/multi_comm_slo/src:\$PYTHONPATH \
         NCCL_DEBUG_FILE=/tmp/nccl_jA_${MODE}_v6_${ROUND_LABEL}_226_%h_%p.log \
         python3 -u p4_job_reverse.py --job A --mode $MODE --phase main \
             --ttarget-file $TTARGET_A \
@@ -222,6 +277,11 @@ run_mode() {
     sleep 10
 
     # Job B rank 0 on 10.1
+    # 101 侧 Job rank 0 启动：必须显式用系统 NCCL（2026-08-17 实测
+    # PyTorch bundled NCCL 2.18.6 比系统 2.30.7 慢 3 倍——与 226 侧不对称，
+    # 是 V6 带宽仅 3.1 Gbps 的根因）
+    LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH:-} \
+    PYTHONPATH=/home/why/LongLiu_rebuild/current/multi_comm_slo/src \
     CUDA_VISIBLE_DEVICES=0 MASTER_ADDR=$RDMA_10 MASTER_PORT=$PORT_MAIN_B \
         WORLD_SIZE=2 RANK=0 \
         MULTI_COMM_PORT=$PORT_MAIN_B \
@@ -235,15 +295,15 @@ run_mode() {
             > p4_jobB_v6_${PHASE_LABEL}_node101.log 2>&1 &
     JOB_B_101_PID=$!
 
-    # Job B rank 1 on 226
+    # Job B rank 1 on 226 (GPU 1 — 与 Job A 分离，避免同 GPU 双 NCCL 进程并发干扰)
     ssh $NODE_226 "cd $EXP_DIR && \
-        CUDA_VISIBLE_DEVICES=0 MASTER_ADDR=$RDMA_10 MASTER_PORT=$PORT_MAIN_B \
+        CUDA_VISIBLE_DEVICES=1 MASTER_ADDR=$RDMA_10 MASTER_PORT=$PORT_MAIN_B \
         WORLD_SIZE=2 RANK=1 \
         MULTI_COMM_PORT=$PORT_MAIN_B \
         NCCL_IB_HCA=mlx5_0 NCCL_IB_GID_INDEX=3 NCCL_DEBUG=INFO \
         NCCL_ALGO=RING NCCL_PROTO=SIMPLE NCCL_SOCKET_IFNAME=enp59s0f0np0 \
-        LD_LIBRARY_PATH=/home/why/LongLiu_rebuild/nccl-master/build/lib:\$LD_LIBRARY_PATH \
-        PYTHONPATH=/home/why/LongLiu_rebuild/multi_comm_slo/src:\$PYTHONPATH \
+        LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:\$LD_LIBRARY_PATH \
+        PYTHONPATH=/home/why/LongLiu_rebuild/current/multi_comm_slo/src:\$PYTHONPATH \
         NCCL_DEBUG_FILE=/tmp/nccl_jB_${MODE}_v6_${ROUND_LABEL}_226_%h_%p.log \
         python3 -u p4_job_reverse.py --job B --mode $MODE --phase main \
             --ttarget-file $TTARGET_B \
@@ -255,11 +315,103 @@ run_mode() {
     echo "Job B ($MODE) launched."
     echo "  (background flow active: ${BG_RATE_GBPS} Gbps DSCP=P3)"
 
-    # Wait for all jobs in this mode
-    wait $JOB_A_101_PID; echo "  Job A 10.1 done (exit=$?)"
-    wait $JOB_A_226_PID; echo "  Job A 226 done (exit=$?)"
-    wait $JOB_B_101_PID; echo "  Job B 10.1 done (exit=$?)"
-    wait $JOB_B_226_PID; echo "  Job B 226 done (exit=$?)"
+    # Wait for all jobs in this mode (with per-mode retry for NCCL init flakiness)
+    local EA10=1 EA26=1 EB10=1 EB26=1
+    local MODE_OK=0
+    for ATT in $(seq 1 $MAX_MODE_RETRY); do
+        if [[ $ATT -gt 1 ]]; then
+            echo "  [$MODE attempt $ATT] NCCL init 失败，清理后重试..."
+            cleanup_jobs
+            sleep 5
+            # re-launch all 4 procs
+            LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH:-} \
+            CUDA_VISIBLE_DEVICES=0 MASTER_ADDR=$RDMA_10 MASTER_PORT=$PORT_MAIN_A \
+                WORLD_SIZE=2 RANK=0 \
+                MULTI_COMM_PORT=$PORT_MAIN_A \
+                NCCL_SOCKET_IFNAME=enp130s0f0np0 \
+                NCCL_ALGO=RING NCCL_PROTO=SIMPLE \
+                NCCL_DEBUG_FILE=/tmp/nccl_jA_${MODE}_v6_${ROUND_LABEL}_101_%h_%p.log \
+                python3 -u p4_job_reverse.py --job A --mode $MODE --phase main \
+                    --ttarget-file $TTARGET_A \
+                    --payload-mb $PAYLOAD_MB --ci-phase1 $CI_TIGHT --ci-phase2 $CI_LOOSE \
+                    $CRUX_FLAGS $LL_FLAGS \
+                    > p4_jobA_v6_${PHASE_LABEL}_node101.log 2>&1 &
+            JOB_A_101_PID=$!
+            ssh $NODE_226 "cd $EXP_DIR && \
+                CUDA_VISIBLE_DEVICES=0 MASTER_ADDR=$RDMA_10 MASTER_PORT=$PORT_MAIN_A \
+                WORLD_SIZE=2 RANK=1 \
+                MULTI_COMM_PORT=$PORT_MAIN_A \
+                NCCL_IB_HCA=mlx5_0 NCCL_IB_GID_INDEX=3 NCCL_DEBUG=INFO \
+                NCCL_ALGO=RING NCCL_PROTO=SIMPLE NCCL_SOCKET_IFNAME=enp59s0f0np0 \
+                LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:\$LD_LIBRARY_PATH \
+                PYTHONPATH=/home/why/LongLiu_rebuild/current/multi_comm_slo/src:\$PYTHONPATH \
+                NCCL_DEBUG_FILE=/tmp/nccl_jA_${MODE}_v6_${ROUND_LABEL}_226_%h_%p.log \
+                python3 -u p4_job_reverse.py --job A --mode $MODE --phase main \
+                    --ttarget-file $TTARGET_A \
+                    --payload-mb $PAYLOAD_MB --ci-phase1 $CI_TIGHT --ci-phase2 $CI_LOOSE \
+                    $CRUX_FLAGS $LL_FLAGS \
+                    > p4_jobA_v6_${PHASE_LABEL}_node226.log 2>&1" &
+            JOB_A_226_PID=$!
+            sleep 10
+            LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH:-} \
+            CUDA_VISIBLE_DEVICES=0 MASTER_ADDR=$RDMA_10 MASTER_PORT=$PORT_MAIN_B \
+                WORLD_SIZE=2 RANK=0 \
+                MULTI_COMM_PORT=$PORT_MAIN_B \
+                NCCL_SOCKET_IFNAME=enp130s0f0np0 \
+                NCCL_ALGO=RING NCCL_PROTO=SIMPLE \
+                NCCL_DEBUG_FILE=/tmp/nccl_jB_${MODE}_v6_${ROUND_LABEL}_101_%h_%p.log \
+                python3 -u p4_job_reverse.py --job B --mode $MODE --phase main \
+                    --ttarget-file $TTARGET_B \
+                    --payload-mb $PAYLOAD_MB --ci-phase1 $CI_TIGHT --ci-phase2 $CI_LOOSE \
+                    $CRUX_FLAGS $LL_FLAGS \
+                    > p4_jobB_v6_${PHASE_LABEL}_node101.log 2>&1 &
+            JOB_B_101_PID=$!
+            ssh $NODE_226 "cd $EXP_DIR && \
+                CUDA_VISIBLE_DEVICES=1 MASTER_ADDR=$RDMA_10 MASTER_PORT=$PORT_MAIN_B \
+                WORLD_SIZE=2 RANK=1 \
+                MULTI_COMM_PORT=$PORT_MAIN_B \
+                NCCL_IB_HCA=mlx5_0 NCCL_IB_GID_INDEX=3 NCCL_DEBUG=INFO \
+                NCCL_ALGO=RING NCCL_PROTO=SIMPLE NCCL_SOCKET_IFNAME=enp59s0f0np0 \
+                LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:\$LD_LIBRARY_PATH \
+                PYTHONPATH=/home/why/LongLiu_rebuild/current/multi_comm_slo/src:\$PYTHONPATH \
+                NCCL_DEBUG_FILE=/tmp/nccl_jB_${MODE}_v6_${ROUND_LABEL}_226_%h_%p.log \
+                python3 -u p4_job_reverse.py --job B --mode $MODE --phase main \
+                    --ttarget-file $TTARGET_B \
+                    --payload-mb $PAYLOAD_MB --ci-phase1 $CI_TIGHT --ci-phase2 $CI_LOOSE \
+                    $CRUX_FLAGS $LL_FLAGS \
+                    > p4_jobB_v6_${PHASE_LABEL}_node226.log 2>&1" &
+            JOB_B_226_PID=$!
+        fi
+        if ! wait_mode_jobs; then
+            EA10=1; EA26=1; EB10=1; EB26=1
+        else
+            # 进程已确认全部结束；不再 wait（历史上 wait 偶发挂住），
+            # 短暂等待确保 CSV flush 后直接按文件检查判定
+            echo "  PIDs: A10=$JOB_A_101_PID A226=$JOB_A_226_PID B10=$JOB_B_101_PID B226=$JOB_B_226_PID"
+            sleep 2
+            EA10=0; EA26=0; EB10=0; EB26=0
+        fi
+        echo "  Job A 10.1 done (exit=$EA10), Job A 226 done (exit=$EA26)"
+        echo "  Job B 10.1 done (exit=$EB10), Job B 226 done (exit=$EB26)"
+        if [[ $EA10 -eq 0 && $EA26 -eq 0 && $EB10 -eq 0 && $EB26 -eq 0 &&
+              -f "p4_jobA_reverse_${MODE}_rank0_window.csv" &&
+              -f "p4_jobB_reverse_${MODE}_rank0_window.csv" ]]; then
+            MODE_OK=1
+            break
+        fi
+        echo "  [$MODE attempt $ATT] 失败（exit=$EA10/$EA26/$EB10/$EB26）"
+        # remove partial CSVs before retry（window+iter 都清，防止陈旧完整 CSV 干扰判定；
+        # window 粒度改造后 p4_job_reverse.py 不再输出 epoch CSV，判定改用 window CSV）
+        rm -f p4_jobA_reverse_${MODE}_rank0_window.csv p4_jobB_reverse_${MODE}_rank0_window.csv
+        rm -f p4_jobA_v6_${PHASE_LABEL}_rank0_window.csv p4_jobB_v6_${PHASE_LABEL}_rank0_window.csv
+        rm -f p4_jobA_reverse_${MODE}_rank0_iter.csv p4_jobB_reverse_${MODE}_rank0_iter.csv
+        rm -f p4_jobA_reverse_${MODE}_rank0_window.csv p4_jobB_reverse_${MODE}_rank0_window.csv
+        ssh $NODE_226 "rm -f /home/why/LongLiu_rebuild/current/experiments_evaluation/P4_dumbbell_slo/p4_job*_reverse_${MODE}_rank1_*.csv 2>/dev/null" 2>/dev/null || true
+    done
+    if [[ $MODE_OK -ne 1 ]]; then
+        echo "ERROR: $MODE_LABEL 在 ${MAX_MODE_RETRY} 次尝试后仍失败，终止"
+        exit 1
+    fi
 
     # Rename CSV files to include round label (prevent overwrite)
     for JOB in A B; do
@@ -272,9 +424,14 @@ run_mode() {
         if [[ -f "$CSV_ITER" ]]; then
             mv "$CSV_ITER" "p4_job${JOB}_v6_${PHASE_LABEL}_rank0_iter.csv"
         fi
+        local CSV_WINDOW="p4_job${JOB}_reverse_${MODE}_rank0_window.csv"
+        if [[ -f "$CSV_WINDOW" ]]; then
+            mv "$CSV_WINDOW" "p4_job${JOB}_v6_${PHASE_LABEL}_rank0_window.csv"
+        fi
     done
 
     echo "--- $MODE_LABEL completed ---"
+    echo "[$(date +%F_%T)] === MODE END: ${MODE_LABEL} (${MODE}) | duration=$(( $(date +%s) - MODE_START_EPOCH ))s ==="
     echo ""
 }
 
@@ -284,25 +441,33 @@ run_mode() {
 
 # Step 1: Start background flow (duration covers entire round + warmup)
 # Total duration = warmup + first mode run + second mode run + inter-mode gap
-# Each mode runs ~300 iters × (30ms compute + ~300ms comm) = ~100s
-# So total ~600s + 5min warmup + 15s gap ≈ 10 min
-BG_TOTAL_SEC=$((WARMUP_MINUTES * 60 + 120 + 120 + 30))
+#   NOTE (2026-08-10): 旧版 570s 会在第二个模式 phase2 后期耗尽背景流，
+#   导致 CRUX 侧 slowdown 骤降到 <1（伪影）。840s 在实测模式耗时 ~5min
+#   (NCCL 7 comm 初始化 + 300 iter × ~480ms) 下仍偏紧，现放宽到 ~18min：
+#   warmup 300s + 模式 2×360s + 间隙 15s + 余量 60s，确保全程有背景流。
+#   2026-08-17: 30Gbps 背景流实测 ~2.7s/iter → 单模式 ~900s，背景流
+#   时长同步放宽（warmup 300 + 模式 2×900 + 间隙 15 + 余量 120）。
+BG_TOTAL_SEC=$((WARMUP_MINUTES * 60 + 900 + 15 + 900 + 120))
 start_bg_flow $BG_TOTAL_SEC
 
 # Step 2: Warmup (background flow running, no NCCL jobs)
 echo ""
+echo "[$(date +%F_%T)] === WARMUP START (${WARMUP_MINUTES} min) ==="
 echo "--- Warmup phase: ${WARMUP_MINUTES} min (data discarded) ---"
 echo "  Background flow running at ${BG_RATE_GBPS} Gbps DSCP=P3"
 echo "  Waiting for NIC/thermal/driver state stabilization..."
 sleep ${WARMUP_MINUTES}m
+echo "[$(date +%F_%T)] === WARMUP END === (planned ${WARMUP_MINUTES} min)"
 echo "  Warmup complete."
 
 # Step 3: Run first mode
 run_mode $FIRST_MODE "${ORDER}_first(${FIRST_MODE})"
 
 # Step 4: NCCL cleanup gap
+echo "[$(date +%F_%T)] === GAP START (15s) ==="
 echo "Waiting 15s between modes for NCCL cleanup..."
 sleep 15
+echo "[$(date +%F_%T)] === GAP END ==="
 
 # Step 5: Run second mode
 run_mode $SECOND_MODE "${ORDER}_second(${SECOND_MODE})"
@@ -323,7 +488,7 @@ for MODE in longliu crux; do
     echo "=== $MODE ==="
     for JOB in A B; do
         PHASE_LABEL="${ROUND_LABEL}_${MODE}"
-        CSV="p4_job${JOB}_v6_${PHASE_LABEL}_rank0_epoch.csv"
+        CSV="p4_job${JOB}_v6_${PHASE_LABEL}_rank0_window.csv"
         if [[ -f "$CSV" ]]; then
             echo "--- Job $JOB ---"
             cat "$CSV"
@@ -341,6 +506,6 @@ echo ""
 echo "================================================================"
 echo "Round $ROUND complete."
 echo "  Logs: p4_job[AB]_v6_${ROUND_LABEL}_*_node[101|226].log"
-echo "  CSVs: p4_job[AB]_v6_${ROUND_LABEL}_*_rank0_epoch.csv"
+echo "  CSVs: p4_job[AB]_v6_${ROUND_LABEL}_*_rank0_window.csv"
 echo "  Background: /tmp/v6_bgflow_${ROUND_LABEL}_*.log"
 echo "================================================================"

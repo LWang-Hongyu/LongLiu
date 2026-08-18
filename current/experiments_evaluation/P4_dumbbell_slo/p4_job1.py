@@ -28,13 +28,13 @@ import torch
 parser = argparse.ArgumentParser()
 parser.add_argument('--mode', type=str, default='longliu',
                     choices=['solo', 'fair', 'longliu', 'static_dscp'])
-parser.add_argument('--epoch', type=int, default=-1,
-                    help='Single epoch to run (default -1 = all epochs)')
+parser.add_argument('--window', type=int, default=-1,
+                    help='Single window to run (default -1 = all windows)')
 parser.add_argument('--no-warmup', action='store_true',
-                    help='Skip warmup (for per-epoch manual runs)')
+                    help='Skip warmup (for per-window manual runs)')
 args = parser.parse_args()
 MODE = args.mode
-SINGLE_EPOCH = args.epoch if args.epoch >= 0 else None
+SINGLE_WINDOW = args.window if args.window >= 0 else None
 SKIP_WARMUP = args.no_warmup
 
 # ============================================================
@@ -44,8 +44,8 @@ PAYLOAD_MB = 2048           # 2 GB fp32 — same as Job2 for sync competition
 SLEEP_US   = 50000          # 50 ms simulated compute per iteration
 SLO_C_I    = 1.5            # tight SLO threshold
 NUM_ITERS  = 300
-ITERS_PER_EPOCH = 20
-NUM_EPOCHS = NUM_ITERS // ITERS_PER_EPOCH  # 15
+ITERS_PER_WINDOW = 20
+NUM_WINDOWS = NUM_ITERS // ITERS_PER_WINDOW  # 15
 
 BYTES_PER_ITER = PAYLOAD_MB * 1024 * 1024
 NUM_ELEMENTS = BYTES_PER_ITER // 4  # float32
@@ -78,20 +78,20 @@ else:
     import torch.distributed as dist
 
 
-def epoch_start(epoch):
+def window_start(window):
     if _adapter_enabled and _mc_wrapper is not None:
-        _mc_wrapper.epoch_start(epoch)
+        _mc_wrapper.window_start(window)
 
 
-def epoch_end(epoch):
+def window_end(window):
     if _adapter_enabled and _mc_wrapper is not None:
-        _mc_wrapper.epoch_end(epoch, data_size=BYTES_PER_ITER)
+        _mc_wrapper.window_end(window, data_size=BYTES_PER_ITER)
 
 
 def allreduce(tensor):
     if _adapter_enabled and _mc_wrapper is not None:
         _mc_wrapper.allreduce(tensor.data_ptr(), tensor.data_ptr(),
-                               tensor.numel(), 0, 0, 0)
+                               tensor.numel(), 7, 0, 0)  # ncclFloat32
     else:
         dist.all_reduce(tensor)
 
@@ -118,8 +118,8 @@ def main():
         if rank == 0:
             print(f"[Job1] MODE={MODE}, Payload={PAYLOAD_MB}MB, "
                   f"sleep={SLEEP_US}us, SLO c_i={SLO_C_I}")
-            print(f"[Job1] {NUM_ITERS} iters, {ITERS_PER_EPOCH}/epoch, "
-                  f"{NUM_EPOCHS} epochs, MultiComm mode")
+            print(f"[Job1] {NUM_ITERS} iters, {ITERS_PER_WINDOW}/window, "
+                  f"{NUM_WINDOWS} windows, MultiComm mode")
     else:
         # ---- Fair/Solo mode: standard PyTorch distributed ----
         dist.init_process_group('nccl')
@@ -130,8 +130,8 @@ def main():
         if rank == 0:
             print(f"[Job1] MODE={MODE}, Payload={PAYLOAD_MB}MB, "
                   f"sleep={SLEEP_US}us, SLO c_i={SLO_C_I}")
-            print(f"[Job1] {NUM_ITERS} iters, {ITERS_PER_EPOCH}/epoch, "
-                  f"{NUM_EPOCHS} epochs")
+            print(f"[Job1] {NUM_ITERS} iters, {ITERS_PER_WINDOW}/window, "
+                  f"{NUM_WINDOWS} windows")
 
     if rank == 0 and device is not None:
         free_mem = torch.cuda.mem_get_info(device)[0] / (1024**3)
@@ -158,19 +158,19 @@ def main():
     results = []
     t_total_start = time.perf_counter()
 
-    if SINGLE_EPOCH is not None:
-        epoch_range = [SINGLE_EPOCH]
+    if SINGLE_WINDOW is not None:
+        window_range = [SINGLE_WINDOW]
     else:
-        epoch_range = range(NUM_EPOCHS)
+        window_range = range(NUM_WINDOWS)
 
-    for epoch in epoch_range:
-        epoch_start(epoch)  # sets priority based on scheduler state
+    for window in window_range:
+        window_start(window)  # sets priority based on scheduler state
 
-        for i in range(ITERS_PER_EPOCH):
-            if SINGLE_EPOCH is not None:
+        for i in range(ITERS_PER_WINDOW):
+            if SINGLE_WINDOW is not None:
                 global_iter = i
             else:
-                global_iter = epoch * ITERS_PER_EPOCH + i
+                global_iter = window * ITERS_PER_WINDOW + i
 
             # Simulated forward/backward compute
             if SLEEP_US > 0:
@@ -188,11 +188,11 @@ def main():
             # For n=2, wire data = 2× tensor, so per-direction bw = size/2/time
             bw_gbps = bus_bw_gbps(BYTES_PER_ITER, comm_dur, world_size) if comm_dur > 0 else 0.0
 
-            # Phase: first 5 epochs (100 iters) are solo baseline;
-            # Job2 joins at epoch 5, subsequent iters are contested.
+            # Phase: first 5 windows (100 iters) are solo baseline;
+            # Job2 joins at window 5, subsequent iters are contested.
             if MODE == 'solo':
                 phase = 'solo'
-            elif SINGLE_EPOCH is not None:
+            elif SINGLE_WINDOW is not None:
                 phase = 'contested'
             elif global_iter < 100:
                 phase = 'solo_rampup'
@@ -200,19 +200,19 @@ def main():
                 phase = 'contested'
 
             if rank == 0:
-                print(f"[Job1] iter {global_iter:2d} (epoch {epoch}, "
+                print(f"[Job1] iter {global_iter:2d} (window {window}, "
                       f"iter {i}): comm={comm_dur*1000:.1f}ms, "
                       f"bw={bw_gbps:.2f} Gbps [{phase}]")
 
             results.append({
                 'iter': global_iter,
-                'epoch': epoch,
+                'window': window,
                 'comm_dur_s': round(comm_dur, 6),
                 'bw_gbps': round(bw_gbps, 4),
                 'phase': phase,
             })
 
-        epoch_end(epoch)  # measures time, updates priority
+        window_end(window)  # measures time, updates priority
 
     t_total_end = time.perf_counter()
 
@@ -220,16 +220,16 @@ def main():
     # Save results
     # ============================================================
     if rank == 0:
-        if SINGLE_EPOCH is not None:
-            csv_path = f'p4_job1_manual_epoch{SINGLE_EPOCH}.csv'
+        if SINGLE_WINDOW is not None:
+            csv_path = f'p4_job1_manual_window{SINGLE_WINDOW}.csv'
         else:
             csv_path = f'p4_job1_{MODE}_rank0.csv'
         with open(csv_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['iter', 'epoch', 'comm_dur_s',
+            writer.writerow(['iter', 'window', 'comm_dur_s',
                              'bw_gbps', 'phase'])
             for r in results:
-                writer.writerow([r['iter'], r['epoch'],
+                writer.writerow([r['iter'], r['window'],
                                  r['comm_dur_s'], r['bw_gbps'],
                                  r['phase']])
         print(f"[Job1] Results saved to {csv_path}")

@@ -1,0 +1,6 @@
+bash: cannot set terminal process group (1740020): Inappropriate ioctl for device
+bash: no job control in this shell
+[monitor_gpu] run=exp1_r2_20260807_123604 duration=120s interval=1000ms
+[monitor_gpu] 10.1 -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/01_exp_probe_recalib/data/exp1_r2_20260807_123604/gpu_10.csv
+[monitor_gpu] 226  -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/01_exp_probe_recalib/data/exp1_r2_20260807_123604/gpu_226.csv
+[monitor_gpu] done -> /home/why/LongLiu_rebuild/current/experiments_evaluation/experiments_validation/01_exp_probe_recalib/data/exp1_r2_20260807_123604/gpu_10.csv, gpu_226.csv

@@ -1,0 +1,4 @@
+Unexpected CM event bl blka 8
+ Unable to perform rdma_client function
+ Unable to init the socket connection
+ WARNING: BW peak won't be measured in this run.

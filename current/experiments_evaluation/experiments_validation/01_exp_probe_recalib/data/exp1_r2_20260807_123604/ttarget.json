@@ -1,0 +1,11 @@
+{
+  "job": "A",
+  "payload_mb": 1024,
+  "sleep_us": 30000,
+  "calib_epochs": 8,
+  "iters_per_epoch": 20,
+  "target_comm_time_ms": 3802.656,
+  "solo_bw_gbps": 22.6291,
+  "unit": "per_epoch_ms",
+  "timestamp": "2026-08-07T12:36:42"
+}
