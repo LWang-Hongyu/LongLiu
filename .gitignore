@@ -1,0 +1,10 @@
+﻿# Large data files
+*.jsonl
+*.log
+*.aux
+*.log
+*.out
+*.toc
+__pycache__/
+*.pyc
+.DS_Store

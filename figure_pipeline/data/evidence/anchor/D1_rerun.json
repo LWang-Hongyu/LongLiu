@@ -1,0 +1,40 @@
+{
+  "seeds": [
+    {
+      "seed": 0,
+      "overall": {
+        "mean_sas": 0.8650308839013575,
+        "slo_rate": 0.2916666666666667,
+        "collapse_rate": 0.0,
+        "starvation_count": 0
+      },
+      "elapsed_s": 7.7
+    },
+    {
+      "seed": 1,
+      "overall": {
+        "mean_sas": 0.741715502845074,
+        "slo_rate": 0.125,
+        "collapse_rate": 0.0,
+        "starvation_count": 0
+      },
+      "elapsed_s": 3.9
+    },
+    {
+      "seed": 2,
+      "overall": {
+        "mean_sas": 0.8324863565659893,
+        "slo_rate": 0.25,
+        "collapse_rate": 0.0,
+        "starvation_count": 0
+      },
+      "elapsed_s": 4.0
+    }
+  ],
+  "summary": {
+    "mean_sas": 0.8130775811041403,
+    "mean_slo_rate": 0.22222222222222224,
+    "mean_collapse_rate": 0.0,
+    "mean_starvation": 0.0
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "policy": "v4",
+  "seed": 3,
+  "n_jobs": 14,
+  "n_premium": 14,
+  "p_attn": 0.8571,
+  "sas_mean": 1.2004,
+  "sas_median": 1.1635,
+  "sas_min": 0.8796,
+  "slo_attainment": 0.8571,
+  "starv_premium": 0,
+  "total_iters": 2331
+}

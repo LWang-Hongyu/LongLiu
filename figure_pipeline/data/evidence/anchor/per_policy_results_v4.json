@@ -1,0 +1,756 @@
+{
+  "v4": {
+    "seeds": [
+      {
+        "seed": 0,
+        "per_job": {
+          "J0": {
+            "model": "BERT-Large-fp16",
+            "dp": 4,
+            "ci": 2.0,
+            "sas": 1.2158027017948434,
+            "avg_iter_ms": 64.33609654307132,
+            "meets_slo": true,
+            "completed_iters": 4970
+          },
+          "J1": {
+            "model": "LLaMA-2-13B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 1.8428055291021277,
+            "avg_iter_ms": 556.7597794759706,
+            "meets_slo": true,
+            "completed_iters": 548
+          },
+          "J2": {
+            "model": "ViT-Large",
+            "dp": 8,
+            "ci": 2.0,
+            "sas": 1.0072331420109106,
+            "avg_iter_ms": 64.32393583738747,
+            "meets_slo": true,
+            "completed_iters": 6526
+          },
+          "J3": {
+            "model": "LLaMA-2-7B",
+            "dp": 4,
+            "ci": 1.5,
+            "sas": 1.263190802947142,
+            "avg_iter_ms": 869.2273545993713,
+            "meets_slo": true,
+            "completed_iters": 498
+          },
+          "J4": {
+            "model": "LLaMA-2-7B",
+            "dp": 4,
+            "ci": 1.5,
+            "sas": 1.6833404877333435,
+            "avg_iter_ms": 652.2744554659183,
+            "meets_slo": true,
+            "completed_iters": 403
+          },
+          "J5": {
+            "model": "LLaMA-2-7B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 1.606610636515921,
+            "avg_iter_ms": 343.5804465959851,
+            "meets_slo": true,
+            "completed_iters": 682
+          },
+          "J6": {
+            "model": "ResNet-50-fp16",
+            "dp": 2,
+            "ci": 3.0,
+            "sas": 0.9618795114091234,
+            "avg_iter_ms": 33.62167466549206,
+            "meets_slo": false,
+            "completed_iters": 6875
+          },
+          "J7": {
+            "model": "ResNet-18",
+            "dp": 1,
+            "ci": 3.0,
+            "sas": 1.082368,
+            "avg_iter_ms": 25.0,
+            "meets_slo": true,
+            "completed_iters": 9051
+          },
+          "J8": {
+            "model": "LLaMA-2-7B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 1.5076125417692388,
+            "avg_iter_ms": 366.14182006751395,
+            "meets_slo": true,
+            "completed_iters": 448
+          },
+          "J9": {
+            "model": "LLaMA-2-7B",
+            "dp": 4,
+            "ci": 1.5,
+            "sas": 0.7233746204709907,
+            "avg_iter_ms": 1517.8857108438365,
+            "meets_slo": false,
+            "completed_iters": 77
+          },
+          "J10": {
+            "model": "LLaMA-2-13B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.9085396056393577,
+            "avg_iter_ms": 1129.2848364909564,
+            "meets_slo": false,
+            "completed_iters": 91
+          },
+          "J11": {
+            "model": "ResNet-18",
+            "dp": 1,
+            "ci": 3.0,
+            "sas": 1.082368,
+            "avg_iter_ms": 25.0,
+            "meets_slo": true,
+            "completed_iters": 2400
+          },
+          "J12": {
+            "model": "LLaMA-2-13B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.6558731293933185,
+            "avg_iter_ms": 1564.326931565329,
+            "meets_slo": false,
+            "completed_iters": 38
+          },
+          "J13": {
+            "model": "ViT-Base",
+            "dp": 2,
+            "ci": 2.0,
+            "sas": 0.8263902707177212,
+            "avg_iter_ms": 54.897064507547036,
+            "meets_slo": false,
+            "completed_iters": 1092
+          },
+          "J14": {
+            "model": "LLaMA-2-7B",
+            "dp": 4,
+            "ci": 1.5,
+            "sas": 0.9591725678470114,
+            "avg_iter_ms": 1144.7366582476445,
+            "meets_slo": false,
+            "completed_iters": 52
+          },
+          "J15": {
+            "model": "ViT-Base",
+            "dp": 2,
+            "ci": 2.0,
+            "sas": 0.8810096984851343,
+            "avg_iter_ms": 51.49364425613697,
+            "meets_slo": false,
+            "completed_iters": 1165
+          },
+          "J16": {
+            "model": "T5-11B-fp16",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.6539664248974154,
+            "avg_iter_ms": 1325.7561351655052,
+            "meets_slo": false,
+            "completed_iters": 45
+          },
+          "J17": {
+            "model": "ResNet-50-fp16",
+            "dp": 2,
+            "ci": 3.0,
+            "sas": 0.9354021586917632,
+            "avg_iter_ms": 34.57336472820434,
+            "meets_slo": false,
+            "completed_iters": 1735
+          },
+          "J18": {
+            "model": "BERT-Large-fp16",
+            "dp": 4,
+            "ci": 2.0,
+            "sas": 0.9479550232306126,
+            "avg_iter_ms": 82.51446332699174,
+            "meets_slo": false,
+            "completed_iters": 727
+          },
+          "J19": {
+            "model": "ViT-Large",
+            "dp": 8,
+            "ci": 2.0,
+            "sas": 0.9647973835834951,
+            "avg_iter_ms": 67.15316718558766,
+            "meets_slo": false,
+            "completed_iters": 893
+          },
+          "J20": {
+            "model": "T5-11B-fp16",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.9590320425018024,
+            "avg_iter_ms": 904.0365301437471,
+            "meets_slo": false,
+            "completed_iters": 66
+          },
+          "J21": {
+            "model": "LLaMA-2-13B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 1.1425719265923735,
+            "avg_iter_ms": 897.9741022168821,
+            "meets_slo": true,
+            "completed_iters": 66
+          },
+          "J22": {
+            "model": "BERT-Large-fp16",
+            "dp": 2,
+            "ci": 2.0,
+            "sas": 0.5724454530467562,
+            "avg_iter_ms": 260.1819949958357,
+            "meets_slo": false,
+            "completed_iters": 230
+          },
+          "J23": {
+            "model": "BERT-Large-fp16",
+            "dp": 2,
+            "ci": 2.0,
+            "sas": 0.7855381375517861,
+            "avg_iter_ms": 189.60250671493492,
+            "meets_slo": false,
+            "completed_iters": 316
+          }
+        },
+        "tiers": {
+          "large": {
+            "count": 12,
+            "mean_sas": 1.1588408596175033,
+            "slo_rate": 0.5,
+            "collapse_rate": 0.0
+          },
+          "medium": {
+            "count": 8,
+            "mean_sas": 0.9001464763026574,
+            "slo_rate": 0.25,
+            "collapse_rate": 0.0
+          },
+          "small": {
+            "count": 4,
+            "mean_sas": 1.0155044175252217,
+            "slo_rate": 0.5,
+            "collapse_rate": 0.0
+          }
+        },
+        "overall": {
+          "mean_sas": 1.0487199914971748,
+          "slo_rate": 0.4166666666666667,
+          "collapse_rate": 0.0,
+          "starvation_count": 0
+        },
+        "elapsed_s": 15.6
+      },
+      {
+        "seed": 1,
+        "per_job": {
+          "J0": {
+            "model": "ResNet-18",
+            "dp": 1,
+            "ci": 3.0,
+            "sas": 1.082368,
+            "avg_iter_ms": 25.0,
+            "meets_slo": true,
+            "completed_iters": 15492
+          },
+          "J1": {
+            "model": "LLaMA-2-7B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 1.8640106915808465,
+            "avg_iter_ms": 296.13564047309995,
+            "meets_slo": true,
+            "completed_iters": 1023
+          },
+          "J2": {
+            "model": "ResNet-50-fp16",
+            "dp": 2,
+            "ci": 3.0,
+            "sas": 0.9862494902452003,
+            "avg_iter_ms": 32.79089147306902,
+            "meets_slo": false,
+            "completed_iters": 10461
+          },
+          "J3": {
+            "model": "ViT-Large",
+            "dp": 8,
+            "ci": 2.0,
+            "sas": 1.0142627277358993,
+            "avg_iter_ms": 63.878123713198555,
+            "meets_slo": true,
+            "completed_iters": 4462
+          },
+          "J4": {
+            "model": "ResNet-18",
+            "dp": 1,
+            "ci": 3.0,
+            "sas": 1.082368,
+            "avg_iter_ms": 25.0,
+            "meets_slo": true,
+            "completed_iters": 8814
+          },
+          "J5": {
+            "model": "BERT-Large-fp16",
+            "dp": 2,
+            "ci": 2.0,
+            "sas": 0.7834143080438639,
+            "avg_iter_ms": 190.11651749365387,
+            "meets_slo": false,
+            "completed_iters": 779
+          },
+          "J6": {
+            "model": "LLaMA-2-7B",
+            "dp": 4,
+            "ci": 1.5,
+            "sas": 1.276971395950212,
+            "avg_iter_ms": 859.8469812888511,
+            "meets_slo": true,
+            "completed_iters": 124
+          },
+          "J7": {
+            "model": "LLaMA-2-7B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 1.1619898210679784,
+            "avg_iter_ms": 475.0471905964373,
+            "meets_slo": true,
+            "completed_iters": 199
+          },
+          "J8": {
+            "model": "T5-11B-fp16",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.7925564169031106,
+            "avg_iter_ms": 1093.9284340006675,
+            "meets_slo": false,
+            "completed_iters": 54
+          },
+          "J9": {
+            "model": "LLaMA-2-7B",
+            "dp": 4,
+            "ci": 1.5,
+            "sas": 0.7556026512926123,
+            "avg_iter_ms": 1453.1447158392673,
+            "meets_slo": false,
+            "completed_iters": 41
+          },
+          "J10": {
+            "model": "LLaMA-2-13B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.9928334188977775,
+            "avg_iter_ms": 1033.4059878232576,
+            "meets_slo": false,
+            "completed_iters": 58
+          },
+          "J11": {
+            "model": "LLaMA-2-7B",
+            "dp": 4,
+            "ci": 1.5,
+            "sas": 0.6016355479421311,
+            "avg_iter_ms": 1825.0251398137334,
+            "meets_slo": false,
+            "completed_iters": 32
+          },
+          "J12": {
+            "model": "LLaMA-2-13B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.7532253657165988,
+            "avg_iter_ms": 1362.1421246533441,
+            "meets_slo": false,
+            "completed_iters": 44
+          },
+          "J13": {
+            "model": "ViT-Base",
+            "dp": 2,
+            "ci": 2.0,
+            "sas": 0.7331391427428368,
+            "avg_iter_ms": 61.87965879201893,
+            "meets_slo": false,
+            "completed_iters": 969
+          },
+          "J14": {
+            "model": "ViT-Large",
+            "dp": 8,
+            "ci": 2.0,
+            "sas": 0.9184931189783693,
+            "avg_iter_ms": 70.53857961621354,
+            "meets_slo": false,
+            "completed_iters": 850
+          },
+          "J15": {
+            "model": "BERT-Large-fp16",
+            "dp": 2,
+            "ci": 2.0,
+            "sas": 0.47113933719022727,
+            "avg_iter_ms": 316.12728601319054,
+            "meets_slo": false,
+            "completed_iters": 189
+          },
+          "J16": {
+            "model": "ResNet-50-fp16",
+            "dp": 2,
+            "ci": 3.0,
+            "sas": 0.9329712343181921,
+            "avg_iter_ms": 34.66344814332225,
+            "meets_slo": false,
+            "completed_iters": 1730
+          },
+          "J17": {
+            "model": "BERT-Large-fp16",
+            "dp": 4,
+            "ci": 2.0,
+            "sas": 0.8305252875885988,
+            "avg_iter_ms": 94.18135867615668,
+            "meets_slo": false,
+            "completed_iters": 637
+          },
+          "J18": {
+            "model": "BERT-Large-fp16",
+            "dp": 4,
+            "ci": 2.0,
+            "sas": 0.8305252875885988,
+            "avg_iter_ms": 94.18135867615668,
+            "meets_slo": false,
+            "completed_iters": 637
+          },
+          "J19": {
+            "model": "LLaMA-2-13B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.7532253657165988,
+            "avg_iter_ms": 1362.1421246533441,
+            "meets_slo": false,
+            "completed_iters": 44
+          },
+          "J20": {
+            "model": "T5-11B-fp16",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.7925564169031106,
+            "avg_iter_ms": 1093.9284340006675,
+            "meets_slo": false,
+            "completed_iters": 54
+          },
+          "J21": {
+            "model": "LLaMA-2-13B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.7532253657165988,
+            "avg_iter_ms": 1362.1421246533441,
+            "meets_slo": false,
+            "completed_iters": 44
+          },
+          "J22": {
+            "model": "ViT-Base",
+            "dp": 2,
+            "ci": 2.0,
+            "sas": 0.7331391427428368,
+            "avg_iter_ms": 61.87965879201893,
+            "meets_slo": false,
+            "completed_iters": 969
+          },
+          "J23": {
+            "model": "LLaMA-2-7B",
+            "dp": 4,
+            "ci": 1.5,
+            "sas": 0.7556026512926123,
+            "avg_iter_ms": 1453.1447158392673,
+            "meets_slo": false,
+            "completed_iters": 41
+          }
+        },
+        "tiers": {
+          "large": {
+            "count": 12,
+            "mean_sas": 0.9377862590816823,
+            "slo_rate": 0.25,
+            "collapse_rate": 0.0
+          },
+          "medium": {
+            "count": 8,
+            "mean_sas": 0.7893297940764038,
+            "slo_rate": 0.125,
+            "collapse_rate": 0.0
+          },
+          "small": {
+            "count": 4,
+            "mean_sas": 1.020989181140848,
+            "slo_rate": 0.5,
+            "collapse_rate": 0.0
+          }
+        },
+        "overall": {
+          "mean_sas": 0.9021679244231172,
+          "slo_rate": 0.25,
+          "collapse_rate": 0.0,
+          "starvation_count": 0
+        },
+        "elapsed_s": 11.6
+      },
+      {
+        "seed": 2,
+        "per_job": {
+          "J0": {
+            "model": "BERT-Large-fp16",
+            "dp": 4,
+            "ci": 2.0,
+            "sas": 0.9957675268677714,
+            "avg_iter_ms": 78.55247122392542,
+            "meets_slo": false,
+            "completed_iters": 4970
+          },
+          "J1": {
+            "model": "LLaMA-2-7B",
+            "dp": 4,
+            "ci": 1.5,
+            "sas": 1.929701230228471,
+            "avg_iter_ms": 569.0,
+            "meets_slo": true,
+            "completed_iters": 530
+          },
+          "J2": {
+            "model": "LLaMA-2-13B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 1.6887387595604506,
+            "avg_iter_ms": 607.5540069128573,
+            "meets_slo": true,
+            "completed_iters": 548
+          },
+          "J3": {
+            "model": "BERT-Large-fp16",
+            "dp": 2,
+            "ci": 2.0,
+            "sas": 0.8877507901616777,
+            "avg_iter_ms": 167.77230913292115,
+            "meets_slo": false,
+            "completed_iters": 1823
+          },
+          "J4": {
+            "model": "BERT-Large-fp16",
+            "dp": 4,
+            "ci": 2.0,
+            "sas": 1.1997967353736734,
+            "avg_iter_ms": 65.19437642546893,
+            "meets_slo": true,
+            "completed_iters": 4491
+          },
+          "J5": {
+            "model": "LLaMA-2-13B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 1.5988793486797221,
+            "avg_iter_ms": 641.6994508355002,
+            "meets_slo": true,
+            "completed_iters": 425
+          },
+          "J6": {
+            "model": "LLaMA-2-7B",
+            "dp": 4,
+            "ci": 1.5,
+            "sas": 0.8365840057356109,
+            "avg_iter_ms": 1312.4802679373786,
+            "meets_slo": false,
+            "completed_iters": 180
+          },
+          "J7": {
+            "model": "ViT-Base",
+            "dp": 2,
+            "ci": 2.0,
+            "sas": 0.727514224183589,
+            "avg_iter_ms": 62.358093480453704,
+            "meets_slo": false,
+            "completed_iters": 962
+          },
+          "J8": {
+            "model": "ViT-Large",
+            "dp": 8,
+            "ci": 2.0,
+            "sas": 0.9800754137621599,
+            "avg_iter_ms": 66.10634150212724,
+            "meets_slo": false,
+            "completed_iters": 907
+          },
+          "J9": {
+            "model": "ResNet-18",
+            "dp": 1,
+            "ci": 3.0,
+            "sas": 1.082368,
+            "avg_iter_ms": 25.0,
+            "meets_slo": true,
+            "completed_iters": 2400
+          },
+          "J10": {
+            "model": "BERT-Large-fp16",
+            "dp": 2,
+            "ci": 2.0,
+            "sas": 0.9496221913339105,
+            "avg_iter_ms": 156.8413221165227,
+            "meets_slo": false,
+            "completed_iters": 382
+          },
+          "J11": {
+            "model": "ViT-Large",
+            "dp": 8,
+            "ci": 2.0,
+            "sas": 0.9339886455450368,
+            "avg_iter_ms": 69.36829511689804,
+            "meets_slo": false,
+            "completed_iters": 864
+          },
+          "J12": {
+            "model": "ResNet-18",
+            "dp": 1,
+            "ci": 3.0,
+            "sas": 1.082368,
+            "avg_iter_ms": 25.0,
+            "meets_slo": true,
+            "completed_iters": 2400
+          },
+          "J13": {
+            "model": "LLaMA-2-7B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.5033305723632205,
+            "avg_iter_ms": 1096.694757499566,
+            "meets_slo": false,
+            "completed_iters": 54
+          },
+          "J14": {
+            "model": "ViT-Base",
+            "dp": 2,
+            "ci": 2.0,
+            "sas": 0.727514224183589,
+            "avg_iter_ms": 62.358093480453704,
+            "meets_slo": false,
+            "completed_iters": 962
+          },
+          "J15": {
+            "model": "ResNet-50-fp16",
+            "dp": 2,
+            "ci": 3.0,
+            "sas": 0.9325259515557162,
+            "avg_iter_ms": 34.68000000005122,
+            "meets_slo": false,
+            "completed_iters": 1730
+          },
+          "J16": {
+            "model": "LLaMA-2-7B",
+            "dp": 4,
+            "ci": 1.5,
+            "sas": 0.7364846927011006,
+            "avg_iter_ms": 1490.8660164721427,
+            "meets_slo": false,
+            "completed_iters": 40
+          },
+          "J17": {
+            "model": "T5-11B-fp16",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.5997425501752506,
+            "avg_iter_ms": 1445.6202911510184,
+            "meets_slo": false,
+            "completed_iters": 41
+          },
+          "J18": {
+            "model": "T5-11B-fp16",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.5028613061664104,
+            "avg_iter_ms": 1724.1334526404903,
+            "meets_slo": false,
+            "completed_iters": 34
+          },
+          "J19": {
+            "model": "LLaMA-2-7B",
+            "dp": 4,
+            "ci": 1.5,
+            "sas": 0.3732314382467566,
+            "avg_iter_ms": 2941.874363954499,
+            "meets_slo": false,
+            "completed_iters": 20
+          },
+          "J20": {
+            "model": "LLaMA-2-7B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.7429913447232177,
+            "avg_iter_ms": 742.942705753367,
+            "meets_slo": false,
+            "completed_iters": 80
+          },
+          "J21": {
+            "model": "ResNet-50-fp16",
+            "dp": 2,
+            "ci": 3.0,
+            "sas": 0.9325259515557162,
+            "avg_iter_ms": 34.68000000005122,
+            "meets_slo": false,
+            "completed_iters": 1730
+          },
+          "J22": {
+            "model": "LLaMA-2-13B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 1.2216743513803656,
+            "avg_iter_ms": 839.8310063894901,
+            "meets_slo": true,
+            "completed_iters": 71
+          },
+          "J23": {
+            "model": "LLaMA-2-13B",
+            "dp": 8,
+            "ci": 1.5,
+            "sas": 0.742815521420754,
+            "avg_iter_ms": 1381.231234960748,
+            "meets_slo": false,
+            "completed_iters": 43
+          }
+        },
+        "tiers": {
+          "large": {
+            "count": 12,
+            "mean_sas": 0.9564195934484441,
+            "slo_rate": 0.3333333333333333,
+            "collapse_rate": 0.0
+          },
+          "medium": {
+            "count": 8,
+            "mean_sas": 0.9252537189264259,
+            "slo_rate": 0.125,
+            "collapse_rate": 0.0
+          },
+          "small": {
+            "count": 4,
+            "mean_sas": 1.0074469757778581,
+            "slo_rate": 0.5,
+            "collapse_rate": 0.0
+          }
+        },
+        "overall": {
+          "mean_sas": 0.9545355323293405,
+          "slo_rate": 0.2916666666666667,
+          "collapse_rate": 0.0,
+          "starvation_count": 0
+        },
+        "elapsed_s": 10.4
+      }
+    ],
+    "summary": {
+      "mean_sas": 0.9684744827498775,
+      "mean_slo_rate": 0.3194444444444445,
+      "mean_collapse_rate": 0.0,
+      "mean_starvation": 0.0
+    }
+  }
+}

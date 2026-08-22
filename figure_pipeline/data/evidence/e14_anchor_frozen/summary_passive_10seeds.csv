@@ -1,0 +1,3 @@
+config,n_seeds,p_attn_mean,p_attn_std,n_frozen_jobs_mean,p_cap_mean,s_cont_cap_mean
+baseline,10,0.5333,0.1155,10.2,0.6865,0.0
+passive_low,10,0.5533,0.0864,16.7,0.7831,0.0
