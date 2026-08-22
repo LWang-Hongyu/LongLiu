@@ -1,0 +1,103 @@
+{
+  "swap_time_ms": 300000.0,
+  "swaps": [
+    {
+      "jid": "J0",
+      "model": "LLaMA-2-13B",
+      "dp": 8,
+      "old_ci": 1.5,
+      "new_ci": 3.0
+    },
+    {
+      "jid": "J1",
+      "model": "LLaMA-2-13B",
+      "dp": 8,
+      "old_ci": 1.5,
+      "new_ci": 3.0
+    },
+    {
+      "jid": "J2",
+      "model": "LLaMA-2-13B",
+      "dp": 8,
+      "old_ci": 1.5,
+      "new_ci": 3.0
+    },
+    {
+      "jid": "J3",
+      "model": "LLaMA-2-13B",
+      "dp": 8,
+      "old_ci": 1.5,
+      "new_ci": 3.0
+    },
+    {
+      "jid": "J4",
+      "model": "LLaMA-2-7B",
+      "dp": 8,
+      "old_ci": 1.5,
+      "new_ci": 3.0
+    },
+    {
+      "jid": "J5",
+      "model": "LLaMA-2-7B",
+      "dp": 8,
+      "old_ci": 1.5,
+      "new_ci": 3.0
+    },
+    {
+      "jid": "J6",
+      "model": "BERT-Large-fp16",
+      "dp": 4,
+      "old_ci": 2.0,
+      "new_ci": 3.0
+    },
+    {
+      "jid": "J7",
+      "model": "T5-11B-fp16",
+      "dp": 8,
+      "old_ci": 2.0,
+      "new_ci": 3.0
+    },
+    {
+      "jid": "J8",
+      "model": "LLaMA-2-13B",
+      "dp": 8,
+      "old_ci": 3.0,
+      "new_ci": 1.5
+    },
+    {
+      "jid": "J9",
+      "model": "LLaMA-2-13B",
+      "dp": 8,
+      "old_ci": 3.0,
+      "new_ci": 1.5
+    },
+    {
+      "jid": "J10",
+      "model": "BERT-Large-fp16",
+      "dp": 4,
+      "old_ci": 3.0,
+      "new_ci": 2.0
+    },
+    {
+      "jid": "J11",
+      "model": "BERT-Large-fp16",
+      "dp": 4,
+      "old_ci": 3.0,
+      "new_ci": 2.0
+    },
+    {
+      "jid": "J12",
+      "model": "BERT-Large-fp16",
+      "dp": 2,
+      "old_ci": 3.0,
+      "new_ci": 1.5
+    },
+    {
+      "jid": "J13",
+      "model": "BERT-Large-fp16",
+      "dp": 2,
+      "old_ci": 3.0,
+      "new_ci": 1.5
+    }
+  ]
+}

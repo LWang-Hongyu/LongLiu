@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-07-27 11:16:57",
+  "config_hash": "57f57512",
+  "SEMANTICS_VERSION": "anchor-v2",
+  "spine_bw_gbps": 630,
+  "results": {
+    "v4": {
+      "w1": {
+        "p_attn": 1.0,
+        "s_cont_cap": 1.0,
+        "n_premium": 5,
+        "n_premium_attn": 5,
+        "n_standard_with_data": 8,
+        "label": "W1 (pre-swap 200-300s)"
+      },
+      "w2": {
+        "p_attn": 1.0,
+        "s_cont_cap": 0.9136,
+        "n_premium": 8,
+        "n_premium_attn": 8,
+        "n_standard_with_data": 5,
+        "label": "W2 (transient 300-320s)"
+      },
+      "w3": {
+        "p_attn": 1.0,
+        "s_cont_cap": 0.9074,
+        "n_premium": 8,
+        "n_premium_attn": 8,
+        "n_standard_with_data": 5,
+        "label": "W3 (post-swap 500-600s)"
+      },
+      "starv_pre_swap": 0,
+      "starv_post_swap": 0
+    },
+    "CRUX": {
+      "w1": {
+        "p_attn": 0.4,
+        "s_cont_cap": 0.8575,
+        "n_premium": 5,
+        "n_premium_attn": 2,
+        "n_standard_with_data": 8,
+        "label": "W1 (pre-swap 200-300s)"
+      },
+      "w2": {
+        "p_attn": 0.0,
+        "s_cont_cap": 1.0,
+        "n_premium": 8,
+        "n_premium_attn": 0,
+        "n_standard_with_data": 5,
+        "label": "W2 (transient 300-320s)"
+      },
+      "w3": {
+        "p_attn": 0.0,
+        "s_cont_cap": 1.0,
+        "n_premium": 8,
+        "n_premium_attn": 0,
+        "n_standard_with_data": 5,
+        "label": "W3 (post-swap 500-600s)"
+      },
+      "starv_pre_swap": 0,
+      "starv_post_swap": 0
+    }
+  }
+}
