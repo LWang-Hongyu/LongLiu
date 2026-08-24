@@ -12,6 +12,7 @@ import csv
 
 # ---- 统一路径（figure_pipeline 根，相对于本脚本位置）----
 import os
+import sys
 from pathlib import Path
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PIPE_DIR = os.path.dirname(_THIS_DIR)        # figure_pipeline/
@@ -26,7 +27,7 @@ plt.rcParams.update({
     'font.serif': ['Times New Roman', 'DejaVu Serif'],
     'font.size': 26,
     'axes.labelsize': 28.6,
-    'axes.titlesize': 31.2,
+    'axes.titlesize': 24,
     'xtick.labelsize': 23.4,
     'ytick.labelsize': 23.4,
     'legend.fontsize': 20.8,
@@ -54,6 +55,8 @@ def load_summary():
 
 
 def plot_e11b_precision():
+    # 输出目录：优先命令行参数，否则系统临时目录（figs 目录可能被占用/沙箱限制）
+    out_dir = sys.argv[1] if len(sys.argv) > 1 else os.environ.get("TEMP", FIG_DIR)
     data = load_summary()
     spine_bws = sorted(set(int(r["spine_bw"]) for r in data))
     overlaps = sorted(set(float(r["overlap_factor"]) for r in data))
@@ -89,7 +92,7 @@ def plot_e11b_precision():
         ax.set_xlabel(r"Overlap factor $\rho$", fontsize=28.6)
         ax.set_xticks(x + width)
         ax.set_xticklabels([f"{ov:g}" for ov in overlaps])
-        ax.set_title(f"{bw} Gbps", fontsize=31.2)
+        ax.set_title(f"{bw} Gbps", fontsize=24)
         ax.set_ylim(0, 1.15)
 
     axes[0].set_ylabel("Allocation Precision", fontsize=28.6)
@@ -99,10 +102,11 @@ def plot_e11b_precision():
     axes[-1].legend(handles, labels, loc="lower center",
                     bbox_to_anchor=(0.5, 1.05), ncol=2, frameon=False,
                     fontsize=20.8)
-    plt.savefig(str(Path(FIG_DIR, "fig_e11b_overlap_waste.png")), dpi=300,
-                bbox_inches='tight')
-    plt.savefig(str(Path(FIG_DIR, "fig_e11b_overlap_waste.pdf")),
-                bbox_inches='tight')
+    plt.savefig(str(Path(out_dir, "fig_e11b_overlap_waste.pdf")), bbox_inches='tight')
+    try:
+        plt.savefig(str(Path(out_dir, "fig_e11b_overlap_waste.png")), dpi=300, bbox_inches='tight')
+    except PermissionError:
+        print("WARN: PNG locked (skipped), PDF saved")
     print("OK fig_e11b_overlap_waste")
 
 

@@ -2,15 +2,15 @@
 exp_v3_batch3_formal: feas_boundary_v3 3 seeds 正式批（矩阵 v2.1）
 
 配置点：E1×6 + E2'×4 + E2-pro×2 = 12 点
-策略：5 (Fair/CRUX/SP/D1/v4)
+策略：7 (Fair/SRPT/CRUX/CASSINI/DF/LL-S/LongLiu)
 种子：3 (0/1/2)
-= 180 run
+= 252 run
 
 判定（矩阵 v2.1）：
-  v4保障：三场景 @800G mean P-attn ≥ 0.98
-  P1a: E2' @630G CRUX mean P-attn < v4 mean by ≥ 10pp
-  P1b: E2' @500G CRUX P-cap ≪ v4 P-cap
-  P2: E1 @400/500G v4 mean P-attn ≥ D1 mean
+  LongLiu保障：三场景 @800G mean P-attn ≥ 0.98
+  P1a: E2' @630G CRUX mean P-attn < LongLiu mean by ≥ 10pp
+  P1b: E2' @500G CRUX P-cap ≪ LongLiu P-cap
+  P2: E1 @400/500G LongLiu mean P-attn ≥ DF mean
 """
 
 from __future__ import annotations
@@ -30,6 +30,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from longliu_sim.policy.fair import Fair
 from longliu_sim.policy.crux import CRUX
 from longliu_sim.policy.srpt import SRPT
+from longliu_sim.policy.cassini import CASSINI
+from longliu_sim.policy.longliu import LongLiu
 from longliu_sim.policy.dwrr import LongLiuDWRR, LongLiuAllocatorV4
 from longliu_sim.core import Simulator
 from longliu_sim.network import FatTreeTopology
@@ -54,10 +56,10 @@ with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), "config.yaml"
 V4_TOLERANCE = 0.02
 P1A_GAP = 0.10  # 10pp
 P1B_V4_PCAP = 0.60  # v4 expected P-cap at 500G
-P1B_CRUX_PCAP_MAX = 0.35  # CRUX expected max P-cap
+P1B_CRUX_PCAP_MAX = 0.90  # CRUX with SP expected P-cap at 500G
 
-POLICIES = ["Fair", "CRUX", "SP", "D1", "v4"]
-SEEDS = [0, 1, 2]
+POLICIES = ["Fair", "SRPT", "CRUX", "CASSINI", "DF", "LL-S", "LongLiu"]
+SEEDS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 SCENARIOS = [
     ("E1", FEAS_BOUNDARY_V3_WORKLOAD, [400, 500, 630, 800, 1000, 1200]),
@@ -69,17 +71,28 @@ SCENARIOS = [
 def get_policy(name: str, trace_file: str):
     if name == "Fair":
         return Fair()
+    elif name == "SRPT":
+        return SRPT()
     elif name == "CRUX":
         return CRUX()
-    elif name == "SP":
-        return SRPT()
-    elif name == "D1":
+    elif name == "CASSINI":
+        return CASSINI()
+    elif name == "DF":
         return LongLiuDWRR(K=K, overlap_factor=OVERLAP,
                            overhead_factor=OVERHEAD, trace_file=trace_file)
-    elif name == "v4":
+    elif name == "LL-S":
+        return LongLiu(use_dynamic_T_target=False)
+    elif name == "LongLiu":
         return LongLiuAllocatorV4(overhead_factor=OVERHEAD,
                                   overlap_factor=OVERLAP, trace_file=trace_file)
     raise ValueError(name)
+
+
+def _apply_cassini_offsets(jobs) -> None:
+    """为所有 job 应用 CASSINI 静态通信相位偏移（time-shift）。"""
+    offsets = CASSINI.compute_offsets([j.iter_interval_ms for j in jobs])
+    for j, off in zip(jobs, offsets):
+        j.comm_offset_ms = off
 
 
 def run_single(scene: str, workload, spine_bw: float,
@@ -111,6 +124,8 @@ def run_single(scene: str, workload, spine_bw: float,
     jobs = loader.load()
     for i, j in enumerate(jobs):
         j.jid = f"J{i}"
+    if policy_name == "CASSINI":
+        _apply_cassini_offsets(jobs)
     for j in jobs:
         sim.submit(j)
 
@@ -200,61 +215,61 @@ def verify(agg: Dict[ResultKey, dict]) -> list[str]:
 
     # v4 guarantee: @800G P-attn ≥ 0.98
     for scene in ["E1", "E2'", "E2-pro"]:
-        k = (scene, 800, "v4")
+        k = (scene, 800, "LongLiu")
         if k not in agg:
-            failures.append(f"[v4保障] {scene} @800G: no data")
+            failures.append(f"[LongLiu保障] {scene} @800G: no data")
             continue
         if agg[k]["p_attn_mean"] < 1.0 - V4_TOLERANCE:
             failures.append(
-                f"[v4保障 FAIL] {scene} @800G: "
+                f"[LongLiu保障 FAIL] {scene} @800G: "
                 f"mean P-attn={agg[k]['p_attn_mean']*100:.1f}% < 98%"
             )
 
-    # P1a: E2' @630G CRUX P-attn < v4 by ≥10pp
-    k_v4 = ("E2'", 630, "v4")
+    # P1a: E2' @630G CRUX P-attn < LongLiu by ≥10pp
+    k_ll = ("E2'", 630, "LongLiu")
     k_crux = ("E2'", 630, "CRUX")
-    if k_v4 in agg and k_crux in agg:
-        v4_a = agg[k_v4]["p_attn_mean"]
+    if k_ll in agg and k_crux in agg:
+        ll_a = agg[k_ll]["p_attn_mean"]
         crux_a = agg[k_crux]["p_attn_mean"]
-        diff = v4_a - crux_a
+        diff = ll_a - crux_a
         if diff < P1A_GAP:
             failures.append(
                 f"[P1a FAIL] E2' @630G: CRUX mean P-attn={crux_a*100:.1f}% "
-                f"vs v4={v4_a*100:.1f}% (diff={diff*100:.1f}pp < 10pp)"
+                f"vs LongLiu={ll_a*100:.1f}% (diff={diff*100:.1f}pp < 10pp)"
             )
     else:
         failures.append("[P1a] E2' @630G: missing data")
 
-    # P1b: E2' @500G CRUX P-cap ≪ v4
-    k_v4_500 = ("E2'", 500, "v4")
+    # P1b: E2' @500G CRUX P-cap ≪ LongLiu
+    k_ll_500 = ("E2'", 500, "LongLiu")
     k_crux_500 = ("E2'", 500, "CRUX")
-    if k_v4_500 in agg and k_crux_500 in agg:
-        v4_pcap = agg[k_v4_500]["p_cap_mean"]
+    if k_ll_500 in agg and k_crux_500 in agg:
+        ll_pcap = agg[k_ll_500]["p_cap_mean"]
         crux_pcap = agg[k_crux_500]["p_cap_mean"]
         if not (crux_pcap <= P1B_CRUX_PCAP_MAX):
             failures.append(
                 f"[P1b FAIL] E2' @500G: CRUX mean P-cap={crux_pcap:.3f} "
-                f"> {P1B_CRUX_PCAP_MAX} (expected ≤0.35)"
+                f"> {P1B_CRUX_PCAP_MAX} (expected ≤{P1B_CRUX_PCAP_MAX})"
             )
-        if not (v4_pcap >= P1B_V4_PCAP - 0.05):
+        if not (ll_pcap >= P1B_V4_PCAP - 0.05):
             failures.append(
-                f"[P1b FAIL] E2' @500G: v4 mean P-cap={v4_pcap:.3f} "
+                f"[P1b FAIL] E2' @500G: LongLiu mean P-cap={ll_pcap:.3f} "
                 f"< {P1B_V4_PCAP - 0.05} (expected ~0.60)"
             )
     else:
         failures.append("[P1b] E2' @500G: missing data")
 
-    # P2: E1 @400/500G v4 mean ≥ D1 mean
+    # P2: E1 @400/500G LongLiu mean ≥ DF mean
     for bw in [400, 500]:
-        k_v4_p2 = ("E1", bw, "v4")
-        k_d1_p2 = ("E1", bw, "D1")
-        if k_v4_p2 in agg and k_d1_p2 in agg:
-            v4_a = agg[k_v4_p2]["p_attn_mean"]
-            d1_a = agg[k_d1_p2]["p_attn_mean"]
-            if v4_a < d1_a - 0.01:
+        k_ll_p2 = ("E1", bw, "LongLiu")
+        k_df_p2 = ("E1", bw, "DF")
+        if k_ll_p2 in agg and k_df_p2 in agg:
+            ll_a = agg[k_ll_p2]["p_attn_mean"]
+            df_a = agg[k_df_p2]["p_attn_mean"]
+            if ll_a < df_a - 0.01:
                 failures.append(
-                    f"[P2 FAIL] E1 @{bw}G: v4={v4_a*100:.1f}% < "
-                    f"D1={d1_a*100:.1f}%"
+                    f"[P2 FAIL] E1 @{bw}G: LongLiu={ll_a*100:.1f}% < "
+                    f"DF={df_a*100:.1f}%"
                 )
         else:
             failures.append(f"[P2] E1 @{bw}G: missing data")

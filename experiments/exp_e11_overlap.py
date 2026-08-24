@@ -30,6 +30,8 @@ from longliu_sim.policy.fair import Fair
 from longliu_sim.policy.crux import CRUX
 from longliu_sim.policy.srpt import SRPT
 from longliu_sim.policy.dwrr import LongLiuDWRR, LongLiuAllocatorV4
+from longliu_sim.policy.cassini import CASSINI
+from longliu_sim.policy.longliu import LongLiu
 from longliu_sim.trace.synthetic import (
     SyntheticTraceLoader,
     FEAS_BOUNDARY_V3_WORKLOAD,
@@ -56,21 +58,32 @@ def load_frozen() -> dict:
 def get_policy(name: str, trace_file: str, overhead: float, overlap: float):
     if name == "Fair":
         return Fair()
+    elif name == "SRPT":
+        return SRPT()
     elif name == "CRUX":
         return CRUX()
-    elif name == "SP":
-        return SRPT()
-    elif name == "D1":
+    elif name == "CASSINI":
+        return CASSINI()
+    elif name == "DF":
         return LongLiuDWRR(
             overhead_factor=overhead, overlap_factor=overlap,
             trace_file=trace_file,
         )
-    elif name == "v4":
+    elif name == "LL-S":
+        return LongLiu(use_dynamic_T_target=False)
+    elif name == "LongLiu":
         return LongLiuAllocatorV4(
             overhead_factor=overhead, overlap_factor=overlap,
             trace_file=trace_file,
         )
     raise ValueError(f"Unknown policy: {name}")
+
+
+def _apply_cassini_offsets(jobs) -> None:
+    """为所有 job 应用 CASSINI 静态通信相位偏移（time-shift）。"""
+    offsets = CASSINI.compute_offsets([j.iter_interval_ms for j in jobs])
+    for j, off in zip(jobs, offsets):
+        j.comm_offset_ms = off
 
 
 def run_single(scene: str, workload, spine_bw: float, overlap: float,
@@ -103,6 +116,8 @@ def run_single(scene: str, workload, spine_bw: float, overlap: float,
     jobs = loader.load()
     for i, j in enumerate(jobs):
         j.jid = f"J{i}"
+    if policy_name == "CASSINI":
+        _apply_cassini_offsets(jobs)
     for j in jobs:
         sim.submit(j)
 

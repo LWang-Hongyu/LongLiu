@@ -2,7 +2,7 @@
 exp_v3_batch1: feas_boundary_v3 第一批快检
 
 E1 四点（@630/800/1000/1200G）+ E2 两点（@800G/@630G）
-1 seed 五策略（Fair/CRUX/SP/D1/v4），对照修订矩阵逐点判定。
+1 seed 七策略（Fair/SRPT/CRUX/CASSINI/DF/LL-S/LongLiu），对照修订矩阵逐点判定。
 任一 FAIL 停跑上报。
 
 修订矩阵：
@@ -26,6 +26,8 @@ from longliu_sim.policy.fair import Fair
 from longliu_sim.policy.crux import CRUX
 from longliu_sim.policy.srpt import SRPT
 from longliu_sim.policy.dwrr import LongLiuDWRR, LongLiuAllocatorV4
+from longliu_sim.policy.cassini import CASSINI
+from longliu_sim.policy.longliu import LongLiu
 from longliu_sim.core import Simulator
 from longliu_sim.network import FatTreeTopology
 from longliu_sim.trace import SyntheticTraceLoader
@@ -49,24 +51,27 @@ P_ATTN_TOLERANCE = 0.03  # for ~82% type values
 def get_policy(name: str, trace_file: str):
     if name == "Fair":
         return Fair()
+    elif name == "SRPT":
+        return SRPT()
     elif name == "CRUX":
         return CRUX()
-    elif name == "SP":
-        return SRPT()
-    elif name == "D1":
+    elif name == "CASSINI":
+        return CASSINI()
+    elif name == "DF":
         return LongLiuDWRR(
             overhead_factor=OVERHEAD,
             overlap_factor=OVERLAP,
             trace_file=trace_file,
         )
-    elif name == "v4":
+    elif name == "LL-S":
+        return LongLiu(use_dynamic_T_target=False)
+    elif name == "LongLiu":
         return LongLiuAllocatorV4(
             overhead_factor=OVERHEAD,
             overlap_factor=OVERLAP,
             trace_file=trace_file,
         )
-    else:
-        raise ValueError(f"Unknown policy: {name}")
+    raise ValueError(name)
 
 
 def run_single(scene: str, workload, spine_bw: float, policy_name: str,
@@ -168,8 +173,8 @@ MATRIX = {
     },
     ("E1", 800): {
         "all": {"p_attn_range": (0.98, 1.01), "starv": 0},
-        "v4": {"s_cont_cap_range": (0.71, 0.77)},  # 0.74±0.03
-        "D1": {"s_cont_cap_min": 0.0},  # D1 not calibrated for this, just check no starv
+        "LongLiu": {"s_cont_cap_range": (0.71, 0.77)},  # 0.74±0.03
+        "DF": {"s_cont_cap_min": 0.0},  # DF not calibrated for this, just check no starv
     },
     ("E1", 1000): {
         "all": {"p_attn_range": (0.98, 1.01), "s_cont_cap_range": (0.98, 1.01), "starv": 0},
@@ -181,15 +186,15 @@ MATRIX = {
         "all": {"p_attn_range": (0.75, 0.81), "starv": 0},
     },
     ("E2", 800): {
-        "v4": {"p_attn_range": (0.98, 1.01), "s_cont_cap_range": (0.577, 0.637)},  # 0.607±0.03
-        "D1": {"p_attn_range": (0.90, 1.01), "s_cont_cap_range": (0.50, 0.70)},  # D1 likely lower
+        "LongLiu": {"p_attn_range": (0.98, 1.01), "s_cont_cap_range": (0.577, 0.637)},  # 0.607±0.03
+        "DF": {"p_attn_range": (0.90, 1.01), "s_cont_cap_range": (0.50, 0.70)},  # DF likely lower
         "Fair": {"p_attn_min": 0.0, "s_cont_cap_min": 0.0},
-        "SP": {"p_attn_min": 0.0, "s_cont_cap_min": 0.0},
+        "SRPT": {"p_attn_min": 0.0, "s_cont_cap_min": 0.0},
         "CRUX": {"p_attn_max": 0.50},  # CRUX P-attn 崩溃 <50%
     },
 }
 
-POLICIES = ["Fair", "CRUX", "SP", "D1", "v4"]
+POLICIES = ["Fair", "SRPT", "CRUX", "CASSINI", "DF", "LL-S", "LongLiu"]
 
 SCENES = [
     ("E1", FEAS_BOUNDARY_V3_WORKLOAD, [630, 800, 1000, 1200]),
@@ -246,7 +251,7 @@ def main():
     print("=" * 80)
     print(f"Scenes: E1 (4 pts) + E2 (2 pts) = 6 runs/policy")
     print(f"Policies: {POLICIES}")
-    print(f"Total: {6 * 5} = 30 simulations")
+    print(f"Total: {6 * 7} = 42 simulations")
     print()
 
     all_results = []

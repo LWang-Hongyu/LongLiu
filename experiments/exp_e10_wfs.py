@@ -1,7 +1,7 @@
 """
 exp_e10_wfs: Weighted Fair Sharing (WFS) 基线对照实验（论文 E10 章节）。
 
-对比 6 策略（Fair/WFS/CRUX/SP/D1/v4）在 E1 阶梯和 E3 swap 场景下的表现。
+对比 8 策略（Fair/WFS/CRUX/SRPT/DF/LongLiu/CASSINI/LL-S）在 E1 阶梯和 E3 swap 场景下的表现。
 WFS 权重 = 1/ci（tighter SLO → higher weight）。
 
 用法：
@@ -30,6 +30,8 @@ from longliu_sim.policy.fair import Fair
 from longliu_sim.policy.wfs import WFS
 from longliu_sim.policy.crux import CRUX
 from longliu_sim.policy.srpt import SRPT
+from longliu_sim.policy.cassini import CASSINI
+from longliu_sim.policy.longliu import LongLiu
 from longliu_sim.policy.dwrr import LongLiuDWRR, LongLiuAllocatorV4
 from longliu_sim.trace.synthetic import (
     SyntheticTraceLoader,
@@ -66,7 +68,7 @@ def load_frozen() -> dict:
 
 
 def get_policy(name: str, trace_file: str, frozen: dict):
-    """构造 6 策略（Fair/WFS/CRUX/SP/D1/v4）。"""
+    """构造 8 策略（Fair/WFS/CRUX/SRPT/DF/LongLiu/CASSINI/LL-S）。"""
     overhead = frozen["overhead_factor"]
     overlap = frozen["overlap_factor"]
     if name == "Fair":
@@ -75,18 +77,22 @@ def get_policy(name: str, trace_file: str, frozen: dict):
         return WFS()
     elif name == "CRUX":
         return CRUX()
-    elif name == "SP":
+    elif name == "SRPT":
         return SRPT()
-    elif name == "D1":
+    elif name == "DF":
         return LongLiuDWRR(
             overhead_factor=overhead, overlap_factor=overlap,
             trace_file=trace_file,
         )
-    elif name == "v4":
+    elif name == "LongLiu":
         return LongLiuAllocatorV4(
             overhead_factor=overhead, overlap_factor=overlap,
             trace_file=trace_file,
         )
+    elif name == "CASSINI":
+        return CASSINI()
+    elif name == "LL-S":
+        return LongLiu(use_dynamic_T_target=False)
     raise ValueError(f"Unknown policy: {name}")
 
 
@@ -230,7 +236,7 @@ def main():
         k = (r["scene"], r["spine_bw"], r["policy"])
         groups.setdefault(k, []).append(r)
 
-    print(f"\n{'Spine':>6s} | {'Policy':>4s} | {'P-attn':>9s} | {'P-cap':>9s} | {'S-cap':>9s} | {'Starv':>5s}")
+    print(f"\n{'Spine':>6s} | {'Policy':>8s} | {'P-attn':>9s} | {'P-cap':>9s} | {'S-cap':>9s} | {'Starv':>5s}")
     print("-" * 70)
     for spine_bw in cfg["e1_spine_bw_gbps"]:
         for pn in cfg["policies"]:
@@ -246,7 +252,7 @@ def main():
             p_cap_mean = np.mean(p_caps)
             s_cap_mean = np.mean(s_caps)
             starv = max(r["starv"] for r in runs)
-            print(f"{spine_bw:>6d} | {pn:>4s} | {p_attn_mean:5.1f}±{p_attn_std:3.1f}% | "
+            print(f"{spine_bw:>6d} | {pn:>8s} | {p_attn_mean:5.1f}±{p_attn_std:3.1f}% | "
                   f"{p_cap_mean:.3f} | {s_cap_mean:.3f} | {starv:>5d}")
 
     # 保存 summary CSV

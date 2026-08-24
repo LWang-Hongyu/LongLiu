@@ -1,7 +1,7 @@
 """
 exp_trace_replay: Lingjun 2023 trace 时段重放对照实验（论文 robustness 章节）。
 
-对比 5 策略（Fair / CRUX / SP / D1 / v4）在真实 trace 到达模式下的表现。
+对比 5 策略（Fair / SRPT / CRUX / CASSINI / DF / LL-S / LongLiu）在真实 trace 到达模式下的表现。
 与合成 workload 实验的关键区别：
 - 到达时刻来自 trace 真实 gmt_job_submitted（最密集 6h 窗口等比压缩）
 - 保留真实到达间隔分布（非 Poisson）
@@ -22,7 +22,7 @@ import os
 import sys
 import time
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 
 import yaml
 
@@ -31,6 +31,8 @@ from longliu_sim.network import FatTreeTopology
 from longliu_sim.policy.fair import Fair
 from longliu_sim.policy.crux import CRUX
 from longliu_sim.policy.srpt import SRPT
+from longliu_sim.policy.cassini import CASSINI
+from longliu_sim.policy.longliu import LongLiu
 from longliu_sim.policy.dwrr import LongLiuDWRR, LongLiuAllocatorV4
 from longliu_sim.trace.lingjun import LingjunTraceLoader
 
@@ -40,7 +42,7 @@ try:
 except ImportError:
     _HAS_SCIPY = False
 
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 REPLAY_CONFIG = os.path.join(PROJECT_ROOT, "configs", "trace_replay.yaml")
 
 # 锚点语义（与 config.yaml 一致）
@@ -64,21 +66,25 @@ def load_frozen() -> dict:
 
 
 def get_policy(name: str, trace_file: str, frozen: dict):
-    """构造 5 策略（与 exp_v3_batch2 相同的构造签名）。"""
+    """构造策略（与 exp_v3_batch2 相同的构造签名）。"""
     overhead = frozen["overhead_factor"]
     overlap = frozen["overlap_factor"]
     if name == "Fair":
         return Fair()
+    elif name == "SRPT":
+        return SRPT()
     elif name == "CRUX":
         return CRUX()
-    elif name == "SP":
-        return SRPT()
-    elif name == "D1":
+    elif name == "CASSINI":
+        return CASSINI()
+    elif name == "DF":
         return LongLiuDWRR(
             overhead_factor=overhead, overlap_factor=overlap,
             trace_file=trace_file,
         )
-    elif name == "v4":
+    elif name == "LL-S":
+        return LongLiu(use_dynamic_T_target=False)
+    elif name == "LongLiu":
         return LongLiuAllocatorV4(
             overhead_factor=overhead, overlap_factor=overlap,
             trace_file=trace_file,
@@ -258,22 +264,22 @@ def main():
             summary[pn][m] = mean
             summary[pn][f"{m}_std"] = std
 
-    # 配对 t-test：相对 v4（主策略）
+    # 配对 t-test：相对 LongLiu（主策略）
     if _HAS_SCIPY:
         for pn in policies:
-            if pn == "v4" or not results[pn] or len(results[pn]) != len(results["v4"]):
+            if pn == "LongLiu" or not results[pn] or len(results[pn]) != len(results["LongLiu"]):
                 continue
             try:
                 _, pv = scipy_stats.ttest_rel(
                     [r["sas_mean"] for r in results[pn]],
-                    [r["sas_mean"] for r in results["v4"]],
+                    [r["sas_mean"] for r in results["LongLiu"]],
                 )
-                summary[pn]["p_sas_vs_v4"] = pv
+                summary[pn]["p_sas_vs_LongLiu"] = pv
                 _, pv_attn = scipy_stats.ttest_rel(
                     [r["p_attn"] for r in results[pn]],
-                    [r["p_attn"] for r in results["v4"]],
+                    [r["p_attn"] for r in results["LongLiu"]],
                 )
-                summary[pn]["p_attn_vs_v4"] = pv_attn
+                summary[pn]["p_attn_vs_LongLiu"] = pv_attn
             except Exception:
                 pass
 
@@ -281,14 +287,14 @@ def main():
     with open(csv_path, "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["Policy"] + metric_names +
-                   ["p_sas_vs_v4", "p_attn_vs_v4"])
+                   ["p_sas_vs_LongLiu", "p_attn_vs_LongLiu"])
         for pn in policies:
             s = summary[pn]
             row = [pn] + [f"{s.get(m, 0):.4f}±{s.get(f'{m}_std', 0):.4f}"
                           if s.get(f"{m}_std", 0) else f"{s.get(m, 0):.4f}"
                           for m in metric_names]
-            row.append(f"{s['p_sas_vs_v4']:.4e}" if "p_sas_vs_v4" in s else "")
-            row.append(f"{s['p_attn_vs_v4']:.4e}" if "p_attn_vs_v4" in s else "")
+            row.append(f"{s['p_sas_vs_LongLiu']:.4e}" if "p_sas_vs_LongLiu" in s else "")
+            row.append(f"{s['p_attn_vs_LongLiu']:.4e}" if "p_attn_vs_LongLiu" in s else "")
             w.writerow(row)
     print(f"\n  CSV → {csv_path}")
 

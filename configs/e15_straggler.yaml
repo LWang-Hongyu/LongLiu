@@ -9,7 +9,7 @@ topology:
   spine_bw_bps: 400000000000.0  # 400 Gbps（压到稀缺区制造拥塞）
 duration_ms: 600000  # 10 分钟
 
-policies: ["Fair", "CRUX", "SP", "D1", "v4"]
+policies: ["Fair", "SRPT", "CRUX", "CASSINI", "DF", "LL-S", "LongLiu"]
 seeds: [0, 1, 2, 3, 4]
 
 # Straggler 膨胀因子

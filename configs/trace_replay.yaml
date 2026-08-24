@@ -20,7 +20,7 @@ trace:
   max_jobs: null          # null = 窗口内全部保留；可限制数量以控制竞争强度
   num_hosts: 16           # 与拓扑主机数一致（worker 放置范围）
 
-policies: ["Fair", "CRUX", "SP", "D1", "v4"]
+policies: ["Fair", "SRPT", "CRUX", "CASSINI", "DF", "LL-S", "LongLiu"]
 seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 premium_ci_threshold: 2.0  # ci <= 2.0 → premium tier

@@ -4,14 +4,14 @@ exp_v3_batch2: feas_boundary_v3 第二批全量快检（矩阵 v2）
 E1 六点（@400/500/630/800/1000/1200G）
   + E2' 两点（@630/800G）
   + E2-pro 两点（@630/800G）
-= 10 配置点 × 5 策略 × 1 seed = 50 run
+= 10 配置点 × 7 策略 × 1 seed = 70 run
 
 判定规则（矩阵 v2 三节框架）：
-  一、v4 保障下界：@800/1000/1200G P-attn<100%(容差2%) = FAIL
+  一、LongLiu 保障下界：@800/1000/1200G P-attn<100%(容差2%) = FAIL
   二、基线观测行：全部不设 FAIL，仅记录
   三、机制预测行：
-      P1: E2' CRUX P-attn ≪ v4 P-attn（方向性）
-      P2: E1 @400/500G v4 ≥ D1 > Fair
+      P1: E2' CRUX P-attn ≪ LongLiu P-attn（方向性）
+      P2: E1 @400/500G LongLiu ≥ DF > Fair
 """
 
 from __future__ import annotations
@@ -29,6 +29,8 @@ from longliu_sim.policy.fair import Fair
 from longliu_sim.policy.crux import CRUX
 from longliu_sim.policy.srpt import SRPT
 from longliu_sim.policy.dwrr import LongLiuDWRR, LongLiuAllocatorV4
+from longliu_sim.policy.cassini import CASSINI
+from longliu_sim.policy.longliu import LongLiu
 from longliu_sim.core import Simulator
 from longliu_sim.network import FatTreeTopology
 from longliu_sim.trace import SyntheticTraceLoader
@@ -53,27 +55,33 @@ with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), "config.yaml"
 
 # --- 判定容差 ---
 V4_GUARANTEE_TOLERANCE = 0.02  # P-attn ≥ 0.98 即为命中
-P1_SIGNIFICANCE = 0.10  # CRUX P-attn 比 v4 低至少 10 个百分点
+P1_SIGNIFICANCE = 0.10  # CRUX P-attn 比 LongLiu 低至少 10 个百分点
 
 
 def get_policy(name: str, trace_file: str):
     if name == "Fair":
         return Fair()
+    elif name == "SRPT":
+        return SRPT()
     elif name == "CRUX":
         return CRUX()
-    elif name == "SP":
-        return SRPT()
-    elif name == "D1":
+    elif name == "CASSINI":
+        return CASSINI()
+    elif name == "DF":
         return LongLiuDWRR(
-            overhead_factor=OVERHEAD, overlap_factor=OVERLAP,
+            overhead_factor=OVERHEAD,
+            overlap_factor=OVERLAP,
             trace_file=trace_file,
         )
-    elif name == "v4":
+    elif name == "LL-S":
+        return LongLiu(use_dynamic_T_target=False)
+    elif name == "LongLiu":
         return LongLiuAllocatorV4(
-            overhead_factor=OVERHEAD, overlap_factor=OVERLAP,
+            overhead_factor=OVERHEAD,
+            overlap_factor=OVERLAP,
             trace_file=trace_file,
         )
-    raise ValueError(f"Unknown policy: {name}")
+    raise ValueError(name)
 
 
 def run_single(scene: str, workload: List[Tuple[str, int, float]],
@@ -171,7 +179,7 @@ def run_single(scene: str, workload: List[Tuple[str, int, float]],
 # 矩阵 v2 规则
 # ============================================================
 
-POLICIES = ["Fair", "CRUX", "SP", "D1", "v4"]
+POLICIES = ["Fair", "SRPT", "CRUX", "CASSINI", "DF", "LL-S", "LongLiu"]
 
 SCENARIOS = [
     ("E1", FEAS_BOUNDARY_V3_WORKLOAD, [400, 500, 630, 800, 1000, 1200]),
@@ -179,61 +187,61 @@ SCENARIOS = [
     ("E2-pro", FEAS_BOUNDARY_V3_PRO_WORKLOAD, [630, 800]),
 ]
 
-V4_GUARANTEE_POINTS = {800, 1000, 1200}  # v4 P-attn≥100% 保障下界
+V4_GUARANTEE_POINTS = {800, 1000, 1200}  # LongLiu P-attn≥100% 保障下界
 
 # 需要做机制预测的 (scene, spine_bw) 组合
 PREDICTION_CHECKS = {
-    "P1": [("E2'", 630), ("E2'", 800)],   # CRUX ≪ v4
-    "P2": [("E1", 400), ("E1", 500)],      # v4 ≥ D1 > Fair
+    "P1": [("E2'", 630), ("E2'", 800)],   # CRUX ≪ LongLiu
+    "P2": [("E1", 400), ("E1", 500)],      # LongLiu ≥ DF > Fair
 }
 
 
 def check_v4_guarantee(results_db: dict) -> list[str]:
-    """检查 v4 保障下界：@800/1000/1200G P-attn >= 0.98"""
+    """检查 LongLiu 保障下界：@800/1000/1200G P-attn >= 0.98"""
     failures = []
     for scene, _, spine_pts in SCENARIOS:
         for bw in spine_pts:
             if bw not in V4_GUARANTEE_POINTS:
                 continue
-            key = (scene, bw, "v4")
+            key = (scene, bw, "LongLiu")
             if key not in results_db:
-                failures.append(f"[v4保障] {scene} @{bw}G v4 未执行")
+                failures.append(f"[LongLiu保障] {scene} @{bw}G LongLiu 未执行")
                 continue
             r = results_db[key]
             if r["p_attn"] < 1.0 - V4_GUARANTEE_TOLERANCE:
                 failures.append(
-                    f"[v4保障 FAIL] {scene} @{bw}G v4 P-attn={r['p_attn']*100:.1f}% "
+                    f"[LongLiu保障 FAIL] {scene} @{bw}G LongLiu P-attn={r['p_attn']*100:.1f}% "
                     f"< 98% —— 下界被击穿！"
                 )
     return failures
 
 
 def check_prediction_p1(results_db: dict) -> list[str]:
-    """P1: E2' CRUX P-attn 显著低于 v4 P-attn"""
+    """P1: E2' CRUX P-attn 显著低于 LongLiu P-attn"""
     failures = []
     for scene, bw in PREDICTION_CHECKS["P1"]:
-        k_v4 = (scene, bw, "v4")
+        k_ll = (scene, bw, "LongLiu")
         k_crux = (scene, bw, "CRUX")
-        if k_v4 not in results_db or k_crux not in results_db:
-            failures.append(f"[P1] {scene} @{bw}G: 缺少 v4 或 CRUX 数据")
+        if k_ll not in results_db or k_crux not in results_db:
+            failures.append(f"[P1] {scene} @{bw}G: 缺少 LongLiu 或 CRUX 数据")
             continue
-        v4_attn = results_db[k_v4]["p_attn"]
+        ll_attn = results_db[k_ll]["p_attn"]
         crux_attn = results_db[k_crux]["p_attn"]
-        diff = v4_attn - crux_attn
+        diff = ll_attn - crux_attn
         if diff < P1_SIGNIFICANCE:
             failures.append(
                 f"[P1 FAIL] {scene} @{bw}G: CRUX P-attn={crux_attn*100:.1f}% "
-                f"vs v4={v4_attn*100:.1f}% (diff={diff*100:.1f}pp < {P1_SIGNIFICANCE*100:.0f}pp) "
-                f"—— CRUX 未显著低于 v4！"
+                f"vs LongLiu={ll_attn*100:.1f}% (diff={diff*100:.1f}pp < {P1_SIGNIFICANCE*100:.0f}pp) "
+                f"—— CRUX 未显著低于 LongLiu！"
             )
     return failures
 
 
 def check_prediction_p2(results_db: dict) -> list[str]:
-    """P2: E1 @400/500G v4 ≥ D1 > Fair"""
+    """P2: E1 @400/500G LongLiu ≥ DF > Fair"""
     failures = []
     for scene, bw in PREDICTION_CHECKS["P2"]:
-        k = {pn: (scene, bw, pn) for pn in ["v4", "D1", "Fair"]}
+        k = {pn: (scene, bw, pn) for pn in ["LongLiu", "DF", "Fair"]}
         vals = {}
         for pn, key in k.items():
             if key not in results_db:
@@ -242,15 +250,15 @@ def check_prediction_p2(results_db: dict) -> list[str]:
             vals[pn] = results_db[key]["p_attn"]
         if len(vals) < 3:
             continue
-        # v4 ≥ D1 > Fair (allow equality at the ≥ boundary)
-        if vals["v4"] < vals["D1"] - 0.01:
+        # LongLiu ≥ DF > Fair (allow equality at the ≥ boundary)
+        if vals["LongLiu"] < vals["DF"] - 0.01:
             failures.append(
-                f"[P2 FAIL] {scene} @{bw}G: v4({vals['v4']*100:.1f}%) "
-                f"< D1({vals['D1']*100:.1f}%) —— 排序不成立！"
+                f"[P2 FAIL] {scene} @{bw}G: LongLiu({vals['LongLiu']*100:.1f}%) "
+                f"< DF({vals['DF']*100:.1f}%) —— 排序不成立！"
             )
-        if vals["D1"] <= vals["Fair"]:
+        if vals["DF"] <= vals["Fair"]:
             failures.append(
-                f"[P2 FAIL] {scene} @{bw}G: D1({vals['D1']*100:.1f}%) "
+                f"[P2 FAIL] {scene} @{bw}G: DF({vals['DF']*100:.1f}%) "
                 f"≤ Fair({vals['Fair']*100:.1f}%) —— 排序不成立！"
             )
     return failures
@@ -294,16 +302,16 @@ def main():
     all_failures = []
     any_fail = False
 
-    # 一、v4 保障下界
+    # 一、LongLiu 保障下界
     v4_fails = check_v4_guarantee(results_db)
     if v4_fails:
-        print("\n[v4 保障下界检查]")
+        print("\n[LongLiu 保障下界检查]")
         for f in v4_fails:
             print(f"  FAIL: {f}")
         all_failures.extend(v4_fails)
         any_fail = True
     else:
-        print("\n[v4 保障下界] 全部通过 ✓")
+        print("\n[LongLiu 保障下界] 全部通过 ✓")
 
     # 二、基线观测行：不设 FAIL，仅打印
     print("\n[基线观测行]")
@@ -337,7 +345,7 @@ def main():
         all_failures.extend(p1_fails)
         any_fail = True
     else:
-        print("  P1 (E2' CRUX ≪ v4): 成立 ✓")
+        print("  P1 (E2' CRUX ≪ LongLiu): 成立 ✓")
 
     p2_fails = check_prediction_p2(results_db)
     if p2_fails:
@@ -346,7 +354,7 @@ def main():
         all_failures.extend(p2_fails)
         any_fail = True
     else:
-        print("  P2 (E1 @400/500G v4≥D1>Fair): 成立 ✓")
+        print("  P2 (E1 @400/500G LongLiu≥DF>Fair): 成立 ✓")
 
     # ---- 保存汇总 ----
     out_path = "outputs/v3_batch2/summary.json"

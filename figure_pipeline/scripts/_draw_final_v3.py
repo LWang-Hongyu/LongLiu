@@ -58,11 +58,15 @@ plt.rcParams.update({
 
 # ═══ Okabe-Ito 色彩 + 线型 + 标记 ═══
 POLICY_COLOR  = {"LongLiu":"#0072B2","CRUX":"#D55E00","DF":"#009E73",
-                 "SP":"#E69F00","Fair":"#999999"}
-POLICY_LS     = {"LongLiu":"-","CRUX":"--","DF":"-.","SP":(0,(3,1.5)),"Fair":":"}
-POLICY_MARKER = {"LongLiu":"s","CRUX":"o","DF":"D","SP":"^","Fair":"v"}
-POLICY_LABEL  = {"LongLiu":"LongLiu","CRUX":"CRUX","DF":"DF","SP":"SP","Fair":"Fair"}
-POLICY_ORDER  = ["LongLiu","DF","CRUX","SP","Fair"]
+                 "SRPT":"#E69F00","CASSINI":"#CC79A7","LL-S":"#A65628",
+                 "Fair":"#999999"}
+POLICY_LS     = {"LongLiu":"-","CRUX":"--","DF":"-.","SRPT":(0,(3,1.5)),
+                 "CASSINI":(0,(5,2,1,2)),"LL-S":(0,(1,1)),"Fair":":"}
+POLICY_MARKER = {"LongLiu":"s","CRUX":"o","DF":"D","SRPT":"^",
+                 "CASSINI":"<","LL-S":"h","Fair":"v"}
+POLICY_LABEL  = {"LongLiu":"LongLiu","CRUX":"CRUX","DF":"DF","SRPT":"SRPT",
+                 "CASSINI":"CASSINI","LL-S":"LL-S","Fair":"Fair"}
+POLICY_ORDER  = ["LongLiu","DF","CRUX","SRPT","CASSINI","LL-S","Fair"]
 
 FULL_W   = 7.16
 SINGLE_W = 3.5
@@ -111,11 +115,11 @@ def build_job_info(workload_raw):
 
 # ═══ Data loading ═══
 def load_e1_e2(path):
-    df = pd.read_csv(path, quotechar="'")
+    df = pd.read_csv(path)
     data = defaultdict(lambda: defaultdict(dict))
     for _, row in df.iterrows():
         scene = row["scene"]
-        pol = {"v4":"LongLiu","D1":"DF"}.get(row["policy"], row["policy"])
+        pol = row["policy"]
         data[scene][pol][int(row["spine_bw"])] = (float(row["p_attn_mean"]),
                                                    float(row["p_attn_std"]))
     return dict(data)
@@ -168,7 +172,7 @@ def compute_trajectory(records, job_info):
 def load_policy_trajectory(tag, pol, n_seeds):
     workload = FEAS_BOUNDARY_V3_WORKLOAD if tag=="e3_swap" else FEAS_BOUNDARY_V3_PRO_WORKLOAD
     job_info = build_job_info(workload)
-    seeds = list(range(n_seeds)) if pol=="D1" else [0,1,2,4,5]
+    seeds = list(range(n_seeds))
     seed_trajs = []
     for s in seeds:
         path = os.path.join(E3_BASE, f"{tag}_{pol}_s{s}", "records.jsonl")
@@ -197,8 +201,8 @@ def load_df_csv(path):
 
 def draw_fig1():
     print("\n=== Fig-1 Hero ===")
-    tv4_e3,  mv4_e3,  sv4_e3  = load_policy_trajectory("e3_swap",  "v4",  5)
-    tv4_e3p, mv4_e3p, sv4_e3p = load_policy_trajectory("e3p_swap", "v4",  5)
+    tv4_e3,  mv4_e3,  sv4_e3  = load_policy_trajectory("e3_swap",  "LongLiu", 5)
+    tv4_e3p, mv4_e3p, sv4_e3p = load_policy_trajectory("e3p_swap", "LongLiu", 5)
     tc_e3,   mc_e3,   sc_e3   = load_policy_trajectory("e3_swap",  "CRUX",5)
     tc_e3p,  mc_e3p,  sc_e3p  = load_policy_trajectory("e3p_swap", "CRUX",5)
     td_e3,   md_e3,   sd_e3   = load_df_csv(os.path.join(FIG_REG,"fig4_d1_trajectory_e3.csv"))
@@ -272,7 +276,7 @@ def draw_fig1():
 
 def draw_fig2():
     print("\n=== Fig-2 E1 Ladder ===")
-    data = load_e1_e2(os.path.join(FIG_REG,"fig2_e1_ladder_5seed.csv"))
+    data = load_e1_e2(os.path.join(FIG_REG,"fig2_e1_ladder_10seed.csv"))
     e1d = data["E1"]
     bws = [400,500,630,800,1000,1200]
     ANNOTATE_BWS = {400,500,630}  # only annotate these
@@ -288,7 +292,7 @@ def draw_fig2():
     ax.set_xlabel("Spine bandwidth (Gbps)", fontsize=12, labelpad=8)
     ax.set_ylabel("P-attn (%)", fontsize=12, labelpad=8)
     ax.set_ylim(0,130); ax.set_xlim(350,1250)
-    ax.legend(loc='lower right', ncol=5, fontsize=10.7)
+    ax.legend(loc='lower right', ncol=4, fontsize=10.7, frameon=False)
     ax.grid(True)
 
     # Shaded regions — full height to top spine label
@@ -318,7 +322,7 @@ def draw_fig2():
 
 def draw_fig3():
     print("\n=== Fig-3 E2 Orthogonal ===")
-    data = load_e1_e2(os.path.join(FIG_REG,"fig3_e2_ladder_5seed.csv"))
+    data = load_e1_e2(os.path.join(FIG_REG,"fig3_e2_ladder_10seed.csv"))
     d1 = data["E2'"]; d2 = data["E2-pro"]
 
     fig, (ax1, ax2) = plt.subplots(1,2, figsize=(FULL_W, 2.8))
@@ -336,19 +340,20 @@ def draw_fig3():
                         ls=POLICY_LS[pol], marker=POLICY_MARKER[pol],
                         markersize=7, lw=1.4, capsize=2.5, label=POLICY_LABEL[pol])
         ax.set_xlabel("Spine bandwidth (Gbps)", fontsize=12, labelpad=8)
-        ax.set_ylabel("P-attn (%)", fontsize=12, labelpad=8)
+        if ax is ax1:
+            ax.set_ylabel("P-attn (%)", fontsize=12, labelpad=8)
         ax.set_ylim(0,120)
         ax.grid(True)
 
     # ax1.set_title("(a) E2' (disadvantaging CRUX)", fontsize=10.7, fontweight='bold', loc='left', pad=3)
     # ax2.set_title("(b) E2-pro (favorable CRUX)",  fontsize=10.7, fontweight='bold', loc='left', pad=3)
 
-    # Single shared legend
+    # Single shared legend (top, two rows, transparent)
     handles, labels = ax1.get_legend_handles_labels()
-    fig.legend(handles, labels, loc='lower center', fontsize=10.7, ncol=5,
-               frameon=True, framealpha=0.9, edgecolor='#CCCCCC', bbox_to_anchor=(0.5, 0.01))
+    fig.legend(handles, labels, loc='upper center', fontsize=10.7, ncol=4,
+               frameon=False, bbox_to_anchor=(0.5, 1.08))
 
-    fig.tight_layout(rect=[0, 0.05, 1, 1.0], pad=1.5, w_pad=2.5)
+    fig.tight_layout(rect=[0, 0.02, 1, 0.96], pad=1.5, w_pad=0.2)
     path = os.path.join(OUT_DIR,"fig3_e2_orthogonal")
     save_both(fig, path)
     plt.close(fig)
@@ -415,8 +420,8 @@ def draw_fig4():
 
 def draw_fig5():
     print("\n=== Fig-5 Pi Timeseries ===")
-    tp = os.path.join(E3_BASE,"e3p_swap_D1_s0","trace.jsonl")
-    sp = os.path.join(E3_BASE,"e3p_swap_D1_s0","swap_log.json")
+    tp = os.path.join(E3_BASE,"e3p_swap_DF_s0","trace.jsonl")
+    sp = os.path.join(E3_BASE,"e3p_swap_DF_s0","swap_log.json")
     if not os.path.exists(tp):
         print("  SKIP"); return None
 
@@ -529,47 +534,38 @@ def draw_fig5():
     for h,l in zip(all_h, all_l):
         if l not in seen:
             seen.add(l); uniq_h.append(h); uniq_l.append(l)
-    fig.legend(uniq_h, uniq_l, loc='lower center', fontsize=10, ncol=5,
-               frameon=True, framealpha=0.95, edgecolor='#CCCCCC',
-               bbox_to_anchor=(0.52, -0.06))
+    fig.legend(uniq_h, uniq_l, loc='upper center', fontsize=10, ncol=5,
+               frameon=False,
+               bbox_to_anchor=(0.52, 1.09))
 
-    fig.tight_layout(rect=[0,0.06,1,1.0], pad=1.5, h_pad=1.0)
+    fig.tight_layout(rect=[0,0.02,1,0.96], pad=1.5, h_pad=1.0)
     path = os.path.join(OUT_DIR,"fig5_pi_timeseries")
     save_both(fig,path)
     plt.close(fig)
     return path
 
 # ═══════════════════════════════════════════════════════════════
-# T-1: Anchor baseline (v1.1 DF rerun + v1 Fair/CRUX/SP)
+# T-1: Anchor baseline (7 策略 × 10 seeds, baseline_regen 输出)
 # ═══════════════════════════════════════════════════════════════
 
 def draw_table1():
-    print("\n=== T-1 Anchor (v1.1) ===")
-    # v1 data for Fair/CRUX/SP
+    print("\n=== T-1 Anchor (10 seeds) ===")
     with open(os.path.join(ANCHOR_D,"per_policy_results.json")) as f:
         v1 = json.load(f)
-    # v1.1 DF rerun
-    with open(os.path.join(ANCHOR_D,"D1_rerun.json")) as f:
-        df_v11 = json.load(f)
 
+    order = ["LongLiu","Fair","CRUX","SRPT","DF","CASSINI","LL-S"]
     lines=[]
     lines.append(r"\begin{table}[t]")
     lines.append(r"\centering")
-    lines.append(r"\caption{Baseline anchor at 400 Gbps (3 seeds, 24 jobs, 12L/8M/4S).}")
+    lines.append(r"\caption{Baseline anchor at 400 Gbps (10 seeds, 24 jobs).}")
     lines.append(r"\label{tab:anchor}")
     lines.append(r"\small\begin{tabular}{lcccc}\toprule")
     lines.append(r"Policy & Mean SAS & SLO attainment & Collapse (\%) \\\midrule")
 
-    for label, key in [("LongLiu","—"),("Fair","Fair"),("CRUX","CRUX"),("SP","SP"),("DF","—")]:
-        if key == "—":
-            if label == "LongLiu":
-                lines.append(r"LongLiu & 1.0000 & 100.0 & 0.0 \\")
-            elif label == "DF":
-                lines.append(f"DF & {df_v11['summary']['mean_sas']:.4f} & "
-                             f"{df_v11['summary']['mean_slo_rate']*100:.1f} & "
-                             f"{df_v11['summary']['mean_collapse_rate']*100:.1f} \\\\")
+    for label in order:
+        if label not in v1:
             continue
-        ss = v1[key]["seeds"]
+        ss = v1[label]["seeds"]
         ov = np.mean([s["overall"]["mean_sas"] for s in ss])
         sr = np.mean([s["overall"]["slo_rate"] for s in ss])*100
         col = np.mean([s["overall"].get("collapse_rate",0) for s in ss])*100
@@ -583,9 +579,9 @@ def draw_table1():
 
 def draw_table2():
     print("\n=== T-2 E2-pro ===")
-    d=load_e1_e2(os.path.join(FIG_REG,"fig3_e2_ladder_5seed.csv"))["E2-pro"]
+    d=load_e1_e2(os.path.join(FIG_REG,"fig3_e2_ladder_10seed.csv"))["E2-pro"]
     lines=[r"\begin{table}[t]",r"\centering",
-           r"\caption{E2-pro positive control (CRUX-favorable, 5 seeds).}",
+           r"\caption{E2-pro positive control (CRUX-favorable, 10 seeds).}",
            r"\label{tab:e2pro}",r"\small\begin{tabular}{lcc}\toprule",
            r"Policy & 630 Gbps & 800 Gbps \\\midrule"]
     for pol in POLICY_ORDER:
@@ -609,12 +605,12 @@ def self_check():
     print("="*60)
 
     # E1/E2
-    for fname, scenes in [('fig2_e1_ladder_5seed.csv',['E1']),
-                           ('fig3_e2_ladder_5seed.csv',["E2'","E2-pro"])]:
+    for fname, scenes in [('fig2_e1_ladder_10seed.csv',['E1']),
+                           ('fig3_e2_ladder_10seed.csv',["E2'","E2-pro"])]:
         data = load_e1_e2(os.path.join(FIG_REG, fname))
         for scene in scenes:
             if scene not in data: continue
-            for pol in ['LongLiu','DF','CRUX','SP','Fair']:
+            for pol in POLICY_ORDER:
                 for bw in sorted(data[scene].get(pol,{})):
                     m,s = data[scene][pol][bw]
                     print(f"  {scene:6s} {pol:8s} {bw:4d}G: {m*100:5.1f}% ±{s*100:.1f}%  "
@@ -628,29 +624,32 @@ def self_check():
             idx = np.argmin(np.abs(t-ts))
             print(f"  {label} DF t≈{ts}: P-attn={m[idx]*100:.1f}% (CSV)")
 
-    # v4 truncated window
+    # LongLiu truncated window
     for tag,label in [('e3_swap','E3'),('e3p_swap',"E3'")]:
-        tv,mv,sv = load_policy_trajectory(tag,'v4',5)
+        tv,mv,sv = load_policy_trajectory(tag,'LongLiu',5)
         for ts in [250,300,550]:
             idx = np.argmin(np.abs(tv-ts))
-            print(f"  {label} v4 t≈{ts}: {mv[idx]*100:.1f}% ±{sv[idx]*100:.1f}%")
+            print(f"  {label} LongLiu t≈{ts}: {mv[idx]*100:.1f}% ±{sv[idx]*100:.1f}%")
 
     # CRUX W3 vs run_meta
     for tag,label in [('e3_swap','E3'),('e3p_swap',"E3'")]:
         w1s=[]; w3s=[]
-        for s in [0,1,2,4,5]:
+        for s in range(5):
             p = os.path.join(E3_BASE,f'{tag}_CRUX_s{s}','run_meta.json')
             with open(p) as f: m=json.load(f)
             w1s.append(m['w1']['p_attn']); w3s.append(m['w3']['p_attn'])
         print(f"  {label} CRUX run_meta W1={np.mean(w1s)*100:.1f}±{np.std(w1s)*100:.1f}%  "
               f"W3={np.mean(w3s)*100:.1f}±{np.std(w3s)*100:.1f}%")
 
-    # T-1 v1.1 DF
-    with open(os.path.join(ANCHOR_D,"D1_rerun.json")) as f:
+    # T-1 anchor (10 seeds)
+    with open(os.path.join(ANCHOR_D,"per_policy_results.json")) as f:
         dv = json.load(f)
-    print(f"\n  T-1 DF v1.1: SAS={dv['summary']['mean_sas']:.4f} "
-          f"SLO={dv['summary']['mean_slo_rate']:.4f} "
-          f"Collapse={dv['summary']['mean_collapse_rate']:.4f}")
+    for pol in ["LongLiu","Fair","CRUX","SRPT","DF","CASSINI","LL-S"]:
+        if pol not in dv: continue
+        s = dv[pol]["summary"]
+        print(f"\n  T-1 {pol}: SAS={s['mean_sas']:.4f} "
+              f"SLO={s['mean_slo_rate']:.4f} "
+              f"Collapse={s['mean_collapse_rate']:.4f}")
 
 # ═══════════════════════════════════════════════════════════════
 def main():

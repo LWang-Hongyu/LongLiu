@@ -1,1 +1,0 @@
-/home/why/LongLiu_rebuild/sim-nextgen/experiments/_quick_scan_e14_passive.py

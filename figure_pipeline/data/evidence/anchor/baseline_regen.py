@@ -1,4 +1,4 @@
-"""基线重生成：Fair/CRUX/SP/D1 @ V2_ANCHOR_WORKLOAD，3 seeds。
+"""基线重生成：Fair/SRPT/CRUX/CASSINI/DF/LL-S/LongLiu @ V2_ANCHOR_WORKLOAD，3 seeds。
 
 产出 outputs/anchor_regen_v1/ 下的 run_meta.json + per_policy_results.json。
 运行完成后 git tag anchor-regen-v1。
@@ -12,10 +12,13 @@ import sys
 import time
 from datetime import datetime
 
-_project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))))
 sys.path.insert(0, _project_root)
 
 from longliu_sim.policy import Fair, CRUX, LongLiu
+from longliu_sim.policy.srpt import SRPT
+from longliu_sim.policy.cassini import CASSINI
 from longliu_sim.policy.dwrr import LongLiuDWRR
 from longliu_sim.core import Simulator
 from longliu_sim.network import FatTreeTopology
@@ -27,24 +30,30 @@ from longliu_sim.utils.config import (
 
 
 OUTPUT_DIR = os.path.join(_project_root, "outputs", "anchor_regen_v1")
-SEEDS = [0, 1, 2]
-STRATEGIES = ["Fair", "CRUX", "SP", "D1"]
+SEEDS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+STRATEGIES = ["Fair", "SRPT", "CRUX", "CASSINI", "DF", "LL-S", "LongLiu"]
 
 
-def build_policy(name: str, overlap_factor: float):
+def build_policy(name: str, overlap_factor: float, overhead_factor: float):
     """构建策略实例。"""
     if name == "Fair":
         return Fair()
+    elif name == "SRPT":
+        return SRPT()
     elif name == "CRUX":
         return CRUX(alpha=1.0, eps=1e-6, profile_iters=3)
-    elif name == "SP":
-        return LongLiu(K=2.0, use_dynamic_T_target=True)
-    elif name == "D1":
+    elif name == "CASSINI":
+        return CASSINI()
+    elif name == "DF":
         return LongLiuDWRR(
             K=2.0, use_soft_weights=False, intra_class_fair=False,
             clip_ratio=10.0, overlap_factor=overlap_factor,
-            overhead_factor=frozen["overhead_factor"],
+            overhead_factor=overhead_factor,
         )
+    elif name == "LL-S":
+        return LongLiu(K=2.0, use_dynamic_T_target=False)
+    elif name == "LongLiu":
+        return LongLiu(K=2.0, use_dynamic_T_target=True)
     else:
         raise ValueError(f"Unknown strategy: {name}")
 
@@ -78,6 +87,10 @@ def run_single(cfg: dict, policy, seed: int) -> dict:
         workload_profile=[tuple(item) for item in workload],
     )
     jobs = loader.load()
+    if isinstance(policy, CASSINI):
+        offsets = CASSINI.compute_offsets([j.iter_interval_ms for j in jobs])
+        for j, off in zip(jobs, offsets):
+            j.comm_offset_ms = off
     for j in jobs:
         sim.submit(j)
 
@@ -160,7 +173,7 @@ def main():
     all_results = {}
 
     print("=" * 70)
-    print("基线重生成：Fair / CRUX / SP / D1")
+    print("基线重生成：Fair / SRPT / CRUX / CASSINI / DF / LL-S / LongLiu")
     print(f"Workload: V2_ANCHOR_WORKLOAD ({cfg['job_count']} jobs, ci=1.5/2.0/3.0)")
     print(f"Seeds: {SEEDS}")
     print(f"输出: {OUTPUT_DIR}")
@@ -172,7 +185,8 @@ def main():
 
         for seed in SEEDS:
             t0 = time.time()
-            policy = build_policy(strategy_name, frozen["overlap_factor"])
+            policy = build_policy(strategy_name, frozen["overlap_factor"],
+                                  frozen["overhead_factor"])
             result = run_single(run_config, policy, seed)
             elapsed = time.time() - t0
             result["elapsed_s"] = round(elapsed, 1)
@@ -235,7 +249,7 @@ def main():
 
     print(f"\n下一步: git tag anchor-regen-v1")
     print(f"  cd {_project_root}")
-    print(f"  git tag -a anchor-regen-v1 -m 'baseline regeneration: Fair/CRUX/SP/D1 @ V2_ANCHOR_WORKLOAD, 3 seeds'")
+    print(f"  git tag -a anchor-regen-v1 -m 'baseline regeneration: Fair/SRPT/CRUX/CASSINI/DF/LL-S/LongLiu @ V2_ANCHOR_WORKLOAD, 3 seeds'")
 
 
 if __name__ == "__main__":

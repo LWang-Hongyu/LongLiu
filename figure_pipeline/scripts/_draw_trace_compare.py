@@ -41,9 +41,11 @@ plt.rcParams.update({
 
 # Okabe-Ito 色彩
 POLICY_COLOR  = {"LongLiu":"#0072B2","CRUX":"#D55E00","DF":"#009E73",
-                 "SP":"#E69F00","Fair":"#999999"}
-POLICY_LABEL  = {"LongLiu":"LongLiu","CRUX":"CRUX","DF":"DF","SP":"SP","Fair":"Fair"}
-POLICY_ORDER  = ["LongLiu","DF","CRUX","SP","Fair"]
+                 "SRPT":"#E69F00","CASSINI":"#CC79A7","LL-S":"#A65628",
+                 "Fair":"#999999"}
+POLICY_LABEL  = {"LongLiu":"LongLiu","CRUX":"CRUX","DF":"DF","SRPT":"SRPT",
+                 "CASSINI":"CASSINI","LL-S":"LL-S","Fair":"Fair"}
+POLICY_ORDER  = ["LongLiu","LL-S","DF","SRPT","CRUX","CASSINI","Fair"]
 
 FULL_W = 13.0  # 扁平宽图，匹配 E10-E15 系列
 PROJ   = _BASE
@@ -53,8 +55,8 @@ TRACE_CSV = os.path.join(REG, "fig6_trace_compare.csv")  # 权威数据源
 OUT_DIR = os.path.join(PIPE_DIR, "figs")
 os.makedirs(OUT_DIR, exist_ok=True)
 
-# trace CSV 中策略名 → 论文策略名
-TRACE2POL = {"v4": "LongLiu", "D1": "DF"}
+# trace CSV 中策略名 → 论文策略名（新版 CSV 已直接用新策略名）
+TRACE2POL = {}
 
 
 def load_trace():
