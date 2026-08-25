@@ -28,6 +28,7 @@ class Job:
                  target_iters: int, slo_ci: float = 1.5,
                  num_workers: int = 1,
                  allreduce_algo: str = "aggregate",
+                 collective_type: str = "allreduce",
                  compute_ms: float | None = None,
                  comm_solo_ms: float | None = None,
                  start_time_ms: float = 0.0,
@@ -50,6 +51,11 @@ class Job:
                 "aggregate" — 单流 aggregate（默认，向后兼容）
                 "ring" — Ring AllReduce，每轮 2(N-1) 个阶段串行
                 "tree" — Tree AllReduce
+            collective_type: 集合通信类型（决定 flow 展开与每 worker 通信量）
+                "allreduce"      — DDP 梯度 AllReduce（默认）
+                "allgather"      — ZeRO-3 权重 AllGather（ring）
+                "reduce_scatter" — ZeRO-3 梯度 ReduceScatter（ring）
+                "alltoall"       — MoE 专家路由 All-to-All（全连接）
             compute_ms: 显式计算时间（ms），为 None 时从 iter_interval 推导
             comm_solo_ms: 无竞争通信时间（ms），为 None 时从带宽推导
             start_time_ms: job 开始时间（ms）
@@ -67,6 +73,7 @@ class Job:
         self.slo_ci = slo_ci
         self.num_workers = num_workers
         self.allreduce_algo = allreduce_algo
+        self.collective_type = collective_type
         self.comm_offset_ms = comm_offset_ms
         self.overhead_factor = overhead_factor
         self.worker_hosts = worker_hosts  # None = legacy (src=0,dst=1)
@@ -123,6 +130,28 @@ class Job:
     def bits_per_flow(self) -> float:
         """每个 flow 承载的比特数（多流时均分）。"""
         n = max(1, self.num_workers)
+        return self.bits_per_iter / n
+
+    @property
+    def flow_count(self) -> int:
+        """每轮集合通信生成的 flow 数。
+        ring 类（allreduce/allgather/reduce_scatter）：N 条环 flow；
+        alltoall：N×(N-1) 条全连接 flow。
+        """
+        n = max(1, self.num_workers)
+        if self.collective_type == "alltoall" and n > 1:
+            return n * (n - 1)
+        return n
+
+    @property
+    def flow_size_bits(self) -> float:
+        """每条 flow 承载的比特数。
+        alltoall：每 worker 发送 bits_per_iter 总量到 N-1 个 peer；
+        ring 类：每 worker 均分 bits_per_iter。
+        """
+        n = max(1, self.num_workers)
+        if self.collective_type == "alltoall" and n > 1:
+            return self.bits_per_iter / (n - 1)
         return self.bits_per_iter / n
 
     @property

@@ -43,6 +43,16 @@ We first examine whether \Name differentiates from baselines under scarcity whil
 \label{fig:e1-ladder}
 \end{figure}
 
+\paragraph{Generality across collectives.}
+\Name schedules at the bandwidth-allocation layer: each job's communication is modeled only by its per-iteration volume $D_i$ and allocated bandwidth $a_i$ (comm.\ time $D_i/a_i$), an abstraction that holds for any bandwidth-limited collective---AllReduce (DDP), AllGather/ReduceScatter (ZeRO-3), and All-to-All (MoE expert routing) alike. To validate that the guarantees survive realistic mixed workloads, E17 replays E1's 14 jobs (8P/6S) with heterogeneous collectives: five AllReduce, four AllGather, three All-to-All, and two ReduceScatter jobs, with per-job communication volumes scaled to each collective ($0.5\times$ for the single-phase primitives). \Name remains the top policy at every scarce bandwidth: $67.5\%$ at 400~Gbps (vs.\ $61.3\%$ for Fair), $71.2\%$ at 500~Gbps, and $73.8\%$ at 630~Gbps, and it significantly beats DF ($p{=}0.006$), CRUX ($p{=}0.003$), CASSINI ($p{=}2{\times}10^{-4}$), and LL-S ($p{=}0.040$) at 400~Gbps (Figure~\ref{fig:e17-mixed}). At 800~Gbps all policies converge ($70$--$77.5\%$; no pairwise difference is significant). The qualitative picture of E1 thus carries over unchanged when jobs mix collectives, confirming that \Name's guarantees are collective-agnostic.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figure/fig7_e17_mixed.pdf}
+\caption{Generality across collectives: P-attn vs.\ spine bandwidth under E17 (mixed AllReduce/AllGather/ReduceScatter/All-to-All, $n{=}10$). \Name leads at every scarce bandwidth; all policies converge above 800~Gbps.}
+\label{fig:e17-mixed}
+\end{figure}
+
 \paragraph{Model-assumption robustness.}
 The serial model~(\S\ref{sec:model}) is deliberately conservative. Varying overlap $\rho\in\{0,0.3,0.5,0.85,1.0\}$ leaves \Name stable ($82.5$--$87.5\%$ at 500\,Gbps, $92.5$--$97.5\%$ at 630\,Gbps) while other policies degrade; CASSINI, whose design assumes phase staggering, degrades most ($67.5\%{\to}45.0\%$ at 500\,Gbps) (Figure~\ref{fig:e11_overlap}).
 

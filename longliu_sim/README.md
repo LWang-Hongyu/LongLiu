@@ -19,12 +19,12 @@ longliu_sim/
 ├── network/        # 网络模型（topology.py, link.py, flow.py）
 ├── job/            # 任务模型（job.py - 迭代生命周期、barrier）
 ├── policy/         # 调度策略实现
-│   ├── longliu.py  # LongLiu v4（tier-aware DWRR）
-│   ├── dwrr.py     # DWRR / DF（deficit-feedback）
-│   ├── crux.py     # CRUX（GPU-intensity 权重）
+│   ├── longliu.py  # LongLiu v4（闭式分配器，动态 T_target）+ LL-S（静态 T_target）
+│   ├── dwrr.py     # DF（deficit-feedback，DWRR）
+│   ├── crux.py     # CRUX（GPU intensity → DSCP 严格优先级）
 │   ├── fair.py     # Fair（均分带宽）
-│   ├── srpt.py     # SRPT / SP（最短剩余处理时间）
-│   └── cassini.py  # CASSINI（time-shift 交错）
+│   ├── srpt.py     # SRPT（最短剩余处理时间）
+│   └── cassini.py  # CASSINI（通信相位 time-shift 交错）
 ├── trace/          # Trace 生成与解析
 │   ├── synthetic.py    # 合成 workload 生成
 │   ├── lingjun.py      # Alibaba Lingjun trace loader

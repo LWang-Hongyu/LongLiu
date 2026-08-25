@@ -66,7 +66,7 @@ POLICY_MARKER = {"LongLiu":"s","CRUX":"o","DF":"D","SRPT":"^",
                  "CASSINI":"<","LL-S":"h","Fair":"v"}
 POLICY_LABEL  = {"LongLiu":"LongLiu","CRUX":"CRUX","DF":"DF","SRPT":"SRPT",
                  "CASSINI":"CASSINI","LL-S":"LL-S","Fair":"Fair"}
-POLICY_ORDER  = ["LongLiu","DF","CRUX","SRPT","CASSINI","LL-S","Fair"]
+POLICY_ORDER  = ["LongLiu","LL-S","DF","SRPT","CRUX","CASSINI","Fair"]
 
 FULL_W   = 7.16
 SINGLE_W = 3.5
@@ -553,7 +553,7 @@ def draw_table1():
     with open(os.path.join(ANCHOR_D,"per_policy_results.json")) as f:
         v1 = json.load(f)
 
-    order = ["LongLiu","Fair","CRUX","SRPT","DF","CASSINI","LL-S"]
+    order = ["LongLiu","LL-S","DF","SRPT","CRUX","CASSINI","Fair"]
     lines=[]
     lines.append(r"\begin{table}[t]")
     lines.append(r"\centering")
@@ -644,7 +644,7 @@ def self_check():
     # T-1 anchor (10 seeds)
     with open(os.path.join(ANCHOR_D,"per_policy_results.json")) as f:
         dv = json.load(f)
-    for pol in ["LongLiu","Fair","CRUX","SRPT","DF","CASSINI","LL-S"]:
+    for pol in ["LongLiu","LL-S","DF","SRPT","CRUX","CASSINI","Fair"]:
         if pol not in dv: continue
         s = dv[pol]["summary"]
         print(f"\n  T-1 {pol}: SAS={s['mean_sas']:.4f} "

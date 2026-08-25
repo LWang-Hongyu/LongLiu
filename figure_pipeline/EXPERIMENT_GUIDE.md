@@ -101,6 +101,24 @@ submit 前调用 `CASSINI.compute_offsets` 并设置 `job.comm_offset_ms`（与 
   论文中按真实结果 97.5%/96.7% 表述（研究诚信优先）。
 - **E3/E3' swap（5 seeds）**：LongLiu W1/W2/W3 均 100%（两臂），通过预注册验证。
 - **E11/E15/trace/S3/anchor** 全部完成。
+
+## 2026-08-25 E17 混合集合通信（新增验证）
+
+用户质疑"方案只验证了 DDP（AllReduce）"，经讨论确认方案理论层（带宽分配抽象，
+通信时间 = 数据量/带宽）与集合通信类型无关，但缺实验证据。采取"论证 + 补混合实验"方案：
+
+- **模拟器扩展**：`Job.collective_type`（allreduce/allgather/reduce_scatter/alltoall），
+  `simulator._create_collective_flows` 按类型展开：ring 类 = N 条环流；
+  alltoall = N×(N-1) 条全连接流（多瓶颈）。
+- **E17 场景**（`experiments/exp_e17_mixed_collective.py`）：复用主表 E1 的 model/dp/ci 结构
+  （14 jobs，8P/6S），混合 5×AllReduce（DDP）+ 4×AllGather（ZeRO-3）+ 3×All-to-All（MoE）
+  + 2×ReduceScatter（ZeRO-3），通信量按类型缩放（单阶段 = 0.5×）。
+  4 档 spine × 7 策略 × 10 seeds = 280 runs，84 分钟完成。
+- **结果**：LongLiu 400/500/630G 三档最优（67.5/71.2/73.8%）；400G 显著优于
+  DF(p=0.006)/CRUX(p=0.003)/CASSINI(p=2e-4)/LL-S(p=0.04)；800G 收敛区无显著差异。
+  E1 的定性排序完整保留 → 方案对集合通信类型不敏感。
+- **论文**：evaluation.tex 新增 "Generality across collectives" 段 + fig7_e17_mixed；
+  appendix.tex 新增 E17 小节 + tab:e17 全表；绘图脚本 `_draw_e17.py`。
 - **绘图修复**：`_draw_final_v3.py` 中 `load_e1_e2` 的 `quotechar="'"` 导致 CSV 解析错乱（KeyError 'E1'），
   已改为默认 quotechar；`_make_fig4_csv.py` 修复 `workload_raw` 未传参 bug。
 - **figs 重新生成**：fig1_hero ~ fig5 + table1_anchor.tex/table2_e2pro.tex + fig6_trace_compare/

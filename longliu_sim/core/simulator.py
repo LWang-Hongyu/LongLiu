@@ -300,25 +300,33 @@ class Simulator:
             Event(earliest, EventType.FLOW_END, None)
         )
 
-    def _create_allreduce_flows(self, job: Job) -> None:
+    def _create_collective_flows(self, job: Job) -> None:
         """
-        为 job 创建本轮 AllReduce 的所有 flow。
+        为 job 创建本轮集合通信的所有 flow。
 
-        num_workers=1 → 1 个 aggregate flow（向后兼容）
-        num_workers>1 → N 个 parallel flow，每个承载 bits_per_iter / N 数据
+        按 collective_type 展开：
+        - ring 类（allreduce/allgather/reduce_scatter）：N 条环 flow，
+          每条承载 flow_size_bits 数据（AllGather/ReduceScatter 由脚本给定
+          减半的 mb_per_iter，物理上对应单阶段通信量）
+        - alltoall（MoE）：N×(N-1) 条全连接 flow，每条 bits_per_iter/(N-1)
 
         如果有 worker_hosts，使用实际拓扑路径（TwoTier）；否则使用 legacy src=0,dst=1。
         """
         n = job.num_workers if job.num_workers > 1 else 1
         workers = job.worker_hosts if job.worker_hosts else [0] * n
 
-        # 计算实际需要创建的 flow 数（跳过 src == dst 的本地 segment）
-        actual_flows = sum(1 for i in range(n) if workers[i] != workers[(i + 1) % n])
-        job.start_allreduce(actual_flows if actual_flows > 0 else n)
+        if job.collective_type == "alltoall" and n > 1:
+            pairs = [(i, j) for i in range(n) for j in range(n) if i != j]
+        else:
+            pairs = [(i, (i + 1) % n) for i in range(n)]
 
-        for i in range(n):
-            src = workers[i]
-            dst = workers[(i + 1) % n]
+        # 计算实际需要创建的 flow 数（跳过 src == dst 的本地 segment）
+        actual_flows = sum(1 for s, d in pairs if workers[s] != workers[d])
+        job.start_allreduce(actual_flows if actual_flows > 0 else len(pairs))
+
+        for s, d in pairs:
+            src = workers[s]
+            dst = workers[d]
 
             # 跳过同主机的 segment（本地内存拷贝，无需网络传输）
             if src == dst:
@@ -331,7 +339,7 @@ class Simulator:
                 jid=job.jid,
                 src=src,
                 dst=dst,
-                size_bits=job.bits_per_flow * self.overhead_factor,
+                size_bits=job.flow_size_bits * self.overhead_factor,
                 links=links,
                 iter_version=job._iter_version
             )
@@ -452,8 +460,8 @@ class Simulator:
                     Event(self.time_ms, EventType.ITERATION_COMPLETE, jid)
                 )
             else:
-                # 创建本轮 AllReduce 的所有 flow（start_time_ms 会在内部应用 comm_offset_ms）
-                self._create_allreduce_flows(job)
+                # 创建本轮集合通信的所有 flow（start_time_ms 会在内部应用 comm_offset_ms）
+                self._create_collective_flows(job)
 
         elif event.typ == EventType.ITERATION_COMPLETE:
             jid = event.payload

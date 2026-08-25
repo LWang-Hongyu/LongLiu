@@ -219,6 +219,30 @@ $\beta\in\{0.3,0.5,0.7,1.0\}$ at 500 and 630~Gbps (Figure~\ref{fig:app-beta}). P
 \label{fig:app-beta}
 \end{figure}
 
+\paragraph{Mixed-collective generality (E17).}
+E17 replays the E1 14-job structure (8P/6S, FatTree $k{=}4$) with heterogeneous collectives: five AllReduce (DDP), four AllGather (ZeRO-3), three All-to-All (MoE), and two ReduceScatter (ZeRO-3) jobs ($n{=}10$, 600\,s). Per-job communication volumes are scaled to the collective ($0.5\times$ for the single-phase primitives). Table~\ref{tab:e17} reports P-attn across spine bandwidths. \Name leads at 400--630\,Gbps ($67.5\%$--$73.8\%$) and is statistically indistinguishable from the best baseline at 800\,Gbps where all policies converge; the E1 ordering is preserved, confirming that the guarantees are collective-agnostic.
+
+\begin{table}[h]
+\centering
+\caption{Mixed-collective P-attn (\%), E17, mean$\pm$std over ten seeds.}
+\label{tab:e17}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Policy} & 400 Gbps & 500 Gbps & 630 Gbps & 800 Gbps \\
+\midrule
+LongLiu & $67.5\pm13.4$ & $71.2\pm15.6$ & $73.8\pm12.4$ & $73.8\pm12.4$ \\
+LL-S & $46.2\pm26.4$ & $55.0\pm25.1$ & $60.0\pm24.2$ & $76.2\pm12.4$ \\
+DF & $48.8\pm13.8$ & $55.0\pm18.8$ & $67.5\pm16.9$ & $77.5\pm19.4$ \\
+SRPT & $48.8\pm21.6$ & $58.8\pm20.5$ & $70.0\pm16.9$ & $77.5\pm12.9$ \\
+CRUX & $36.2\pm24.6$ & $41.2\pm21.3$ & $52.5\pm22.7$ & $70.0\pm17.9$ \\
+CASSINI & $38.8\pm13.8$ & $45.0\pm12.1$ & $52.5\pm7.9$ & $60.0\pm9.9$ \\
+Fair & $61.3\pm18.1$ & $65.0\pm19.4$ & $72.5\pm15.4$ & $77.5\pm11.5$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \paragraph{Component ablation (S3).}
 We ablate the two components of \Name---the progress-deficit priority key and the closed-form $T$-target calibration---on the 24-job workload at 400\,Gbps ($n{=}10$, 600\,s). The full \Name{} reaches the highest SLO attainment ($35.0\pm9.9\%$, mean SAS $0.924$); freezing the $T$-target (LL-S) loses little ($32.9\%$, $p{=}0.13$), showing that the dynamic calibration mainly stabilizes variance rather than the mean. Replacing the deficit key with the static GPU-intensity key (CRUX, $24.6\%$) or with fair sharing ($25.8\%$) is clearly worse, and staggering communication phases---either CASSINI ($10.8\%$) or the full \Name{} with phase offsets ($12.9\%$)---collapses both attainment and throughput ($p<0.001$), because time-shifting dilutes the simultaneous-contention instants on which priority differentiation relies. The dynamic calibration is not free: it raises the handoff rate to $27.9\%$ (vs.\ $9.6\%$ for LL-S).
 
