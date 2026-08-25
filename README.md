@@ -2,7 +2,6 @@
 
 面向多租户 AI 训练网络调度的 **flow-level 离散事件仿真器**，支持混合集合通信（DDP / ZeRO-3 / MoE All-to-All）多租户场景。
 
-论文: *LongLiu: Tier-Aware Dynamic Priority Scheduling for Multi-Tenant DDP Training*
 
 ---
 
@@ -258,15 +257,3 @@ https://github.com/LWang-Hongyu/LongLiu.git
 
 ---
 
-## 引用
-
-如果使用本仿真器进行研究，请引用：
-
-```bibtex
-@inproceedings{longliu2025,
-  title     = {LongLiu: Tier-Aware Dynamic Priority Scheduling for Multi-Tenant DDP Training},
-  author    = {Hongyu Wang and others},
-  booktitle = {IEEE INFOCOM},
-  year      = {2025}
-}
-```
