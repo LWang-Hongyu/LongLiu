@@ -203,6 +203,18 @@ submit 前调用 `CASSINI.compute_offsets` 并设置 `job.comm_offset_ms`（与 
   verification 全部 PASS。E3 段论文文字无需修改。
   CASSINI 修复后 E3 W3=33.3%、E3' W3=17.5%（论文未直接引用）。
 
+### 数据归位与口径说明（2026-09-09 晚补）
+
+- `figure_pipeline/data/s3_component_ablation/`：新增归档 `s3_component_ablation.csv` +
+  `raw_results.json` + 实验脚本副本（与 e3_swap/evidence-anchor 同模式）。
+- `figure_registry/fig4_d1_trajectory_e3{,p}.csv`：由 `_make_fig4_csv.py` 从新 e3_swap
+  数据重生成（DF/LongLiu 轨迹与旧文件逐字节一致——文件大小相同，offset=0 策略 no-op 再次验证），
+  fig4 已重画并同步 paper/figure。
+- **p 值口径注意**：S3 CSV 的 `p_vs_longliu` 列沿用原脚本口径（`sas_mean_overall` 的
+  paired t-test，CASSINI=0.216/Staggered=0.281）；论文 S3 段引用的 p=0.0067（CASSINI
+  attainment）与 p=0.19（Staggered attainment）基于 `slo_attainment_overall`，iters
+  p=3.4e-4/0.34 基于 `total_iters`。已用新 raw_results.json 逐一复算验证，与论文一致。
+
 ### 数据备份
 
 旧（bug 期）CASSINI 数据归档于 `outputs/cassini_offset_fix_backup/`：
