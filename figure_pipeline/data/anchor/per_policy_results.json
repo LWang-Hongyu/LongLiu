@@ -247,7 +247,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 15.2
+        "elapsed_s": 6.2
       },
       {
         "seed": 1,
@@ -495,7 +495,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 9.2
+        "elapsed_s": 3.8
       },
       {
         "seed": 2,
@@ -743,7 +743,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 0
         },
-        "elapsed_s": 9.2
+        "elapsed_s": 3.8
       },
       {
         "seed": 3,
@@ -991,7 +991,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 13.6
+        "elapsed_s": 5.5
       },
       {
         "seed": 4,
@@ -1239,7 +1239,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 1
         },
-        "elapsed_s": 15.5
+        "elapsed_s": 6.3
       },
       {
         "seed": 5,
@@ -1487,7 +1487,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 1
         },
-        "elapsed_s": 10.0
+        "elapsed_s": 4.0
       },
       {
         "seed": 6,
@@ -1735,7 +1735,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 9.3
+        "elapsed_s": 3.8
       },
       {
         "seed": 7,
@@ -1983,7 +1983,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 1
         },
-        "elapsed_s": 17.3
+        "elapsed_s": 7.1
       },
       {
         "seed": 8,
@@ -2231,7 +2231,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 26.0
+        "elapsed_s": 10.7
       },
       {
         "seed": 9,
@@ -2479,7 +2479,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 12.8
+        "elapsed_s": 5.1
       }
     ],
     "summary": {
@@ -2737,7 +2737,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 0
         },
-        "elapsed_s": 56.7
+        "elapsed_s": 23.1
       },
       {
         "seed": 1,
@@ -2985,7 +2985,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 0
         },
-        "elapsed_s": 34.8
+        "elapsed_s": 14.1
       },
       {
         "seed": 2,
@@ -3233,7 +3233,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 0
         },
-        "elapsed_s": 16.6
+        "elapsed_s": 6.6
       },
       {
         "seed": 3,
@@ -3481,7 +3481,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 0
         },
-        "elapsed_s": 54.8
+        "elapsed_s": 22.4
       },
       {
         "seed": 4,
@@ -3729,7 +3729,7 @@
           "collapse_rate": 0.20833333333333334,
           "starvation_count": 1
         },
-        "elapsed_s": 49.5
+        "elapsed_s": 20.2
       },
       {
         "seed": 5,
@@ -3977,7 +3977,7 @@
           "collapse_rate": 0.125,
           "starvation_count": 1
         },
-        "elapsed_s": 21.8
+        "elapsed_s": 9.1
       },
       {
         "seed": 6,
@@ -4225,7 +4225,7 @@
           "collapse_rate": 0.16666666666666666,
           "starvation_count": 0
         },
-        "elapsed_s": 41.8
+        "elapsed_s": 17.5
       },
       {
         "seed": 7,
@@ -4473,7 +4473,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 1
         },
-        "elapsed_s": 73.4
+        "elapsed_s": 30.4
       },
       {
         "seed": 8,
@@ -4721,7 +4721,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 0
         },
-        "elapsed_s": 57.4
+        "elapsed_s": 23.6
       },
       {
         "seed": 9,
@@ -4969,7 +4969,7 @@
           "collapse_rate": 0.125,
           "starvation_count": 0
         },
-        "elapsed_s": 30.3
+        "elapsed_s": 12.5
       }
     ],
     "summary": {
@@ -5227,7 +5227,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 0
         },
-        "elapsed_s": 14.4
+        "elapsed_s": 5.9
       },
       {
         "seed": 1,
@@ -5475,7 +5475,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 8.2
+        "elapsed_s": 3.3
       },
       {
         "seed": 2,
@@ -5723,7 +5723,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 0
         },
-        "elapsed_s": 5.7
+        "elapsed_s": 2.4
       },
       {
         "seed": 3,
@@ -5971,7 +5971,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 0
         },
-        "elapsed_s": 12.0
+        "elapsed_s": 5.0
       },
       {
         "seed": 4,
@@ -6219,7 +6219,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 1
         },
-        "elapsed_s": 13.1
+        "elapsed_s": 5.4
       },
       {
         "seed": 5,
@@ -6467,7 +6467,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 1
         },
-        "elapsed_s": 9.0
+        "elapsed_s": 3.7
       },
       {
         "seed": 6,
@@ -6715,7 +6715,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 0
         },
-        "elapsed_s": 7.4
+        "elapsed_s": 3.0
       },
       {
         "seed": 7,
@@ -6963,7 +6963,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 1
         },
-        "elapsed_s": 14.2
+        "elapsed_s": 5.9
       },
       {
         "seed": 8,
@@ -7211,7 +7211,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 0
         },
-        "elapsed_s": 19.1
+        "elapsed_s": 7.9
       },
       {
         "seed": 9,
@@ -7459,7 +7459,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 0
         },
-        "elapsed_s": 10.5
+        "elapsed_s": 4.3
       }
     ],
     "summary": {
@@ -7478,64 +7478,64 @@
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.2800666542630108,
-            "avg_iter_ms": 279.2906574537915,
-            "meets_slo": false,
-            "completed_iters": 1914
+            "sas": 1.0832590887711306,
+            "avg_iter_ms": 72.20802558761287,
+            "meets_slo": true,
+            "completed_iters": 4970
           },
           "J1": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.6495296281997304,
-            "avg_iter_ms": 1579.6046176426382,
-            "meets_slo": false,
-            "completed_iters": 318
+            "sas": 2.68292056992633,
+            "avg_iter_ms": 382.4190740123823,
+            "meets_slo": true,
+            "completed_iters": 548
           },
           "J2": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.3078525001404359,
-            "avg_iter_ms": 210.455331596932,
+            "sas": 0.8273964964580499,
+            "avg_iter_ms": 78.30490010213005,
             "meets_slo": false,
-            "completed_iters": 2284
+            "completed_iters": 6139
           },
           "J3": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.5669096086600438,
-            "avg_iter_ms": 1936.8167045100004,
-            "meets_slo": false,
-            "completed_iters": 223
+            "sas": 1.6368815705489146,
+            "avg_iter_ms": 670.7876854107379,
+            "meets_slo": true,
+            "completed_iters": 530
           },
           "J4": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.4775351860036452,
-            "avg_iter_ms": 2299.3070085344843,
-            "meets_slo": false,
-            "completed_iters": 114
+            "sas": 1.3503596419483372,
+            "avg_iter_ms": 813.1167178661933,
+            "meets_slo": true,
+            "completed_iters": 322
           },
           "J5": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.8519424038316783,
-            "avg_iter_ms": 647.9311248240919,
-            "meets_slo": false,
-            "completed_iters": 361
+            "sas": 1.356512882020718,
+            "avg_iter_ms": 406.9257338549693,
+            "meets_slo": true,
+            "completed_iters": 573
           },
           "J6": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.3936845992149479,
-            "avg_iter_ms": 82.14697771893962,
+            "sas": 0.7805911830477172,
+            "avg_iter_ms": 41.43013744240956,
             "meets_slo": false,
-            "completed_iters": 2813
+            "completed_iters": 5579
           },
           "J7": {
             "model": "ResNet-18",
@@ -7550,28 +7550,28 @@
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.6327148192687053,
-            "avg_iter_ms": 872.4309644556835,
+            "sas": 0.9589076270790221,
+            "avg_iter_ms": 575.6550312165892,
             "meets_slo": false,
-            "completed_iters": 188
+            "completed_iters": 285
           },
           "J9": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.3162279817832859,
-            "avg_iter_ms": 3472.1785017508982,
+            "sas": 0.4210918366431671,
+            "avg_iter_ms": 2607.5072097169254,
             "meets_slo": false,
-            "completed_iters": 33
+            "completed_iters": 44
           },
           "J10": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.28597541325387,
-            "avg_iter_ms": 3587.7210153349274,
+            "sas": 0.47805952069811514,
+            "avg_iter_ms": 2146.1762721548184,
             "meets_slo": false,
-            "completed_iters": 28
+            "completed_iters": 48
           },
           "J11": {
             "model": "ResNet-18",
@@ -7586,138 +7586,138 @@
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.21401985824910963,
-            "avg_iter_ms": 4793.9476663225405,
+            "sas": 0.28922993274424175,
+            "avg_iter_ms": 3547.3506848520556,
             "meets_slo": false,
-            "completed_iters": 12
+            "completed_iters": 16
           },
           "J13": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.27296103798671956,
-            "avg_iter_ms": 166.2010092524898,
+            "sas": 0.28895336788669185,
+            "avg_iter_ms": 157.0024960490845,
             "meets_slo": false,
-            "completed_iters": 361
+            "completed_iters": 382
           },
           "J14": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.25681832726115184,
-            "avg_iter_ms": 4275.395808818085,
+            "sas": 0.4323718708786778,
+            "avg_iter_ms": 2539.4806506922264,
             "meets_slo": false,
-            "completed_iters": 14
+            "completed_iters": 23
           },
           "J15": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.2639126760211266,
-            "avg_iter_ms": 171.89928382359454,
+            "sas": 0.5092411602721155,
+            "avg_iter_ms": 89.08627883841565,
             "meets_slo": false,
-            "completed_iters": 349
+            "completed_iters": 673
           },
           "J16": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.45976212972181413,
-            "avg_iter_ms": 1885.7577515672967,
+            "sas": 0.30386091400026655,
+            "avg_iter_ms": 2853.279115718185,
             "meets_slo": false,
-            "completed_iters": 31
+            "completed_iters": 21
           },
           "J17": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.3403801578709585,
-            "avg_iter_ms": 95.01141371542703,
+            "sas": 0.725443175627707,
+            "avg_iter_ms": 44.57964605155607,
             "meets_slo": false,
-            "completed_iters": 631
+            "completed_iters": 1345
           },
           "J18": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.22752186986188896,
-            "avg_iter_ms": 343.79112674962346,
+            "sas": 0.4689497214281321,
+            "avg_iter_ms": 166.79826519949737,
             "meets_slo": false,
-            "completed_iters": 174
+            "completed_iters": 359
           },
           "J19": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.2612886360819545,
-            "avg_iter_ms": 247.96026712649888,
+            "sas": 0.5695319722184615,
+            "avg_iter_ms": 113.75867055826693,
             "meets_slo": false,
-            "completed_iters": 241
+            "completed_iters": 527
           },
           "J20": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.4718283451762616,
-            "avg_iter_ms": 1837.5326723453072,
+            "sas": 0.44800914692806165,
+            "avg_iter_ms": 1935.2283451016617,
             "meets_slo": false,
-            "completed_iters": 32
+            "completed_iters": 31
           },
           "J21": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.24221260857378848,
-            "avg_iter_ms": 4235.947938636877,
+            "sas": 0.8022746300973743,
+            "avg_iter_ms": 1278.863822324123,
             "meets_slo": false,
-            "completed_iters": 14
+            "completed_iters": 46
           },
           "J22": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.2794363520672388,
-            "avg_iter_ms": 533.0015185861058,
+            "sas": 0.29296219399679047,
+            "avg_iter_ms": 508.393243401337,
             "meets_slo": false,
-            "completed_iters": 112
+            "completed_iters": 118
           },
           "J23": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.2993361391990058,
-            "avg_iter_ms": 497.56771901498047,
+            "sas": 0.6554103491184603,
+            "avg_iter_ms": 227.2469456735421,
             "meets_slo": false,
-            "completed_iters": 120
+            "completed_iters": 264
           }
         },
         "tiers": {
           "large": {
             "count": 12,
-            "mean_sas": 0.4521230258319236,
-            "slo_rate": 0.0,
+            "mean_sas": 0.9300400119594355,
+            "slo_rate": 0.3333333333333333,
             "collapse_rate": 0.0
           },
           "medium": {
             "count": 8,
-            "mean_sas": 0.2740469832026727,
-            "slo_rate": 0.0,
+            "mean_sas": 0.586963043768729,
+            "slo_rate": 0.125,
             "collapse_rate": 0.0
           },
           "small": {
             "count": 4,
-            "mean_sas": 0.7247001892714766,
+            "mean_sas": 0.917692589668856,
             "slo_rate": 0.5,
             "collapse_rate": 0.0
           }
         },
         "overall": {
-          "mean_sas": 0.4381938721954321,
-          "slo_rate": 0.08333333333333333,
+          "mean_sas": 0.8136231188474367,
+          "slo_rate": 0.2916666666666667,
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 5.5
+        "elapsed_s": 6.2
       },
       {
         "seed": 1,
@@ -7735,28 +7735,28 @@
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 1.0282671049599175,
-            "avg_iter_ms": 536.825497322038,
+            "sas": 4.202133660199685,
+            "avg_iter_ms": 131.36183773216032,
             "meets_slo": true,
-            "completed_iters": 898
+            "completed_iters": 1023
           },
           "J2": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.44737032503714586,
-            "avg_iter_ms": 72.28910410478112,
+            "sas": 0.8727683010027257,
+            "avg_iter_ms": 37.054508009565076,
             "meets_slo": false,
-            "completed_iters": 4745
+            "completed_iters": 9257
           },
           "J3": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.3334161365528536,
-            "avg_iter_ms": 194.3193292017812,
+            "sas": 0.8842222336943312,
+            "avg_iter_ms": 73.27252983597461,
             "meets_slo": false,
-            "completed_iters": 1466
+            "completed_iters": 3890
           },
           "J4": {
             "model": "ResNet-18",
@@ -7771,62 +7771,62 @@
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.35808626157430895,
-            "avg_iter_ms": 415.9332987118592,
+            "sas": 0.8834805833735181,
+            "avg_iter_ms": 168.58321824264826,
             "meets_slo": false,
-            "completed_iters": 356
+            "completed_iters": 877
           },
           "J6": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.5938028266632902,
-            "avg_iter_ms": 1849.0986413283104,
-            "meets_slo": false,
-            "completed_iters": 57
+            "sas": 1.2674558260740345,
+            "avg_iter_ms": 866.3023810471354,
+            "meets_slo": true,
+            "completed_iters": 124
           },
           "J7": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.6007729788293489,
-            "avg_iter_ms": 918.816290765296,
+            "sas": 0.940660631022356,
+            "avg_iter_ms": 586.8216249255158,
             "meets_slo": false,
-            "completed_iters": 102
+            "completed_iters": 160
           },
           "J8": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.4684017724853162,
-            "avg_iter_ms": 1850.975062284119,
+            "sas": 0.36443193056933526,
+            "avg_iter_ms": 2379.0451035548003,
             "meets_slo": false,
-            "completed_iters": 31
+            "completed_iters": 25
           },
           "J9": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.4202310074455571,
-            "avg_iter_ms": 2612.848601235717,
+            "sas": 0.3961193419670265,
+            "avg_iter_ms": 2771.891911532558,
             "meets_slo": false,
-            "completed_iters": 22
+            "completed_iters": 21
           },
           "J10": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.36655535271574374,
-            "avg_iter_ms": 2799.0315579858475,
+            "sas": 0.5049795737005642,
+            "avg_iter_ms": 2031.7653494008118,
             "meets_slo": false,
-            "completed_iters": 21
+            "completed_iters": 29
           },
           "J11": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.274834465884506,
-            "avg_iter_ms": 3995.1321114922093,
+            "sas": 0.2605163483866252,
+            "avg_iter_ms": 4214.706703820707,
             "meets_slo": false,
             "completed_iters": 14
           },
@@ -7834,138 +7834,138 @@
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.29377450120145415,
-            "avg_iter_ms": 3492.4746559144914,
+            "sas": 0.3825955698943724,
+            "avg_iter_ms": 2681.6829067917847,
             "meets_slo": false,
-            "completed_iters": 16
+            "completed_iters": 22
           },
           "J13": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.280011093421061,
-            "avg_iter_ms": 162.01643815511693,
+            "sas": 0.2669126930786495,
+            "avg_iter_ms": 169.96718843428013,
             "meets_slo": false,
-            "completed_iters": 370
+            "completed_iters": 352
           },
           "J14": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.2575644148775644,
-            "avg_iter_ms": 251.545618329295,
+            "sas": 0.48051240425877084,
+            "avg_iter_ms": 134.83356397415497,
             "meets_slo": false,
-            "completed_iters": 238
+            "completed_iters": 444
           },
           "J15": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.2610072133030638,
-            "avg_iter_ms": 570.6355702402026,
+            "sas": 0.2637019559825132,
+            "avg_iter_ms": 564.8043050916035,
             "meets_slo": false,
-            "completed_iters": 105
+            "completed_iters": 106
           },
           "J16": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.3250233885785787,
-            "avg_iter_ms": 99.5005317661359,
+            "sas": 0.5441496982866096,
+            "avg_iter_ms": 59.432174825843916,
             "meets_slo": false,
-            "completed_iters": 602
+            "completed_iters": 1009
           },
           "J17": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.25437729219003724,
-            "avg_iter_ms": 307.4960006318658,
+            "sas": 0.4353194231466863,
+            "avg_iter_ms": 179.68414879030746,
             "meets_slo": false,
-            "completed_iters": 195
+            "completed_iters": 333
           },
           "J18": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.22621796884752401,
-            "avg_iter_ms": 345.77270938508883,
+            "sas": 0.4349553798512312,
+            "avg_iter_ms": 179.83453849163507,
             "meets_slo": false,
-            "completed_iters": 173
+            "completed_iters": 333
           },
           "J19": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.2750712355042451,
-            "avg_iter_ms": 3729.9428932261653,
+            "sas": 0.3803770260724348,
+            "avg_iter_ms": 2697.323785807768,
             "meets_slo": false,
-            "completed_iters": 15
+            "completed_iters": 22
           },
           "J20": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.4078068111737443,
-            "avg_iter_ms": 2126.006668462971,
+            "sas": 0.3607031558268426,
+            "avg_iter_ms": 2403.638521023109,
             "meets_slo": false,
-            "completed_iters": 28
+            "completed_iters": 24
           },
           "J21": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.24093088377645103,
-            "avg_iter_ms": 4258.482698100172,
+            "sas": 0.37782515032638747,
+            "avg_iter_ms": 2715.5418296364896,
             "meets_slo": false,
-            "completed_iters": 13
+            "completed_iters": 22
           },
           "J22": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.23965019611434202,
-            "avg_iter_ms": 189.30257823930492,
+            "sas": 0.26656632136400527,
+            "avg_iter_ms": 170.18804088927143,
             "meets_slo": false,
-            "completed_iters": 316
+            "completed_iters": 352
           },
           "J23": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.24081318759086093,
-            "avg_iter_ms": 4559.550957256919,
+            "sas": 0.37960111330057866,
+            "avg_iter_ms": 2892.5099572365407,
             "meets_slo": false,
-            "completed_iters": 13
+            "completed_iters": 20
           }
         },
         "tiers": {
           "large": {
             "count": 12,
-            "mean_sas": 0.4342718440192029,
-            "slo_rate": 0.08333333333333333,
+            "mean_sas": 0.8181166106116867,
+            "slo_rate": 0.16666666666666666,
             "collapse_rate": 0.0
           },
           "medium": {
             "count": 8,
-            "mean_sas": 0.27629132211009444,
+            "mean_sas": 0.48945887434371327,
             "slo_rate": 0.0,
             "collapse_rate": 0.0
           },
           "small": {
             "count": 4,
-            "mean_sas": 0.7342824284039311,
+            "mean_sas": 0.895413499822334,
             "slo_rate": 0.5,
             "collapse_rate": 0.0
           }
         },
         "overall": {
-          "mean_sas": 0.4316134341136216,
-          "slo_rate": 0.125,
+          "mean_sas": 0.7214468467241368,
+          "slo_rate": 0.16666666666666666,
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 4.9
+        "elapsed_s": 4.3
       },
       {
         "seed": 2,
@@ -7974,82 +7974,82 @@
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.27633975533193145,
-            "avg_iter_ms": 283.0573541836004,
+            "sas": 0.9471520621427838,
+            "avg_iter_ms": 82.58441608947084,
             "meets_slo": false,
-            "completed_iters": 2039
+            "completed_iters": 4970
           },
           "J1": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.7285056654595916,
-            "avg_iter_ms": 1507.1948676024447,
-            "meets_slo": false,
-            "completed_iters": 304
+            "sas": 4.760626402196293,
+            "avg_iter_ms": 230.64191710012,
+            "meets_slo": true,
+            "completed_iters": 530
           },
           "J2": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.5280619876064441,
-            "avg_iter_ms": 1942.9537139201564,
-            "meets_slo": false,
-            "completed_iters": 178
+            "sas": 1.5790845192869636,
+            "avg_iter_ms": 649.7435618349871,
+            "meets_slo": true,
+            "completed_iters": 532
           },
           "J3": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.34958830103343413,
-            "avg_iter_ms": 426.0440053620547,
+            "sas": 0.714406210125987,
+            "avg_iter_ms": 208.48083049800772,
             "meets_slo": false,
-            "completed_iters": 718
+            "completed_iters": 1466
           },
           "J4": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.24787083272529484,
-            "avg_iter_ms": 315.56758469717994,
-            "meets_slo": false,
-            "completed_iters": 927
+            "sas": 1.0240083476816049,
+            "avg_iter_ms": 76.38609604803824,
+            "meets_slo": true,
+            "completed_iters": 3832
           },
           "J5": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.4400768280198006,
-            "avg_iter_ms": 2331.4110961412325,
-            "meets_slo": false,
-            "completed_iters": 117
+            "sas": 1.206551799732417,
+            "avg_iter_ms": 850.3571916494104,
+            "meets_slo": true,
+            "completed_iters": 318
           },
           "J6": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.37283655777331803,
-            "avg_iter_ms": 2944.990176278733,
+            "sas": 0.6202456347508281,
+            "avg_iter_ms": 1770.266388801109,
             "meets_slo": false,
-            "completed_iters": 79
+            "completed_iters": 132
           },
           "J7": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.2412560001036048,
-            "avg_iter_ms": 188.0425770986748,
+            "sas": 0.25060050209891976,
+            "avg_iter_ms": 181.03076258838652,
             "meets_slo": false,
-            "completed_iters": 319
+            "completed_iters": 331
           },
           "J8": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.3136049531764169,
-            "avg_iter_ms": 206.59495120778004,
+            "sas": 0.6927773475197037,
+            "avg_iter_ms": 93.52095623790194,
             "meets_slo": false,
-            "completed_iters": 290
+            "completed_iters": 641
           },
           "J9": {
             "model": "ResNet-18",
@@ -8064,19 +8064,19 @@
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.32714694094030466,
-            "avg_iter_ms": 455.26942594024575,
-            "meets_slo": false,
-            "completed_iters": 131
+            "sas": 1.004010374908863,
+            "avg_iter_ms": 148.34508061086493,
+            "meets_slo": true,
+            "completed_iters": 404
           },
           "J11": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.2500218747962852,
-            "avg_iter_ms": 259.134125975135,
+            "sas": 0.5218026007640223,
+            "avg_iter_ms": 124.16419524382549,
             "meets_slo": false,
-            "completed_iters": 231
+            "completed_iters": 483
           },
           "J12": {
             "model": "ResNet-18",
@@ -8091,129 +8091,129 @@
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.3785867506402386,
-            "avg_iter_ms": 1458.054195152095,
+            "sas": 0.25564520496568927,
+            "avg_iter_ms": 2159.242533315206,
             "meets_slo": false,
-            "completed_iters": 40
+            "completed_iters": 27
           },
           "J14": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.2112427861078062,
-            "avg_iter_ms": 214.75952308661368,
+            "sas": 0.2504377448571329,
+            "avg_iter_ms": 181.14841285557873,
             "meets_slo": false,
-            "completed_iters": 279
+            "completed_iters": 331
           },
           "J15": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.3531306277356689,
-            "avg_iter_ms": 91.58084136561405,
+            "sas": 0.45888443737761714,
+            "avg_iter_ms": 70.47525992559939,
             "meets_slo": false,
-            "completed_iters": 655
+            "completed_iters": 851
           },
           "J16": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.2713762312870254,
-            "avg_iter_ms": 4046.0433649352385,
+            "sas": 0.3633646439668902,
+            "avg_iter_ms": 3021.757945442952,
             "meets_slo": false,
-            "completed_iters": 14
+            "completed_iters": 19
           },
           "J17": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.40516961191967993,
-            "avg_iter_ms": 2139.844584820128,
+            "sas": 0.3021691185567063,
+            "avg_iter_ms": 2869.2541585360423,
             "meets_slo": false,
-            "completed_iters": 27
+            "completed_iters": 20
           },
           "J18": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.32620447719941437,
-            "avg_iter_ms": 2657.8421223507244,
+            "sas": 0.25144732899857347,
+            "avg_iter_ms": 3448.0382172002264,
             "meets_slo": false,
-            "completed_iters": 22
+            "completed_iters": 17
           },
           "J19": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.19455844383628265,
-            "avg_iter_ms": 5643.5484286867895,
+            "sas": 0.18128919381725173,
+            "avg_iter_ms": 6056.621340082946,
             "meets_slo": false,
-            "completed_iters": 10
+            "completed_iters": 9
           },
           "J20": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.4190683605510216,
-            "avg_iter_ms": 1317.2075297552653,
+            "sas": 0.37774906458850543,
+            "avg_iter_ms": 1461.2875364795725,
             "meets_slo": false,
-            "completed_iters": 45
+            "completed_iters": 41
           },
           "J21": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.3000309948906987,
-            "avg_iter_ms": 107.78886365317513,
+            "sas": 0.4585745689904542,
+            "avg_iter_ms": 70.5228815265445,
             "meets_slo": false,
-            "completed_iters": 556
+            "completed_iters": 850
           },
           "J22": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.25925106873438786,
-            "avg_iter_ms": 3957.553598558833,
+            "sas": 0.6890462130269851,
+            "avg_iter_ms": 1489.014786820719,
             "meets_slo": false,
-            "completed_iters": 15
+            "completed_iters": 40
           },
           "J23": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.20792784893935842,
-            "avg_iter_ms": 4934.403954225631,
+            "sas": 0.35299782630667054,
+            "avg_iter_ms": 2906.533478505479,
             "meets_slo": false,
-            "completed_iters": 12
+            "completed_iters": 20
           }
         },
         "tiers": {
           "large": {
             "count": 12,
-            "mean_sas": 0.3776353193305469,
-            "slo_rate": 0.0,
+            "mean_sas": 0.9116847458494813,
+            "slo_rate": 0.25,
             "collapse_rate": 0.08333333333333333
           },
           "medium": {
             "count": 8,
-            "mean_sas": 0.2771339305268848,
-            "slo_rate": 0.0,
+            "mean_sas": 0.6756493987623773,
+            "slo_rate": 0.25,
             "collapse_rate": 0.0
           },
           "small": {
             "count": 4,
-            "mean_sas": 0.7044744056565919,
+            "mean_sas": 0.7705487515920179,
             "slo_rate": 0.5,
             "collapse_rate": 0.0
           }
         },
         "overall": {
-          "mean_sas": 0.3986080374503336,
-          "slo_rate": 0.08333333333333333,
+          "mean_sas": 0.8094836311108691,
+          "slo_rate": 0.2916666666666667,
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 0
         },
-        "elapsed_s": 3.8
+        "elapsed_s": 4.4
       },
       {
         "seed": 3,
@@ -8222,19 +8222,19 @@
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.7271366410347897,
-            "avg_iter_ms": 1510.03255514319,
-            "meets_slo": false,
-            "completed_iters": 329
+            "sas": 4.648847446134844,
+            "avg_iter_ms": 236.18757395726158,
+            "meets_slo": true,
+            "completed_iters": 530
           },
           "J1": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.31982445131657,
-            "avg_iter_ms": 202.57738185211508,
+            "sas": 0.8599060243621488,
+            "avg_iter_ms": 75.34451226581251,
             "meets_slo": false,
-            "completed_iters": 2128
+            "completed_iters": 5722
           },
           "J2": {
             "model": "ResNet-18",
@@ -8249,89 +8249,89 @@
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.2817603948782749,
-            "avg_iter_ms": 277.6117631216137,
+            "sas": 0.997157817808087,
+            "avg_iter_ms": 78.44294915316426,
             "meets_slo": false,
-            "completed_iters": 1457
+            "completed_iters": 4970
           },
           "J4": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.5310285931100985,
-            "avg_iter_ms": 1932.0993507919802,
-            "meets_slo": false,
-            "completed_iters": 164
+            "sas": 1.771495536986745,
+            "avg_iter_ms": 579.1716538813256,
+            "meets_slo": true,
+            "completed_iters": 548
           },
           "J5": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.49532258595722645,
-            "avg_iter_ms": 2216.7371953735574,
-            "meets_slo": false,
-            "completed_iters": 128
+            "sas": 1.766847003262948,
+            "avg_iter_ms": 621.4459984210597,
+            "meets_slo": true,
+            "completed_iters": 458
           },
           "J6": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.3257758247124153,
-            "avg_iter_ms": 139.25649651888085,
+            "sas": 0.5977911759241098,
+            "avg_iter_ms": 75.89004626886515,
             "meets_slo": false,
-            "completed_iters": 1602
+            "completed_iters": 2940
           },
           "J7": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.8790461318723221,
-            "avg_iter_ms": 627.9533917341391,
-            "meets_slo": false,
-            "completed_iters": 314
+            "sas": 1.2826226457071446,
+            "avg_iter_ms": 430.36820053622824,
+            "meets_slo": true,
+            "completed_iters": 458
           },
           "J8": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.5513688403259468,
-            "avg_iter_ms": 1572.450121569193,
+            "sas": 0.4388281691021555,
+            "avg_iter_ms": 1975.7163761248191,
             "meets_slo": false,
-            "completed_iters": 38
+            "completed_iters": 30
           },
           "J9": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.2775763656553657,
-            "avg_iter_ms": 536.5730603480898,
+            "sas": 0.28684881073128876,
+            "avg_iter_ms": 519.2282290461453,
             "meets_slo": false,
-            "completed_iters": 111
+            "completed_iters": 115
           },
           "J10": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.4051408943661846,
-            "avg_iter_ms": 79.82408206555829,
+            "sas": 0.5870764260240848,
+            "avg_iter_ms": 55.08652462681793,
             "meets_slo": false,
-            "completed_iters": 751
+            "completed_iters": 1089
           },
           "J11": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.28393678041571324,
-            "avg_iter_ms": 524.5533874897652,
+            "sas": 0.40433072561440947,
+            "avg_iter_ms": 368.36181512961946,
             "meets_slo": false,
-            "completed_iters": 114
+            "completed_iters": 162
           },
           "J12": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.27687720522877757,
-            "avg_iter_ms": 3705.6138267223505,
+            "sas": 0.2845362823120191,
+            "avg_iter_ms": 3605.8670327143045,
             "meets_slo": false,
             "completed_iters": 16
           },
@@ -8339,10 +8339,10 @@
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.38547225465409574,
-            "avg_iter_ms": 2249.189116809468,
+            "sas": 0.2937351639861194,
+            "avg_iter_ms": 2951.6384359108283,
             "meets_slo": false,
-            "completed_iters": 26
+            "completed_iters": 20
           },
           "J14": {
             "model": "ResNet-18",
@@ -8357,111 +8357,111 @@
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.3175185805648376,
-            "avg_iter_ms": 101.8523071704024,
+            "sas": 0.49408377394282615,
+            "avg_iter_ms": 65.45448708409171,
             "meets_slo": false,
-            "completed_iters": 589
+            "completed_iters": 916
           },
           "J16": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.25167909357489476,
-            "avg_iter_ms": 4076.619894908683,
+            "sas": 0.2823110386436462,
+            "avg_iter_ms": 3634.2893459971747,
             "meets_slo": false,
-            "completed_iters": 14
+            "completed_iters": 16
           },
           "J17": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.2692653072585589,
-            "avg_iter_ms": 3810.368333172589,
+            "sas": 0.4166173321043404,
+            "avg_iter_ms": 2462.6915899481633,
             "meets_slo": false,
-            "completed_iters": 15
+            "completed_iters": 24
           },
           "J18": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.19785209618168997,
-            "avg_iter_ms": 395.3458240248798,
+            "sas": 0.2728792940709593,
+            "avg_iter_ms": 286.6468863689589,
             "meets_slo": false,
-            "completed_iters": 151
+            "completed_iters": 209
           },
           "J19": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.4971285141212719,
-            "avg_iter_ms": 1110.3768629641359,
+            "sas": 0.44029399403054426,
+            "avg_iter_ms": 1253.7077668193367,
             "meets_slo": false,
-            "completed_iters": 54
+            "completed_iters": 47
           },
           "J20": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.26300785185733777,
-            "avg_iter_ms": 4174.780305021401,
+            "sas": 0.41882829028990687,
+            "avg_iter_ms": 2621.5994130672984,
             "meets_slo": false,
-            "completed_iters": 14
+            "completed_iters": 22
           },
           "J21": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.2614980749227528,
-            "avg_iter_ms": 247.76167097650296,
+            "sas": 0.5646283681388818,
+            "avg_iter_ms": 114.74662566735182,
             "meets_slo": false,
-            "completed_iters": 242
+            "completed_iters": 522
           },
           "J22": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.25569722564849423,
-            "avg_iter_ms": 177.42233958519745,
+            "sas": 0.3640297232646903,
+            "avg_iter_ms": 124.62279066979801,
             "meets_slo": false,
-            "completed_iters": 338
+            "completed_iters": 481
           },
           "J23": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.2305758511600916,
-            "avg_iter_ms": 4761.9904446873115,
+            "sas": 0.31747625569440824,
+            "avg_iter_ms": 3458.526363171226,
             "meets_slo": false,
-            "completed_iters": 12
+            "completed_iters": 17
           }
         },
         "tiers": {
           "large": {
             "count": 12,
-            "mean_sas": 0.4464924058462843,
-            "slo_rate": 0.0,
+            "mean_sas": 1.0302032631879017,
+            "slo_rate": 0.3333333333333333,
             "collapse_rate": 0.0
           },
           "medium": {
             "count": 8,
-            "mean_sas": 0.2754901517164095,
+            "mean_sas": 0.5434464924893219,
             "slo_rate": 0.0,
-            "collapse_rate": 0.125
+            "collapse_rate": 0.0
           },
           "small": {
             "count": 4,
-            "mean_sas": 0.7218488687327556,
+            "mean_sas": 0.8114740499917277,
             "slo_rate": 0.5,
             "collapse_rate": 0.0
           }
         },
         "overall": {
-          "mean_sas": 0.4353843982840713,
-          "slo_rate": 0.08333333333333333,
-          "collapse_rate": 0.041666666666666664,
+          "mean_sas": 0.831496137422346,
+          "slo_rate": 0.25,
+          "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 4.8
+        "elapsed_s": 5.6
       },
       {
         "seed": 4,
@@ -8479,10 +8479,10 @@
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.8068955405858708,
-            "avg_iter_ms": 684.1034213662946,
-            "meets_slo": false,
-            "completed_iters": 630
+            "sas": 1.1494690665305038,
+            "avg_iter_ms": 480.2217093724213,
+            "meets_slo": true,
+            "completed_iters": 895
           },
           "J2": {
             "model": "ResNet-18",
@@ -8497,64 +8497,64 @@
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.24385802583808996,
-            "avg_iter_ms": 320.760408566312,
+            "sas": 0.5298213797872988,
+            "avg_iter_ms": 147.6346613860733,
             "meets_slo": false,
-            "completed_iters": 1162
+            "completed_iters": 2525
           },
           "J4": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.5806330388491694,
-            "avg_iter_ms": 950.6865146600668,
+            "sas": 0.8145937293566557,
+            "avg_iter_ms": 677.638410543566,
             "meets_slo": false,
-            "completed_iters": 387
+            "completed_iters": 543
           },
           "J5": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.5387433458154803,
-            "avg_iter_ms": 1904.4318746006472,
+            "sas": 0.9510195937146606,
+            "avg_iter_ms": 1078.842125631153,
             "meets_slo": false,
-            "completed_iters": 163
+            "completed_iters": 289
           },
           "J6": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.30596278087138795,
-            "avg_iter_ms": 211.75516778700694,
+            "sas": 0.8549683765527153,
+            "avg_iter_ms": 75.7796449281949,
             "meets_slo": false,
-            "completed_iters": 1429
+            "completed_iters": 3995
           },
           "J7": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.4668404148029154,
-            "avg_iter_ms": 2351.9814591535296,
+            "sas": 0.47768357582503945,
+            "avg_iter_ms": 2298.5927412379006,
             "meets_slo": false,
-            "completed_iters": 121
+            "completed_iters": 124
           },
           "J8": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.3066221824240378,
-            "avg_iter_ms": 105.47182119810223,
+            "sas": 0.9067377844269814,
+            "avg_iter_ms": 35.66632002705994,
             "meets_slo": false,
-            "completed_iters": 2711
+            "completed_iters": 8019
           },
           "J9": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.33656116276229703,
-            "avg_iter_ms": 442.53472022020503,
+            "sas": 0.49902789896402727,
+            "avg_iter_ms": 298.46026706963016,
             "meets_slo": false,
-            "completed_iters": 549
+            "completed_iters": 814
           },
           "J10": {
             "model": "ResNet-18",
@@ -8569,147 +8569,147 @@
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.28306082101085767,
-            "avg_iter_ms": 160.270855705106,
+            "sas": 0.35360396190438326,
+            "avg_iter_ms": 128.2972050303762,
             "meets_slo": false,
-            "completed_iters": 764
+            "completed_iters": 955
           },
           "J12": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.27460075350858426,
-            "avg_iter_ms": 165.2085779822225,
+            "sas": 0.6342809055841965,
+            "avg_iter_ms": 71.52414584862183,
             "meets_slo": false,
-            "completed_iters": 571
+            "completed_iters": 1319
           },
           "J13": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.5665989487618371,
-            "avg_iter_ms": 1530.1828601952327,
+            "sas": 0.48740695228602265,
+            "avg_iter_ms": 1778.8010530699664,
             "meets_slo": false,
-            "completed_iters": 52
+            "completed_iters": 45
           },
           "J14": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.3552163124877424,
-            "avg_iter_ms": 3091.0742592596707,
+            "sas": 0.36646472859330603,
+            "avg_iter_ms": 2996.19557989859,
             "meets_slo": false,
-            "completed_iters": 19
+            "completed_iters": 20
           },
           "J15": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.30159629771320484,
-            "avg_iter_ms": 3401.898523885887,
+            "sas": 0.3601515755900525,
+            "avg_iter_ms": 2848.8005316068884,
             "meets_slo": false,
-            "completed_iters": 17
+            "completed_iters": 21
           },
           "J16": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.2377919938433465,
-            "avg_iter_ms": 272.4616542080978,
+            "sas": 0.41512576321117006,
+            "avg_iter_ms": 156.07125777698943,
             "meets_slo": false,
-            "completed_iters": 220
+            "completed_iters": 384
           },
           "J17": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.2825851324954261,
-            "avg_iter_ms": 3630.7642618693208,
+            "sas": 0.3570076425560513,
+            "avg_iter_ms": 2873.8880564410183,
             "meets_slo": false,
-            "completed_iters": 16
+            "completed_iters": 20
           },
           "J18": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.3041271732563161,
-            "avg_iter_ms": 3610.3317840481614,
+            "sas": 0.6178708455625007,
+            "avg_iter_ms": 1777.0704150968584,
             "meets_slo": false,
-            "completed_iters": 16
+            "completed_iters": 33
           },
           "J19": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.21955016704772845,
-            "avg_iter_ms": 356.2739261455246,
+            "sas": 0.4101335761512789,
+            "avg_iter_ms": 190.71835262555618,
             "meets_slo": false,
-            "completed_iters": 168
+            "completed_iters": 314
           },
           "J20": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.23484715345545268,
-            "avg_iter_ms": 634.1997244103361,
+            "sas": 0.24614192171153335,
+            "avg_iter_ms": 605.0980627938325,
             "meets_slo": false,
-            "completed_iters": 94
+            "completed_iters": 99
           },
           "J21": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.27612851291480667,
-            "avg_iter_ms": 3715.661194020009,
+            "sas": 0.6855183059498757,
+            "avg_iter_ms": 1496.6777562246746,
             "meets_slo": false,
-            "completed_iters": 16
+            "completed_iters": 40
           },
           "J22": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.4283395824314135,
-            "avg_iter_ms": 2024.0949834208366,
+            "sas": 0.37160216310409583,
+            "avg_iter_ms": 2333.1403476172172,
             "meets_slo": false,
-            "completed_iters": 29
+            "completed_iters": 25
           },
           "J23": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.2344046313888722,
-            "avg_iter_ms": 4684.207788447839,
+            "sas": 0.35480762410689526,
+            "avg_iter_ms": 3094.6347411892093,
             "meets_slo": false,
-            "completed_iters": 12
+            "completed_iters": 19
           }
         },
         "tiers": {
           "large": {
             "count": 12,
-            "mean_sas": 0.42850907762525453,
-            "slo_rate": 0.0,
+            "mean_sas": 0.5827996502646383,
+            "slo_rate": 0.08333333333333333,
             "collapse_rate": 0.0
           },
           "medium": {
             "count": 8,
-            "mean_sas": 0.26702910729221807,
+            "mean_sas": 0.49288797298332543,
             "slo_rate": 0.0,
             "collapse_rate": 0.0
           },
           "small": {
             "count": 4,
-            "mean_sas": 0.6178395456060095,
+            "mean_sas": 0.7678684461067453,
             "slo_rate": 0.5,
             "collapse_rate": 0.25
           }
         },
         "overall": {
-          "mean_sas": 0.40623749884436816,
-          "slo_rate": 0.08333333333333333,
+          "mean_sas": 0.5836738904778852,
+          "slo_rate": 0.125,
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 1
         },
-        "elapsed_s": 4.9
+        "elapsed_s": 6.4
       },
       {
         "seed": 5,
@@ -8718,28 +8718,28 @@
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.4370046189360464,
-            "avg_iter_ms": 74.0037944650027,
+            "sas": 0.9345184869976884,
+            "avg_iter_ms": 34.60605696940054,
             "meets_slo": false,
-            "completed_iters": 7971
+            "completed_iters": 13157
           },
           "J1": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.39421722939773446,
-            "avg_iter_ms": 377.81200032160734,
-            "meets_slo": false,
-            "completed_iters": 1538
+            "sas": 1.391478463802936,
+            "avg_iter_ms": 107.03722973400843,
+            "meets_slo": true,
+            "completed_iters": 3134
           },
           "J2": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.8912450456944259,
-            "avg_iter_ms": 972.7964314510888,
-            "meets_slo": false,
-            "completed_iters": 588
+            "sas": 3.292778097653284,
+            "avg_iter_ms": 263.3035006573624,
+            "meets_slo": true,
+            "completed_iters": 653
           },
           "J3": {
             "model": "ResNet-18",
@@ -8754,145 +8754,145 @@
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.33854731102912883,
-            "avg_iter_ms": 134.00313197612917,
+            "sas": 0.706084523033245,
+            "avg_iter_ms": 64.25066478601173,
             "meets_slo": false,
-            "completed_iters": 2892
+            "completed_iters": 6033
           },
           "J5": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.9423407888539197,
-            "avg_iter_ms": 585.7753442587851,
-            "meets_slo": false,
-            "completed_iters": 641
+            "sas": 3.234371805723623,
+            "avg_iter_ms": 170.6668352176356,
+            "meets_slo": true,
+            "completed_iters": 1023
           },
           "J6": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.6604097828757962,
-            "avg_iter_ms": 1662.6040807855534,
-            "meets_slo": false,
-            "completed_iters": 128
+            "sas": 2.573770329738139,
+            "avg_iter_ms": 426.6114918310185,
+            "meets_slo": true,
+            "completed_iters": 500
           },
           "J7": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.28868257111105966,
-            "avg_iter_ms": 515.9300037642417,
+            "sas": 0.629165595939125,
+            "avg_iter_ms": 236.7262306796742,
             "meets_slo": false,
-            "completed_iters": 216
+            "completed_iters": 471
           },
           "J8": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.473859807552946,
-            "avg_iter_ms": 2317.14102462112,
+            "sas": 0.9688958343695253,
+            "avg_iter_ms": 1133.2487570394858,
             "meets_slo": false,
-            "completed_iters": 39
+            "completed_iters": 81
           },
           "J9": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.3169232216919152,
-            "avg_iter_ms": 3237.377161959393,
+            "sas": 0.28770116009958463,
+            "avg_iter_ms": 3566.200427015523,
             "meets_slo": false,
-            "completed_iters": 18
+            "completed_iters": 16
           },
           "J10": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.3147075910267616,
-            "avg_iter_ms": 102.76205888293914,
+            "sas": 0.49569039588918484,
+            "avg_iter_ms": 65.24233728996808,
             "meets_slo": false,
-            "completed_iters": 583
+            "completed_iters": 919
           },
           "J11": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.33651584499967124,
-            "avg_iter_ms": 3262.8478459939165,
+            "sas": 0.42880824543164126,
+            "avg_iter_ms": 2560.5850906498913,
             "meets_slo": false,
-            "completed_iters": 18
+            "completed_iters": 23
           },
           "J12": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.2695310459956156,
-            "avg_iter_ms": 290.2077558860228,
+            "sas": 0.68134615098017,
+            "avg_iter_ms": 114.80214555769395,
             "meets_slo": false,
-            "completed_iters": 206
+            "completed_iters": 522
           },
           "J13": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.3080965538902102,
-            "avg_iter_ms": 3330.1248814539285,
+            "sas": 0.5519063906740619,
+            "avg_iter_ms": 1859.0109071701663,
             "meets_slo": false,
-            "completed_iters": 18
+            "completed_iters": 32
           },
           "J14": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.29211613795535196,
-            "avg_iter_ms": 221.79260773981136,
+            "sas": 0.5986830299032239,
+            "avg_iter_ms": 108.2195364890718,
             "meets_slo": false,
-            "completed_iters": 270
+            "completed_iters": 554
           },
           "J15": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.25553872848653986,
-            "avg_iter_ms": 4015.046979675502,
+            "sas": 0.41609069672070725,
+            "avg_iter_ms": 2465.808555889637,
             "meets_slo": false,
-            "completed_iters": 14
+            "completed_iters": 24
           },
           "J16": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.2743289678479621,
-            "avg_iter_ms": 4002.4938256193586,
+            "sas": 0.815619236351575,
+            "avg_iter_ms": 1346.2164096466995,
             "meets_slo": false,
-            "completed_iters": 14
+            "completed_iters": 44
           },
           "J17": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.22561290796498415,
-            "avg_iter_ms": 346.7000213132309,
+            "sas": 0.46331370162921476,
+            "avg_iter_ms": 168.82729719614179,
             "meets_slo": false,
-            "completed_iters": 173
+            "completed_iters": 355
           },
           "J18": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.22262107307808698,
-            "avg_iter_ms": 4608.728121798777,
+            "sas": 0.3313204803170444,
+            "avg_iter_ms": 3096.699603411804,
             "meets_slo": false,
-            "completed_iters": 12
+            "completed_iters": 19
           },
           "J19": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.24566181515171534,
-            "avg_iter_ms": 263.7332951398556,
+            "sas": 0.458981878978787,
+            "avg_iter_ms": 141.15851402271676,
             "meets_slo": false,
-            "completed_iters": 227
+            "completed_iters": 425
           },
           "J20": {
             "model": "ResNet-18",
@@ -8907,19 +8907,19 @@
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.5066029911290739,
-            "avg_iter_ms": 1089.6106214646484,
+            "sas": 0.6923441249554632,
+            "avg_iter_ms": 797.2913759259658,
             "meets_slo": false,
-            "completed_iters": 55
+            "completed_iters": 74
           },
           "J22": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.39052818925177785,
-            "avg_iter_ms": 2220.070212245384,
+            "sas": 0.2974358437403677,
+            "avg_iter_ms": 2914.9143193273167,
             "meets_slo": false,
-            "completed_iters": 27
+            "completed_iters": 20
           },
           "J23": {
             "model": "ViT-Base",
@@ -8934,30 +8934,30 @@
         "tiers": {
           "large": {
             "count": 12,
-            "mean_sas": 0.4649175829460271,
-            "slo_rate": 0.0,
+            "mean_sas": 1.1575868538145848,
+            "slo_rate": 0.25,
             "collapse_rate": 0.0
           },
           "medium": {
             "count": 8,
-            "mean_sas": 0.2567961273256988,
-            "slo_rate": 0.0,
+            "mean_sas": 0.6161316680333377,
+            "slo_rate": 0.125,
             "collapse_rate": 0.125
           },
           "small": {
             "count": 4,
-            "mean_sas": 0.729112052490702,
+            "mean_sas": 0.8987362207217182,
             "slo_rate": 0.5,
             "collapse_rate": 0.0
           }
         },
         "overall": {
-          "mean_sas": 0.43957617599669696,
-          "slo_rate": 0.08333333333333333,
+          "mean_sas": 0.9339600197053578,
+          "slo_rate": 0.25,
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 1
         },
-        "elapsed_s": 5.7
+        "elapsed_s": 4.0
       },
       {
         "seed": 6,
@@ -8975,89 +8975,89 @@
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.3953521880148933,
-            "avg_iter_ms": 376.7273952569836,
-            "meets_slo": false,
-            "completed_iters": 731
+            "sas": 1.2226583621191873,
+            "avg_iter_ms": 121.81653077794189,
+            "meets_slo": true,
+            "completed_iters": 2262
           },
           "J2": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.8457029569877473,
-            "avg_iter_ms": 1025.1826517056404,
-            "meets_slo": false,
-            "completed_iters": 190
+            "sas": 2.3506335640157436,
+            "avg_iter_ms": 368.8367311997563,
+            "meets_slo": true,
+            "completed_iters": 526
           },
           "J3": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.4376560040872682,
-            "avg_iter_ms": 73.89365094498153,
+            "sas": 0.7750202219157024,
+            "avg_iter_ms": 41.72794345941281,
             "meets_slo": false,
-            "completed_iters": 2240
+            "completed_iters": 3966
           },
           "J4": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.27449319499114805,
-            "avg_iter_ms": 284.96152701535084,
+            "sas": 0.6698361884725126,
+            "avg_iter_ms": 116.77481949485599,
             "meets_slo": false,
-            "completed_iters": 333
+            "completed_iters": 813
           },
           "J5": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.32042231951523775,
-            "avg_iter_ms": 202.19939765125798,
+            "sas": 0.6598124637469177,
+            "avg_iter_ms": 98.19335577881868,
             "meets_slo": false,
-            "completed_iters": 445
+            "completed_iters": 916
           },
           "J6": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.486539459794216,
-            "avg_iter_ms": 1134.5431267455076,
+            "sas": 0.2691390351523022,
+            "avg_iter_ms": 2050.98453922758,
             "meets_slo": false,
-            "completed_iters": 52
+            "completed_iters": 29
           },
           "J7": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.2746962444943703,
-            "avg_iter_ms": 165.15114752844664,
+            "sas": 0.26212552799107547,
+            "avg_iter_ms": 173.07127751992388,
             "meets_slo": false,
-            "completed_iters": 363
+            "completed_iters": 346
           },
           "J8": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.5450730048451828,
-            "avg_iter_ms": 2014.4090612446769,
+            "sas": 0.4848084399446275,
+            "avg_iter_ms": 2264.8120567484516,
             "meets_slo": false,
-            "completed_iters": 29
+            "completed_iters": 26
           },
           "J9": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.3680235906094008,
-            "avg_iter_ms": 2787.8647624220853,
+            "sas": 0.30683087186621855,
+            "avg_iter_ms": 3343.8616973566686,
             "meets_slo": false,
-            "completed_iters": 21
+            "completed_iters": 17
           },
           "J10": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.37521085289209616,
-            "avg_iter_ms": 2926.3545857927647,
+            "sas": 0.38226440660903743,
+            "avg_iter_ms": 2872.357407638489,
             "meets_slo": false,
             "completed_iters": 20
           },
@@ -9065,46 +9065,46 @@
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.2604269997019256,
-            "avg_iter_ms": 248.78065666829912,
+            "sas": 0.4835275262457696,
+            "avg_iter_ms": 133.992785277479,
             "meets_slo": false,
-            "completed_iters": 241
+            "completed_iters": 447
           },
           "J12": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.339139204990898,
-            "avg_iter_ms": 95.3590723929071,
+            "sas": 0.5194653363110671,
+            "avg_iter_ms": 62.25631960288129,
             "meets_slo": false,
-            "completed_iters": 629
+            "completed_iters": 963
           },
           "J13": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.25341223225639187,
-            "avg_iter_ms": 587.7380056749145,
+            "sas": 0.25870287056377256,
+            "avg_iter_ms": 575.7183894999919,
             "meets_slo": false,
-            "completed_iters": 101
+            "completed_iters": 104
           },
           "J14": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.3253071587895439,
-            "avg_iter_ms": 3375.271555921542,
+            "sas": 0.3793922113976525,
+            "avg_iter_ms": 2894.1026384148745,
             "meets_slo": false,
-            "completed_iters": 17
+            "completed_iters": 20
           },
           "J15": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.45325729802595577,
-            "avg_iter_ms": 1217.8513228669287,
+            "sas": 0.3193262787506014,
+            "avg_iter_ms": 1728.6394410123705,
             "meets_slo": false,
-            "completed_iters": 49
+            "completed_iters": 34
           },
           "J16": {
             "model": "ResNet-18",
@@ -9119,93 +9119,93 @@
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.3222044412213327,
-            "avg_iter_ms": 3407.774256115074,
+            "sas": 0.4688133418809206,
+            "avg_iter_ms": 2342.083515786319,
             "meets_slo": false,
-            "completed_iters": 17
+            "completed_iters": 25
           },
           "J18": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.2340239126547719,
-            "avg_iter_ms": 4384.16736290337,
+            "sas": 0.2491446288442223,
+            "avg_iter_ms": 4118.0899815484545,
             "meets_slo": false,
-            "completed_iters": 13
+            "completed_iters": 14
           },
           "J19": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.2560284743334004,
-            "avg_iter_ms": 4007.366769150615,
+            "sas": 0.4558100238259943,
+            "avg_iter_ms": 2250.9377731273325,
             "meets_slo": false,
-            "completed_iters": 14
+            "completed_iters": 26
           },
           "J20": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.5056457324564018,
-            "avg_iter_ms": 1714.6392115051722,
+            "sas": 0.4820424606966957,
+            "avg_iter_ms": 1798.596743421576,
             "meets_slo": false,
-            "completed_iters": 34
+            "completed_iters": 33
           },
           "J21": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.21138077423516963,
-            "avg_iter_ms": 370.0431142946666,
+            "sas": 0.3141724713230822,
+            "avg_iter_ms": 248.9715272334021,
             "meets_slo": false,
-            "completed_iters": 162
+            "completed_iters": 240
           },
           "J22": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.24272889289801192,
-            "avg_iter_ms": 4226.938077911876,
+            "sas": 0.4530345548162599,
+            "avg_iter_ms": 2264.727908925449,
             "meets_slo": false,
-            "completed_iters": 14
+            "completed_iters": 26
           },
           "J23": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.25759050637045533,
-            "avg_iter_ms": 176.11829193252967,
+            "sas": 0.30718071675327313,
+            "avg_iter_ms": 147.6863537512942,
             "meets_slo": false,
-            "completed_iters": 340
+            "completed_iters": 406
           }
         },
         "tiers": {
           "large": {
             "count": 12,
-            "mean_sas": 0.4133121479590051,
-            "slo_rate": 0.0,
+            "mean_sas": 0.5501033181500231,
+            "slo_rate": 0.08333333333333333,
             "collapse_rate": 0.0
           },
           "medium": {
             "count": 8,
-            "mean_sas": 0.280971807447449,
-            "slo_rate": 0.0,
+            "mean_sas": 0.5222520159019488,
+            "slo_rate": 0.125,
             "collapse_rate": 0.0
           },
           "small": {
             "count": 4,
-            "mean_sas": 0.7353828022695414,
+            "mean_sas": 0.8648053895566923,
             "slo_rate": 0.5,
             "collapse_rate": 0.0
           }
         },
         "overall": {
-          "mean_sas": 0.42287714350690914,
-          "slo_rate": 0.08333333333333333,
+          "mean_sas": 0.593269895968443,
+          "slo_rate": 0.16666666666666666,
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 3.6
+        "elapsed_s": 3.8
       },
       {
         "seed": 7,
@@ -9214,10 +9214,10 @@
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.7094735810130546,
-            "avg_iter_ms": 1547.626337871764,
-            "meets_slo": false,
-            "completed_iters": 292
+            "sas": 3.324290245063723,
+            "avg_iter_ms": 330.29606895199146,
+            "meets_slo": true,
+            "completed_iters": 530
           },
           "J1": {
             "model": "ViT-Base",
@@ -9232,46 +9232,46 @@
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.41896773832391404,
-            "avg_iter_ms": 77.18971424715564,
+            "sas": 0.8520475148732835,
+            "avg_iter_ms": 37.95562974537824,
             "meets_slo": false,
-            "completed_iters": 5274
+            "completed_iters": 10726
           },
           "J3": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.27692013649944264,
-            "avg_iter_ms": 282.4641103705271,
+            "sas": 0.9414171306643042,
+            "avg_iter_ms": 83.08750441454642,
             "meets_slo": false,
-            "completed_iters": 1432
+            "completed_iters": 4871
           },
           "J4": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.5194294072263103,
-            "avg_iter_ms": 2113.8579847898604,
-            "meets_slo": false,
-            "completed_iters": 183
+            "sas": 1.3535521919749993,
+            "avg_iter_ms": 811.1988636344216,
+            "meets_slo": true,
+            "completed_iters": 474
           },
           "J5": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.23769480570363316,
-            "avg_iter_ms": 329.07744773155724,
+            "sas": 0.8064274965566842,
+            "avg_iter_ms": 96.99570058559117,
             "meets_slo": false,
-            "completed_iters": 1059
+            "completed_iters": 3595
           },
           "J6": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.33688284795109497,
-            "avg_iter_ms": 95.99776360444085,
+            "sas": 0.8311331545065339,
+            "avg_iter_ms": 38.910732684224506,
             "meets_slo": false,
-            "completed_iters": 3204
+            "completed_iters": 7906
           },
           "J7": {
             "model": "ResNet-18",
@@ -9286,109 +9286,109 @@
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.5157450674690992,
-            "avg_iter_ms": 2128.9588001067727,
-            "meets_slo": false,
-            "completed_iters": 131
+            "sas": 2.9476202223631565,
+            "avg_iter_ms": 372.50389031451107,
+            "meets_slo": true,
+            "completed_iters": 530
           },
           "J9": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.2671885766184578,
-            "avg_iter_ms": 169.79169010201622,
+            "sas": 0.5884018985817178,
+            "avg_iter_ms": 77.10104285752823,
             "meets_slo": false,
-            "completed_iters": 1398
+            "completed_iters": 3078
           },
           "J10": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.3585452470935258,
-            "avg_iter_ms": 415.4008488673378,
+            "sas": 0.8004251133748259,
+            "avg_iter_ms": 186.07612069044845,
             "meets_slo": false,
-            "completed_iters": 488
+            "completed_iters": 1089
           },
           "J11": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.3132893194360913,
-            "avg_iter_ms": 206.80309215972653,
+            "sas": 0.7195443196978988,
+            "avg_iter_ms": 90.04198661063961,
             "meets_slo": false,
-            "completed_iters": 618
+            "completed_iters": 1421
           },
           "J12": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.6508560675228615,
-            "avg_iter_ms": 1332.0917530964653,
+            "sas": 0.7675557107525574,
+            "avg_iter_ms": 1129.5597021223925,
             "meets_slo": false,
-            "completed_iters": 62
+            "completed_iters": 73
           },
           "J13": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.3275379450110079,
-            "avg_iter_ms": 3132.461492257082,
+            "sas": 0.44784472396990294,
+            "avg_iter_ms": 2290.9726186010657,
             "meets_slo": false,
-            "completed_iters": 19
+            "completed_iters": 26
           },
           "J14": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.48853749555864323,
-            "avg_iter_ms": 1774.6846616319274,
+            "sas": 0.4558947797259306,
+            "avg_iter_ms": 1901.7546121524197,
             "meets_slo": false,
-            "completed_iters": 33
+            "completed_iters": 31
           },
           "J15": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.6643207665199896,
-            "avg_iter_ms": 830.9238967368486,
+            "sas": 0.8177815480357281,
+            "avg_iter_ms": 674.9968880147485,
             "meets_slo": false,
-            "completed_iters": 72
+            "completed_iters": 88
           },
           "J16": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.2677110401257344,
-            "avg_iter_ms": 3832.490432662486,
+            "sas": 0.2953898181931628,
+            "avg_iter_ms": 3473.376321079127,
             "meets_slo": false,
-            "completed_iters": 15
+            "completed_iters": 17
           },
           "J17": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.2620769212247838,
-            "avg_iter_ms": 247.2144426041627,
+            "sas": 0.5642114647232865,
+            "avg_iter_ms": 114.83141348745083,
             "meets_slo": false,
-            "completed_iters": 242
+            "completed_iters": 522
           },
           "J18": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.2467948748956805,
-            "avg_iter_ms": 4157.298649065088,
+            "sas": 0.29371766055216053,
+            "avg_iter_ms": 3493.1505244567866,
             "meets_slo": false,
-            "completed_iters": 14
+            "completed_iters": 17
           },
           "J19": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.26136393466037283,
-            "avg_iter_ms": 3925.560737112514,
+            "sas": 0.43185716494976717,
+            "avg_iter_ms": 2375.785521861939,
             "meets_slo": false,
-            "completed_iters": 15
+            "completed_iters": 25
           },
           "J20": {
             "model": "ResNet-18",
@@ -9403,57 +9403,57 @@
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.26040186677608845,
-            "avg_iter_ms": 571.9621055100534,
+            "sas": 0.2988557472213701,
+            "avg_iter_ms": 498.36752809600927,
             "meets_slo": false,
-            "completed_iters": 104
+            "completed_iters": 120
           },
           "J22": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.2543631991447411,
-            "avg_iter_ms": 4316.662173191184,
+            "sas": 0.4349514922346296,
+            "avg_iter_ms": 2524.4194343577433,
             "meets_slo": false,
-            "completed_iters": 13
+            "completed_iters": 23
           },
           "J23": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.43058749050551065,
-            "avg_iter_ms": 1281.9694305376843,
+            "sas": 0.3114320378987685,
+            "avg_iter_ms": 1772.457335232249,
             "meets_slo": false,
-            "completed_iters": 46
+            "completed_iters": 33
           }
         },
         "tiers": {
           "large": {
             "count": 12,
-            "mean_sas": 0.4447267391377505,
-            "slo_rate": 0.0,
+            "mean_sas": 0.990157299642874,
+            "slo_rate": 0.25,
             "collapse_rate": 0.0
           },
           "medium": {
             "count": 8,
-            "mean_sas": 0.24701460916900286,
+            "mean_sas": 0.5899103963525109,
             "slo_rate": 0.0,
             "collapse_rate": 0.125
           },
           "small": {
             "count": 4,
-            "mean_sas": 0.7301466465687523,
+            "mean_sas": 0.9619791673449543,
             "slo_rate": 0.5,
             "collapse_rate": 0.0
           }
         },
         "overall": {
-          "mean_sas": 0.4263926803866683,
-          "slo_rate": 0.08333333333333333,
+          "mean_sas": 0.8520453098297662,
+          "slo_rate": 0.20833333333333334,
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 1
         },
-        "elapsed_s": 5.5
+        "elapsed_s": 7.1
       },
       {
         "seed": 8,
@@ -9462,127 +9462,127 @@
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.326431639528095,
-            "avg_iter_ms": 198.4770841872507,
+            "sas": 0.7217476334824213,
+            "avg_iter_ms": 89.76711109864412,
             "meets_slo": false,
-            "completed_iters": 2855
+            "completed_iters": 6314
           },
           "J1": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.82723252735356,
-            "avg_iter_ms": 1048.0729073524974,
-            "meets_slo": false,
-            "completed_iters": 482
+            "sas": 2.7533707626644253,
+            "avg_iter_ms": 314.8867605323911,
+            "meets_slo": true,
+            "completed_iters": 653
           },
           "J2": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.2802287447521404,
-            "avg_iter_ms": 231.20112127435542,
+            "sas": 0.8385241931819408,
+            "avg_iter_ms": 77.26574918982952,
             "meets_slo": false,
-            "completed_iters": 2051
+            "completed_iters": 6138
           },
           "J3": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.3342967159663081,
-            "avg_iter_ms": 135.7069867374115,
+            "sas": 0.46333569395363233,
+            "avg_iter_ms": 97.91259467383054,
             "meets_slo": false,
-            "completed_iters": 3017
+            "completed_iters": 4182
           },
           "J4": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.6632568155232431,
-            "avg_iter_ms": 1655.4673458331342,
-            "meets_slo": false,
-            "completed_iters": 244
+            "sas": 1.098078665085387,
+            "avg_iter_ms": 999.9283611567292,
+            "meets_slo": true,
+            "completed_iters": 402
           },
           "J5": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.43185174433302953,
-            "avg_iter_ms": 74.88681109751518,
+            "sas": 0.6531902143316561,
+            "avg_iter_ms": 49.510845830858436,
             "meets_slo": false,
-            "completed_iters": 5074
+            "completed_iters": 7675
           },
           "J6": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.2837498817540887,
-            "avg_iter_ms": 275.6653131147001,
+            "sas": 0.6910900451391556,
+            "avg_iter_ms": 113.18351429045671,
             "meets_slo": false,
-            "completed_iters": 1357
+            "completed_iters": 3307
           },
           "J7": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.35484561053213576,
-            "avg_iter_ms": 419.73183711261265,
+            "sas": 0.5175063726741329,
+            "avg_iter_ms": 287.80321917656,
             "meets_slo": false,
-            "completed_iters": 842
+            "completed_iters": 1227
           },
           "J8": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.2293460800878786,
-            "avg_iter_ms": 341.05662486155603,
+            "sas": 0.43163087887529233,
+            "avg_iter_ms": 181.2196574161217,
             "meets_slo": false,
-            "completed_iters": 936
+            "completed_iters": 1761
           },
           "J9": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.510155450169146,
-            "avg_iter_ms": 2011.1516982908283,
-            "meets_slo": false,
-            "completed_iters": 137
+            "sas": 1.2650705526261055,
+            "avg_iter_ms": 811.0219606884144,
+            "meets_slo": true,
+            "completed_iters": 338
           },
           "J10": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.8509346685201329,
-            "avg_iter_ms": 648.6984493885852,
-            "meets_slo": false,
-            "completed_iters": 352
+            "sas": 1.0971930822150422,
+            "avg_iter_ms": 503.101968967584,
+            "meets_slo": true,
+            "completed_iters": 455
           },
           "J11": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.26068367192125164,
-            "avg_iter_ms": 174.0285445024131,
+            "sas": 0.35579505330000216,
+            "avg_iter_ms": 127.5071128146,
             "meets_slo": false,
-            "completed_iters": 1123
+            "completed_iters": 1533
           },
           "J12": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.42122779643848296,
-            "avg_iter_ms": 2435.7366932451223,
+            "sas": 0.8552839159587443,
+            "avg_iter_ms": 1199.6016537384417,
             "meets_slo": false,
-            "completed_iters": 76
+            "completed_iters": 155
           },
           "J13": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.4537797585229049,
-            "avg_iter_ms": 1910.6184965635425,
+            "sas": 0.35553573570097424,
+            "avg_iter_ms": 2438.5734342305223,
             "meets_slo": false,
-            "completed_iters": 63
+            "completed_iters": 49
           },
           "J14": {
             "model": "ResNet-18",
@@ -9597,10 +9597,10 @@
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.34914676886047874,
-            "avg_iter_ms": 92.62580348530527,
+            "sas": 0.6098875786666264,
+            "avg_iter_ms": 53.026166020143734,
             "meets_slo": false,
-            "completed_iters": 647
+            "completed_iters": 1131
           },
           "J16": {
             "model": "ResNet-18",
@@ -9615,93 +9615,93 @@
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.3517720655226566,
-            "avg_iter_ms": 2916.6613854786556,
+            "sas": 0.5345179413045644,
+            "avg_iter_ms": 1919.4865517439996,
             "meets_slo": false,
-            "completed_iters": 20
+            "completed_iters": 31
           },
           "J18": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.31509526792641224,
-            "avg_iter_ms": 3256.158071658548,
+            "sas": 0.5313026474733855,
+            "avg_iter_ms": 1931.1027431900673,
             "meets_slo": false,
-            "completed_iters": 18
+            "completed_iters": 31
           },
           "J19": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.2063242751072447,
-            "avg_iter_ms": 5321.719896649455,
+            "sas": 0.19892547673822095,
+            "avg_iter_ms": 5519.654988410208,
             "meets_slo": false,
-            "completed_iters": 11
+            "completed_iters": 10
           },
           "J20": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.2534187004884724,
-            "avg_iter_ms": 4332.750495064377,
+            "sas": 0.394157145195038,
+            "avg_iter_ms": 2785.6909696681623,
             "meets_slo": false,
-            "completed_iters": 13
+            "completed_iters": 21
           },
           "J21": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.23846219815252206,
-            "avg_iter_ms": 624.5853688924605,
+            "sas": 0.26573368452306906,
+            "avg_iter_ms": 560.4859627311197,
             "meets_slo": false,
-            "completed_iters": 96
+            "completed_iters": 107
           },
           "J22": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.37831804122304724,
-            "avg_iter_ms": 1459.0898129400973,
+            "sas": 0.27634929786704926,
+            "avg_iter_ms": 1997.4720553318193,
             "meets_slo": false,
-            "completed_iters": 41
+            "completed_iters": 30
           },
           "J23": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.28036838076086545,
-            "avg_iter_ms": 3916.27614005631,
+            "sas": 0.6596217309335477,
+            "avg_iter_ms": 1664.5903985698371,
             "meets_slo": false,
-            "completed_iters": 15
+            "completed_iters": 36
           }
         },
         "tiers": {
           "large": {
             "count": 12,
-            "mean_sas": 0.4593236456296808,
-            "slo_rate": 0.0,
-            "collapse_rate": 0.0
+            "mean_sas": 0.8349505794802071,
+            "slo_rate": 0.3333333333333333,
+            "collapse_rate": 0.08333333333333333
           },
           "medium": {
             "count": 8,
-            "mean_sas": 0.28850556783680253,
+            "mean_sas": 0.5356704443912058,
             "slo_rate": 0.0,
             "collapse_rate": 0.0
           },
           "small": {
             "count": 4,
-            "mean_sas": 0.7364336282983771,
+            "mean_sas": 0.8569534482495706,
             "slo_rate": 0.5,
             "collapse_rate": 0.0
           }
         },
         "overall": {
-          "mean_sas": 0.44856928347683733,
-          "slo_rate": 0.08333333333333333,
-          "collapse_rate": 0.0,
+          "mean_sas": 0.738857679245434,
+          "slo_rate": 0.25,
+          "collapse_rate": 0.041666666666666664,
           "starvation_count": 0
         },
-        "elapsed_s": 9.4
+        "elapsed_s": 10.6
       },
       {
         "seed": 9,
@@ -9710,46 +9710,46 @@
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.62103417662374,
-            "avg_iter_ms": 1768.0186394399268,
-            "meets_slo": false,
-            "completed_iters": 331
+            "sas": 1.4098697064310002,
+            "avg_iter_ms": 778.7953702328426,
+            "meets_slo": true,
+            "completed_iters": 530
           },
           "J1": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.5101679219921376,
-            "avg_iter_ms": 2011.1025326594565,
-            "meets_slo": false,
-            "completed_iters": 287
+            "sas": 1.5872973229517007,
+            "avg_iter_ms": 646.3817365306675,
+            "meets_slo": true,
+            "completed_iters": 548
           },
           "J2": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.2931142835114893,
-            "avg_iter_ms": 221.0373347345266,
+            "sas": 0.8804726854714422,
+            "avg_iter_ms": 73.58456550563987,
             "meets_slo": false,
-            "completed_iters": 2284
+            "completed_iters": 6526
           },
           "J3": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.3835466812495905,
-            "avg_iter_ms": 84.31828922267472,
+            "sas": 0.8136480528452309,
+            "avg_iter_ms": 39.74691500447995,
             "meets_slo": false,
-            "completed_iters": 5063
+            "completed_iters": 10741
           },
           "J4": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.44853081263306166,
-            "avg_iter_ms": 2287.468265506566,
-            "meets_slo": false,
-            "completed_iters": 131
+            "sas": 2.4609014008040004,
+            "avg_iter_ms": 416.92040146947613,
+            "meets_slo": true,
+            "completed_iters": 548
           },
           "J5": {
             "model": "ResNet-18",
@@ -9764,37 +9764,37 @@
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.31876091414229135,
-            "avg_iter_ms": 467.2467463608629,
+            "sas": 0.8673420707838531,
+            "avg_iter_ms": 171.7200226035349,
             "meets_slo": false,
-            "completed_iters": 289
+            "completed_iters": 784
           },
           "J7": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.3203402577077061,
-            "avg_iter_ms": 3427.605408877045,
+            "sas": 0.43811770584733467,
+            "avg_iter_ms": 2506.1758183829397,
             "meets_slo": false,
-            "completed_iters": 17
+            "completed_iters": 23
           },
           "J8": {
             "model": "ViT-Large",
             "dp": 8,
             "ci": 2.0,
-            "sas": 0.25327840304963983,
-            "avg_iter_ms": 255.8023077368425,
+            "sas": 0.563600849255721,
+            "avg_iter_ms": 114.95582394093125,
             "meets_slo": false,
-            "completed_iters": 234
+            "completed_iters": 521
           },
           "J9": {
             "model": "BERT-Large-fp16",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.32274346732134673,
-            "avg_iter_ms": 461.4810680326012,
+            "sas": 0.49208588354733157,
+            "avg_iter_ms": 302.67074301405785,
             "meets_slo": false,
-            "completed_iters": 130
+            "completed_iters": 198
           },
           "J10": {
             "model": "ResNet-18",
@@ -9809,152 +9809,152 @@
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.25036256530571976,
-            "avg_iter_ms": 181.20280859322045,
+            "sas": 0.2899805956457285,
+            "avg_iter_ms": 156.44633013798094,
             "meets_slo": false,
-            "completed_iters": 331
+            "completed_iters": 383
           },
           "J12": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.32932143561407334,
-            "avg_iter_ms": 3115.497167947347,
+            "sas": 0.7503281448784526,
+            "avg_iter_ms": 1367.4017255026522,
             "meets_slo": false,
-            "completed_iters": 19
+            "completed_iters": 43
           },
           "J13": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.4786137946662798,
-            "avg_iter_ms": 1811.4814275349668,
+            "sas": 0.45119157122965436,
+            "avg_iter_ms": 1921.5784497860247,
             "meets_slo": false,
-            "completed_iters": 33
+            "completed_iters": 31
           },
           "J14": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.24534072339333896,
-            "avg_iter_ms": 318.821918017234,
+            "sas": 0.4660262492390273,
+            "avg_iter_ms": 167.8446227604672,
             "meets_slo": false,
-            "completed_iters": 188
+            "completed_iters": 357
           },
           "J15": {
             "model": "ResNet-50-fp16",
             "dp": 2,
             "ci": 3.0,
-            "sas": 0.30407170163901154,
-            "avg_iter_ms": 106.3564936351541,
+            "sas": 0.5045901204846454,
+            "avg_iter_ms": 64.09162345259217,
             "meets_slo": false,
-            "completed_iters": 564
+            "completed_iters": 936
           },
           "J16": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.4089650280445375,
-            "avg_iter_ms": 1349.748663447784,
+            "sas": 0.309743966398154,
+            "avg_iter_ms": 1782.1170382071075,
             "meets_slo": false,
-            "completed_iters": 44
+            "completed_iters": 33
           },
           "J17": {
             "model": "LLaMA-2-13B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.28858875626826325,
-            "avg_iter_ms": 3555.2320654040377,
+            "sas": 0.60739742503958,
+            "avg_iter_ms": 1689.1741020027248,
             "meets_slo": false,
-            "completed_iters": 16
+            "completed_iters": 35
           },
           "J18": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.24534464270133877,
-            "avg_iter_ms": 4475.337174313644,
+            "sas": 0.4294937732937673,
+            "avg_iter_ms": 2556.4980641732946,
             "meets_slo": false,
-            "completed_iters": 13
+            "completed_iters": 23
           },
           "J19": {
             "model": "LLaMA-2-7B",
             "dp": 4,
             "ci": 1.5,
-            "sas": 0.23234662716291232,
-            "avg_iter_ms": 4725.6980374848545,
+            "sas": 0.42722263703004654,
+            "avg_iter_ms": 2570.088531902343,
             "meets_slo": false,
-            "completed_iters": 12
+            "completed_iters": 23
           },
           "J20": {
             "model": "T5-11B-fp16",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.2919190477762263,
-            "avg_iter_ms": 2970.001466518239,
+            "sas": 0.22751389313199874,
+            "avg_iter_ms": 3810.756293010137,
             "meets_slo": false,
-            "completed_iters": 20
+            "completed_iters": 15
           },
           "J21": {
             "model": "LLaMA-2-7B",
             "dp": 8,
             "ci": 1.5,
-            "sas": 0.4390522423283475,
-            "avg_iter_ms": 1257.253572086722,
+            "sas": 0.4539028409737366,
+            "avg_iter_ms": 1216.1192884711188,
             "meets_slo": false,
-            "completed_iters": 47
+            "completed_iters": 49
           },
           "J22": {
             "model": "ViT-Base",
             "dp": 2,
             "ci": 2.0,
-            "sas": 0.2797909679789501,
-            "avg_iter_ms": 162.14390452880207,
+            "sas": 0.42227233983208334,
+            "avg_iter_ms": 107.43398447087478,
             "meets_slo": false,
-            "completed_iters": 369
+            "completed_iters": 558
           },
           "J23": {
             "model": "BERT-Large-fp16",
             "dp": 4,
             "ci": 2.0,
-            "sas": 0.21830746229486248,
-            "avg_iter_ms": 358.3019983730569,
+            "sas": 0.4647734051370222,
+            "avg_iter_ms": 168.29706505461422,
             "meets_slo": false,
-            "completed_iters": 167
+            "completed_iters": 356
           }
         },
         "tiers": {
           "large": {
             "count": 12,
-            "mean_sas": 0.38451872862655206,
-            "slo_rate": 0.0,
+            "mean_sas": 0.7960816990007854,
+            "slo_rate": 0.25,
             "collapse_rate": 0.0
           },
           "medium": {
             "count": 8,
-            "mean_sas": 0.2727123483747048,
+            "mean_sas": 0.5558192598640261,
             "slo_rate": 0.0,
             "collapse_rate": 0.0
           },
           "small": {
             "count": 4,
-            "mean_sas": 0.7130885957221504,
+            "mean_sas": 0.870743543332469,
             "slo_rate": 0.5,
             "collapse_rate": 0.0
           }
         },
         "overall": {
-          "mean_sas": 0.40201157972520263,
-          "slo_rate": 0.08333333333333333,
+          "mean_sas": 0.7284378600104796,
+          "slo_rate": 0.20833333333333334,
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 4.9
+        "elapsed_s": 5.3
       }
     ],
     "summary": {
-      "mean_sas": 0.4249464103980142,
-      "mean_slo_rate": 0.08750000000000001,
+      "mean_sas": 0.7606294389342154,
+      "mean_slo_rate": 0.22083333333333335,
       "mean_collapse_rate": 0.020833333333333332,
       "mean_starvation": 0.3
     }
@@ -10207,7 +10207,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 17.9
+        "elapsed_s": 7.5
       },
       {
         "seed": 1,
@@ -10455,7 +10455,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 9.3
+        "elapsed_s": 3.8
       },
       {
         "seed": 2,
@@ -10703,7 +10703,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 9.4
+        "elapsed_s": 3.9
       },
       {
         "seed": 3,
@@ -10951,7 +10951,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 15.5
+        "elapsed_s": 6.5
       },
       {
         "seed": 4,
@@ -11199,7 +11199,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 1
         },
-        "elapsed_s": 15.9
+        "elapsed_s": 6.7
       },
       {
         "seed": 5,
@@ -11447,7 +11447,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 1
         },
-        "elapsed_s": 12.2
+        "elapsed_s": 5.1
       },
       {
         "seed": 6,
@@ -11695,7 +11695,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 9.8
+        "elapsed_s": 4.0
       },
       {
         "seed": 7,
@@ -11943,7 +11943,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 1
         },
-        "elapsed_s": 20.5
+        "elapsed_s": 8.6
       },
       {
         "seed": 8,
@@ -12191,7 +12191,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 27.2
+        "elapsed_s": 11.4
       },
       {
         "seed": 9,
@@ -12439,7 +12439,7 @@
           "collapse_rate": 0.0,
           "starvation_count": 0
         },
-        "elapsed_s": 13.4
+        "elapsed_s": 5.6
       }
     ],
     "summary": {
@@ -12697,7 +12697,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 2
         },
-        "elapsed_s": 14.6
+        "elapsed_s": 6.1
       },
       {
         "seed": 1,
@@ -12945,7 +12945,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 3
         },
-        "elapsed_s": 5.8
+        "elapsed_s": 2.3
       },
       {
         "seed": 2,
@@ -13193,7 +13193,7 @@
           "collapse_rate": 0.08333333333333333,
           "starvation_count": 4
         },
-        "elapsed_s": 6.4
+        "elapsed_s": 2.7
       },
       {
         "seed": 3,
@@ -13441,7 +13441,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 2
         },
-        "elapsed_s": 10.9
+        "elapsed_s": 4.6
       },
       {
         "seed": 4,
@@ -13689,7 +13689,7 @@
           "collapse_rate": 0.3333333333333333,
           "starvation_count": 9
         },
-        "elapsed_s": 15.6
+        "elapsed_s": 6.5
       },
       {
         "seed": 5,
@@ -13937,7 +13937,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 1
         },
-        "elapsed_s": 10.7
+        "elapsed_s": 4.4
       },
       {
         "seed": 6,
@@ -14185,7 +14185,7 @@
           "collapse_rate": 0.3333333333333333,
           "starvation_count": 8
         },
-        "elapsed_s": 6.2
+        "elapsed_s": 2.5
       },
       {
         "seed": 7,
@@ -14433,7 +14433,7 @@
           "collapse_rate": 0.041666666666666664,
           "starvation_count": 3
         },
-        "elapsed_s": 14.4
+        "elapsed_s": 6.1
       },
       {
         "seed": 8,
@@ -14681,7 +14681,7 @@
           "collapse_rate": 0.2916666666666667,
           "starvation_count": 7
         },
-        "elapsed_s": 27.9
+        "elapsed_s": 11.8
       },
       {
         "seed": 9,
@@ -14929,7 +14929,7 @@
           "collapse_rate": 0.125,
           "starvation_count": 4
         },
-        "elapsed_s": 11.0
+        "elapsed_s": 4.7
       }
     ],
     "summary": {
@@ -15187,7 +15187,7 @@
           "collapse_rate": 0.2916666666666667,
           "starvation_count": 5
         },
-        "elapsed_s": 19.3
+        "elapsed_s": 8.3
       },
       {
         "seed": 1,
@@ -15435,7 +15435,7 @@
           "collapse_rate": 0.3333333333333333,
           "starvation_count": 2
         },
-        "elapsed_s": 13.0
+        "elapsed_s": 5.3
       },
       {
         "seed": 2,
@@ -15683,7 +15683,7 @@
           "collapse_rate": 0.5,
           "starvation_count": 12
         },
-        "elapsed_s": 7.5
+        "elapsed_s": 3.2
       },
       {
         "seed": 3,
@@ -15931,7 +15931,7 @@
           "collapse_rate": 0.20833333333333334,
           "starvation_count": 0
         },
-        "elapsed_s": 16.3
+        "elapsed_s": 6.9
       },
       {
         "seed": 4,
@@ -16179,7 +16179,7 @@
           "collapse_rate": 0.2916666666666667,
           "starvation_count": 7
         },
-        "elapsed_s": 18.3
+        "elapsed_s": 7.7
       },
       {
         "seed": 5,
@@ -16427,7 +16427,7 @@
           "collapse_rate": 0.2916666666666667,
           "starvation_count": 3
         },
-        "elapsed_s": 13.1
+        "elapsed_s": 5.5
       },
       {
         "seed": 6,
@@ -16675,7 +16675,7 @@
           "collapse_rate": 0.3333333333333333,
           "starvation_count": 4
         },
-        "elapsed_s": 11.7
+        "elapsed_s": 4.8
       },
       {
         "seed": 7,
@@ -16923,7 +16923,7 @@
           "collapse_rate": 0.25,
           "starvation_count": 6
         },
-        "elapsed_s": 23.4
+        "elapsed_s": 9.9
       },
       {
         "seed": 8,
@@ -17171,7 +17171,7 @@
           "collapse_rate": 0.25,
           "starvation_count": 5
         },
-        "elapsed_s": 31.5
+        "elapsed_s": 13.5
       },
       {
         "seed": 9,
@@ -17419,7 +17419,7 @@
           "collapse_rate": 0.20833333333333334,
           "starvation_count": 5
         },
-        "elapsed_s": 14.3
+        "elapsed_s": 6.0
       }
     ],
     "summary": {

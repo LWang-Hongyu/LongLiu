@@ -3,7 +3,7 @@
   "SEMANTICS_VERSION": "anchor-v2",
   "policy": "DF",
   "seed": 1,
-  "timestamp": "2026-08-24 13:55:17",
+  "timestamp": "2026-09-09 19:52:27",
   "spine_bw_gbps": 630,
   "swap_time_s": 300,
   "n_jobs": 13,

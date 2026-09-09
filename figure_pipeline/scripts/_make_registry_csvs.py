@@ -48,14 +48,14 @@ POLICIES = ["Fair", "SRPT", "CRUX", "CASSINI", "DF", "LL-S", "LongLiu"]
 def load_main_metas():
     """遍历 outputs/v3_batch3_formal/*/run_meta.json。
 
-    仅保留 2026-08-24 重新运行的结果（旧 2026-07-27 残留按 timestamp 过滤，
-    避免 D1/v4/SP 旧名目录与旧 Fair/CRUX 混入 CSV）。
+    仅保留 2026-08-24 及之后（含 2026-09-09 CASSINI comm-offset 修复重跑）的结果，
+    旧 2026-07-27 残留按 timestamp 过滤，避免 D1/v4/SP 旧名目录与旧 Fair/CRUX 混入 CSV。
     """
     metas = []
     for p in glob.glob(os.path.join(MAIN_DIR, "*", "run_meta.json")):
         with open(p) as f:
             m = json.load(f)
-        if not m.get("timestamp", "").startswith("2026-08-24"):
+        if m.get("timestamp", "")[:10] < "2026-08-24":
             continue
         if m.get("policy") not in POLICIES:
             continue

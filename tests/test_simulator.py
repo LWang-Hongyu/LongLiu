@@ -48,7 +48,7 @@ def test_longliu_prioritizes_tight_slo():
         topo = SingleLinkTopology(num_hosts=2, bw_bps=40e9)
         sim = Simulator(topo, policy, duration_ms=5000)
         for jid, mb, iv, tg, ci in jobspecs:
-            sim.submit(Job(jid, "m", mb, iv, tg, ci, 0))
+            sim.submit(Job(jid, "LLaMA-2-7B", mb, iv, tg, ci, 0))
         return sim.run()
 
     r_fair = run(Fair())
@@ -337,22 +337,32 @@ def test_cassini_offset():
     """CASSINI time-shift 后通信相位错开，峰值并发度降低。"""
     topo = SingleLinkTopology(num_hosts=2, bw_bps=40e9)
 
-    # Fair baseline（无偏移）
+    # Fair baseline（无偏移）。num_workers=2 + worker_hosts=[0,1] 使通信产生
+    # 跨主机 flow（与 trace loader 的 place_workers_random 一致）；
+    # 否则（单 worker 或全部落在同主机）无网络流量，time-shift 无从生效。
     sim_fair = Simulator(topo, Fair(), duration_ms=6000)
     sim_fair.submit(Job("J0", "m", mb_per_iter=100, iter_interval_ms=300,
-                        target_iters=10, slo_ci=1.5, start_time_ms=0))
+                        target_iters=10, slo_ci=1.5, num_workers=2,
+                        worker_hosts=[0, 1],
+                        start_time_ms=0))
     sim_fair.submit(Job("J1", "m", mb_per_iter=100, iter_interval_ms=300,
-                        target_iters=10, slo_ci=1.5, start_time_ms=0))
+                        target_iters=10, slo_ci=1.5, num_workers=2,
+                        worker_hosts=[0, 1],
+                        start_time_ms=0))
     r_fair = sim_fair.run()
 
     # CASSINI：设置 time-shift 偏移
     offsets = CASSINI.compute_offsets([300.0, 300.0])
     sim_cass = Simulator(topo, CASSINI(), duration_ms=6000)
     sim_cass.submit(Job("J0", "m", mb_per_iter=100, iter_interval_ms=300,
-                        target_iters=10, slo_ci=1.5, start_time_ms=0,
+                        target_iters=10, slo_ci=1.5, num_workers=2,
+                        worker_hosts=[0, 1],
+                        start_time_ms=0,
                         comm_offset_ms=offsets[0]))
     sim_cass.submit(Job("J1", "m", mb_per_iter=100, iter_interval_ms=300,
-                        target_iters=10, slo_ci=1.5, start_time_ms=0,
+                        target_iters=10, slo_ci=1.5, num_workers=2,
+                        worker_hosts=[0, 1],
+                        start_time_ms=0,
                         comm_offset_ms=offsets[1]))
     r_cass = sim_cass.run()
 

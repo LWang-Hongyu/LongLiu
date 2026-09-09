@@ -152,3 +152,59 @@ submit 前调用 `CASSINI.compute_offsets` 并设置 `job.comm_offset_ms`（与 
   - 7Discussion：scope 段补充 LL-S mean 优势即动态目标刻意避免的过冲
   - 9Appendix tab:trace-replay：全表 30-seed 数字 + p 值更新
 - 原始数据备份：`outputs/trace_replay_s0_9_backup/`（10-seed 版本存档）。
+
+## 2026-09-09 追加：CASSINI time-shift simulator bug 修复 + 全实验补跑
+
+用户发现 anchor 表 CASSINI SAS=0.4249 "比 Fair 还低很多，不符合常理"，排查发现模拟器级 bug。
+
+### Bug 与修复
+
+- **现象**：所有给 CASSINI 设置 `comm_offset_ms` 的实验中，CASSINI 的 SAS/P-attn 系统性塌陷
+  （如 anchor SAS 0.4249、s3 消融 SLO 10.8%），远低于其 Fair 分配应有的水平。
+- **根因**：`simulator.py` 在每轮迭代的 collective flow 发射逻辑中都重复应用
+  `job.comm_offset_ms`，导致相位偏移随迭代次数累积放大（应仅在首轮发射时应用一次）。
+- **修复**：`job.py` 的 `comm_offset_ms` 改为 property + `_comm_offset_pending` 标志
+  （仅在 pending 时允许应用一次）；`simulator.py` 发射 flow 时按 `apply_offset` 判定。
+  对 `comm_offset_ms=0` 的所有策略（Fair/SRPT/CRUX/DF/LL-S/LongLiu）是完全 no-op。
+- **单元测试**：`tests/test_cassini_offset.py`（同时修复 num_workers=2 无迭代问题），全部通过。
+
+### 补跑清单（复用原脚本，重跑受影响数据）
+
+| 实验 | 脚本 | 规模 | 状态 |
+|------|------|------|------|
+| Trace replay | `experiments/exp_trace_replay.py` | 30 seeds × 7 策略 | ✅ |
+| E11 overlap | `experiments/exp_e11_overlap.py` | CASSINI 臂 × 5 seeds × 10 配置 | ✅ |
+| E15 straggler | `experiments/exp_e15_straggler.py` | CASSINI 臂 × 5 seeds × 4 因子 | ✅ |
+| E17 mixed | `experiments/exp_e17_mixed_collective.py` | CASSINI 臂 × 10 seeds × 4 档 | ✅ |
+| E1/E2'/E2-pro 主表 | `experiments/exp_v3_batch3_formal.py` | CASSINI 臂 × 10 seeds × 12 配置 | ✅ |
+| S3 消融 | `experiments/exp_s3_component_ablation.py` | CASSINI + Staggered 变体 × 10 seeds | ✅ |
+| Anchor 表 | `figure_pipeline/data/evidence/anchor/baseline_regen.py` | 7 策略 × 10 seeds（全量） | ✅ |
+| E3/E3' swap | `figure_pipeline/data/e3_swap/exp_e3_swap.py` | 7 策略 × 5 seeds × 2 场景（全量） | ✅ |
+
+非 CASSINI 策略在同 seed 下逐字节复现（确定性自检通过），数据可复核。
+
+### 结论修正（论文相应更新）
+
+- **trace**：CASSINI P-attn $20.7\% \to 37.4\pm7.4\%$，排序回到 Fair 与 CRUX 之间；
+  "CASSINI 最差" 系 bug 伪影，撤回。
+- **E11**：CASSINI 500G $45.0\% \to 65.0\%$（400G 起点 $82.5\%$）。
+- **E17**：CASSINI p=0.39 不显著，论文删除该显著性表述（DF/CRUX/LL-S 保留）。
+- **E1**：630G CASSINI 修复后与 Fair 并列最优 baseline（91.3%），正文改为
+  "best baselines (Fair, CASSINI)"。
+- **S3 消融**：Staggered 变体（相位错开）SLO 39.2±6.6% 与 LongLiu 无显著差异（p=0.186），
+  旧结论 "staggering collapses" 系 bug 伪影；CASSINI 短板源于其 allocation
+  （25.8±6.2%，p=0.0067 vs LongLiu；iters 少 ~8%，p=3.4e-4），9Appendix S3 段重写。
+- **anchor 表**：CASSINI 行数字更新（见 `figure_pipeline/data/anchor/per_policy_results.json`，
+  tab:anchor 由 `_draw_final_v3.py` 自动生成 `table1_anchor.tex`）。
+- **E3/E3' swap**：CASSINI 臂更新（fig1_hero 不含 CASSINI，图不变；summary JSON 更新）。
+  重跑后论文引用数字交叉验证全部保持一致：LongLiu W1/W3 $100.0\pm0.0\%$（两场景）、
+  E3 DF W3 $96.7\pm6.7\%$、LL-S W3 $60.0\pm13.3\%$；E3' DF W3 $25.0\%$、
+  CRUX W3 $47.5\%$ 且 S-cont $0.659{\approx}0.66$；脚本内 pre-registered
+  verification 全部 PASS。E3 段论文文字无需修改。
+  CASSINI 修复后 E3 W3=33.3%、E3' W3=17.5%（论文未直接引用）。
+
+### 数据备份
+
+旧（bug 期）CASSINI 数据归档于 `outputs/cassini_offset_fix_backup/`：
+`{v3_batch3_formal, e11_overlap, e15_straggler, e17_mixed_collective, s3_component_ablation,
+anchor_regen_v1, e3_swap}`。

@@ -3,7 +3,7 @@
   "SEMANTICS_VERSION": "anchor-v2",
   "policy": "LongLiu",
   "seed": 3,
-  "timestamp": "2026-08-24 13:35:19",
+  "timestamp": "2026-09-09 19:45:28",
   "spine_bw_gbps": 800,
   "swap_time_s": 300,
   "n_jobs": 14,

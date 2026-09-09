@@ -117,6 +117,22 @@ class Job:
         self._outstanding_flows: int = 0
         self._iter_version: int = 0  # 迭代版本号，防止重叠迭代的 flow 互相干扰
 
+    # --- CASSINI time-shift ---
+    # 语义：仅首轮通信应用偏移（相位平移一次，之后由仿真动力学自然继承），
+    # 避免每轮迭代被重复推迟。setter 保证实验脚本在构造后调用
+    # _apply_cassini_offsets 写入偏移时 pending 标志同步生效。
+    _comm_offset_ms: float = 0.0
+    _comm_offset_pending: bool = False
+
+    @property
+    def comm_offset_ms(self) -> float:
+        return self._comm_offset_ms
+
+    @comm_offset_ms.setter
+    def comm_offset_ms(self, v: float) -> None:
+        self._comm_offset_ms = float(v or 0.0)
+        self._comm_offset_pending = self._comm_offset_ms > 0.0
+
     @staticmethod
     def _mb_to_bits(mb: float) -> float:
         return mb * 8 * 1024 * 1024

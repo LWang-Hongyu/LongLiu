@@ -3,11 +3,11 @@
   "seed": 1,
   "n_jobs": 14,
   "n_premium": 14,
-  "p_attn": 0.2143,
-  "sas_mean": 0.8814,
-  "sas_median": 0.6944,
-  "sas_min": 0.3329,
-  "slo_attainment": 0.2143,
+  "p_attn": 0.5,
+  "sas_mean": 1.2117,
+  "sas_median": 0.9949,
+  "sas_min": 0.3269,
+  "slo_attainment": 0.4286,
   "starv_premium": 0,
-  "total_iters": 1762
+  "total_iters": 2311
 }

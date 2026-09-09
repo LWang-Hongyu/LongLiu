@@ -324,6 +324,11 @@ class Simulator:
         actual_flows = sum(1 for s, d in pairs if workers[s] != workers[d])
         job.start_allreduce(actual_flows if actual_flows > 0 else len(pairs))
 
+        # CASSINI time-shift：仅首轮通信偏移（相位平移一次，之后动力学继承）
+        apply_offset = job._comm_offset_pending
+        if apply_offset:
+            job._comm_offset_pending = False
+
         for s, d in pairs:
             src = workers[s]
             dst = workers[d]
@@ -343,8 +348,7 @@ class Simulator:
                 links=links,
                 iter_version=job._iter_version
             )
-            # CASSINI time-shift：偏移通信开始时间
-            flow.start_time_ms = self.time_ms + job.comm_offset_ms
+            flow.start_time_ms = self.time_ms + (job.comm_offset_ms if apply_offset else 0.0)
             self.active_flows[flow.fid] = flow
             for link in links:
                 link.add_flow(flow)
