@@ -103,7 +103,7 @@ def draw():
     plt.close(fig)
 
     # 打印结果
-    print("\n  Lingjun trace (10 seeds, P-attn%):")
+    print("\n  Lingjun trace (30 seeds, P-attn%):")
     for pol in POLICY_ORDER:
         print(f"    {POLICY_LABEL[pol]:<9} {tr[pol][0]*100:5.1f} ± {tr[pol][1]*100:.1f}")
     return stem

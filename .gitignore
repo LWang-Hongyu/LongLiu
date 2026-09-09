@@ -39,6 +39,8 @@ Thumbs.db
 # Project-specific
 outputs/
 *.log
+figure_pipeline_backup/
+figure_pipeline/data/e3_swap/**/*.jsonl
 
 # Experiment data (trace.jsonl files are 100-178MB, too large for GitHub)
 PAPER_EVIDENCE/**

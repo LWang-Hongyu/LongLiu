@@ -1,0 +1,13 @@
+{
+  "policy": "Fair",
+  "seed": 12,
+  "n_jobs": 14,
+  "n_premium": 14,
+  "p_attn": 0.3571,
+  "sas_mean": 1.1239,
+  "sas_median": 0.9356,
+  "sas_min": 0.2608,
+  "slo_attainment": 0.3571,
+  "starv_premium": 0,
+  "total_iters": 2006
+}

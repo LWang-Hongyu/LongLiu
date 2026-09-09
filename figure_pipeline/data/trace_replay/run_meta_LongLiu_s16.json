@@ -1,0 +1,13 @@
+{
+  "policy": "LongLiu",
+  "seed": 16,
+  "n_jobs": 14,
+  "n_premium": 14,
+  "p_attn": 0.9286,
+  "sas_mean": 1.2456,
+  "sas_median": 1.3298,
+  "sas_min": 0.9788,
+  "slo_attainment": 0.9286,
+  "starv_premium": 0,
+  "total_iters": 2340
+}

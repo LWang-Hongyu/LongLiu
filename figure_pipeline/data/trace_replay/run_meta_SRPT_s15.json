@@ -1,0 +1,13 @@
+{
+  "policy": "SRPT",
+  "seed": 15,
+  "n_jobs": 14,
+  "n_premium": 14,
+  "p_attn": 0.5,
+  "sas_mean": 1.283,
+  "sas_median": 1.3666,
+  "sas_min": 0.3499,
+  "slo_attainment": 0.5,
+  "starv_premium": 0,
+  "total_iters": 2330
+}

@@ -128,3 +128,27 @@ submit 前调用 `CASSINI.compute_offsets` 并设置 `job.comm_offset_ms`（与 
   - E2'/E2-pro、E3/E3'（CRUX 新表现：control 33.3%/kill 47.5%）、trace（LL-S 85% vs LongLiu 75%，
     LongLiu 最差 SAS 最高 0.731 且无饥饿）、E15（LongLiu 5× 达 75.0%）、S3 消融段落（新增）均已如实更新。
   - baseline 列表：Fair/SRPT/CRUX/CASSINI/DF/LL-S（7 策略，SP→SRPT，WFS 移除）。
+
+## 2026-09-09 Trace 实验 10→30 seeds（用户质疑 LL-S > LongLiu 是否偶然）
+
+用户要求重跑 trace 实验验证 "LongLiu P-attn 低于 LL-S" 是否偶然现象：
+
+- **执行**：`exp_trace_replay.py --seeds 30`（seeds 0-29，154s）。s0-s9 与旧 run_meta 逐字节
+  diff 全部一致（完全确定性），新增 s10-s29 为独立 trace 重放样本。
+- **结果（30 seeds 配对）**：LL-S mean P-attn 显著更高 —— 85.0±17.3% vs 75.0±13.1%，
+  paired t p=0.0169，Wilcoxon p=0.0194，LL-S 19 胜 / 9 负 / 2 平。**不是偶然**。
+- **机制**：LL-S（静态 T-target）系统性过冲（mean SAS 1.819 vs 1.170），在 0.98 二元
+  attention 门槛上占优；代价同样显著 —— worst-case SAS 0.538±0.549 vs 0.760±0.235
+  (p=0.030)，premium 饿死 11/30 seeds（22 次）vs 2/30（2 次），吞吐低 4.9%
+  （2146.7 vs 2252.3 iters，p=0.0064）。mean-vs-tail 双向系统性 trade-off。
+- **数据管线**：`_make_registry_csvs.py` 重跑 → fig6_trace_compare.csv（30 seeds 列）+
+  data/trace_replay 备份（242 items）；`_draw_trace_compare.py` 重画 fig6 并修正 docstring
+  （10→30 seeds）；fig6 PDF/PNG 同步到 paper/figure/。
+- **论文更新**（10→30 seeds，叙事从 "near-tie" 改为 "mean-vs-tail 双向显著 trade-off"）：
+  - 0Main 摘要：margin 26.4-39.3 → "24.8-54.3 pp over five of six baselines" + LL-S trade-off 一句
+  - 1Introduction 验证段：数字更新 + LL-S 过冲机制表述
+  - 5Evaluation：trace 主段重写（p=0.017/Wilcoxon 0.019/19-of-30、尾部与吞吐代价）、
+    caption n=30、key-finding 段改为 "sharpens the design claim"
+  - 7Discussion：scope 段补充 LL-S mean 优势即动态目标刻意避免的过冲
+  - 9Appendix tab:trace-replay：全表 30-seed 数字 + p 值更新
+- 原始数据备份：`outputs/trace_replay_s0_9_backup/`（10-seed 版本存档）。

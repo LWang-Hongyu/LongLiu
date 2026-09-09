@@ -192,7 +192,7 @@ def run_single(policy_name: str, seed: int, cfg: dict, frozen: dict,
 
 def main():
     parser = argparse.ArgumentParser(description="Lingjun trace 时段重放对照实验")
-    parser.add_argument("--seeds", type=int, default=10)
+    parser.add_argument("--seeds", type=int, default=30)
     parser.add_argument("--quick", action="store_true",
                         help="快速验证：仅跑 seed 0，检查 loader 与拓扑匹配")
     parser.add_argument("--output", default="outputs/trace_replay")

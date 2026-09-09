@@ -1,0 +1,13 @@
+{
+  "policy": "LL-S",
+  "seed": 27,
+  "n_jobs": 14,
+  "n_premium": 14,
+  "p_attn": 1.0,
+  "sas_mean": 1.7467,
+  "sas_median": 1.5441,
+  "sas_min": 1.2351,
+  "slo_attainment": 1.0,
+  "starv_premium": 0,
+  "total_iters": 1967
+}

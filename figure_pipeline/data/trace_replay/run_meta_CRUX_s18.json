@@ -1,0 +1,13 @@
+{
+  "policy": "CRUX",
+  "seed": 18,
+  "n_jobs": 14,
+  "n_premium": 14,
+  "p_attn": 0.2143,
+  "sas_mean": 0.7341,
+  "sas_median": 0.6803,
+  "sas_min": 0.373,
+  "slo_attainment": 0.2143,
+  "starv_premium": 0,
+  "total_iters": 1663
+}

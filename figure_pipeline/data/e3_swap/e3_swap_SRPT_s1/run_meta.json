@@ -1,0 +1,295 @@
+{
+  "config_hash": "57f57512",
+  "SEMANTICS_VERSION": "anchor-v2",
+  "policy": "SRPT",
+  "seed": 1,
+  "timestamp": "2026-08-24 13:07:48",
+  "spine_bw_gbps": 800,
+  "swap_time_s": 300,
+  "n_jobs": 14,
+  "w1": {
+    "p_attn": 0.5,
+    "s_cont_cap": 1.0,
+    "n_premium": 8,
+    "n_premium_attn": 4,
+    "n_standard_with_data": 6,
+    "per_job": {
+      "J0": {
+        "n_iters": 87,
+        "avg_iter_ms": 1134.8,
+        "target_ms": 1026.0,
+        "sas": 0.9042
+      },
+      "J1": {
+        "n_iters": 87,
+        "avg_iter_ms": 1134.7,
+        "target_ms": 1026.0,
+        "sas": 0.9042
+      },
+      "J2": {
+        "n_iters": 87,
+        "avg_iter_ms": 1134.5,
+        "target_ms": 1026.0,
+        "sas": 0.9043
+      },
+      "J3": {
+        "n_iters": 87,
+        "avg_iter_ms": 1134.5,
+        "target_ms": 1026.0,
+        "sas": 0.9043
+      },
+      "J4": {
+        "n_iters": 280,
+        "avg_iter_ms": 355.9,
+        "target_ms": 552.0,
+        "sas": 1.5508
+      },
+      "J5": {
+        "n_iters": 280,
+        "avg_iter_ms": 355.9,
+        "target_ms": 552.0,
+        "sas": 1.551
+      },
+      "J6": {
+        "n_iters": 1459,
+        "avg_iter_ms": 68.5,
+        "target_ms": 78.2,
+        "sas": 1.1414
+      },
+      "J7": {
+        "n_iters": 121,
+        "avg_iter_ms": 820.5,
+        "target_ms": 1153.0,
+        "sas": 1.4052
+      },
+      "J8": {
+        "n_iters": 87,
+        "avg_iter_ms": 1134.3,
+        "target_ms": 2040.0,
+        "sas": 1.7984
+      },
+      "J9": {
+        "n_iters": 87,
+        "avg_iter_ms": 1134.5,
+        "target_ms": 2040.0,
+        "sas": 1.7981
+      },
+      "J10": {
+        "n_iters": 1458,
+        "avg_iter_ms": 68.5,
+        "target_ms": 113.6,
+        "sas": 1.6575
+      },
+      "J11": {
+        "n_iters": 1458,
+        "avg_iter_ms": 68.5,
+        "target_ms": 113.6,
+        "sas": 1.6573
+      },
+      "J12": {
+        "n_iters": 661,
+        "avg_iter_ms": 150.8,
+        "target_ms": 219.7,
+        "sas": 1.4562
+      },
+      "J13": {
+        "n_iters": 662,
+        "avg_iter_ms": 150.8,
+        "target_ms": 219.7,
+        "sas": 1.4564
+      }
+    },
+    "label": "W1 (pre-swap 200-300s)"
+  },
+  "w2": {
+    "p_attn": 0.3333,
+    "s_cont_cap": 1.0,
+    "n_premium": 6,
+    "n_premium_attn": 2,
+    "n_standard_with_data": 8,
+    "per_job": {
+      "J0": {
+        "n_iters": 17,
+        "avg_iter_ms": 1131.0,
+        "target_ms": 2040.0,
+        "sas": 1.8037
+      },
+      "J1": {
+        "n_iters": 17,
+        "avg_iter_ms": 1131.6,
+        "target_ms": 2040.0,
+        "sas": 1.8027
+      },
+      "J2": {
+        "n_iters": 17,
+        "avg_iter_ms": 1130.6,
+        "target_ms": 2040.0,
+        "sas": 1.8044
+      },
+      "J3": {
+        "n_iters": 17,
+        "avg_iter_ms": 1130.5,
+        "target_ms": 2040.0,
+        "sas": 1.8045
+      },
+      "J4": {
+        "n_iters": 55,
+        "avg_iter_ms": 355.9,
+        "target_ms": 1098.0,
+        "sas": 3.0852
+      },
+      "J5": {
+        "n_iters": 55,
+        "avg_iter_ms": 355.5,
+        "target_ms": 1098.0,
+        "sas": 3.0886
+      },
+      "J6": {
+        "n_iters": 288,
+        "avg_iter_ms": 69.1,
+        "target_ms": 113.6,
+        "sas": 1.6432
+      },
+      "J7": {
+        "n_iters": 23,
+        "avg_iter_ms": 820.2,
+        "target_ms": 1725.0,
+        "sas": 2.1031
+      },
+      "J8": {
+        "n_iters": 16,
+        "avg_iter_ms": 1130.0,
+        "target_ms": 1026.0,
+        "sas": 0.9079
+      },
+      "J9": {
+        "n_iters": 17,
+        "avg_iter_ms": 1132.7,
+        "target_ms": 1026.0,
+        "sas": 0.9058
+      },
+      "J10": {
+        "n_iters": 288,
+        "avg_iter_ms": 69.2,
+        "target_ms": 78.2,
+        "sas": 1.1309
+      },
+      "J11": {
+        "n_iters": 289,
+        "avg_iter_ms": 69.1,
+        "target_ms": 78.2,
+        "sas": 1.1326
+      },
+      "J12": {
+        "n_iters": 132,
+        "avg_iter_ms": 150.5,
+        "target_ms": 113.6,
+        "sas": 0.7549
+      },
+      "J13": {
+        "n_iters": 131,
+        "avg_iter_ms": 150.5,
+        "target_ms": 113.6,
+        "sas": 0.7548
+      }
+    },
+    "label": "W2 (transient 300-320s)"
+  },
+  "w3": {
+    "p_attn": 0.3333,
+    "s_cont_cap": 1.0,
+    "n_premium": 6,
+    "n_premium_attn": 2,
+    "n_standard_with_data": 8,
+    "per_job": {
+      "J0": {
+        "n_iters": 87,
+        "avg_iter_ms": 1133.8,
+        "target_ms": 2040.0,
+        "sas": 1.7993
+      },
+      "J1": {
+        "n_iters": 87,
+        "avg_iter_ms": 1134.2,
+        "target_ms": 2040.0,
+        "sas": 1.7986
+      },
+      "J2": {
+        "n_iters": 87,
+        "avg_iter_ms": 1134.2,
+        "target_ms": 2040.0,
+        "sas": 1.7987
+      },
+      "J3": {
+        "n_iters": 87,
+        "avg_iter_ms": 1133.6,
+        "target_ms": 2040.0,
+        "sas": 1.7995
+      },
+      "J4": {
+        "n_iters": 279,
+        "avg_iter_ms": 356.2,
+        "target_ms": 1098.0,
+        "sas": 3.0824
+      },
+      "J5": {
+        "n_iters": 279,
+        "avg_iter_ms": 356.4,
+        "target_ms": 1098.0,
+        "sas": 3.0811
+      },
+      "J6": {
+        "n_iters": 1457,
+        "avg_iter_ms": 68.6,
+        "target_ms": 113.6,
+        "sas": 1.6561
+      },
+      "J7": {
+        "n_iters": 121,
+        "avg_iter_ms": 820.1,
+        "target_ms": 1725.0,
+        "sas": 2.1033
+      },
+      "J8": {
+        "n_iters": 87,
+        "avg_iter_ms": 1134.0,
+        "target_ms": 1026.0,
+        "sas": 0.9047
+      },
+      "J9": {
+        "n_iters": 87,
+        "avg_iter_ms": 1134.1,
+        "target_ms": 1026.0,
+        "sas": 0.9047
+      },
+      "J10": {
+        "n_iters": 1457,
+        "avg_iter_ms": 68.6,
+        "target_ms": 78.2,
+        "sas": 1.1405
+      },
+      "J11": {
+        "n_iters": 1457,
+        "avg_iter_ms": 68.6,
+        "target_ms": 78.2,
+        "sas": 1.1405
+      },
+      "J12": {
+        "n_iters": 662,
+        "avg_iter_ms": 150.7,
+        "target_ms": 113.6,
+        "sas": 0.7537
+      },
+      "J13": {
+        "n_iters": 663,
+        "avg_iter_ms": 150.8,
+        "target_ms": 113.6,
+        "sas": 0.7533
+      }
+    },
+    "label": "W3 (post-swap 500-600s)"
+  },
+  "starv_pre_swap": 0,
+  "starv_post_swap": 0,
+  "total_iters": 38687
+}

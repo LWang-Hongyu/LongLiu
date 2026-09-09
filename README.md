@@ -60,7 +60,7 @@ sim-nextgen/
 │       └── model_params.py     # 模型参数量（参数 MB 推导）
 ├── experiments/                # 实验脚本
 │   ├── exp_v3_batch3_formal.py # 主表 E1/E2'/E2-pro（7 策略 × 10 seeds）
-│   ├── exp_trace_replay.py     # Lingjun trace 时段重放（10 seeds）
+│   ├── exp_trace_replay.py     # Lingjun trace 时段重放（30 seeds）
 │   ├── exp_e11_overlap.py      # E11 overlap 敏感性（5 seeds）
 │   ├── exp_e15_straggler.py    # E15 straggler 注入（5 seeds）
 │   ├── exp_e17_mixed_collective.py  # E17 混合集合通信泛化性（10 seeds）
@@ -129,7 +129,7 @@ python3 experiments/exp_v3_batch3_formal.py
 # E3/E3' swap（5 seeds，脚本在 figure_pipeline/data/e3_swap/）
 python3 figure_pipeline/data/e3_swap/exp_e3_swap.py
 
-# Lingjun trace 时段重放（7 策略 × 10 seeds）
+# Lingjun trace 时段重放（7 策略 × 30 seeds）
 python3 experiments/exp_trace_replay.py
 
 # E17 混合集合通信泛化性（7 策略 × 10 seeds）
@@ -192,7 +192,7 @@ python3 figure_pipeline/scripts/_draw_e15_straggler.py  # E15 straggler 注入
 | 04 | E2 Orthogonal | `PAPER_EVIDENCE/04_E2_orthogonal/`（重跑：`outputs/v3_batch3_formal/`） | 正交对照 (Fig-3)：LongLiu 对 CRUX 的 workload 结构优势（10 seeds） |
 | 05 | E3 Swap | `PAPER_EVIDENCE/05_E3_swap_main/`（重跑：`figure_pipeline/data/e3_swap/`） | 动态 Swap (Fig-1)：LongLiu 两臂 W1-W3 均 100%（5 seeds） |
 | 06 | D1 Mechanism | `PAPER_EVIDENCE/06_D1_mechanism/` | π 机制证据 (Fig-4/5)：DF 的表达力墙诊断 |
-| 09 | Trace Replay | `outputs/trace_replay/` | Lingjun 2023 trace 时段重放 (Fig-6)：LongLiu=75.0% vs LL-S=85.0%（不显著，p=0.205）、其余 5 基线显著更差；LongLiu 无饥饿、最差 SAS 最高、吞吐最高（10 seeds） |
+| 09 | Trace Replay | `outputs/trace_replay/` | Lingjun 2023 trace 时段重放 (Fig-6，30 seeds 配对检验)：LL-S mean P-attn 显著更高（85.0% vs 75.0%，p=0.017，静态 T-target 系统性过冲所致），LongLiu 尾部显著更稳（worst SAS 0.760 vs 0.538，p=0.030）、premium 饿死 2/30 vs 11/30 seeds、吞吐 +4.9%（p=0.006）；其余 5 基线落后 24.8–54.3pp（均 p<1e-9）。解读见下方「指标口径与 mean-vs-tail 权衡」 |
 | 10 | WFS Baseline | `outputs/e10_wfs/` | 加权公平共享基线对照：证明 LongLiu 闭式解优于线性权重映射 |
 | 11 | Overlap Sensitivity | `outputs/e11_overlap/` | 串行模型保守性敏感性分析（5 seeds 重跑） |
 | 12 | DSCP Quantization | `outputs/e12_dscp/` | DSCP 量化误差宏观影响：证明 7 级量化下 SLO 达成率下降 <5% |
@@ -205,6 +205,37 @@ python3 figure_pipeline/scripts/_draw_e15_straggler.py  # E15 straggler 注入
 | S3 | Component Ablation | `outputs/s3_component_ablation/` | 组件消融（10 seeds）：LongLiu 完整 SLO=35.0% 最高，handoff 增益 27.9pp |
 
 所有论文数字以 `figure_pipeline/data/figure_registry/` 的 CSV 为准。正式实验数据目录已冻结（chmod a-w），任何修改需先解冻并记录。
+
+---
+
+## 指标口径与 mean-vs-tail 权衡（Trace 实验解读）
+
+### P-attn 指标的局限性
+
+P-attn（premium SLO attainment）是**二元指标**：per-job SAS ≥ 0.98 才记一次达标，衡量的是 SLO 违约率。它对以下两点不敏感：
+
+1. **超额完成没有边际价值**：premium job 超过 SLO 的部分（SAS > 1）不产生额外价值，却消耗共享 spine 带宽。mean SAS 1.819 意味着约 82% 的超额带宽被烧在已完成 SLO 的 job 上（over-provisioning），P-attn 对这种浪费完全无感。
+2. **不区分尾部风险**：一个 job 被饿死（SAS→0）与一个 job SAS=0.97 在 P-attn 上同为"未达标"，但运营后果完全不同。
+
+因此单一 P-attn 无法概括调度质量，论文同时报告 mean P-attn / worst-case SAS / premium 饿死次数 / 总吞吐四个维度。
+
+### 动态 T-target vs 静态 T-target（LongLiu vs LL-S）
+
+LL-S 与 LongLiu 是同一闭式分配器的两个工作点，唯一差异是 T_target 是否随 progress 动态收缩。Lingjun trace 30 seeds 配对检验结果：
+
+| 指标 | LL-S（静态） | LongLiu（动态） | 显著性 |
+|---|---|---|---|
+| mean P-attn | **85.0±17.3%** | 75.0±13.1% | p=0.017（LL-S 优） |
+| worst-case SAS | 0.538±0.549 | **0.760±0.235** | p=0.030（LongLiu 优） |
+| premium 饿死 | 11/30 seeds（22 次） | **2/30（2 次）** | — |
+| 总吞吐 (iters) | 2146.7 | **2252.3（+4.9%）** | p=0.006（LongLiu 优） |
+
+- **静态 T-target（LL-S）**：按名义需求满额分配、不随进度收缩 → 系统性过冲（mean SAS 1.819 vs 1.170）→ job 深深越过 0.98 门槛，在二元判定下 mean P-attn 占优；但过冲消耗的共享带宽转化为尾部风险（worst SAS 0.538）、premium 饿死（11/30 seeds）与吞吐损失（-4.9%）。
+- **动态 T-target（LongLiu，默认）**：监测 progress 越线后收缩分配 → "刚好达标"哲学 → 省下的带宽转化为 +4.9% 吞吐与尾部保障；代价是 job 悬在门槛附近，对微扰敏感，mean P-attn 低约 10pp。
+
+**设计立场**：SLO 的本义是给最坏情况上保险，而非 mean 最大化——11/30 seeds 出现 premium 饿死在运营上不可接受。LongLiu 默认选择动态 T-target，以 mean P-attn 换尾部安全与吞吐，这是**刻意的权衡而非缺陷**；看重 mean 达标率的运营者可通过 LL-S 配置切换到激进工作点。动态目标的激进程度亦可作为可调旋钮（future work）。
+
+复现：`python3 experiments/exp_trace_replay.py --seeds 30`（约 2.5 分钟；详见 [figure_pipeline/EXPERIMENT_GUIDE.md](figure_pipeline/EXPERIMENT_GUIDE.md) 2026-09-09 条目）。
 
 ---
 
