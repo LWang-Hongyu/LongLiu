@@ -203,6 +203,17 @@ submit 前调用 `CASSINI.compute_offsets` 并设置 `job.comm_offset_ms`（与 
   verification 全部 PASS。E3 段论文文字无需修改。
   CASSINI 修复后 E3 W3=33.3%、E3' W3=17.5%（论文未直接引用）。
 
+- **trace 重跑脚本 CASSINI p-attn 逻辑复查（2026-09-09 晚）**：重跑所用
+  `experiments/exp_trace_replay.py` 无遗漏——L95-99 `_apply_cassini_offsets` 在
+  `sim.run()` 前以静态 job 属性设置 offset（配合修复后 simulator 单次应用语义）；
+  p_attn（L155-161）为全部策略统一的 premium 达标统计（sas≥1.0-tol 计数比例），
+  CASSINI 无特殊分支；30 个 run_meta_CASSINI_s{0..29} 均有真实值（s0=0.3571）。
+  已将新版脚本同步至 `data/evidence/trace_replay/` 副本（旧副本缺 offset 函数、
+  默认 10 seeds，易误导）；`PAPER_EVIDENCE/09_trace_replay/` 为只读历史归档保持原样；
+  清理 `data/trace_replay/` 中旧策略名残留 run_meta（D1/SP/v4 各 10 个，
+  从未进入 fig6 CSV——`write_trace_csv` 按 7 策略白名单写行，已验证）。
+  清理后 run_meta 恰为 7×30=210。
+
 ### 数据归位与口径说明（2026-09-09 晚补）
 
 - `figure_pipeline/data/s3_component_ablation/`：新增归档 `s3_component_ablation.csv` +

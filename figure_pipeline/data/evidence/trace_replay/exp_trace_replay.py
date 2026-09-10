@@ -1,7 +1,7 @@
 """
 exp_trace_replay: Lingjun 2023 trace 时段重放对照实验（论文 robustness 章节）。
 
-对比 5 策略（Fair / SRPT / CRUX / CASSINI / DF / LL-S / LongLiu）在真实 trace 到达模式下的表现。
+对比 7 策略（Fair / SRPT / CRUX / CASSINI / DF / LL-S / LongLiu）在真实 trace 到达模式下的表现。
 与合成 workload 实验的关键区别：
 - 到达时刻来自 trace 真实 gmt_job_submitted（最密集 6h 窗口等比压缩）
 - 保留真实到达间隔分布（非 Poisson）
@@ -22,7 +22,7 @@ import os
 import sys
 import time
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
 import yaml
 
@@ -31,9 +31,9 @@ from longliu_sim.network import FatTreeTopology
 from longliu_sim.policy.fair import Fair
 from longliu_sim.policy.crux import CRUX
 from longliu_sim.policy.srpt import SRPT
+from longliu_sim.policy.dwrr import LongLiuDWRR, LongLiuAllocatorV4
 from longliu_sim.policy.cassini import CASSINI
 from longliu_sim.policy.longliu import LongLiu
-from longliu_sim.policy.dwrr import LongLiuDWRR, LongLiuAllocatorV4
 from longliu_sim.trace.lingjun import LingjunTraceLoader
 
 try:
@@ -42,7 +42,7 @@ try:
 except ImportError:
     _HAS_SCIPY = False
 
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REPLAY_CONFIG = os.path.join(PROJECT_ROOT, "configs", "trace_replay.yaml")
 
 # 锚点语义（与 config.yaml 一致）
@@ -66,7 +66,7 @@ def load_frozen() -> dict:
 
 
 def get_policy(name: str, trace_file: str, frozen: dict):
-    """构造策略（与 exp_v3_batch2 相同的构造签名）。"""
+    """构造 7 策略（与 exp_v3_batch2 相同的构造签名）。"""
     overhead = frozen["overhead_factor"]
     overlap = frozen["overlap_factor"]
     if name == "Fair":
@@ -90,6 +90,13 @@ def get_policy(name: str, trace_file: str, frozen: dict):
             trace_file=trace_file,
         )
     raise ValueError(f"Unknown policy: {name}")
+
+
+def _apply_cassini_offsets(jobs) -> None:
+    """为所有 job 应用 CASSINI 静态通信相位偏移（time-shift）。"""
+    offsets = CASSINI.compute_offsets([j.iter_interval_ms for j in jobs])
+    for j, off in zip(jobs, offsets):
+        j.comm_offset_ms = off
 
 
 def run_single(policy_name: str, seed: int, cfg: dict, frozen: dict,
@@ -133,6 +140,9 @@ def run_single(policy_name: str, seed: int, cfg: dict, frozen: dict,
     if not jobs:
         policy.flush_trace()
         return {"error": "no_jobs"}
+
+    if policy_name == "CASSINI":
+        _apply_cassini_offsets(jobs)
 
     for j in jobs:
         sim.submit(j)
@@ -182,7 +192,7 @@ def run_single(policy_name: str, seed: int, cfg: dict, frozen: dict,
 
 def main():
     parser = argparse.ArgumentParser(description="Lingjun trace 时段重放对照实验")
-    parser.add_argument("--seeds", type=int, default=10)
+    parser.add_argument("--seeds", type=int, default=30)
     parser.add_argument("--quick", action="store_true",
                         help="快速验证：仅跑 seed 0，检查 loader 与拓扑匹配")
     parser.add_argument("--output", default="outputs/trace_replay")
